@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# FastAPI / Backend specific
+logs/
+*.log
+temp_*/
+
+# Data & AI Models (Huge files)
+data/*.faiss
+data/*.json
+!data/cleaned_law_articles.json  # Keep the source data but ignore generated metadata/index
+models/
+*.bin
+*.pth
+*.onnx
+
+# Tesseract / PDF Temp
+*.pdf
+*.png
+*.jpg
+*.jpeg
