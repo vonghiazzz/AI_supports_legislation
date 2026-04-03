@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     
     # Paths (Absolute paths relative to this file's parent's parent)
     BASE_DIR: str = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    DATA_PATH: str = os.path.join(BASE_DIR, "backend", "data", "cleaned_law_articles.json")
+    DATA_PATH: str = os.path.join(BASE_DIR, "backend", "data", "standardized_law_articles.json")
     INDEX_PATH: str = os.path.join(BASE_DIR, "backend", "data", "law_index.faiss")
     TESSERACT_PATH: str = os.getenv("TESSERACT_PATH", "/Users/tannghiavo/miniconda3/bin/tesseract")
     POPPLER_PATH: str = os.getenv("POPPLER_PATH", "/Users/tannghiavo/miniconda3/bin")

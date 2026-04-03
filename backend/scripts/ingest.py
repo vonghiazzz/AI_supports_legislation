@@ -31,10 +31,18 @@ def ingest_data():
     print(f"[*] Đang khởi tạo model: {model_name}...")
     model = SentenceTransformer(model_name, device='cpu')
     
-    # Tiền xử lý: Kết hợp law_id và content
+    # Tiền xử lý: Kết hợp tiêu đề, chương, mục, nội dung và thẻ pháp lý để tạo vector embedding tối ưu
     texts = []
     for item in articles:
-        combined_text = f"Điều {item['law_id']}: {item['content']}"
+        title = item.get('title', '')
+        chapter = item.get('chapter', '')
+        section = item.get('section', '')
+        content = item.get('content', '')
+        keywords = ", ".join(item.get('keywords', []))
+        tags = ", ".join(item.get('tags', []))
+        
+        # Format: Tiêu đề: ... Chương: ... Mục: ... Nội dung: ... Từ khóa: ... Thẻ: ...
+        combined_text = f"Tiêu đề: {title}. Chương: {chapter}. Mục: {section}. Nội dung: {content}. Từ khóa: {keywords}. Thẻ: {tags}"
         texts.append(combined_text)
         
     print(f"[*] Đang encode {len(texts)} điều luật (có thể mất vài phút)...")

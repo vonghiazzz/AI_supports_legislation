@@ -18,8 +18,8 @@ class EmbeddingService:
 
     def encode(self, text: str):
         self._get_model()
-        # Cắt query trước khi embed (tối đa 500 ký tự)
-        short_text = text[:500]
+        # Cắt query trước khi embed (tối đa 800 ký tự)
+        short_text = text[:800]
         return self._model.encode([short_text], normalize_embeddings=True)[0]
 
 embedding_service = EmbeddingService()
