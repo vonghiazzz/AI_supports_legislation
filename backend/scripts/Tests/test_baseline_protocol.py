@@ -6,6 +6,14 @@ import pytest
 import yaml
 
 from backend.scripts.Evaluation import run_rag_evaluation as evaluator
+from backend.scripts.Evaluation.core import ground_truth as ground_truth_core
+from backend.scripts.Evaluation.core import normalization as normalization_core
+from backend.scripts.Evaluation.core import query as query_core
+from backend.scripts.Evaluation.core import representations as representations_core
+from backend.scripts.Evaluation.evaluation import metrics as metrics_core
+from backend.scripts.Evaluation.experiments import baseline as baseline_experiment
+from backend.scripts.Evaluation.reporting.golden_regression import compare_runs
+from backend.scripts.Evaluation.retrieval.fusion import fuse_pools as fusion_core
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
@@ -15,6 +23,12 @@ EVAL_CONFIG_PATH = PROJECT_ROOT / "backend" / "scripts" / "Evaluation" / "eval_c
 BENCHMARK_PATH = DATA_DIR / "judgments_evaluation.json"
 BASELINE_REQUIREMENTS_PATH = (
     PROJECT_ROOT / "backend" / "scripts" / "Evaluation" / "requirements-baseline.txt"
+)
+REFACTORED_CONFIG_PATH = (
+    PROJECT_ROOT / "backend" / "scripts" / "Evaluation" / "configs" / "baseline_d0.yaml"
+)
+GOLDEN_RUN_DIR = (
+    DATA_DIR / "runs" / "baseline_20260825_034001_647441_e13f40b9"
 )
 
 
@@ -402,3 +416,118 @@ def test_baseline_experiment_lock_pins_smoke_pass_environment():
         "sentence-transformers==5.5.0",
         "PyYAML==6.0.2",
     }.issubset(pins)
+
+
+def test_refactored_configuration_names_remain_compatible():
+    assert baseline_experiment.get_enabled_configurations("baseline") == [
+        "BM25",
+        "FAISS",
+        "Hybrid_Static_Fixed",
+    ]
+
+
+def test_q0_compatibility_export_matches_extracted_implementation():
+    raw_query = "  Tranh chấp\n hợp đồng\t vay  "
+    assert evaluator.normalize_query_q0(raw_query) == query_core.normalize_query_q0(raw_query)
+
+
+def test_d0_compatibility_export_matches_extracted_implementation():
+    document = {"title": "Điều 1", "content": "Nội dung gốc", "summary": "Không dùng"}
+    assert evaluator.build_document_text(document, "d0") == representations_core.build_document_text(
+        document, "d0"
+    )
+
+
+def test_canonical_ids_and_world_sets_match_extracted_implementation():
+    record = {
+        "ground_truth": {
+            "core": [{
+                "article": "Khoản 2 Điều 38",
+                "law_code": "luat_hon_nhan_va_gia_dinh_2014",
+                "domain": "substantive",
+                "source_type": "explicit",
+            }],
+            "supporting": [{
+                "article": "Điều 999",
+                "law_code": "law_outside",
+                "domain": "procedural",
+                "source_type": "inferred",
+            }],
+        }
+    }
+    corpus_ids = {"điều 38 luat_hon_nhan_gia_dinh_2014"}
+    compatibility = evaluator.build_canonical_ground_truth(record, corpus_ids)
+    extracted = ground_truth_core.build_canonical_ground_truth(record, corpus_ids, 3, 1)
+    assert normalization_core.canonical_retrieval_id(
+        compatibility["core_gt_raw"][0]
+    ) == "điều 38 luat_hon_nhan_gia_dinh_2014"
+    assert compatibility == extracted
+
+
+def test_metric_calculations_match_extracted_implementation():
+    ranking = [{"standard_law_id": "điều 2 law_inside"}]
+    results = [{
+        "core_gt_filtered": [],
+        "supporting_gt_filtered": ["điều 2 law_inside"],
+        "core_gt_raw": ["điều 999 law_outside"],
+        "supporting_gt_raw": ["điều 2 law_inside"],
+        "substance_gt_filtered": ["điều 2 law_inside"],
+        "procedural_gt_filtered": [],
+        "substance_gt_raw": ["điều 999 law_outside", "điều 2 law_inside"],
+        "procedural_gt_raw": [],
+        "gt_weights": {"điều 999 law_outside": 3, "điều 2 law_inside": 1},
+        "metrics": {"BM25": {"top_k": ranking}},
+    }]
+    evaluator.ALPHA_CORE = 3
+    evaluator.ALPHA_SUPPORT = 1
+    assert evaluator.get_task_metrics(results, "BM25", 10, True) == metrics_core.get_task_metrics(
+        results, "BM25", 10, True
+    )
+    assert evaluator.get_weighted_recall(results, "BM25", 10, True) == (
+        metrics_core.get_weighted_recall(results, "BM25", 10, True, 3, 1)
+    )
+
+
+def test_static_hybrid_ranking_is_deterministic_for_fixed_pool():
+    bm25_pool = [
+        {"standard_law_id": "điều 1 law_a", "score": 10.0},
+        {"standard_law_id": "điều 2 law_a", "score": 6.0},
+        {"standard_law_id": "điều 3 law_a", "score": 0.0},
+    ]
+    faiss_pool = [
+        {"standard_law_id": "điều 2 law_a", "score": 0.9},
+        {"standard_law_id": "điều 3 law_a", "score": 0.5},
+        {"standard_law_id": "điều 1 law_a", "score": 0.2},
+    ]
+    first = fusion_core(bm25_pool, faiss_pool, 0.5, "minmax")
+    second = fusion_core(bm25_pool, faiss_pool, 0.5, "minmax")
+    assert first == second
+    assert [item[0] for item in first] == ["điều 2 law_a", "điều 1 law_a", "điều 3 law_a"]
+
+
+def test_refactored_config_is_semantically_identical_to_compatibility_config():
+    old_config = yaml.safe_load(EVAL_CONFIG_PATH.read_text(encoding="utf-8"))
+    new_config = yaml.safe_load(REFACTORED_CONFIG_PATH.read_text(encoding="utf-8"))
+    assert new_config == old_config
+
+
+def test_golden_result_serialization_schema_is_supported():
+    pipeline = json.loads((GOLDEN_RUN_DIR / "pipeline_results.json").read_text(encoding="utf-8"))
+    summary = json.loads((GOLDEN_RUN_DIR / "summary_metrics.json").read_text(encoding="utf-8"))
+    manifest = json.loads((GOLDEN_RUN_DIR / "run_manifest.json").read_text(encoding="utf-8"))
+    assert set(pipeline) == {
+        "run_id", "experiment_id", "evaluation_mode", "configurations", "results"
+    }
+    assert set(pipeline["configurations"]) == {
+        "BM25", "FAISS", "Hybrid_Static_Fixed"
+    }
+    assert summary["metric_protocol"]["reported_k"] == [5, 10, 20]
+    assert manifest["combined_corpus_fingerprint"] == (
+        "66fb0b20e0505993ed616f864ece99ecfad801de98b4ba3a37d20a3a7bf55e58"
+    )
+
+
+def test_golden_comparator_accepts_the_frozen_run_as_its_own_oracle():
+    report = compare_runs(GOLDEN_RUN_DIR, GOLDEN_RUN_DIR)
+    assert report["passed"] is True
+    assert all(method["top20_rankings_equal"] for method in report["methods"].values())

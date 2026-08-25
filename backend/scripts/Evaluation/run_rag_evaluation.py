@@ -3178,6 +3178,177 @@ def generate_latex_tables_source(results_file_path):
 
     print("="*95 + "\n")
 
+
+# Compatibility exports: active implementations live in focused modules.
+# The legacy/advanced functions above resolve these names at call time, so this
+# preserves their behavior while existing imports continue to work.
+if __package__:
+    from .experiments.baseline import (
+        get_enabled_configurations,
+        run_baseline_evaluation_pipeline,
+        should_initialize_reranker,
+        should_run_tuning,
+    )
+    from .core.corpus import (
+        load_documents,
+        load_frozen_baseline_corpus,
+        sha256_file,
+    )
+    from .core.ground_truth import (
+        build_canonical_ground_truth as _build_canonical_ground_truth,
+        extract_gt_sub_proc,
+        get_gt_weights as _get_gt_weights,
+    )
+    from .core.normalization import (
+        canonical_retrieval_id,
+        canonicalize_law_code,
+        extract_article_number,
+        is_match,
+        normalize_text,
+    )
+    from .core.query import build_query_text, clean_query_legacy, normalize_query_q0
+    from .core.representations import build_document_text, create_standard_id
+    from .evaluation.coverage import compute_ground_truth_coverage
+    from .evaluation.latency import aggregate_latency_ms, build_latency_aggregates
+    from .evaluation.metrics import (
+        build_metric_world_report as _build_metric_world_report,
+        calculate_ndcg,
+        get_task_metrics,
+        get_weighted_recall as _get_weighted_recall,
+        map_law_code_to_family,
+    )
+    from .retrieval.fusion import fuse_pools as _fuse_pools
+    from .retrieval.fusion import softmax_normalize
+    from .retrieval.temporal import should_include_document
+    from .reporting.manifest import (
+        enforce_full_run_provenance,
+        fingerprint_records,
+        git_provenance as _git_provenance,
+        resolved_model_revision as _resolved_model_revision,
+        safe_package_version as _safe_package_version,
+        verify_model_revision,
+    )
+    from .reporting.serialization import assemble_baseline_summary
+else:
+    _project_root_for_imports = Path(__file__).resolve().parent.parent.parent.parent
+    if str(_project_root_for_imports) not in sys.path:
+        sys.path.insert(0, str(_project_root_for_imports))
+    from backend.scripts.Evaluation.core.normalization import (
+        canonical_retrieval_id,
+        canonicalize_law_code,
+        extract_article_number,
+        is_match,
+        normalize_text,
+    )
+    from backend.scripts.Evaluation.core.corpus import (
+        load_documents,
+        load_frozen_baseline_corpus,
+        sha256_file,
+    )
+    from backend.scripts.Evaluation.core.ground_truth import (
+        build_canonical_ground_truth as _build_canonical_ground_truth,
+        extract_gt_sub_proc,
+        get_gt_weights as _get_gt_weights,
+    )
+    from backend.scripts.Evaluation.core.query import (
+        build_query_text,
+        clean_query_legacy,
+        normalize_query_q0,
+    )
+    from backend.scripts.Evaluation.core.representations import (
+        build_document_text,
+        create_standard_id,
+    )
+    from backend.scripts.Evaluation.evaluation.coverage import compute_ground_truth_coverage
+    from backend.scripts.Evaluation.experiments.baseline import (
+        get_enabled_configurations,
+        run_baseline_evaluation_pipeline,
+        should_initialize_reranker,
+        should_run_tuning,
+    )
+    from backend.scripts.Evaluation.evaluation.latency import (
+        aggregate_latency_ms,
+        build_latency_aggregates,
+    )
+    from backend.scripts.Evaluation.evaluation.metrics import (
+        build_metric_world_report as _build_metric_world_report,
+        calculate_ndcg,
+        get_task_metrics,
+        get_weighted_recall as _get_weighted_recall,
+        map_law_code_to_family,
+    )
+    from backend.scripts.Evaluation.retrieval.fusion import fuse_pools as _fuse_pools
+    from backend.scripts.Evaluation.retrieval.fusion import softmax_normalize
+    from backend.scripts.Evaluation.retrieval.temporal import should_include_document
+    from backend.scripts.Evaluation.reporting.manifest import (
+        enforce_full_run_provenance,
+        fingerprint_records,
+        git_provenance as _git_provenance,
+        resolved_model_revision as _resolved_model_revision,
+        safe_package_version as _safe_package_version,
+        verify_model_revision,
+    )
+    from backend.scripts.Evaluation.reporting.serialization import assemble_baseline_summary
+
+clean_query = clean_query_legacy
+
+
+def get_gt_weights(gt_obj):
+    return _get_gt_weights(gt_obj, ALPHA_CORE, ALPHA_SUPPORT)
+
+
+def build_canonical_ground_truth(record, corpus_document_ids):
+    return _build_canonical_ground_truth(
+        record,
+        corpus_document_ids,
+        alpha_core=ALPHA_CORE,
+        alpha_support=ALPHA_SUPPORT,
+    )
+
+
+def get_weighted_recall(results, cfg, k, is_filtered=True):
+    return _get_weighted_recall(
+        results,
+        cfg,
+        k,
+        is_filtered=is_filtered,
+        alpha_core=ALPHA_CORE,
+        alpha_support=ALPHA_SUPPORT,
+    )
+
+
+def build_metric_world_report(results, configurations, reported_k=BASELINE_REPORTED_K):
+    return _build_metric_world_report(
+        results,
+        configurations,
+        reported_k=reported_k,
+        alpha_core=ALPHA_CORE,
+        alpha_support=ALPHA_SUPPORT,
+    )
+
+
+def fuse_pools(
+    bm25_pool,
+    faiss_pool,
+    w_bm25,
+    fusion_type="minmax",
+    temp_bm25=None,
+    temp_faiss=None,
+):
+    if temp_bm25 is None:
+        temp_bm25 = _eval_config.get("fusion", {}).get("temperature_bm25", 5.0)
+    if temp_faiss is None:
+        temp_faiss = _eval_config.get("fusion", {}).get("temperature_faiss", 0.5)
+    return _fuse_pools(
+        bm25_pool,
+        faiss_pool,
+        w_bm25,
+        fusion_type=fusion_type,
+        temp_bm25=temp_bm25,
+        temp_faiss=temp_faiss,
+    )
+
+
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description="Run RAG Evaluation Pipeline")
