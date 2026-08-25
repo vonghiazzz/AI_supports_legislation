@@ -1,6 +1,9 @@
 import json
 import copy
+import os
 from pathlib import Path
+import subprocess
+import sys
 
 import pytest
 import yaml
@@ -13,6 +16,8 @@ from backend.scripts.Evaluation.core import representations as representations_c
 from backend.scripts.Evaluation.evaluation import metrics as metrics_core
 from backend.scripts.Evaluation.experiments import baseline as baseline_experiment
 from backend.scripts.Evaluation.reporting.golden_regression import compare_runs
+from backend.scripts.Evaluation.retrieval.bm25 import search_bm25
+from backend.scripts.Evaluation.retrieval.dense import search_faiss
 from backend.scripts.Evaluation.retrieval.fusion import fuse_pools as fusion_core
 
 
@@ -218,6 +223,16 @@ def test_baseline_mode_disables_reranker_and_tuning():
 
 
 def test_baseline_config_freezes_required_protocol(baseline_config):
+    assert baseline_config["protocol"] == {
+        "id": "baseline_d0_v2",
+        "status": "current",
+        "tie_break_policy": "standard_law_id_asc",
+        "supersedes": {
+            "id": "baseline_d0_v1",
+            "status": "historical/superseded",
+            "reason": "nondeterministic equal-score Hybrid tie ordering",
+        },
+    }
     evaluation = baseline_config["evaluation"]
     assert evaluation["mode"] == "baseline"
     assert evaluation["query_representation"] == "q0"
@@ -231,6 +246,7 @@ def test_baseline_config_freezes_required_protocol(baseline_config):
     assert baseline_config["bm25"]["tokenizer"] == "whitespace"
     assert baseline_config["fusion"]["method"] == "minmax"
     assert baseline_config["fusion"]["static_w_bm25"] == 0.5
+    assert baseline_config["fusion"]["tie_break_policy"] == "standard_law_id_asc"
 
 
 def test_benchmark_query_count_is_107():
@@ -488,7 +504,7 @@ def test_metric_calculations_match_extracted_implementation():
     )
 
 
-def test_static_hybrid_ranking_is_deterministic_for_fixed_pool():
+def test_non_tied_static_hybrid_ranking_is_unchanged():
     bm25_pool = [
         {"standard_law_id": "điều 1 law_a", "score": 10.0},
         {"standard_law_id": "điều 2 law_a", "score": 6.0},
@@ -499,10 +515,112 @@ def test_static_hybrid_ranking_is_deterministic_for_fixed_pool():
         {"standard_law_id": "điều 3 law_a", "score": 0.5},
         {"standard_law_id": "điều 1 law_a", "score": 0.2},
     ]
-    first = fusion_core(bm25_pool, faiss_pool, 0.5, "minmax")
-    second = fusion_core(bm25_pool, faiss_pool, 0.5, "minmax")
-    assert first == second
-    assert [item[0] for item in first] == ["điều 2 law_a", "điều 1 law_a", "điều 3 law_a"]
+    result = fusion_core(bm25_pool, faiss_pool, 0.5, "minmax")
+    assert [item[0] for item in result] == ["điều 2 law_a", "điều 1 law_a", "điều 3 law_a"]
+
+
+def _equal_score_fusion_pools():
+    return (
+        [
+            {"standard_law_id": "điều 20 law_b", "score": 10.0},
+            {"standard_law_id": "điều 10 law_a", "score": 0.0},
+        ],
+        [
+            {"standard_law_id": "điều 10 law_a", "score": 1.0},
+            {"standard_law_id": "điều 20 law_b", "score": 0.0},
+        ],
+    )
+
+
+def test_equal_fusion_scores_use_standard_law_id_ascending_tie_break():
+    bm25_pool, faiss_pool = _equal_score_fusion_pools()
+    result = fusion_core(bm25_pool, faiss_pool, 0.5, "minmax")
+    assert result == [
+        ("điều 10 law_a", 0.5),
+        ("điều 20 law_b", 0.5),
+    ]
+
+
+def test_same_fusion_input_is_identical_across_repeated_calls():
+    bm25_pool, faiss_pool = _equal_score_fusion_pools()
+    expected = fusion_core(bm25_pool, faiss_pool, 0.5, "minmax")
+    assert all(
+        fusion_core(bm25_pool, faiss_pool, 0.5, "minmax") == expected
+        for _ in range(100)
+    )
+
+
+def test_fusion_is_identical_across_python_hash_seeds():
+    script = """
+import json
+from backend.scripts.Evaluation.retrieval.fusion import fuse_pools
+bm25 = [
+    {"standard_law_id": "điều 20 law_b", "score": 10.0},
+    {"standard_law_id": "điều 10 law_a", "score": 0.0},
+]
+faiss = [
+    {"standard_law_id": "điều 10 law_a", "score": 1.0},
+    {"standard_law_id": "điều 20 law_b", "score": 0.0},
+]
+print(json.dumps(fuse_pools(bm25, faiss, 0.5, "minmax"), ensure_ascii=False))
+"""
+    outputs = []
+    for hash_seed in ("1", "7", "123456"):
+        environment = os.environ.copy()
+        environment["PYTHONHASHSEED"] = hash_seed
+        outputs.append(
+            subprocess.run(
+                [sys.executable, "-c", script],
+                cwd=PROJECT_ROOT,
+                env=environment,
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip()
+        )
+    assert len(set(outputs)) == 1
+    assert json.loads(outputs[0]) == [
+        ["điều 10 law_a", 0.5],
+        ["điều 20 law_b", 0.5],
+    ]
+
+
+def test_bm25_search_ordering_contract_is_unchanged():
+    class FakeBm25Index:
+        @staticmethod
+        def get_scores(_tokens):
+            return [0.25, 0.75, 0.75]
+
+    documents = [
+        {"standard_law_id": "điều 1 law_a"},
+        {"standard_law_id": "điều 2 law_a"},
+        {"standard_law_id": "điều 3 law_a"},
+    ]
+    result = search_bm25(FakeBm25Index(), documents, "query", 3)
+    assert [item["standard_law_id"] for item in result] == [
+        "điều 2 law_a",
+        "điều 3 law_a",
+        "điều 1 law_a",
+    ]
+
+
+def test_faiss_search_ordering_contract_is_unchanged():
+    class FakeFaissIndex:
+        @staticmethod
+        def search(_query_embedding, _pool_k):
+            return [[0.9, 0.8, 0.7]], [[2, 0, 1]]
+
+    documents = [
+        {"standard_law_id": "điều 1 law_a"},
+        {"standard_law_id": "điều 2 law_a"},
+        {"standard_law_id": "điều 3 law_a"},
+    ]
+    result = search_faiss(FakeFaissIndex(), object(), documents, 3)
+    assert [item["standard_law_id"] for item in result] == [
+        "điều 3 law_a",
+        "điều 1 law_a",
+        "điều 2 law_a",
+    ]
 
 
 def test_refactored_config_is_semantically_identical_to_compatibility_config():

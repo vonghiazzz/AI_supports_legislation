@@ -35,6 +35,8 @@ BASELINE_CONFIGURATIONS = ["BM25", "FAISS", "Hybrid_Static_Fixed"]
 BASELINE_REPORTED_K = (5, 10, 20)
 BASELINE_PRIMARY_K = 10
 BASELINE_PRIMARY_WORLD = "closed_world"
+BASELINE_PROTOCOL_ID = "baseline_d0_v2"
+BASELINE_TIE_BREAK_POLICY = "standard_law_id_asc"
 
 
 def get_enabled_configurations(mode):
@@ -59,6 +61,13 @@ def should_run_tuning(mode):
 
 
 def _validate_baseline_protocol(config):
+    protocol_provenance = config.get("protocol", {})
+    if protocol_provenance.get("id") != BASELINE_PROTOCOL_ID:
+        raise ValueError(f"Baseline protocol.id must be {BASELINE_PROTOCOL_ID}")
+    if protocol_provenance.get("tie_break_policy") != BASELINE_TIE_BREAK_POLICY:
+        raise ValueError(
+            f"Baseline protocol tie-break must be {BASELINE_TIE_BREAK_POLICY}"
+        )
     evaluation = config["evaluation"]
     if evaluation.get("mode") != BASELINE_MODE:
         raise ValueError("run_baseline_evaluation_pipeline requires evaluation.mode=baseline")
@@ -77,8 +86,13 @@ def _validate_baseline_protocol(config):
         raise ValueError("Baseline mode requires deterministic bm25.tokenizer=whitespace")
     fusion_method = config["fusion"].get("method")
     static_w_bm25 = float(config["fusion"].get("static_w_bm25"))
+    tie_break_policy = config["fusion"].get("tie_break_policy")
     if fusion_method != "minmax" or static_w_bm25 != 0.5:
         raise ValueError("Baseline E1 requires minmax fusion with static_w_bm25=0.5")
+    if tie_break_policy != BASELINE_TIE_BREAK_POLICY:
+        raise ValueError(
+            f"Baseline fusion tie-break must be {BASELINE_TIE_BREAK_POLICY}"
+        )
 
     metric_protocol = config.get("metric_protocol", {})
     primary_world = metric_protocol.get("primary_world")
@@ -102,6 +116,8 @@ def _validate_baseline_protocol(config):
         "bm25_tokenizer": bm25_tokenizer,
         "fusion_method": fusion_method,
         "static_w_bm25": static_w_bm25,
+        "protocol_provenance": protocol_provenance,
+        "tie_break_policy": tie_break_policy,
         "primary_world": primary_world,
         "primary_k": primary_k,
         "reported_k": reported_k,
@@ -332,7 +348,7 @@ def run_baseline_evaluation_pipeline(config_path, max_queries=None):
     latency_aggregates = build_latency_aggregates(final_results)
 
     now = datetime.datetime.now(datetime.timezone.utc)
-    run_id = f"baseline_{now.strftime('%Y%m%d_%H%M%S_%f')}_{uuid.uuid4().hex[:8]}"
+    run_id = f"{BASELINE_PROTOCOL_ID}_{now.strftime('%Y%m%d_%H%M%S_%f')}_{uuid.uuid4().hex[:8]}"
     run_dir = output_dir / "runs" / run_id
     summary_metadata = {
         "run_id": run_id,
@@ -356,6 +372,8 @@ def run_baseline_evaluation_pipeline(config_path, max_queries=None):
         "embedding_requested_revision": requested_revision,
         "fusion_method": protocol["fusion_method"],
         "static_w_bm25": protocol["static_w_bm25"],
+        "protocol_id": BASELINE_PROTOCOL_ID,
+        "tie_break_policy": protocol["tie_break_policy"],
     }
     summary = assemble_baseline_summary(
         summary_metadata, metric_worlds, gt_coverage, latency_aggregates
@@ -401,6 +419,10 @@ def run_baseline_evaluation_pipeline(config_path, max_queries=None):
         "bm25_tokenizer_version": None,
         "fusion_method": protocol["fusion_method"],
         "static_w_bm25": protocol["static_w_bm25"],
+        "protocol_id": BASELINE_PROTOCOL_ID,
+        "protocol_status": protocol["protocol_provenance"].get("status"),
+        "tie_break_policy": protocol["tie_break_policy"],
+        "supersedes": protocol["protocol_provenance"].get("supersedes"),
         "alpha_core": alpha_core,
         "alpha_support": alpha_support,
         "metric_protocol": summary["metric_protocol"],

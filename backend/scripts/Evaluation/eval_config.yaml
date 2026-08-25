@@ -1,5 +1,14 @@
 # RAG Evaluation Configuration
 
+protocol:
+  id: "baseline_d0_v2"
+  status: "current"
+  tie_break_policy: "standard_law_id_asc"
+  supersedes:
+    id: "baseline_d0_v1"
+    status: "historical/superseded"
+    reason: "nondeterministic equal-score Hybrid tie ordering"
+
 evaluation:
   mode: "baseline"
   experiment_id: "eval_v4_advanced_scientific_framework"
@@ -54,6 +63,7 @@ dynamic_hybrid:
 fusion:
   method: "minmax"
   static_w_bm25: 0.5
+  tie_break_policy: "standard_law_id_asc"
   temperature_bm25: 5.0
   temperature_faiss: 0.5
 

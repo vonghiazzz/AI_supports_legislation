@@ -21,11 +21,11 @@ def fuse_pools(
     temp_faiss=0.5,
 ):
     w_faiss = 1.0 - w_bm25
-    union_ids = list(
-        set(
-            [document["standard_law_id"] for document in bm25_pool]
-            + [document["standard_law_id"] for document in faiss_pool]
-        )
+    union_ids = sorted(
+        {
+            document["standard_law_id"]
+            for document in bm25_pool + faiss_pool
+        }
     )
     if not union_ids:
         return []
@@ -86,5 +86,5 @@ def fuse_pools(
             combined.append((standard_id, w_bm25 * bm25_score + w_faiss * faiss_score))
     else:
         combined = []
-    combined.sort(key=lambda item: item[1], reverse=True)
+    combined.sort(key=lambda item: (-item[1], item[0]))
     return combined
