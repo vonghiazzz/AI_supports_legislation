@@ -1,0 +1,63 @@
+# RAG Evaluation Configuration
+
+evaluation:
+  mode: "baseline"
+  experiment_id: "eval_v4_advanced_scientific_framework"
+  k: 20
+  pool_k: 30
+  alpha_core: 3
+  alpha_support: 1
+  query_representation: "q0"
+  document_representation: "d0"
+  temporal_filter: "none"
+  random_seed: 42
+
+metric_protocol:
+  primary_world: "closed_world"
+  primary_k: 10
+  reported_k: [5, 10, 20]
+
+latency:
+  warmup_queries: 1
+
+corpus:
+  required_keys:
+    - "bo_luat_dan_su_2015"
+    - "bo_luat_to_tung_dan_su_2015"
+    - "luat_dat_dai_2013"
+    - "luat_dat_dai_2024"
+    - "luat_hon_nhan_gia_dinh_2014"
+  expected_counts:
+    bo_luat_dan_su_2015: 689
+    bo_luat_to_tung_dan_su_2015: 517
+    luat_dat_dai_2013: 212
+    luat_dat_dai_2024: 260
+    luat_hon_nhan_gia_dinh_2014: 133
+  expected_total: 1811
+
+models:
+  embedding_model: "keepitreal/vietnamese-sbert"
+  embedding_revision: "a9467ef2ef47caa6448edeabfd8e5e5ce0fa2a23"
+  local_files_only: true
+  rerank_model: "itdainb/PhoRanker"
+
+bm25:
+  tokenizer: "whitespace"
+
+dynamic_hybrid:
+  weights:
+    exact_citation: 0.9
+    procedural: 0.8
+    substance: 0.2
+    mixed: 0.5
+
+fusion:
+  method: "minmax"
+  static_w_bm25: 0.5
+  temperature_bm25: 5.0
+  temperature_faiss: 0.5
+
+paths:
+  laws_config: "backend/dataLaw/laws_config.json"
+  eval_file: "backend/data/judgments_evaluation.json"
+  output_dir: "backend/data"
