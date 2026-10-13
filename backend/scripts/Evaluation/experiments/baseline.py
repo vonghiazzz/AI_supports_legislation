@@ -37,6 +37,21 @@ BASELINE_PRIMARY_K = 10
 BASELINE_PRIMARY_WORLD = "closed_world"
 BASELINE_PROTOCOL_ID = "baseline_d0_v2"
 BASELINE_TIE_BREAK_POLICY = "standard_law_id_asc"
+EXP02_EXPERIMENT_ID = "exp02_d0_vs_d1_v1"
+EXP02_ARMS = {"d0", "d1"}
+FROZEN_EMBEDDING_MODEL = "keepitreal/vietnamese-sbert"
+FROZEN_EMBEDDING_REVISION = "a9467ef2ef47caa6448edeabfd8e5e5ce0fa2a23"
+FROZEN_CORPUS_COUNTS = {
+    "bo_luat_dan_su_2015": 689,
+    "bo_luat_to_tung_dan_su_2015": 517,
+    "luat_dat_dai_2013": 212,
+    "luat_dat_dai_2024": 260,
+    "luat_hon_nhan_gia_dinh_2014": 133,
+}
+FROZEN_CORPUS_TOTAL = 1811
+FROZEN_CORPUS_FINGERPRINT = (
+    "66fb0b20e0505993ed616f864ece99ecfad801de98b4ba3a37d20a3a7bf55e58"
+)
 
 
 def get_enabled_configurations(mode):
@@ -62,11 +77,15 @@ def should_run_tuning(mode):
 
 def _validate_baseline_protocol(config):
     protocol_provenance = config.get("protocol", {})
-    if protocol_provenance.get("id") != BASELINE_PROTOCOL_ID:
-        raise ValueError(f"Baseline protocol.id must be {BASELINE_PROTOCOL_ID}")
+    protocol_id = protocol_provenance.get("id")
+    if protocol_id not in {BASELINE_PROTOCOL_ID, EXP02_EXPERIMENT_ID}:
+        raise ValueError(
+            f"Supported protocol.id values are {BASELINE_PROTOCOL_ID} and "
+            f"{EXP02_EXPERIMENT_ID}"
+        )
     if protocol_provenance.get("tie_break_policy") != BASELINE_TIE_BREAK_POLICY:
         raise ValueError(
-            f"Baseline protocol tie-break must be {BASELINE_TIE_BREAK_POLICY}"
+            f"Controlled protocol tie-break must be {BASELINE_TIE_BREAK_POLICY}"
         )
     evaluation = config["evaluation"]
     if evaluation.get("mode") != BASELINE_MODE:
@@ -75,11 +94,58 @@ def _validate_baseline_protocol(config):
     document_representation = evaluation.get("document_representation")
     temporal_policy = evaluation.get("temporal_filter")
     if query_representation != "q0":
-        raise ValueError("Baseline mode requires query_representation=q0")
-    if document_representation not in {"d0", "d1"}:
-        raise ValueError("Baseline mode requires document_representation=d0 or d1")
+        raise ValueError("Controlled protocol requires query_representation=q0")
     if temporal_policy != "none":
-        raise ValueError("Baseline B0/B1/E1 requires temporal_filter=none")
+        raise ValueError("Controlled protocol requires temporal_filter=none")
+
+    experiment_id = evaluation.get("experiment_id")
+    experiment_arm = None
+    control_protocol = None
+    if protocol_id == BASELINE_PROTOCOL_ID:
+        if document_representation != "d0":
+            raise ValueError("baseline_d0_v2 requires document_representation=d0")
+    else:
+        experiment_arm = protocol_provenance.get("experiment_arm")
+        control_protocol = protocol_provenance.get("control_protocol")
+        if experiment_id != EXP02_EXPERIMENT_ID:
+            raise ValueError(f"EXP-02 evaluation.experiment_id must be {EXP02_EXPERIMENT_ID}")
+        if control_protocol != BASELINE_PROTOCOL_ID:
+            raise ValueError(f"EXP-02 control_protocol must be {BASELINE_PROTOCOL_ID}")
+        if experiment_arm not in EXP02_ARMS:
+            raise ValueError("EXP-02 experiment_arm must be d0 or d1")
+        if document_representation != experiment_arm:
+            raise ValueError(
+                "EXP-02 document_representation must match protocol.experiment_arm"
+            )
+
+    if int(evaluation.get("pool_k", 0)) != 30:
+        raise ValueError("Controlled protocol requires pool_k=30")
+    if int(evaluation.get("alpha_core", 0)) != 3 or int(
+        evaluation.get("alpha_support", 0)
+    ) != 1:
+        raise ValueError("Controlled protocol requires alpha_core=3 and alpha_support=1")
+    if int(evaluation.get("random_seed", -1)) != 42:
+        raise ValueError("Controlled protocol requires random_seed=42")
+
+    model_config = config.get("models", {})
+    if model_config.get("embedding_model") != FROZEN_EMBEDDING_MODEL:
+        raise ValueError(
+            f"Controlled protocol requires embedding_model={FROZEN_EMBEDDING_MODEL}"
+        )
+    if model_config.get("embedding_revision") != FROZEN_EMBEDDING_REVISION:
+        raise ValueError("Controlled protocol requires the frozen embedding revision")
+    if model_config.get("local_files_only") is not True:
+        raise ValueError("Controlled protocol requires models.local_files_only=true")
+
+    corpus_config = config.get("corpus", {})
+    required_keys = list(corpus_config.get("required_keys", []))
+    expected_counts = corpus_config.get("expected_counts", {})
+    if required_keys != list(FROZEN_CORPUS_COUNTS):
+        raise ValueError("Controlled protocol requires the frozen five-law corpus order")
+    if expected_counts != FROZEN_CORPUS_COUNTS:
+        raise ValueError("Controlled protocol requires the frozen per-law corpus counts")
+    if int(corpus_config.get("expected_total", 0)) != FROZEN_CORPUS_TOTAL:
+        raise ValueError(f"Controlled protocol requires corpus total={FROZEN_CORPUS_TOTAL}")
 
     bm25_tokenizer = config.get("bm25", {}).get("tokenizer")
     if bm25_tokenizer != "whitespace":
@@ -107,9 +173,13 @@ def _validate_baseline_protocol(config):
             "Baseline metric protocol requires primary_world=closed_world, "
             "primary_k=10, reported_k=[5, 10, 20]"
         )
-    if int(evaluation["k"]) < max(reported_k):
-        raise ValueError("Stored retrieval depth must cover every reported metric K")
+    if int(evaluation["k"]) != max(reported_k):
+        raise ValueError("Controlled protocol requires stored retrieval depth k=20")
     return {
+        "protocol_id": protocol_id,
+        "experiment_id": experiment_id,
+        "experiment_arm": experiment_arm,
+        "control_protocol": control_protocol,
         "query_representation": query_representation,
         "document_representation": document_representation,
         "temporal_policy": temporal_policy,
@@ -124,13 +194,18 @@ def _validate_baseline_protocol(config):
     }
 
 
-def _source_paths():
+def _source_paths(config_path, project_root, protocol_id):
     base = "backend/scripts/Evaluation"
-    return [
+    resolved_config_path = Path(config_path).resolve()
+    try:
+        config_source_path = str(resolved_config_path.relative_to(Path(project_root).resolve()))
+    except ValueError:
+        config_source_path = str(resolved_config_path)
+    paths = [
         f"{base}/run_rag_evaluation.py",
         f"{base}/run_experiment.py",
         f"{base}/eval_config.yaml",
-        f"{base}/configs/baseline_d0.yaml",
+        config_source_path,
         f"{base}/requirements-baseline.txt",
         f"{base}/core/normalization.py",
         f"{base}/core/query.py",
@@ -149,6 +224,37 @@ def _source_paths():
         f"{base}/experiments/baseline.py",
         "backend/scripts/Tests/test_baseline_protocol.py",
     ]
+    if protocol_id == EXP02_EXPERIMENT_ID:
+        paths.append("backend/scripts/Tests/test_exp02_protocol.py")
+    return paths
+
+
+def _run_identity(protocol):
+    if protocol["experiment_arm"]:
+        return f"{protocol['protocol_id']}_{protocol['experiment_arm']}"
+    return protocol["protocol_id"]
+
+
+def _experiment_metadata(protocol):
+    if not protocol["experiment_arm"]:
+        return {}
+    return {
+        "experiment_id": protocol["experiment_id"],
+        "experiment_arm": protocol["experiment_arm"],
+        "control_protocol": protocol["control_protocol"],
+    }
+
+
+def _config_provenance(config_path):
+    resolved_path = Path(config_path).resolve()
+    return {"path": str(resolved_path), "sha256": sha256_file(resolved_path)}
+
+
+def _combined_corpus_fingerprint(corpus_inventory):
+    return fingerprint_records([
+        {"key": item["key"], "count": item["count"], "sha256": item["sha256"]}
+        for item in corpus_inventory
+    ])
 
 
 def _warm_up(
@@ -263,6 +369,12 @@ def run_baseline_evaluation_pipeline(config_path, max_queries=None):
     law_files, corpus_inventory, corpus_count = load_frozen_baseline_corpus(
         laws_config_path, output_dir, config["corpus"]
     )
+    combined_corpus_fingerprint = _combined_corpus_fingerprint(corpus_inventory)
+    if combined_corpus_fingerprint != FROZEN_CORPUS_FINGERPRINT:
+        raise ValueError(
+            "Frozen corpus fingerprint mismatch: "
+            f"expected {FROZEN_CORPUS_FINGERPRINT}, got {combined_corpus_fingerprint}"
+        )
     documents = load_documents(
         law_files,
         document_representation=protocol["document_representation"],
@@ -281,7 +393,10 @@ def run_baseline_evaluation_pipeline(config_path, max_queries=None):
     selected_queries = benchmark[:max_queries] if max_queries is not None else benchmark
     if not selected_queries:
         raise ValueError("No benchmark queries selected")
-    provenance = git_provenance(project_root, _source_paths())
+    provenance = git_provenance(
+        project_root,
+        _source_paths(config_path, project_root, protocol["protocol_id"]),
+    )
     enforce_full_run_provenance(max_queries, len(benchmark), provenance)
 
     bm25_index = build_bm25_index(documents)
@@ -348,8 +463,12 @@ def run_baseline_evaluation_pipeline(config_path, max_queries=None):
     latency_aggregates = build_latency_aggregates(final_results)
 
     now = datetime.datetime.now(datetime.timezone.utc)
-    run_id = f"{BASELINE_PROTOCOL_ID}_{now.strftime('%Y%m%d_%H%M%S_%f')}_{uuid.uuid4().hex[:8]}"
+    run_id = (
+        f"{_run_identity(protocol)}_{now.strftime('%Y%m%d_%H%M%S_%f')}_"
+        f"{uuid.uuid4().hex[:8]}"
+    )
     run_dir = output_dir / "runs" / run_id
+    experiment_metadata = _experiment_metadata(protocol)
     summary_metadata = {
         "run_id": run_id,
         "evaluation_mode": BASELINE_MODE,
@@ -372,8 +491,9 @@ def run_baseline_evaluation_pipeline(config_path, max_queries=None):
         "embedding_requested_revision": requested_revision,
         "fusion_method": protocol["fusion_method"],
         "static_w_bm25": protocol["static_w_bm25"],
-        "protocol_id": BASELINE_PROTOCOL_ID,
+        "protocol_id": protocol["protocol_id"],
         "tie_break_policy": protocol["tie_break_policy"],
+        **experiment_metadata,
     }
     summary = assemble_baseline_summary(
         summary_metadata, metric_worlds, gt_coverage, latency_aggregates
@@ -384,6 +504,11 @@ def run_baseline_evaluation_pipeline(config_path, max_queries=None):
         "evaluation_mode": BASELINE_MODE,
         "configurations": configurations,
         "results": final_results,
+        **{
+            key: value
+            for key, value in experiment_metadata.items()
+            if key != "experiment_id"
+        },
     }
     query_fingerprint = fingerprint_records([
         {
@@ -391,10 +516,6 @@ def run_baseline_evaluation_pipeline(config_path, max_queries=None):
             "text": build_query_text(record, protocol["query_representation"]),
         }
         for record in selected_queries
-    ])
-    combined_corpus_fingerprint = fingerprint_records([
-        {"key": item["key"], "count": item["count"], "sha256": item["sha256"]}
-        for item in corpus_inventory
     ])
     manifest = {
         "run_id": run_id,
@@ -419,7 +540,7 @@ def run_baseline_evaluation_pipeline(config_path, max_queries=None):
         "bm25_tokenizer_version": None,
         "fusion_method": protocol["fusion_method"],
         "static_w_bm25": protocol["static_w_bm25"],
-        "protocol_id": BASELINE_PROTOCOL_ID,
+        "protocol_id": protocol["protocol_id"],
         "protocol_status": protocol["protocol_provenance"].get("status"),
         "tie_break_policy": protocol["tie_break_policy"],
         "supersedes": protocol["protocol_provenance"].get("supersedes"),
@@ -439,6 +560,7 @@ def run_baseline_evaluation_pipeline(config_path, max_queries=None):
         },
         "benchmark": {"path": str(benchmark_path), "sha256": sha256_file(benchmark_path)},
         "gt_schema": {"path": str(schema_path), "sha256": sha256_file(schema_path)},
+        "config": _config_provenance(config_path),
         "corpora": corpus_inventory,
         "combined_corpus_fingerprint": combined_corpus_fingerprint,
         "query_representation_fingerprint": query_fingerprint,
@@ -458,6 +580,11 @@ def run_baseline_evaluation_pipeline(config_path, max_queries=None):
         "random_seed": random_seed,
         "retrieval_configurations": configurations,
         "graded_relevance_preserved": all("gt_weights" in item for item in final_results),
+        **{
+            key: value
+            for key, value in experiment_metadata.items()
+            if key != "experiment_id"
+        },
     }
     results_path = write_baseline_artifacts(
         run_dir,
