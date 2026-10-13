@@ -50,3 +50,6 @@ data/*.json
 *.png
 *.jpg
 *.jpeg
+
+# Legacy generated law chunks
+/data/law_chunks/
