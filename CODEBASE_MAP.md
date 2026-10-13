@@ -637,8 +637,8 @@ EXPERIMENTAL / LEGACY-MIXED
 20. Experimental Retrieval Features
 The research evaluator contains or explores features that are not active runtime behavior.
 Feature	State
-D1 representation	NEXT EXPERIMENT
-Static fusion tuning	EXPERIMENTAL
+D1 representation	EXP-02 COMPLETE / NOT PROMOTED
+Static fusion tuning	EXP-03 DESIGN REQUIRED
 Dynamic hybrid weights	EXPERIMENTAL
 Intent/profile routing	EXPERIMENTAL
 Temporal filtering	EXPERIMENTAL
@@ -650,6 +650,18 @@ Paper/LaTeX reporting	EXPERIMENTAL
 
 
 Do not map these to FastAPI until deliberate integration exists.
+
+EXP-02 ownership:
+
+| File | Responsibility |
+|---|---|
+| `backend/scripts/Evaluation/configs/exp02_d0.yaml` | Controlled D0 arm |
+| `backend/scripts/Evaluation/configs/exp02_d1.yaml` | Controlled D1 arm |
+| `backend/scripts/Evaluation/experiments/baseline.py` | Protocol validation, execution, provenance and artifacts |
+| `backend/scripts/Tests/test_exp02_protocol.py` | EXP-02 arm/control/provenance contract tests |
+
+The generated EXP-02 run artifacts remain research evidence under `backend/data/runs/`; they are not runtime artifacts.
+
 21. Statute Extraction Pipeline
 Directory:
 backend/scripts/Flow/
@@ -1033,4 +1045,5 @@ Golden parity	VERIFIED	321/321
 Benchmark	FROZEN	107 queries
 Human annotation	INCOMPLETE	3-query pilot
 Advanced evaluator	EXPERIMENTAL	Evaluation modules
-Next research experiment	READY	EXP-02 D0 vs D1
+EXP-02	COMPLETE	D1 not promoted; runtime/baseline remain D0
+Next research experiment	DESIGN REQUIRED	EXP-03 static fusion-weight CV protocol

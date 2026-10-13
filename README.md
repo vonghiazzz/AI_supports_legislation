@@ -303,12 +303,13 @@ Completed:
 B0  BM25
 B1  Dense
 E1  Static Hybrid
-
-Next:
 EXP-02  D0 vs D1
 
+Next:
+EXP-03 protocol design for leakage-controlled static hybrid tuning
+
 Then:
-static hybrid tuning
+static hybrid tuning under the approved held-out/CV protocol
 dynamic hybrid
 temporal retrieval
 reranking
@@ -317,36 +318,16 @@ statistical analysis
 Before tuning hyperparameters, define an appropriate dev/test or cross-validation protocol.
 Do not tune all parameters on the same 107 queries and then report the same queries as an unbiased test result.
 21. EXP-02 — D0 vs D1
-Research question:
-Does D1 enrichment improve Vietnamese statutory retrieval compared with D0?
 
-Control variables:
-same 1,811 corpus
-same 107 queries
-same Q0
-same embedding model
-same exact model revision
-same BM25 tokenizer
-same FAISS
-same pool size
-same fusion
-same weights
-same deterministic tie-break
-same metrics
+Status: **COMPLETE**.
 
-Only change:
-D0
-vs
-D1
+EXP-02 changed only the document representation while preserving Q0, the 1,811-document corpus, all 107 queries, model revision, retrieval parameters, and metric protocol.
 
-Primary endpoint:
-closed-world @10
+At the primary closed-world @10 endpoint, D1 showed suggestive BM25 gains but mixed Dense and Hybrid effects. No tested delta had a paired-bootstrap 95% confidence interval excluding zero or paired sign-flip `p < 0.05`.
 
-Report:
-Recall@5/10/20
-nDCG@5/10/20
-MRR@5/10/20
-Weighted Recall@5/10/20
+Decision: D1 was not promoted. Runtime and the frozen research baseline remain Q0/D0. See `PROJECT_STATE.md` for run IDs, detailed metrics, paired uncertainty, and the Dense truncation limitation.
+
+The next task is to design EXP-03 static fusion-weight tuning with deterministic held-out or cross-validation discipline. Do not select and evaluate the weight on the same 107 queries.
 
 22. Human Annotation Status
 Current human annotation is only a pilot:

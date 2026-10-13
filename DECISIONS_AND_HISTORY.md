@@ -810,6 +810,43 @@ before changing fusion weights.
 Reason
 This isolates document representation.
 If representation and weights change simultaneously, an improvement cannot be attributed to either variable.
+
+36A. EXP-02 Result — Retain D0
+
+EXP-02 `exp02_d0_vs_d1_v1` completed with clean provenance at commit `bcfd918b89c533a6138e1187cf08ebe0beebe9c6`.
+
+Official runs:
+
+- D0 control: `exp02_d0_vs_d1_v1_d0_20261013_085034_383461_4828f45f`
+- D1 treatment: `exp02_d0_vs_d1_v1_d1_20261013_090537_436695_379066cd`
+
+Observed:
+
+- Both runs evaluated 107 queries over the same 1,811-document corpus with matching corpus and Q0 fingerprints.
+- All D1 enrichment fields were present for all documents.
+- At closed-world @10, D1 changed BM25 Recall by `+0.005287`, nDCG by `+0.006484`, MRR by `+0.006097`, and Weighted Recall by `+0.005023`.
+- FAISS effects were mixed; D1 nDCG changed by `-0.001954` and MRR by `-0.013103`.
+- Hybrid effects were mixed; D1 Recall changed by `-0.006108`, nDCG by `+0.000441`, MRR by `+0.020950`, and Weighted Recall by `-0.005777`.
+- No tested @10 delta had a paired-bootstrap 95% interval excluding zero or paired sign-flip `p < 0.05`. BM25 nDCG had a suggestive, non-significant `p = 0.07564`.
+- The 256-token Dense window produced identical truncated D0/D1 token sequences for 619/1,811 documents; Dense input changed for 1,192/1,811.
+
+Interpretation:
+
+The current benchmark does not provide sufficient evidence to establish a consistent D1 improvement over D0. The lexical BM25 trend is suggestive; Dense and Hybrid results are mixed.
+
+Hypothesis / limitation:
+
+Dense truncation is a plausible explanatory limitation, not a proven cause of the observed metric pattern.
+
+Decision:
+
+- EXP-02 is complete.
+- D1 is not promoted.
+- Runtime remains D0.
+- The frozen research baseline remains `baseline_d0_v2` with Q0/D0.
+- Runtime artifacts are not changed because of EXP-02.
+- The next research task is EXP-03 protocol design for leakage-controlled static fusion-weight tuning.
+
 37. Human Annotation Is a Pilot
 Historical evidence
 Current double-annotation experiment covers:
@@ -1027,9 +1064,9 @@ Do not describe them as current runtime behavior.
 49. Current Decisions Still Open
 The following remain genuinely unresolved.
 Research
-1. Does D1 outperform D0 under controlled conditions?
-2. What dev/test or cross-validation scheme should be used for tuning?
-3. Does tuned static Hybrid beat the frozen 0.5/0.5 baseline?
+1. What deterministic held-out or cross-validation scheme should EXP-03 use?
+2. Which predeclared objective should select the static fusion weight?
+3. Does leakage-controlled tuned static Hybrid beat the frozen 0.5/0.5 baseline?
 4. Does dynamic fusion add value beyond tuned static fusion?
 5. Does temporal filtering improve legally valid retrieval without harming recall?
 6. Does reranking provide reliable gain relative to latency/cost?
@@ -1071,6 +1108,7 @@ Core/support weight	3 / 1
 Runtime artifacts	Generated, ignored by Git
 Artifact validation	Manifest + SHA + structural checks
 Golden acceptance	Ranking parity
-Next research experiment	EXP-02 D0 vs D1
+EXP-02 decision	Complete; D1 not promoted
+Next research experiment	EXP-03 static fusion-weight tuning protocol
 Human annotation	Pilot only
 Database/vector server	Not used

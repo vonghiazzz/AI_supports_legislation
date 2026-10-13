@@ -92,7 +92,7 @@ Reranking
     ↓
 Statistical analysis
 
-The immediate research experiment is EXP-02: D0 vs D1.
+EXP-02 is complete. The immediate research blocker is the design of EXP-03: controlled static hybrid weight tuning with deterministic held-out or cross-validation discipline.
 3. Frozen Baseline Protocol
 Protocol ID:
 baseline_d0_v2
@@ -130,7 +130,7 @@ lexical_keywords
 keywords
 
 D1 is not the current frozen runtime representation.
-It is the next controlled research experiment.
+It was evaluated in EXP-02 and was not promoted to the frozen baseline.
 4. Frozen Corpus
 The primary controlled corpus contains exactly five laws.
 Corpus key	Articles
@@ -203,6 +203,65 @@ Static Hybrid	0.0883	0.0529	0.1901	0.0725
 Static Hybrid wins all four predefined primary metrics at K=10.
 This does not by itself establish statistical significance.
 No significance claim should be made until an appropriate paired analysis is performed.
+
+6A. EXP-02 — D0 vs D1
+
+Status: **COMPLETE**
+
+Official runs:
+
+- D0 control: `exp02_d0_vs_d1_v1_d0_20261013_085034_383461_4828f45f`
+- D1 treatment: `exp02_d0_vs_d1_v1_d1_20261013_090537_436695_379066cd`
+
+Both runs evaluated all 107 queries over the same 1,811-document corpus at commit `bcfd918b89c533a6138e1187cf08ebe0beebe9c6`. Their manifests report clean Git provenance, the frozen corpus fingerprint, the frozen Q0 fingerprint, the exact Vietnamese-SBERT revision, normalized 768-D embeddings, and `IndexFlatIP`.
+
+Observed primary results, closed-world @10:
+
+| Method | Metric | D0 | D1 | Delta |
+|---|---:|---:|---:|---:|
+| BM25 | Recall | 0.076011 | 0.081298 | +0.005287 |
+| BM25 | nDCG | 0.033347 | 0.039831 | +0.006484 |
+| BM25 | MRR | 0.141470 | 0.147567 | +0.006097 |
+| BM25 | Weighted Recall | 0.052248 | 0.057271 | +0.005023 |
+| FAISS | Recall | 0.063228 | 0.063908 | +0.000680 |
+| FAISS | nDCG | 0.051339 | 0.049385 | -0.001954 |
+| FAISS | MRR | 0.144975 | 0.131872 | -0.013103 |
+| FAISS | Weighted Recall | 0.059063 | 0.059895 | +0.000832 |
+| Hybrid | Recall | 0.088254 | 0.082146 | -0.006108 |
+| Hybrid | nDCG | 0.052870 | 0.053311 | +0.000441 |
+| Hybrid | MRR | 0.190090 | 0.211041 | +0.020950 |
+| Hybrid | Weighted Recall | 0.072481 | 0.066704 | -0.005777 |
+
+Observed paired uncertainty at K=10:
+
+- All 12 tested method/metric comparisons had paired-bootstrap 95% confidence intervals containing zero.
+- All paired sign-flip permutation tests had `p >= 0.05`.
+- BM25 nDCG showed a suggestive positive trend (`p = 0.07564`), not a statistically significant result.
+- Hybrid queries where MRR improved while Recall decreased on the same query: `0`; the aggregate movements came from different query subsets.
+
+Interpretation:
+
+The current benchmark does not provide sufficient evidence to establish a consistent D1 improvement over D0. BM25 shows suggestive lexical benefits, while Dense and Hybrid effects are mixed. Hybrid D1 was higher on all four reported metrics at K=20, but K=10 remains the predeclared primary endpoint.
+
+Observed D1/truncation audit:
+
+- All 1,811 documents contain `summary`, `lexical_keywords`, and `keywords`; missing enrichment fields did not confound the comparison.
+- Median document length increased from 699 to 1,036 characters.
+- With the model's 256-token maximum, 619 D0 documents and 967 D1 documents exceed the limit.
+- Dense D0 and D1 truncated token sequences are identical for 619 documents; Dense input changed for 1,192 documents.
+
+Hypothesis / limitation:
+
+Dense truncation is a plausible explanation for some mixed Dense behavior, but EXP-02 does not establish it as a causal mechanism.
+
+Decision:
+
+- D1 is not promoted.
+- Runtime remains D0 under `runtime_retrieval_v1`.
+- The research baseline remains Q0/D0 under `baseline_d0_v2`.
+- Runtime artifacts remain unchanged.
+- EXP-03 must first define a deterministic held-out or cross-validation protocol before any static fusion-weight sweep.
+
 7. Runtime Architecture
 Current runtime path:
 React frontend
@@ -549,44 +608,21 @@ The runtime recovery engineering blocker has been resolved.
 Current order of work:
 1. Documentation checkpoint
 2. Preserve runtime recovery state
-3. EXP-02: D0 vs D1
-4. Establish dev/test discipline before tuning
-5. Static hybrid tuning
+3. Preserve the completed EXP-02 decision and artifacts
+4. Design EXP-03 held-out/cross-validation protocol
+5. Implement and validate static hybrid tuning only after protocol approval
 6. Dynamic / temporal / reranking experiments
-7. Statistical testing
+7. Continue benchmark audit and statistical analysis
 
 No new runtime retrieval feature should be added merely because it exists in the experimental evaluator.
 Research modifications should first be evaluated as controlled experiments.
-22. Next Research Experiment — EXP-02
-Research question:
-Does D1 enrichment improve Vietnamese statutory retrieval compared with the controlled D0 baseline?
+22. Next Research Experiment — EXP-03
 
-Control requirements:
-same corpus
-same 107 benchmark queries
-same Q0
-same embedding model/revision
-same BM25 tokenizer
-same FAISS implementation
-same fusion
-same metric protocol
-same deterministic tie policy
+Research question: can a static BM25/Dense fusion weight selected without test leakage improve held-out retrieval relative to the frozen 0.5/0.5 D0 baseline?
 
-Only the document representation changes:
-D0
-vs
-D1
+The next task is protocol design, not execution. Before sweeping weights, predeclare a deterministic held-out or cross-validation scheme, tuning objective, candidate grid, weight tie-break, out-of-fold aggregation, and provenance contract.
 
-The comparison must report at least:
-Recall@5/10/20
-nDCG@5/10/20
-MRR@5/10/20
-Weighted Recall@5/10/20
-
-Primary endpoint remains:
-closed-world @10
-
-Do not tune D1 and D0 differently during this experiment.
+Do not select `w_bm25` on all 107 queries and report performance on those same 107 queries as unbiased evaluation.
 23. Source-of-Truth Entry Points
 Runtime:
 backend/app/config.py
@@ -601,6 +637,8 @@ backend/scripts/Runtime/verify_golden_parity.py
 
 Frozen evaluation:
 backend/scripts/Evaluation/configs/baseline_d0.yaml
+backend/scripts/Evaluation/configs/exp02_d0.yaml
+backend/scripts/Evaluation/configs/exp02_d1.yaml
 backend/scripts/Evaluation/experiments/baseline.py
 backend/scripts/Evaluation/core/
 backend/scripts/Evaluation/retrieval/
@@ -608,6 +646,7 @@ backend/scripts/Evaluation/retrieval/
 Runtime regression tests:
 backend/scripts/Tests/test_runtime_retrieval.py
 backend/scripts/Tests/test_baseline_protocol.py
+backend/scripts/Tests/test_exp02_protocol.py
 
 Benchmark:
 backend/data/judgments_evaluation.json
@@ -634,4 +673,5 @@ OCR	IMPLEMENTED / PARTIAL	validation/security gaps
 Answer generation	PARTIAL	Gemini dependent
 Authentication	NOT IMPLEMENTED	no auth layer
 Database/vector server	NOT USED	local JSON + FAISS
-Next research step	READY	EXP-02 D0 vs D1
+EXP-02	COMPLETE	D1 not promoted; baseline/runtime remain D0
+Next research step	DESIGN REQUIRED	EXP-03 static fusion-weight CV protocol

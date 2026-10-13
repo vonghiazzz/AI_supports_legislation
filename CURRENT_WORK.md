@@ -24,16 +24,15 @@ Source-of-truth rule:
 The current priority order is:
 
 ```text
-1. Finish documentation checkpoint
-2. Preserve runtime_retrieval_v1 recovery state
-3. Run EXP-02: D0 vs D1
-4. Establish dev/test discipline before tuning
-5. Tune static hybrid only after EXP-02
-6. Evaluate dynamic hybrid
-7. Evaluate temporal retrieval
-8. Evaluate reranking
-9. Perform statistical analysis
-10. Expand human annotation / benchmark audit
+1. Record and preserve the completed EXP-02 decision
+2. Preserve runtime_retrieval_v1 and baseline_d0_v2 unchanged
+3. Design EXP-03 deterministic held-out/cross-validation protocol
+4. Implement static hybrid tuning only after protocol approval
+5. Evaluate dynamic hybrid
+6. Evaluate temporal retrieval
+7. Evaluate reranking
+8. Expand human annotation / benchmark audit
+```
 
 The previous engineering blocker — broken FastAPI retrieval — has been resolved.
 Do not introduce new retrieval features into runtime merely because they exist in the experimental evaluator.
@@ -134,109 +133,37 @@ query expansion
 adaptive hybrid
 
 to the baseline runtime unless they have first been evaluated as controlled research experiments.
-3. Immediate Research Work — EXP-02 D0 vs D1
-Status
-NEXT ACTIVE RESEARCH EXPERIMENT
-Research question:
-Does D1 document enrichment improve Vietnamese judgment-derived statutory retrieval compared with the frozen D0 baseline?
+3. EXP-02 — D0 vs D1
 
-Control
-Everything except the document representation must remain fixed.
-Corpus                  same 1,811 articles
-Benchmark               same 107 queries
-Query representation    Q0
-Embedding model         keepitreal/vietnamese-sbert
-Embedding revision      a9467ef2ef47caa6448edeabfd8e5e5ce0fa2a23
-Embedding dimension     768
-BM25 tokenizer          whitespace
-FAISS                   IndexFlatIP
-Candidate pool          30
-Fusion                  min-max
-BM25 weight             0.5
-Dense weight            0.5
-Tie-break               deterministic
-Evaluation protocol     same
+Status: **COMPLETE**
 
-Only this changes:
-D0
-vs
-D1
+Official runs:
 
-D0
-Current baseline representation:
-Tiêu đề: {title}. Nội dung: {content}
+- D0: `exp02_d0_vs_d1_v1_d0_20261013_085034_383461_4828f45f`
+- D1: `exp02_d0_vs_d1_v1_d1_20261013_090537_436695_379066cd`
 
-Used identically for:
-BM25
-Dense
+Observed:
 
-D1
-D1 adds enrichment fields.
-Current evaluator definition should remain the source of truth.
-Conceptually D1 includes:
-title
-content
-summary
-terms / lexical enrichment
+- Both runs used all 107 queries and the same frozen 1,811-document corpus with clean provenance.
+- At closed-world @10, BM25 improved on all four aggregate metrics under D1; FAISS and Hybrid effects were mixed.
+- No tested @10 comparison had a paired-bootstrap 95% confidence interval excluding zero or a paired sign-flip `p < 0.05`.
+- D1 enrichment fields were populated for all 1,811 documents.
+- The 256-token Dense limit leaves 619 D0/D1 document pairs with identical truncated Dense input.
 
-Before running EXP-02, verify the exact current build_document_text(..., "d1") implementation rather than relying on documentation wording.
-Metrics
-Report:
-Recall@5
-Recall@10
-Recall@20
+Interpretation:
 
-nDCG@5
-nDCG@10
-nDCG@20
+The benchmark does not provide sufficient evidence for a consistent D1 improvement over D0. BM25 nDCG is a suggestive positive trend, not a significant result.
 
-MRR@5
-MRR@10
-MRR@20
+Hypothesis / limitation:
 
-Weighted Recall@5
-Weighted Recall@10
-Weighted Recall@20
+Dense truncation may contribute to mixed Dense results, but causality was not established.
 
-Primary endpoint:
-closed-world @10
+Decision:
 
-Secondary reporting:
-@5
-@20
-
-Do not choose the winner based on whichever K happens to look best.
-Experimental constraints
-Do not:
-tune D0 and D1 separately
-change hybrid weights
-change tokenizer
-change query representation
-change model revision
-add temporal filtering
-add reranking
-change benchmark
-change corpus
-
-during EXP-02.
-Otherwise the experiment would no longer isolate document representation.
-Required outputs
-EXP-02 should produce:
-experiment configuration
-corpus fingerprint
-benchmark fingerprint
-query fingerprint
-model revision
-per-query retrieval results
-aggregate metrics
-D0 vs D1 delta table
-failure-change analysis
-run manifest
-
-If possible, preserve:
-query-level paired results
-
-for later significance testing.
+- Do not promote D1.
+- Keep runtime and frozen research baseline on Q0/D0.
+- Do not rebuild runtime artifacts because of EXP-02.
+- Use `PROJECT_STATE.md` as the canonical detailed EXP-02 result record.
 4. Frozen Baseline
 Status
 COMPLETED / FROZEN
@@ -393,8 +320,9 @@ Never write:
 merely because such functionality exists inside the evaluator.
 9. Static Hybrid Tuning
 Status
-NOT NEXT
-Static tuning comes after EXP-02.
+NEXT PROTOCOL-DESIGN TASK — DO NOT RUN YET
+
+EXP-02 is complete. The next task is to design EXP-03: controlled static hybrid fusion-weight tuning.
 The existing frozen baseline uses:
 min-max
 w_bm25 = 0.5
@@ -402,12 +330,7 @@ w_dense = 0.5
 
 This weight is a baseline configuration, not permission to optimize against all 107 queries.
 Required methodological improvement
-Before tuning:
-define dev/test split
-or
-define deterministic cross-validation
-or
-define another defensible resampling protocol
+Before any weight sweep, define and test a deterministic held-out or cross-validation protocol. The preferred design to audit is deterministic 5-fold cross-validation with seed 42 and out-of-fold-only final evaluation.
 
 Do not optimize hyperparameters over all 107 queries and then report performance on the same 107 as unbiased test performance.
 Query intent distribution is approximately:
@@ -591,7 +514,7 @@ unhealthy retrieval
 
 Those describe superseded runtime behavior.
 20. Do Not Do Yet
-Until the documentation checkpoint and EXP-02 design are complete, do not:
+Until the EXP-03 protocol is designed and approved, do not:
 change frozen baseline weights
 add reranking to runtime
 add temporal filtering to runtime
@@ -604,49 +527,21 @@ claim statistical significance
 claim benchmark is human validated
 
 21. Immediate Next Action
-After documentation is synchronized:
-Design and execute EXP-02: D0 vs D1
 
-The first EXP-02 step should be an audit of the exact current D1 implementation and experimental configuration.
-Then create a reproducible experiment definition that changes only:
-document representation
+Design EXP-03 without executing it:
 
-from:
-D0
+- Audit whether persisted top-20 results preserve the top-30 score pools used by fusion normalization.
+- Define deterministic fold assignment and leakage controls.
+- Predeclare the candidate `w_bm25` grid and tuning objective.
+- Predeclare deterministic weight tie handling.
+- Aggregate only held-out/out-of-fold predictions for final metrics.
 
-to:
-D1
+22. EXP-03 Guardrail
 
-Everything else remains frozen.
-22. Definition of Done for EXP-02
-EXP-02 is complete only when all of the following exist:
-reproducible config
-protocol ID
-corpus fingerprint
-benchmark fingerprint
-query fingerprint
-exact model revision
-per-query output
-aggregate @5/@10/@20 metrics
-D0 vs D1 comparison
-paired delta data
-failure-change analysis
-run manifest
-documented conclusion
+Do not tune `w_bm25` on all 107 queries and then evaluate the selected weight on those same 107 queries. That would produce optimistically biased evidence.
 
-The conclusion must distinguish:
-Observed result
-Interpretation
-Hypothesis
+The implementation must not begin until the split/CV protocol, objective, tie-break, provenance, and acceptance criteria are documented and reviewed.
 
-Do not convert an observed metric difference directly into a causal explanation.
 23. Current Blocker
-There is currently no runtime retrieval blocker.
-The immediate blocker to further research is methodological:
-EXP-02 must be defined so that D0 vs D1 is an isolated comparison and does not accidentally change other retrieval variables.
 
-Therefore the next technical research task is not “improve retrieval.”
-It is:
-freeze EXP-02 controls
-verify exact D1 representation
-run controlled D0 vs D1 experiment
+There is no runtime retrieval blocker. The active research blocker is methodological: EXP-03 needs a deterministic held-out or cross-validation protocol that separates weight selection from evaluation.
