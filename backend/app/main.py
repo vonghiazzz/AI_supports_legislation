@@ -7,13 +7,16 @@ import time
 import shutil
 from fastapi import FastAPI, UploadFile, File, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
 from app.config import settings
 from app.models.schema import SearchRequest, SearchResult, AskRequest, AskResponse, OCRResponse
 from app.services.search_service import search_service
 from app.services.llm_service import llm_service
 from app.services.ocr_service import ocr_service
+from app.services.docx_export_service import build_legal_analysis_docx
 
 app = FastAPI(title=settings.APP_NAME)
+
 
 # Cấu hình CORS để Frontend có thể gọi API
 app.add_middleware(
@@ -32,6 +35,40 @@ async def add_process_time_header(request: Request, call_next):
     response.headers["X-Process-Time"] = str(process_time)
     print(f"[*] {request.method} {request.url.path} - Time: {process_time:.4f}s")
     return response
+
+@app.post("/ai/export-docx")
+def export_docx(data: dict):
+    content = str(data.get("content", "")).strip()
+
+    if not content:
+        raise HTTPException(
+            status_code=400,
+            detail="Nội dung báo cáo không được để trống",
+        )
+
+    try:
+        file_stream, filename = build_legal_analysis_docx(content)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except Exception as exc:
+        print(f"[ERROR][/ai/export-docx] {exc}")
+        raise HTTPException(
+            status_code=500,
+            detail="Không thể tạo tệp DOCX",
+        ) from exc
+
+    return StreamingResponse(
+        file_stream,
+        media_type=(
+            "application/vnd.openxmlformats-officedocument."
+            "wordprocessingml.document"
+        ),
+        headers={
+            "Content-Disposition": f'attachment; filename="{filename}"',
+            "Access-Control-Expose-Headers": "Content-Disposition",
+        },
+    )
+
 
 @app.post("/search", response_model=list[SearchResult])
 async def search_api(req: SearchRequest):
