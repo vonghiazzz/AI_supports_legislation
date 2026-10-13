@@ -1,263 +1,669 @@
+from __future__ import annotations
+
+import hashlib
 import json
-import os
-import numpy as np
+from pathlib import Path
+from typing import Any, Dict, List
+
 from app.config import settings
 from app.services.embedding_service import embedding_service
-from typing import List, Optional, Dict, Any 
+
+from scripts.Evaluation.core.query import normalize_query_q0
+from scripts.Evaluation.retrieval.bm25 import (
+    build_bm25_index,
+    search_bm25,
+)
+from scripts.Evaluation.retrieval.fusion import fuse_pools
+
 
 class SearchService:
     _instance = None
 
     def __new__(cls):
         if cls._instance is None:
-            print("[*] Initializing Search Service (FAISS + BM25)...")
-            cls._instance = super(SearchService, cls).__new__(cls)
-            cls._instance.index = None
-            cls._instance.metadata = []
-            cls._instance.bm25 = None
-            cls._instance.tokenized_corpus = []
-            cls._instance.cross_encoder = None
-            cls._instance.data_loaded = False
+            print(
+                "[*] Initializing frozen Runtime Retrieval Service..."
+            )
+
+            instance = super().__new__(cls)
+
+            instance.index = None
+            instance.metadata = []
+            instance.documents = []
+            instance.bm25 = None
+            instance.manifest = None
+
+            instance.metadata_by_standard_id = {}
+
+            instance.data_loaded = False
+            instance.ready = False
+            instance.load_error = None
+
+            instance._faiss = None
+
+            cls._instance = instance
+
         return cls._instance
 
-    def _ensure_data_loaded(self):
-        if not self.data_loaded:
-            print("[*] Lazy loading Search Service data and models...")
-            
-            # 1. Khởi tạo Embedding model trước
-            _ = embedding_service.encode("test")
-            
-            # 2. Khởi tạo Reranker
-            model_name = settings.RERANK_MODEL
-            print(f"[*] Loading CrossEncoder Reranker: {model_name}...")
-            try:
-                from sentence_transformers import CrossEncoder
-                self.cross_encoder = CrossEncoder(model_name, device='cpu')
-            except Exception as e:
-                print(f"❌ Error loading CrossEncoder: {e}. Reranking will be disabled.")
-                self.cross_encoder = None
-            
-            # 3. Load Data & Indices
-            self.load_data()
-                
+    @staticmethod
+    def _sha256_file(path: Path) -> str:
+        digest = hashlib.sha256()
+
+        with path.open("rb") as handle:
+            for chunk in iter(
+                lambda: handle.read(1024 * 1024),
+                b"",
+            ):
+                digest.update(chunk)
+
+        return digest.hexdigest()
+
+    @staticmethod
+    def _load_json(path: Path):
+        with path.open(
+            "r",
+            encoding="utf-8",
+        ) as handle:
+            return json.load(handle)
+
+    def _validate_manifest_contract(
+        self,
+        manifest: dict,
+    ) -> None:
+        required_values = {
+            "runtime_contract_id": settings.RUNTIME_CONTRACT_ID,
+            "baseline_protocol_id": settings.RUNTIME_PROTOCOL_ID,
+            "query_representation": "q0",
+            "document_representation": "d0",
+            "corpus_count": settings.EXPECTED_CORPUS_COUNT,
+            "metadata_count": settings.EXPECTED_CORPUS_COUNT,
+            "combined_corpus_fingerprint": (
+                settings.EXPECTED_CORPUS_FINGERPRINT
+            ),
+            "embedding_model": settings.EMBEDDING_MODEL,
+            "embedding_requested_revision": (
+                settings.EMBEDDING_REVISION
+            ),
+            "embedding_resolved_revision": (
+                settings.EMBEDDING_REVISION
+            ),
+            "embedding_dimension": (
+                settings.EXPECTED_EMBEDDING_DIMENSION
+            ),
+            "embedding_normalized": True,
+            "faiss_index_type": "IndexFlatIP",
+            "faiss_ntotal": settings.EXPECTED_CORPUS_COUNT,
+            "bm25_tokenizer": "whitespace",
+            "fusion_method": settings.RUNTIME_FUSION_METHOD,
+            "static_w_bm25": (
+                settings.RUNTIME_STATIC_W_BM25
+            ),
+            "static_w_dense": (
+                1.0 - settings.RUNTIME_STATIC_W_BM25
+            ),
+            "tie_break_policy": "standard_law_id_asc",
+        }
+
+        mismatches = []
+
+        for key, expected in required_values.items():
+            actual = manifest.get(key)
+
+            if actual != expected:
+                mismatches.append(
+                    f"{key}: expected={expected!r}, "
+                    f"actual={actual!r}"
+                )
+
+        if mismatches:
+            raise RuntimeError(
+                "Runtime retrieval manifest contract mismatch:\n- "
+                + "\n- ".join(mismatches)
+            )
+
+        fields = manifest.get(
+            "retrieval_document_fields",
+            {},
+        )
+
+        if fields.get("bm25") != "bm25_text":
+            raise RuntimeError(
+                "Manifest BM25 document field must be bm25_text"
+            )
+
+        if fields.get("dense") != "vector_text":
+            raise RuntimeError(
+                "Manifest Dense document field must be vector_text"
+            )
+
+        artifacts = manifest.get("artifacts", {})
+
+        expected_index_name = Path(
+            settings.RUNTIME_INDEX_PATH
+        ).name
+        expected_metadata_name = Path(
+            settings.RUNTIME_METADATA_PATH
+        ).name
+
+        if (
+            artifacts.get("index", {}).get("filename")
+            != expected_index_name
+        ):
+            raise RuntimeError(
+                "Manifest index filename does not match "
+                "runtime configuration"
+            )
+
+        if (
+            artifacts.get("metadata", {}).get("filename")
+            != expected_metadata_name
+        ):
+            raise RuntimeError(
+                "Manifest metadata filename does not match "
+                "runtime configuration"
+            )
+
+    def _validate_artifact_hashes(
+        self,
+        manifest: dict,
+        index_path: Path,
+        metadata_path: Path,
+    ) -> None:
+        artifacts = manifest["artifacts"]
+
+        expected_index_sha = artifacts[
+            "index"
+        ].get("sha256")
+
+        expected_metadata_sha = artifacts[
+            "metadata"
+        ].get("sha256")
+
+        actual_index_sha = self._sha256_file(
+            index_path
+        )
+
+        actual_metadata_sha = self._sha256_file(
+            metadata_path
+        )
+
+        if actual_index_sha != expected_index_sha:
+            raise RuntimeError(
+                "Runtime FAISS SHA256 mismatch"
+            )
+
+        if actual_metadata_sha != expected_metadata_sha:
+            raise RuntimeError(
+                "Runtime metadata SHA256 mismatch"
+            )
+
+    def _validate_metadata(
+        self,
+        metadata: list,
+    ) -> None:
+        if len(metadata) != settings.EXPECTED_CORPUS_COUNT:
+            raise RuntimeError(
+                "Runtime metadata count mismatch: "
+                f"expected "
+                f"{settings.EXPECTED_CORPUS_COUNT}, "
+                f"got {len(metadata)}"
+            )
+
+        standard_ids = []
+
+        for index, item in enumerate(metadata):
+            standard_id = item.get(
+                "standard_law_id"
+            )
+
+            if not standard_id:
+                raise RuntimeError(
+                    "Missing standard_law_id at "
+                    f"metadata index {index}"
+                )
+
+            standard_ids.append(standard_id)
+
+            if "bm25_text" not in item:
+                raise RuntimeError(
+                    "Missing bm25_text at "
+                    f"metadata index {index}"
+                )
+
+            if "vector_text" not in item:
+                raise RuntimeError(
+                    "Missing vector_text at "
+                    f"metadata index {index}"
+                )
+
+            if (
+                item["bm25_text"]
+                != item["vector_text"]
+            ):
+                raise RuntimeError(
+                    "D0 contract violation at "
+                    f"metadata index {index}: "
+                    "BM25 and Dense representation differ"
+                )
+
+        if len(set(standard_ids)) != len(standard_ids):
+            raise RuntimeError(
+                "Duplicate standard_law_id detected "
+                "in runtime metadata"
+            )
+
+    def ensure_ready(self) -> None:
+        if self.ready:
+            return
+
+        try:
+            manifest_path = Path(
+                settings.RUNTIME_MANIFEST_PATH
+            )
+            index_path = Path(
+                settings.RUNTIME_INDEX_PATH
+            )
+            metadata_path = Path(
+                settings.RUNTIME_METADATA_PATH
+            )
+
+            for path in (
+                manifest_path,
+                index_path,
+                metadata_path,
+            ):
+                if not path.exists():
+                    raise RuntimeError(
+                        "Required runtime retrieval "
+                        f"artifact is missing: {path}"
+                    )
+
+            print(
+                "[*] Loading runtime manifest: "
+                f"{manifest_path}"
+            )
+
+            manifest = self._load_json(
+                manifest_path
+            )
+
+            self._validate_manifest_contract(
+                manifest
+            )
+
+            self._validate_artifact_hashes(
+                manifest,
+                index_path,
+                metadata_path,
+            )
+
+            print(
+                "[*] Loading runtime metadata: "
+                f"{metadata_path}"
+            )
+
+            metadata = self._load_json(
+                metadata_path
+            )
+
+            self._validate_metadata(
+                metadata
+            )
+
+            documents = [
+                {
+                    "standard_law_id": item[
+                        "standard_law_id"
+                    ],
+                    "bm25_text": item[
+                        "bm25_text"
+                    ],
+                    "vector_text": item[
+                        "vector_text"
+                    ],
+                }
+                for item in metadata
+            ]
+
+            print(
+                "[*] Building frozen whitespace BM25 index..."
+            )
+
+            bm25 = build_bm25_index(
+                documents
+            )
+
+            # IMPORTANT:
+            # Load sentence-transformers / PyTorch before FAISS.
+            # This ordering avoids the macOS native-library
+            # segmentation fault reproduced during parity testing.
+            embedding_service.ensure_loaded()
+
+            import faiss
+
+            faiss.omp_set_num_threads(1)
+
+            print(
+                "[*] Loading runtime FAISS index: "
+                f"{index_path}"
+            )
+
+            index = faiss.read_index(
+                str(index_path)
+            )
+
+            if type(index).__name__ != "IndexFlatIP":
+                raise RuntimeError(
+                    "Runtime FAISS type mismatch: "
+                    f"{type(index).__name__}"
+                )
+
+            if (
+                int(index.d)
+                != settings.EXPECTED_EMBEDDING_DIMENSION
+            ):
+                raise RuntimeError(
+                    "Runtime FAISS dimension mismatch: "
+                    f"expected "
+                    f"{settings.EXPECTED_EMBEDDING_DIMENSION}, "
+                    f"got {index.d}"
+                )
+
+            if (
+                int(index.ntotal)
+                != settings.EXPECTED_CORPUS_COUNT
+            ):
+                raise RuntimeError(
+                    "Runtime FAISS vector count mismatch: "
+                    f"expected "
+                    f"{settings.EXPECTED_CORPUS_COUNT}, "
+                    f"got {index.ntotal}"
+                )
+
+            if int(index.ntotal) != len(metadata):
+                raise RuntimeError(
+                    "FAISS/metadata alignment mismatch: "
+                    f"{index.ntotal} != {len(metadata)}"
+                )
+
+            self.manifest = manifest
+            self.metadata = metadata
+            self.documents = documents
+            self.bm25 = bm25
+            self.index = index
+            self._faiss = faiss
+
+            self.metadata_by_standard_id = {
+                item["standard_law_id"]: item
+                for item in metadata
+            }
+
             self.data_loaded = True
+            self.ready = True
+            self.load_error = None
 
-    def load_data(self):
-        import faiss
-        index_path = settings.INDEX_PATH
-        metadata_path = settings.METADATA_PATH
-        print(f"[*] SearchService loading metadata from: {metadata_path}")
-        print(f"[*] SearchService loading index from: {index_path}")
+            print(
+                "✅ Runtime retrieval ready: "
+                f"{len(metadata)} articles, "
+                f"d={index.d}, "
+                f"ntotal={index.ntotal}"
+            )
 
-        # Load Metadata
-        if os.path.exists(metadata_path):
-            try:
-                with open(metadata_path, "r", encoding="utf-8") as f:
-                    self.metadata = json.load(f)
-                print(f"✅ Loaded {len(self.metadata)} metadata records")
-                
-                # Khởi tạo BM25
-                print("[*] Initializing BM25 index...")
-                try:
-                    from rank_bm25 import BM25Okapi
-                    import re
-                    
-                    # Tokenize dân dã cho tiếng Việt
-                    def tokenize(text):
-                        return re.findall(r'\w+', text.lower())
-                    
-                    self.tokenized_corpus = []
-                    for item in self.metadata:
-                        # Kết hợp Content, Title và Keywords để BM25 tìm chính xác hơn
-                        text = f"{item.get('title', '')} {item.get('content', '')} {' '.join(item.get('keywords', []))}"
-                        self.tokenized_corpus.append(tokenize(text))
-                        
-                    self.bm25 = BM25Okapi(self.tokenized_corpus)
-                    print("✅ BM25 index ready.")
-                except Exception as e:
-                    print(f"❌ Error initializing BM25: {e}. BM25 will be disabled.")
-                    self.bm25 = None
-                    
-            except Exception as e:
-                print(f"❌ Error reading metadata: {e}")
-                self.metadata = []
-        else:
-            print(f"❌ Metadata file not found at {metadata_path}")
+        except Exception as exc:
+            self.ready = False
+            self.data_loaded = False
+            self.load_error = str(exc)
 
-        # Load FAISS
-        if os.path.exists(index_path):
-            try:
-                self.index = faiss.read_index(index_path)
-                print(f"✅ Loaded FAISS index from {index_path}")
-            except Exception as e:
-                print(f"❌ Error reading FAISS index: {e}")
-                self.index = None
-        else:
-            print(f"❌ FAISS index not found at {index_path}")
+            print(
+                "❌ Runtime retrieval initialization failed: "
+                f"{exc}"
+            )
 
-    def search_vector(self, query: str, top_k: int = 20):
-        """Tìm kiếm bằng vector (FAISS)."""
-        if self.index is None: return []
-        
-        query_vector = embedding_service.encode(query).astype('float32').reshape(1, -1)
-        distances, indices = self.index.search(query_vector, k=top_k)
-        
-        results = []
-        for i, idx in enumerate(indices[0]):
-            if idx != -1 and idx < len(self.metadata):
-                item = self.metadata[idx]
-                results.append({
-                    "law_id": item.get("law_id"),
-                    "title": item.get("title", "Không có tiêu đề"),
-                    "content": item.get("content"),
-                    "category": item.get("category"),
-                    "chapter": item.get("chapter"),
-                    "section": item.get("section"),
-                    "keywords": item.get("keywords", []),
-                    "tags": item.get("tags", []),
-                    "type": item.get("type"),
-                    "priority": item.get("priority", 0.5),
-                    "vector_score": float(distances[0][i]),
-                    "id": idx
-                })
-        return results
+            raise
 
-    def search_bm25(self, keywords: Any, top_k: int = 10):
-        """Tìm kiếm bằng từ khóa (BM25). Chấp nhận List hoặc Dict."""
-        if self.bm25 is None or not keywords: return []
-        
-        # Merge các keywords thành 1 list tokens
-        import re
-        search_tokens = []
-        
-        # Nếu là Dict từ LLMService mới (có keywords và lexical_keywords)
-        if isinstance(keywords, dict):
-            # Gộp tất cả các list con lại
-            target_list = []
-            for val in keywords.values():
-                if isinstance(val, list):
-                    target_list.extend(val)
-        else:
-            target_list = keywords # Giả định là list[str]
+    def status(self) -> dict:
+        return {
+            "status": (
+                "ready"
+                if self.ready
+                else "not_ready"
+            ),
+            "ready": self.ready,
+            "runtime_contract_id": (
+                self.manifest.get(
+                    "runtime_contract_id"
+                )
+                if self.manifest
+                else settings.RUNTIME_CONTRACT_ID
+            ),
+            "baseline_protocol_id": (
+                self.manifest.get(
+                    "baseline_protocol_id"
+                )
+                if self.manifest
+                else settings.RUNTIME_PROTOCOL_ID
+            ),
+            "articles_loaded": len(
+                self.metadata
+            ),
+            "embedding_model": (
+                settings.EMBEDDING_MODEL
+            ),
+            "embedding_revision": (
+                settings.EMBEDDING_REVISION
+            ),
+            "embedding_dimension": (
+                settings.EXPECTED_EMBEDDING_DIMENSION
+            ),
+            "error": self.load_error,
+        }
 
-        for kw in target_list:
-            if isinstance(kw, str):
-                search_tokens.extend(re.findall(r'\w+', kw.lower()))
-            
-        if not search_tokens: return []
-        
-        scores = self.bm25.get_scores(search_tokens)
-        top_n_indices = np.argsort(scores)[::-1][:top_k]
-        
-        results = []
-        for idx in top_n_indices:
-            if scores[idx] > 0:
-                item = self.metadata[idx]
-                results.append({
-                    "law_id": item.get("law_id"),
-                    "title": item.get("title", "Không có tiêu đề"),
-                    "content": item.get("content"),
-                    "category": item.get("category"),
-                    "chapter": item.get("chapter"),
-                    "section": item.get("section"),
-                    "keywords": item.get("keywords", []),
-                    "tags": item.get("tags", []),
-                    "type": item.get("type"),
-                    "priority": item.get("priority", 0.5),
-                    "bm25_score": float(scores[idx]),
-                    "id": int(idx)
-                })
-        return results
+    def _search_dense_pool(
+        self,
+        query_text: str,
+        pool_k: int,
+    ) -> list:
+        query_vector = embedding_service.encode(
+            query_text
+        ).astype("float32").reshape(1, -1)
 
-    def search_hybrid(self, queries: List[str], keywords: List[str], top_k: int = 5):
-        """Hybrid Search: Multi-query Vector + BM25 + Rerank."""
-        self._ensure_data_loaded()
-        
-        all_results = {} # Dùng dict để deduplicate theo 'id' (index trong metadata)
+        self._faiss.normalize_L2(
+            query_vector
+        )
 
-        # 1. Multi-query Vector Search
-        for q in queries:
-            print(f"[*] Vector searching for: {q[:50]}...")
-            vec_res = self.search_vector(q, top_k=20)
-            for r in vec_res:
-                rid = r["id"]
-                if rid not in all_results:
-                    # Khởi tạo mặc định cho bm25_score
-                    r["bm25_score"] = 0.0
-                    all_results[rid] = r
-                else:
-                    # Update score nếu tìm thấy score cao hơn
-                    if r["vector_score"] > all_results[rid].get("vector_score", 0.0):
-                        all_results[rid]["vector_score"] = r["vector_score"]
+        scores, indices = self.index.search(
+            query_vector,
+            pool_k,
+        )
 
-        # 2. BM25 Search
-        if keywords:
-            print(f"[*] BM25 searching for: {keywords}...")
-            bm_res = self.search_bm25(keywords, top_k=20)
-            for r in bm_res:
-                rid = r["id"]
-                if rid not in all_results:
-                    # Khởi tạo mặc định cho vector_score
-                    r["vector_score"] = 0.0
-                    all_results[rid] = r
-                else:
-                    all_results[rid]["bm25_score"] = r["bm25_score"]
-                    # Đảm bảo source được lấy từ BM25 nếu Vector search chưa có (hiếm)
-                    if not all_results[rid].get("source") and r.get("source"):
-                        all_results[rid]["source"] = r["source"]
+        return [
+            {
+                "rank": rank,
+                "standard_law_id": self.documents[
+                    int(document_index)
+                ]["standard_law_id"],
+                "score": float(score),
+            }
+            for rank, (score, document_index)
+            in enumerate(
+                zip(
+                    scores[0],
+                    indices[0],
+                ),
+                1,
+            )
+            if document_index >= 0
+        ]
 
-        if not all_results:
+    def _format_result(
+        self,
+        standard_id: str,
+        hybrid_score: float,
+        bm25_map: dict,
+        dense_map: dict,
+    ) -> Dict[str, Any]:
+        item = self.metadata_by_standard_id[
+            standard_id
+        ]
+
+        return {
+            "standard_law_id": standard_id,
+            "law_id": (
+                item.get("law_id")
+                or item.get("original_id")
+            ),
+            "title": item.get(
+                "title",
+                "Không có tiêu đề",
+            ),
+            "content": item.get(
+                "content",
+                "",
+            ),
+            "normalized_content": item.get(
+                "normalized_content"
+            ),
+            "summary": item.get("summary"),
+            "keywords": item.get(
+                "keywords",
+                [],
+            ),
+            "lexical_keywords": item.get(
+                "lexical_keywords",
+                [],
+            ),
+            "legal_concepts": item.get(
+                "legal_concepts",
+                [],
+            ),
+            "category": item.get("category"),
+            "chapter": item.get("chapter"),
+            "section": item.get("section"),
+            "type": item.get("type"),
+            "priority": item.get(
+                "priority",
+                0.5,
+            ),
+            "tags": item.get(
+                "tags",
+                [],
+            ),
+            "score": float(hybrid_score),
+            "source": item.get(
+                "source_key"
+            ),
+            "vector_score": (
+                float(dense_map[standard_id])
+                if standard_id in dense_map
+                else None
+            ),
+            "bm25_score": (
+                float(bm25_map[standard_id])
+                if standard_id in bm25_map
+                else None
+            ),
+        }
+
+    def search(
+        self,
+        query: str,
+        top_k: int = 5,
+    ) -> List[Dict[str, Any]]:
+        """
+        Canonical runtime retrieval path.
+
+        Contract:
+          Q0 -> BM25(D0) + Dense(D0)
+             -> min-max 0.5/0.5
+             -> deterministic standard_law_id tie-break.
+        """
+        self.ensure_ready()
+
+        if top_k < 1:
+            raise ValueError(
+                "top_k must be >= 1"
+            )
+
+        if top_k > 20:
+            raise ValueError(
+                "runtime_retrieval_v1 supports top_k <= 20"
+            )
+
+        query_text = normalize_query_q0(
+            query
+        )
+
+        if not query_text:
             return []
 
-        # 3. Chuyển list sang rerank
-        candidates = list(all_results.values())
-        
-        # Lấy query gốc (thường là query cuối cùng hoặc đầu tiên trong list)
-        main_query = queries[-1] if queries else ""
-        
-        # 4. Rerank bằng CrossEncoder
-        if self.cross_encoder and main_query:
-            try:
-                cross_inp = [[main_query, c["content"]] for c in candidates]
-                cross_scores = self.cross_encoder.predict(cross_inp)
-                
-                for i in range(len(candidates)):
-                    candidates[i]["score"] = float(cross_scores[i])
-                
-                # Threshold Filtering (> 0)
-                candidates = [c for c in candidates if c.get("score", -10) > 0]
-                candidates = sorted(candidates, key=lambda x: x["score"], reverse=True)
-            except Exception as e:
-                print(f"⚠️ Reranking error: {e}. Using hybrid fallback.")
-                self._apply_hybrid_fallback(candidates)
+        pool_k = settings.RUNTIME_POOL_K
+
+        bm25_pool = search_bm25(
+            self.bm25,
+            self.documents,
+            query_text,
+            pool_k,
+        )
+
+        dense_pool = self._search_dense_pool(
+            query_text,
+            pool_k,
+        )
+
+        hybrid_pairs = fuse_pools(
+            bm25_pool,
+            dense_pool,
+            settings.RUNTIME_STATIC_W_BM25,
+            settings.RUNTIME_FUSION_METHOD,
+        )
+
+        bm25_map = {
+            item["standard_law_id"]:
+            item["score"]
+            for item in bm25_pool
+        }
+
+        dense_map = {
+            item["standard_law_id"]:
+            item["score"]
+            for item in dense_pool
+        }
+
+        return [
+            self._format_result(
+                standard_id,
+                score,
+                bm25_map,
+                dense_map,
+            )
+            for standard_id, score
+            in hybrid_pairs[:top_k]
+        ]
+
+    def search_hybrid(
+        self,
+        queries,
+        keywords=None,
+        top_k: int = 5,
+    ):
+        """
+        Backward-compatible wrapper.
+
+        Expanded LLM queries / keyword lists are intentionally ignored by
+        the frozen runtime retrieval contract. The first query is used as
+        Q0 input.
+        """
+        if isinstance(queries, str):
+            query = queries
+        elif queries:
+            query = queries[0]
         else:
-            # No reranker fallback
-            self._apply_hybrid_fallback(candidates)
+            query = ""
 
-        return candidates[:top_k]
+        return self.search(
+            query,
+            top_k=top_k,
+        )
 
-    def _apply_hybrid_fallback(self, candidates: List[Dict[str, Any]]):
-        """Áp dụng scoring 0.6*Vector + 0.4*BM25 với normalization đơn giản."""
-        if not candidates: return
-
-        # Lấy max scores để normalize
-        max_vec = max([c.get("vector_score", 0) for c in candidates]) or 1.0
-        max_bm25 = max([c.get("bm25_score", 0) for c in candidates]) or 1.0
-
-        for c in candidates:
-            # Normalize scores về [0, 1]
-            vec_norm = c.get("vector_score", 0) / max_vec
-            bm25_norm = c.get("bm25_score", 0) / max_bm25
-            
-            # Hybrid Score (0.6/0.4)
-            c["score"] = 0.6 * vec_norm + 0.4 * bm25_norm
-        
-        candidates.sort(key=lambda x: x["score"], reverse=True)
-
-        return candidates[:top_k]
-
-    def search(self, query: str, top_k: int = 5):
-        """Legacy method for backward compatibility."""
-        return self.search_hybrid([query], [], top_k)
 
 search_service = SearchService()

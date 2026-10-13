@@ -1,11 +1,12 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import List, Optional, Dict, Any
 
 class SearchRequest(BaseModel):
     query: str
-    top_k: int = 5
+    top_k: int = Field(default=5, ge=1, le=20)
 
 class SearchResult(BaseModel):
+    standard_law_id: Optional[str] = None
     law_id: Optional[str] = None
     title: Optional[str] = None
     content: str
@@ -27,7 +28,7 @@ class SearchResult(BaseModel):
 
 class AskRequest(BaseModel):
     query: str
-    top_k: int = 8
+    top_k: int = Field(default=8, ge=1, le=20)
 
 class AskResponse(BaseModel):
     query: str

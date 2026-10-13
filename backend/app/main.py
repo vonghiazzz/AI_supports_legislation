@@ -5,6 +5,8 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 import time
 import shutil
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI, UploadFile, File, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
@@ -15,7 +17,17 @@ from app.services.llm_service import llm_service
 from app.services.ocr_service import ocr_service
 from app.services.docx_export_service import build_legal_analysis_docx
 
-app = FastAPI(title=settings.APP_NAME)
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Fail fast if the frozen runtime retrieval contract cannot load.
+    search_service.ensure_ready()
+    yield
+
+
+app = FastAPI(
+    title=settings.APP_NAME,
+    lifespan=lifespan,
+)
 
 
 # Cấu hình CORS để Frontend có thể gọi API
@@ -73,7 +85,10 @@ def export_docx(data: dict):
 @app.post("/search", response_model=list[SearchResult])
 async def search_api(req: SearchRequest):
     try:
-        results = search_service.search_hybrid([req.query], [], top_k=req.top_k)
+        results = search_service.search(
+            req.query,
+            top_k=req.top_k,
+        )
         return results
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -96,19 +111,21 @@ async def ask_api(req: AskRequest):
                 processing_time=0.001
             )
 
-        # 1. Consolidated Search Intent (Gộp 2 bước AI làm 1 để tiết kiệm ~20s)
-        intent = llm_service.extract_legal_intent(req.query)
-        expanded_queries = intent.get("queries", [req.query])
+        # 1. Frozen runtime retrieval uses the original Q0 query only.
+        #
+        # Query expansion / LLM intent extraction is deliberately excluded
+        # from runtime_retrieval_v1 so that /ask and /search share the same
+        # deterministic baseline retrieval contract.
+        expanded_queries = [req.query]
         keywords = {
-            "keywords": intent.get("keywords", []),
-            "lexical_keywords": intent.get("lexical_keywords", [])
+            "keywords": [],
+            "lexical_keywords": [],
         }
 
-        # 2. Hybrid Search (Vector + BM25 + Rerank)
-        context_results = search_service.search_hybrid(
-            queries=expanded_queries, 
-            keywords=keywords, 
-            top_k=req.top_k
+        # 2. Frozen Q0/D0 retrieval.
+        context_results = search_service.search(
+            req.query,
+            top_k=req.top_k,
         )
 
         # 4. Generate Answer using context
@@ -157,9 +174,32 @@ async def ocr_api(file: UploadFile = File(...)):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.get("/health/live")
+async def health_live():
+    return {
+        "status": "alive",
+    }
+
+
+@app.get("/health/ready")
+async def health_ready():
+    try:
+        search_service.ensure_ready()
+    except Exception as exc:
+        raise HTTPException(
+            status_code=503,
+            detail={
+                "status": "not_ready",
+                "error": str(exc),
+            },
+        ) from exc
+
+    return search_service.status()
+
+
 @app.get("/health")
 async def health_check():
-    return {"status": "healthy", "articles_loaded": len(search_service.metadata)}
+    return await health_ready()
 
 if __name__ == "__main__":
     import uvicorn
