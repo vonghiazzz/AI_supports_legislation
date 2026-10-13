@@ -1,6 +1,6 @@
 # AI Supports Legislation — Current Project State
 
-Last updated: 2026-10-13  
+Last updated: 2026-10-13
 Source-of-truth rule: `CODE > TEST > CONFIG > DOCUMENTATION > README > COMMENT > ASSUMPTION`
 
 This document describes the current repository state after repository hygiene, frozen-baseline recovery, deterministic artifact reconstruction, and FastAPI runtime retrieval recovery.
