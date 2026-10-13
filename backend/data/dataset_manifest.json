@@ -1,0 +1,9 @@
+{
+  "dataset_name": "judgments_evaluation",
+  "version": "1.0.0",
+  "schema_version": "2.0.0",
+  "last_updated": "2026-06-04T10:00:00+07:00",
+  "total_queries": 107,
+  "description": "Benchmark evaluation dataset generated from legal judgments using Gemini 2.5 Flash OCR and structuring pipeline.",
+  "format": "JSON list"
+}

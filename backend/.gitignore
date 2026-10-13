@@ -36,7 +36,10 @@ temp_*/
 # Data & AI Models (Huge files)
 data/*.faiss
 data/*.json
-!data/cleaned_law_articles.json  # Keep the source data but ignore generated metadata/index
+!data/cleaned_law_articles.json
+!data/judgments_evaluation.json
+!data/dataset_manifest.json
+!data/gt_schema_v2.json
 /models/
 *.bin
 *.pth
@@ -53,3 +56,13 @@ data/*.json
 
 # Legacy generated law chunks
 /data/law_chunks/
+
+# Generated research/runtime artifacts
+/data/runs/
+/data/structured_judgments/
+/data/*.bak
+/data/* copy.json
+
+# Raw law source documents are local artifacts
+/dataLaw/*
+!/dataLaw/laws_config.json

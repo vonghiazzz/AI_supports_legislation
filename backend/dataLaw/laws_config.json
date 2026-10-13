@@ -1,0 +1,48 @@
+[
+  {
+    "file_name": "BO_LUAT_TO_TUNG_DAN_SU_2015_1540098625339.doc",
+    "law_name": "Bộ luật Tố tụng Dân sự 2015",
+    "key": "bo_luat_to_tung_dan_su_2015",
+    "active_start_year": 2015,
+    "active_end_year": 2099
+  },
+  {
+    "file_name": "Luat-Dat-dai-2024-31-2024-QH15-523642.aspx.pdf",
+    "law_name": "Luật Đất đai 2024",
+    "key": "luat_dat_dai_2024",
+    "active_start_year": 2024,
+    "active_end_year": 2099
+  },
+  {
+    "file_name": "Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx.pdf",
+    "law_name": "Luật Hôn nhân và Gia đình 2014",
+    "key": "luat_hon_nhan_gia_dinh_2014",
+    "active_start_year": 2014,
+    "active_end_year": 2099
+  },
+  {
+    "file_name": "mau-so-52.docx",
+    "law_name": "Mau So 52",
+    "key": "mau_so_52",
+    "active_start_year": 2015,
+    "active_end_year": 2099
+  },
+
+  {
+    "file_name": [
+      "Bo_luat_dan_su_2015_part1.pdf",
+      "Bo_luat_dan_su_2015_part2.pdf"
+    ],
+    "law_name": "Bộ luật dân sự 2015",
+    "key": "bo_luat_dan_su_2015",
+    "active_start_year": 2015,
+    "active_end_year": 2099
+  },
+  {
+    "file_name": "Luat-dat-dai-2013-215836.aspx.pdf",
+    "law_name": "Luat Dat Dai 2013",
+    "key": "luat_dat_dai_2013",
+    "active_start_year": 2013,
+    "active_end_year": 2099
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "id": 1,
+    "judgment_name": "174.pdf",
+    "query": "Tranh chấp bồi thường thiệt hại ngoài hợp đồng do công chứng viên thiếu trách nhiệm.",
+    "ground_truth": {
+      "core": [
+        {
+          "law_code": "luat_cong_chung_2014",
+          "article": "Điều 40",
+          "source_type": "explicit",
+          "domain": "substantive"
+        }
+      ],
+      "supporting": [
+        {
+          "law_code": "bo_luat_dan_su_2005",
+          "article": "Điều 617",
+          "source_type": "explicit",
+          "domain": "substantive"
+        },
+        {
+          "law_code": "bo_luat_to_tung_dan_su_2015",
+          "article": "Điều 337",
+          "source_type": "explicit",
+          "domain": "procedural"
+        }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "judgment_name": "175.pdf",
+    "query": "Tranh chấp đòi lại quyền sử dụng đất và tài sản.",
+    "ground_truth": {
+      "core": [],
+      "supporting": [
+        {
+          "law_code": "bo_luat_dan_su_2015",
+          "article": "Điều 117",
+          "source_type": "inferred",
+          "domain": "substantive"
+        }
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "judgment_name": "217.pdf",
+    "query": "Tranh chấp hợp đồng đặt cọc mua bán nhà ở.",
+    "ground_truth": {
+      "core": [
+        {
+          "law_code": "bo_luat_dan_su_2015",
+          "article": "Điều 328",
+          "source_type": "inferred",
+          "domain": "substantive"
+        }
+      ],
+      "supporting": [
+        {
+          "law_code": "bo_luat_to_tung_dan_su_2015",
+          "article": "Điều 85",
+          "source_type": "inferred",
+          "domain": "procedural"
+        }
+      ]
+    }
+  }
+]
