@@ -1,0 +1,95 @@
+# EXP-03: leakage-controlled static Hybrid fusion-weight tuning.
+
+protocol:
+  id: "exp03_static_hybrid_5fold_cv_v1"
+  status: "experimental"
+  experiment_id: "exp03_static_hybrid_weight_v1"
+  control_protocol: "baseline_d0_v2"
+
+evaluation:
+  mode: "exp03_static_fusion_cv"
+  experiment_id: "exp03_static_hybrid_weight_v1"
+  k: 20
+  pool_k: 30
+  alpha_core: 3
+  alpha_support: 1
+  query_representation: "q0"
+  document_representation: "d0"
+  temporal_filter: "none"
+  random_seed: 42
+  expected_query_count: 107
+  query_fingerprint: "adf712e5d2636a960bbf454e1d32e6e8d665f3189a1c9776cf3cf84558ceff08"
+
+metric_protocol:
+  primary_world: "closed_world"
+  primary_metric: "weighted_recall"
+  primary_k: 10
+  reported_k: [5, 10, 20]
+
+cross_validation:
+  fold_count: 5
+  seed: 42
+  algorithm: "sha256_protocol_seed_query_id_contiguous_v1"
+  fold_sizes: [22, 22, 21, 21, 21]
+
+weight_tuning:
+  grid: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  objective:
+    world: "closed_world"
+    metric: "weighted_recall"
+    k: 10
+  tie_break:
+    - "highest_unrounded_objective"
+    - "smallest_distance_to_0.5"
+    - "smaller_w_bm25"
+
+control:
+  static_w_bm25: 0.5
+
+golden_parity:
+  run_id: "exp02_d0_vs_d1_v1_d0_20261013_085034_383461_4828f45f"
+  configurations: ["BM25", "FAISS", "Hybrid_Static_Fixed"]
+  metric_tolerance: 1.0e-12
+
+latency:
+  warmup_queries: 1
+
+corpus:
+  required_keys:
+    - "bo_luat_dan_su_2015"
+    - "bo_luat_to_tung_dan_su_2015"
+    - "luat_dat_dai_2013"
+    - "luat_dat_dai_2024"
+    - "luat_hon_nhan_gia_dinh_2014"
+  expected_counts:
+    bo_luat_dan_su_2015: 689
+    bo_luat_to_tung_dan_su_2015: 517
+    luat_dat_dai_2013: 212
+    luat_dat_dai_2024: 260
+    luat_hon_nhan_gia_dinh_2014: 133
+  expected_total: 1811
+  fingerprint: "66fb0b20e0505993ed616f864ece99ecfad801de98b4ba3a37d20a3a7bf55e58"
+
+models:
+  embedding_model: "keepitreal/vietnamese-sbert"
+  embedding_revision: "a9467ef2ef47caa6448edeabfd8e5e5ce0fa2a23"
+  local_files_only: true
+  embedding_dimension: 768
+  embedding_normalized: true
+
+bm25:
+  tokenizer: "whitespace"
+
+faiss:
+  index_type: "IndexFlatIP"
+
+fusion:
+  method: "minmax"
+  ranking_tie_break: "score_desc_then_standard_law_id_asc"
+
+paths:
+  laws_config: "backend/dataLaw/laws_config.json"
+  eval_file: "backend/data/judgments_evaluation.json"
+  output_dir: "backend/data"
+  gt_schema: "backend/data/gt_schema_v2.json"
+  golden_run_dir: "backend/data/runs/exp02_d0_vs_d1_v1_d0_20261013_085034_383461_4828f45f"
