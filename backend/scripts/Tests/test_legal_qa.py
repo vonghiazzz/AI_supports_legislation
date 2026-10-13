@@ -3,7 +3,7 @@ import sys
 import json
 
 # Add root to sys.path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from app.services.search_service import search_service
 from app.services.llm_service import LLMService
@@ -24,7 +24,6 @@ def test_legal_qa(query: str):
     print(f"[*] Tìm thấy {len(results)} điều luật. Các điều luật chính:")
     for r in results:
         print(f"   - Điều {r.get('law_id')}: {r.get('title')} (Score: {r.get('score'):.4f})")
-        # print(f"     Tags: {r.get('tags')}")
 
     # 2. Gọi LLM để trả lời
     print("\n[*] AI đang phân tích và trả lời...")

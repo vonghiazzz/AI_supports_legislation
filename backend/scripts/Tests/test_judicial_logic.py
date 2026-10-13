@@ -2,7 +2,7 @@ import os
 import sys
 
 # Add root to sys.path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from app.services.llm_service import llm_service
 
