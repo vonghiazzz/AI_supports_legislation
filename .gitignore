@@ -37,7 +37,7 @@ temp_*/
 data/*.faiss
 data/*.json
 !data/cleaned_law_articles.json  # Keep the source data but ignore generated metadata/index
-models/
+/models/
 *.bin
 *.pth
 *.onnx
