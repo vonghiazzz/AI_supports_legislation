@@ -22,6 +22,11 @@ if __package__:
         EXP04_PROTOCOL_ID,
         run_exp04_selective_dynamic_hybrid_nested_cv,
     )
+    from .experiments.exp05_frozen_hybrid30_zero_shot_reranker import (
+        EXP05_MODE,
+        EXP05_PROTOCOL_ID,
+        run_exp05_frozen_hybrid30_zero_shot_reranker,
+    )
     from .experiments.legacy_advanced import run_legacy_advanced
 else:
     project_root = Path(__file__).resolve().parent.parent.parent.parent
@@ -43,6 +48,11 @@ else:
         EXP04_PROTOCOL_ID,
         run_exp04_selective_dynamic_hybrid_nested_cv,
     )
+    from backend.scripts.Evaluation.experiments.exp05_frozen_hybrid30_zero_shot_reranker import (
+        EXP05_MODE,
+        EXP05_PROTOCOL_ID,
+        run_exp05_frozen_hybrid30_zero_shot_reranker,
+    )
     from backend.scripts.Evaluation.experiments.legacy_advanced import run_legacy_advanced
 
 
@@ -63,6 +73,10 @@ def run_experiment(config_path=DEFAULT_CONFIG_PATH, max_queries=None, temporal_f
         return run_exp03_static_fusion_cv(config_path, max_queries=max_queries)
     if mode == EXP04_MODE and protocol_id == EXP04_PROTOCOL_ID:
         return run_exp04_selective_dynamic_hybrid_nested_cv(
+            config_path, max_queries=max_queries
+        )
+    if mode == EXP05_MODE and protocol_id == EXP05_PROTOCOL_ID:
+        return run_exp05_frozen_hybrid30_zero_shot_reranker(
             config_path, max_queries=max_queries
         )
     if mode == LEGACY_MODE and protocol_id is None:

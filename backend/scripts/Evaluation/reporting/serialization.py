@@ -115,3 +115,47 @@ def write_exp04_artifacts(run_dir, config_path, artifacts):
         shutil.rmtree(temp_dir, ignore_errors=True)
         raise
     return run_dir / "pipeline_results.json"
+
+
+def write_exp05_artifacts(run_dir, config_path, artifacts):
+    """Atomically publish strict-JSON EXP-05 artifacts and the config snapshot."""
+    run_dir = Path(run_dir)
+    run_dir.parent.mkdir(parents=True, exist_ok=True)
+    if run_dir.exists():
+        raise FileExistsError(f"EXP-05 run directory already exists: {run_dir}")
+    expected = {
+        "run_manifest.json",
+        "prediction_artifact.json",
+        "summary_metrics.json",
+        "statistical_analysis.json",
+    }
+    if set(artifacts) != expected:
+        raise ValueError("EXP-05 writer requires the exact frozen artifact set")
+    expected_published = expected | {"eval_config.snapshot.yaml"}
+    temp_dir = Path(
+        tempfile.mkdtemp(
+            prefix=f".{run_dir.name}.partial-",
+            dir=run_dir.parent,
+        )
+    )
+    try:
+        for filename, payload in artifacts.items():
+            with open(temp_dir / filename, "w", encoding="utf-8") as handle:
+                json.dump(
+                    payload,
+                    handle,
+                    ensure_ascii=False,
+                    indent=2,
+                    allow_nan=False,
+                )
+        shutil.copy2(config_path, temp_dir / "eval_config.snapshot.yaml")
+        actual = {path.name for path in temp_dir.iterdir()}
+        if actual != expected_published:
+            raise RuntimeError(
+                "EXP-05 artifact publication requires the exact complete artifact set"
+            )
+        os.replace(temp_dir, run_dir)
+    except Exception:
+        shutil.rmtree(temp_dir, ignore_errors=True)
+        raise
+    return run_dir / "summary_metrics.json"

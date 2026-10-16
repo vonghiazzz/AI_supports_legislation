@@ -1,0 +1,141 @@
+# EXP-05: zero-shot cross-encoder reranking of frozen Hybrid 0.5 top-30 candidates.
+
+protocol:
+  id: "exp05_frozen_hybrid30_zero_shot_cross_encoder_eval_v1"
+  status: "experimental"
+  experiment_id: "exp05_frozen_hybrid30_zero_shot_reranker_v1"
+  control_protocol: "baseline_d0_v2"
+  result_scope: "exploratory"
+  automatic_runtime_promotion: false
+
+evaluation:
+  mode: "exp05_frozen_candidate_rerank"
+  experiment_id: "exp05_frozen_hybrid30_zero_shot_reranker_v1"
+  query_representation: "q0"
+  document_representation: "d0"
+  temporal_filter: "none"
+  expected_query_count: 107
+  pool_k: 30
+  candidate_count: 30
+  expected_inference_pairs: 3210
+  reported_k: [5, 10, 20]
+  alpha_core: 3
+  alpha_support: 1
+
+candidate_source:
+  run_id: "exp03_static_hybrid_5fold_cv_v1_20261013_123303_632045_cef5ac23"
+  path: "backend/data/runs/exp03_static_hybrid_5fold_cv_v1_20261013_123303_632045_cef5ac23/candidate_pools.json"
+  fingerprint: "4e94fc54bf2dc1ec09c4fbb605daadb1ba0dfa8c7c0c10a2d40ea34e90c2c805"
+  fusion_method: "minmax"
+  w_bm25: 0.5
+  w_dense: 0.5
+
+fold_source:
+  path: "backend/data/runs/exp03_static_hybrid_5fold_cv_v1_20261013_123303_632045_cef5ac23/fold_manifest.json"
+  mapping_fingerprint: "94e9f68e7113f21b24e4cfbbccb2faacac1bfb106ac35e5c2167e7f51eee7310"
+  fold_count: 5
+  fold_sizes: [22, 22, 21, 21, 21]
+  purpose: "stability_reporting_only"
+
+frozen_inputs:
+  query_fingerprint: "adf712e5d2636a960bbf454e1d32e6e8d665f3189a1c9776cf3cf84558ceff08"
+  corpus_fingerprint: "66fb0b20e0505993ed616f864ece99ecfad801de98b4ba3a37d20a3a7bf55e58"
+  d0_template: "Tiêu đề: {title}. Nội dung: {content}"
+
+corpus:
+  required_keys:
+    - "bo_luat_dan_su_2015"
+    - "bo_luat_to_tung_dan_su_2015"
+    - "luat_dat_dai_2013"
+    - "luat_dat_dai_2024"
+    - "luat_hon_nhan_gia_dinh_2014"
+  expected_counts:
+    bo_luat_dan_su_2015: 689
+    bo_luat_to_tung_dan_su_2015: 517
+    luat_dat_dai_2013: 212
+    luat_dat_dai_2024: 260
+    luat_hon_nhan_gia_dinh_2014: 133
+  expected_total: 1811
+
+model:
+  id: "BAAI/bge-reranker-v2-m3"
+  revision: "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e"
+  snapshot_path: "/Users/tannghiavo/.cache/huggingface/hub/models--BAAI--bge-reranker-v2-m3/snapshots/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e"
+  tokenizer_class: "transformers.AutoTokenizer"
+  model_class: "transformers.AutoModelForSequenceClassification"
+  local_files_only: true
+  critical_file_sha256:
+    config.json: "13dcd6c31d9fec9d1d8e158702072f62d7fa7d312a64b9fe057bec9a08cfe41a"
+    model.safetensors: "d9e3e081faff1eefb84019509b2f5558fd74c1a05a2c7db22f74174fcedb5286"
+    tokenizer.json: "69564b696052886ed0ac63fa393e928384e0f8caada38c1f4864a9bfbf379c15"
+    sentencepiece.bpe.model: "cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865"
+
+inference:
+  device: "cpu"
+  dtype: "float32"
+  batch_size: 1
+  model_eval: true
+  inference_mode: true
+  max_length: 1024
+  truncation: "only_second"
+  padding: true
+  score: "raw_scalar_classification_logit"
+  sigmoid: false
+  softmax: false
+  normalize_scores: false
+  blend_with_hybrid: false
+  rerank_tie_break:
+    - "reranker_score_desc"
+    - "original_hybrid_rank_asc"
+    - "standard_law_id_asc"
+
+control:
+  name: "Control_Hybrid_0_5"
+  treatment_name: "ZeroShot_BGE_Reranker_V2_M3"
+  parity_tolerance: 1.0e-12
+  closed_world_at_10:
+    recall: 0.08825383049544679
+    ndcg: 0.05286971847087022
+    mrr: 0.1900904910250704
+    weighted_recall: 0.07248115500412532
+
+metric_protocol:
+  primary_world: "closed_world"
+  primary_metric: "weighted_recall"
+  primary_k: 10
+  secondary_metrics: ["recall", "ndcg", "mrr"]
+  reported_k: [5, 10, 20]
+
+statistics:
+  bootstrap_samples: 20000
+  bootstrap_seed: 42
+  bootstrap_ci_percentiles: [2.5, 97.5]
+  sign_flip_samples: 100000
+  sign_flip_seed: 42
+  sign_flip_two_sided: true
+  sign_flip_statistic: "absolute_mean"
+  sign_flip_p_value: "(1+extreme)/(samples+1)"
+
+success_contract:
+  require_all: true
+  conditions:
+    - "treatment_closed_wr10_above_control"
+    - "bootstrap_lower_above_zero"
+    - "sign_flip_p_below_0_05"
+    - "wr10_wins_exceed_losses"
+    - "positive_after_removing_largest_gain"
+    - "positive_in_at_least_three_folds"
+    - "no_secondary_ci_entirely_below_zero"
+
+artifacts:
+  strict_json: true
+  atomic_partial_directory: true
+  files:
+    - "run_manifest.json"
+    - "prediction_artifact.json"
+    - "summary_metrics.json"
+    - "statistical_analysis.json"
+
+paths:
+  laws_config: "backend/dataLaw/laws_config.json"
+  output_dir: "backend/data"
