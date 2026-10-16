@@ -304,19 +304,18 @@ B0  BM25
 B1  Dense
 E1  Static Hybrid
 EXP-02  D0 vs D1
+EXP-03  leakage-controlled static fusion-weight CV
 
 Next:
-EXP-03 protocol design for leakage-controlled static hybrid tuning
+read-only/offline per-query oracle/headroom analysis on the existing EXP-03 candidate cache
 
 Then:
-static hybrid tuning under the approved held-out/CV protocol
-dynamic hybrid
+decision on whether a query-dependent fusion experiment is justified
 temporal retrieval
 reranking
 statistical analysis
 
-Before tuning hyperparameters, define an appropriate dev/test or cross-validation protocol.
-Do not tune all parameters on the same 107 queries and then report the same queries as an unbiased test result.
+The oracle/headroom analysis uses ground truth and must be described only as an upper-bound diagnostic, not deployable or unbiased test performance.
 21. EXP-02 — D0 vs D1
 
 Status: **COMPLETE**.
@@ -327,7 +326,17 @@ At the primary closed-world @10 endpoint, D1 showed suggestive BM25 gains but mi
 
 Decision: D1 was not promoted. Runtime and the frozen research baseline remain Q0/D0. See `PROJECT_STATE.md` for run IDs, detailed metrics, paired uncertainty, and the Dense truncation limitation.
 
-The next task is to design EXP-03 static fusion-weight tuning with deterministic held-out or cross-validation discipline. Do not select and evaluate the weight on the same 107 queries.
+EXP-03 subsequently completed that leakage-controlled static-weight evaluation; see the next section.
+
+21A. EXP-03 — Static Fusion Weight CV
+
+Status: **COMPLETE**.
+
+Official run: `exp03_static_hybrid_5fold_cv_v1_20261013_123303_632045_cef5ac23`.
+
+The five-fold OOF selected policy was below the fixed 0.5/0.5 control on all four aggregate closed-world metrics at K=10. Primary Weighted Recall@10 changed by `-0.007193031`, approximately `-9.92%`; Recall and Weighted Recall decreases had paired intervals excluding zero and sign-flip `p < 0.05`.
+
+Decision: do not promote the CV-selected static policy. Runtime and `baseline_d0_v2` remain at 0.5/0.5. The next research action is a read-only/offline per-query oracle/headroom analysis using the existing EXP-03 candidate cache. See `PROJECT_STATE.md` for the canonical detailed protocol, results, uncertainty, limitations, and interpretation.
 
 22. Human Annotation Status
 Current human annotation is only a pilot:

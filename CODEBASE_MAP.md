@@ -1,6 +1,6 @@
 # AI Supports Legislation — Codebase Map
 
-Last updated: 2026-10-13
+Last updated: 2026-10-16
 
 This document maps current implementation to files/functions and explicitly separates:
 
@@ -638,13 +638,13 @@ EXPERIMENTAL / LEGACY-MIXED
 The research evaluator contains or explores features that are not active runtime behavior.
 Feature	State
 D1 representation	EXP-02 COMPLETE / NOT PROMOTED
-Static fusion tuning	EXP-03 DESIGN REQUIRED
+Static fusion tuning	EXP-03 COMPLETE / NOT PROMOTED
 Dynamic hybrid weights	EXPERIMENTAL
 Intent/profile routing	EXPERIMENTAL
 Temporal filtering	EXPERIMENTAL
 PhoRanker reranking	EXPERIMENTAL
 Failure taxonomy	EXPERIMENTAL
-Oracle overlap	EXPERIMENTAL
+Per-query oracle/headroom	NEXT READ-ONLY ANALYSIS
 Statistical tests	EXPERIMENTAL
 Paper/LaTeX reporting	EXPERIMENTAL
 
@@ -661,6 +661,19 @@ EXP-02 ownership:
 | `backend/scripts/Tests/test_exp02_protocol.py` | EXP-02 arm/control/provenance contract tests |
 
 The generated EXP-02 run artifacts remain research evidence under `backend/data/runs/`; they are not runtime artifacts.
+
+EXP-03 ownership:
+
+| File | Responsibility |
+|---|---|
+| `backend/scripts/Evaluation/configs/exp03_static_fusion_cv.yaml` | Frozen EXP-03 protocol, folds, weight grid, objective, and golden reference |
+| `backend/scripts/Evaluation/experiments/exp03_static_fusion_cv.py` | Candidate-cache generation, golden parity, deterministic CV, OOF evaluation, provenance, and artifact assembly |
+| `backend/scripts/Evaluation/run_experiment.py` | Explicit protocol-aware CLI dispatch |
+| `backend/scripts/Evaluation/reporting/serialization.py` | Atomic EXP-03 artifact publication |
+| `backend/scripts/Tests/test_exp03_protocol.py` | Protocol, leakage, parity, dispatch, and persistence regression tests |
+| `backend/data/runs/exp03_static_hybrid_5fold_cv_v1_20261013_123303_632045_cef5ac23/` | Official EXP-03 evidence: candidate cache, folds, OOF results, summary, manifest, and config snapshot |
+
+EXP-03 is complete and did not promote a new static policy. The evaluator and artifacts remain research-only; runtime continues to use frozen 0.5/0.5 Static Hybrid.
 
 21. Statute Extraction Pipeline
 Directory:
@@ -1008,9 +1021,13 @@ Runtime artifact generation
 backend/scripts/Runtime/build_retrieval_artifacts.py
 backend/scripts/Runtime/verify_golden_parity.py
 
-Frozen baseline
+Controlled evaluation
 backend/scripts/Evaluation/configs/baseline_d0.yaml
+backend/scripts/Evaluation/configs/exp02_d0.yaml
+backend/scripts/Evaluation/configs/exp02_d1.yaml
+backend/scripts/Evaluation/configs/exp03_static_fusion_cv.yaml
 backend/scripts/Evaluation/experiments/baseline.py
+backend/scripts/Evaluation/experiments/exp03_static_fusion_cv.py
 backend/scripts/Evaluation/core/
 backend/scripts/Evaluation/retrieval/
 
@@ -1022,6 +1039,8 @@ backend/scripts/Evaluation/validate_benchmark.py
 Tests
 backend/scripts/Tests/test_runtime_retrieval.py
 backend/scripts/Tests/test_baseline_protocol.py
+backend/scripts/Tests/test_exp02_protocol.py
+backend/scripts/Tests/test_exp03_protocol.py
 
 37. Current State Matrix
 Area	Status	Authoritative implementation/evidence
@@ -1046,4 +1065,5 @@ Benchmark	FROZEN	107 queries
 Human annotation	INCOMPLETE	3-query pilot
 Advanced evaluator	EXPERIMENTAL	Evaluation modules
 EXP-02	COMPLETE	D1 not promoted; runtime/baseline remain D0
-Next research experiment	DESIGN REQUIRED	EXP-03 static fusion-weight CV protocol
+EXP-03	COMPLETE	CV-selected static policy not promoted; frozen 0.5/0.5 retained
+Next research action	READ-ONLY ANALYSIS	Per-query oracle/headroom on existing EXP-03 candidate cache

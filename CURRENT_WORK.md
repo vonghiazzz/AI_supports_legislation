@@ -1,6 +1,6 @@
 # AI Supports Legislation — Current Work
 
-Last updated: 2026-10-13
+Last updated: 2026-10-16
 
 This document records the work that is currently active or immediately next.
 
@@ -24,14 +24,13 @@ Source-of-truth rule:
 The current priority order is:
 
 ```text
-1. Record and preserve the completed EXP-02 decision
+1. Record and preserve the completed EXP-03 decision
 2. Preserve runtime_retrieval_v1 and baseline_d0_v2 unchanged
-3. Design EXP-03 deterministic held-out/cross-validation protocol
-4. Implement static hybrid tuning only after protocol approval
-5. Evaluate dynamic hybrid
-6. Evaluate temporal retrieval
-7. Evaluate reranking
-8. Expand human annotation / benchmark audit
+3. Perform a read-only/offline per-query oracle/headroom analysis on the existing EXP-03 candidate cache
+4. Decide whether query-dependent fusion has enough headroom for a new controlled experiment
+5. Evaluate temporal retrieval
+6. Evaluate reranking
+7. Expand human annotation / benchmark audit
 ```
 
 The previous engineering blocker — broken FastAPI retrieval — has been resolved.
@@ -164,6 +163,24 @@ Decision:
 - Keep runtime and frozen research baseline on Q0/D0.
 - Do not rebuild runtime artifacts because of EXP-02.
 - Use `PROJECT_STATE.md` as the canonical detailed EXP-02 result record.
+3A. EXP-03 — Static Fusion Weight CV
+
+Status: **COMPLETE**
+
+Official run: `exp03_static_hybrid_5fold_cv_v1_20261013_123303_632045_cef5ac23`
+
+Observed:
+
+- Five deterministic folds selected BM25 weights `0.4/0.5/0.5/0.5/0.4`.
+- The OOF selected policy was below the fixed 0.5 control on all four closed-world metrics at K=10.
+- Primary Weighted Recall@10 changed from `0.072481155004` to `0.065288123567`, a delta of `-0.007193031` or approximately `-9.92%`.
+- Recall and Weighted Recall decreases had paired 95% intervals excluding zero and sign-flip `p < 0.05`; nDCG and MRR decreases were not statistically established.
+
+Decision:
+
+- Do not promote the CV-selected static policy.
+- Keep the frozen 0.5/0.5 policy, runtime, and `baseline_d0_v2` unchanged.
+- Use `PROJECT_STATE.md` as the canonical detailed EXP-03 result record.
 4. Frozen Baseline
 Status
 COMPLETED / FROZEN
@@ -320,36 +337,22 @@ Never write:
 merely because such functionality exists inside the evaluator.
 9. Static Hybrid Tuning
 Status
-NEXT PROTOCOL-DESIGN TASK — DO NOT RUN YET
+COMPLETE — NOT PROMOTED
 
-EXP-02 is complete. The next task is to design EXP-03: controlled static hybrid fusion-weight tuning.
+EXP-03 completed a leakage-controlled five-fold static fusion-weight evaluation. Its OOF selected policy did not improve on the frozen control.
 The existing frozen baseline uses:
 min-max
 w_bm25 = 0.5
 w_dense = 0.5
 
-This weight is a baseline configuration, not permission to optimize against all 107 queries.
-Required methodological improvement
-Before any weight sweep, define and test a deterministic held-out or cross-validation protocol. The preferred design to audit is deterministic 5-fold cross-validation with seed 42 and out-of-fold-only final evaluation.
-
-Do not optimize hyperparameters over all 107 queries and then report performance on the same 107 as unbiased test performance.
-Query intent distribution is approximately:
-104 mixed
-3 semantic
-
-Therefore naive intent-stratified splitting is not useful.
+No new static weight becomes the baseline. See `PROJECT_STATE.md` for the official run, full protocol, metrics, uncertainty, and interpretation.
 10. Dynamic Hybrid
 Status
-PLANNED RESEARCH
-Only consider after:
-EXP-02
-static tuning protocol
-static tuned baseline
+GATED RESEARCH
 
-Dynamic weighting must demonstrate improvement against:
-frozen static baseline
-and
-properly tuned static baseline
+Before implementing Dynamic Hybrid, perform a read-only/offline per-query oracle/headroom analysis on the existing EXP-03 candidate cache.
+
+The oracle is a ground-truth-informed upper bound, not a deployable policy or unbiased test result. A dynamic/router experiment is justified only if the diagnostic shows meaningful headroom.
 
 Any router must be evaluated independently of the retrieval performance it is supposed to improve.
 11. Temporal Retrieval
@@ -494,13 +497,9 @@ documentation
 not the large generated FAISS/metadata artifacts themselves.
 19. Documentation Work
 Status
-IN PROGRESS
-Current documentation checkpoint order:
-1. PROJECT_STATE.md       done/rewrite prepared
-2. CURRENT_WORK.md        this file
-3. CODEBASE_MAP.md        next
-4. DECISIONS_AND_HISTORY.md
-5. README.md
+CURRENT
+
+The project documentation records the completed EXP-02 and EXP-03 decisions. `PROJECT_STATE.md` is the canonical detailed EXP-03 result record; this file tracks only immediate work.
 
 Documentation must remove stale claims that runtime currently uses:
 BGE-M3
@@ -514,34 +513,33 @@ unhealthy retrieval
 
 Those describe superseded runtime behavior.
 20. Do Not Do Yet
-Until the EXP-03 protocol is designed and approved, do not:
+Before the oracle/headroom decision gate, do not:
 change frozen baseline weights
 add reranking to runtime
 add temporal filtering to runtime
-add dynamic routing to runtime
+implement or add dynamic routing to runtime
 regenerate benchmark with Gemini
 mutate frozen ground truth
 overwrite runtime artifacts via Flow/03
-tune on all 107 queries
-claim statistical significance
+describe oracle performance as deployable or unbiased test performance
+claim EXP-03 proves dynamic routing will work
 claim benchmark is human validated
 
 21. Immediate Next Action
 
-Design EXP-03 without executing it:
+Perform a read-only/offline per-query oracle/headroom analysis using the existing EXP-03 candidate cache:
 
-- Audit whether persisted top-20 results preserve the top-30 score pools used by fusion normalization.
-- Define deterministic fold assignment and leakage controls.
-- Predeclare the candidate `w_bm25` grid and tuning objective.
-- Predeclare deterministic weight tie handling.
-- Aggregate only held-out/out-of-fold predictions for final metrics.
+- Quantify the best achievable per-query outcome across the existing weight grid.
+- Compare the upper bound with the frozen 0.5/0.5 control.
+- Preserve query-level evidence and report the analysis explicitly as ground-truth-informed oracle headroom.
+- Use the result only to decide whether a learned/router-based experiment deserves implementation.
 
 22. EXP-03 Guardrail
 
-Do not tune `w_bm25` on all 107 queries and then evaluate the selected weight on those same 107 queries. That would produce optimistically biased evidence.
+EXP-03 satisfied this guardrail through deterministic five-fold selection and one held-out prediction per query.
 
-The implementation must not begin until the split/CV protocol, objective, tie-break, provenance, and acceptance criteria are documented and reviewed.
+The next oracle analysis deliberately uses ground truth and therefore cannot be presented as deployable/test performance.
 
 23. Current Blocker
 
-There is no runtime retrieval blocker. The active research blocker is methodological: EXP-03 needs a deterministic held-out or cross-validation protocol that separates weight selection from evaluation.
+There is no runtime retrieval blocker. The active research decision gate is whether the existing EXP-03 cache shows enough per-query oracle headroom to justify a future query-dependent fusion experiment.

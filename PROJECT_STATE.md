@@ -1,9 +1,9 @@
 # AI Supports Legislation — Current Project State
 
-Last updated: 2026-10-13
+Last updated: 2026-10-16
 Source-of-truth rule: `CODE > TEST > CONFIG > DOCUMENTATION > README > COMMENT > ASSUMPTION`
 
-This document describes the current repository state after repository hygiene, frozen-baseline recovery, deterministic artifact reconstruction, and FastAPI runtime retrieval recovery.
+This document describes the current repository state after repository hygiene, frozen-baseline recovery, deterministic artifact reconstruction, FastAPI runtime retrieval recovery, and completion of EXP-02 and EXP-03.
 
 ---
 
@@ -82,17 +82,17 @@ E1  Static Hybrid
     ↓
 EXP-02  D0 vs D1
     ↓
-Static hybrid tuning with proper dev/test discipline
+EXP-03  leakage-controlled static hybrid tuning
     ↓
-Dynamic hybrid
+Per-query oracle/headroom analysis
     ↓
-Temporal retrieval
+Dynamic hybrid decision gate
     ↓
-Reranking
+Temporal retrieval / reranking
     ↓
 Statistical analysis
 
-EXP-02 is complete. The immediate research blocker is the design of EXP-03: controlled static hybrid weight tuning with deterministic held-out or cross-validation discipline.
+EXP-02 and EXP-03 are complete. EXP-03 did not support promoting its CV-selected static policy. The immediate next research action is a read-only/offline per-query oracle/headroom analysis on the existing EXP-03 candidate cache before deciding whether a query-dependent fusion experiment is justified.
 3. Frozen Baseline Protocol
 Protocol ID:
 baseline_d0_v2
@@ -260,7 +260,74 @@ Decision:
 - Runtime remains D0 under `runtime_retrieval_v1`.
 - The research baseline remains Q0/D0 under `baseline_d0_v2`.
 - Runtime artifacts remain unchanged.
-- EXP-03 must first define a deterministic held-out or cross-validation protocol before any static fusion-weight sweep.
+- EXP-03 subsequently evaluated static fusion weights without promoting a replacement policy; see Section 6B.
+
+6B. EXP-03 — Leakage-Controlled Static Fusion Weight
+
+Status: **COMPLETE**
+
+Experiment: `exp03_static_hybrid_weight_v1`
+
+Protocol: `exp03_static_hybrid_5fold_cv_v1`
+
+Control: `baseline_d0_v2`
+
+Official run: `exp03_static_hybrid_5fold_cv_v1_20261013_123303_632045_cef5ac23`
+
+The run completed at Git commit `e78d9c4e62e7468ca4dc68d6255628b0c6e7baa6` with `git_dirty=false`, `tracked_code_dirty=false`, and `baseline_source_dirty=false`. It evaluated all 107 Q0 queries against the frozen 1,811-document D0 corpus with no temporal filter, whitespace BM25, normalized 768-D Vietnamese-SBERT embeddings at revision `a9467ef2ef47caa6448edeabfd8e5e5ce0fa2a23`, `IndexFlatIP`, `pool_k=30`, and `stored_k=20`.
+
+Golden parity passed against `exp02_d0_vs_d1_v1_d0_20261013_085034_383461_4828f45f`. BM25, FAISS, and `Hybrid_Static_Fixed` rankings matched exactly through depth 20; summary metrics used tolerance `1e-12`.
+
+The predeclared protocol used five deterministic folds of `22/22/21/21/21`, seed 42, and `sha256_protocol_seed_query_id_contiguous_v1`. The fold-mapping fingerprint is `94e9f68e7113f21b24e4cfbbccb2faacac1bfb106ac35e5c2167e7f51eee7310`; the candidate-cache fingerprint is `4e94fc54bf2dc1ec09c4fbb605daadb1ba0dfa8c7c0c10a2d40ea34e90c2c805`. Each training split selected from `w_bm25 = 0.0, 0.1, ..., 1.0` using closed-world Weighted Recall@10 with `alpha_core=3` and `alpha_support=1`.
+
+Selected BM25 weights were:
+
+| Fold | 0 | 1 | 2 | 3 | 4 |
+|---|---:|---:|---:|---:|---:|
+| `w_bm25` | 0.4 | 0.5 | 0.5 | 0.5 | 0.4 |
+
+Observed primary results, closed-world @10:
+
+| Metric | OOF selected policy | Fixed 0.5 control | Delta |
+|---|---:|---:|---:|
+| Recall | 0.078065498578 | 0.088253830495 | -0.010188332 |
+| nDCG | 0.049783452607 | 0.052869718471 | -0.003086266 |
+| MRR | 0.174358403798 | 0.190090491025 | -0.015732087 |
+| Weighted Recall | 0.065288123567 | 0.072481155004 | -0.007193031 |
+
+The primary Weighted Recall change was approximately `-9.92%` relative to the fixed control. Paired query counts were Recall `1/96/10`, nDCG `6/84/17`, MRR `6/85/16`, and Weighted Recall `1/96/10` for win/tie/loss.
+
+Paired uncertainty used 20,000 bootstrap samples, 100,000 sign-flip samples, and seed 42:
+
+| Metric | Delta | 95% CI | Sign-flip p |
+|---|---:|---:|---:|
+| Recall | -0.010188332 | [-0.017938938, -0.003733736] | 0.00294 |
+| nDCG | -0.003086266 | [-0.008108557, +0.002179487] | 0.25937 |
+| MRR | -0.015732087 | [-0.037190884, +0.004064864] | 0.14364 |
+| Weighted Recall | -0.007193031 | [-0.013734461, -0.001972219] | 0.00896 |
+
+Observed:
+
+- Three folds selected the frozen weight 0.5; two selected 0.4.
+- Both held-out folds using 0.4 performed worse on primary Weighted Recall@10: fold 0 delta `-0.016190430` with `1/17/4` win/tie/loss, and fold 4 delta `-0.019688805` with `0/15/6`.
+- The OOF selected policy was below the fixed control on all four aggregate closed-world metrics at K=10.
+- Recall and Weighted Recall decreases had 95% intervals excluding zero and sign-flip `p < 0.05`; nDCG and MRR decreases were not statistically established under the same analysis.
+
+Interpretation:
+
+The predeclared static fusion tuning procedure did not generalize better than the frozen 0.5/0.5 policy. The training-fold preference for `w_bm25=0.4` in two folds did not transfer successfully to their held-out queries.
+
+Hypothesis:
+
+Weight preference may be heterogeneous or noisy across query subsets. This can motivate investigation of query-dependent fusion, but EXP-03 does not establish that a dynamic router will work. It also does not establish that 0.5 is globally optimal, that 0.4 is intrinsically bad, or that training overfitting is the proven causal mechanism.
+
+Decision:
+
+- Do not promote the CV-selected static policy.
+- Keep frozen Static Hybrid at `w_bm25=0.5`, `w_dense=0.5`.
+- Keep `baseline_d0_v2`, runtime, and runtime artifacts unchanged.
+- Do not create a new static-weight baseline.
+- Next perform a read-only/offline per-query oracle/headroom analysis on the existing candidate cache. This is a ground-truth-informed upper-bound diagnostic, not deployable or unbiased test performance.
 
 7. Runtime Architecture
 Current runtime path:
@@ -606,23 +673,21 @@ Remaining issues include:
 21. Current Priority
 The runtime recovery engineering blocker has been resolved.
 Current order of work:
-1. Documentation checkpoint
-2. Preserve runtime recovery state
-3. Preserve the completed EXP-02 decision and artifacts
-4. Design EXP-03 held-out/cross-validation protocol
-5. Implement and validate static hybrid tuning only after protocol approval
-6. Dynamic / temporal / reranking experiments
-7. Continue benchmark audit and statistical analysis
+1. Record and preserve the completed EXP-03 decision and artifacts
+2. Preserve runtime recovery state and `baseline_d0_v2`
+3. Perform a read-only/offline per-query oracle/headroom analysis on the existing EXP-03 candidate cache
+4. Use that upper-bound diagnostic to decide whether a query-dependent fusion experiment is justified
+5. Continue temporal/reranking experiments and benchmark audit only under controlled protocols
 
 No new runtime retrieval feature should be added merely because it exists in the experimental evaluator.
 Research modifications should first be evaluated as controlled experiments.
-22. Next Research Experiment — EXP-03
+22. Next Research Action — Per-Query Oracle/Headroom Audit
 
-Research question: can a static BM25/Dense fusion weight selected without test leakage improve held-out retrieval relative to the frozen 0.5/0.5 D0 baseline?
+EXP-03 has answered its predeclared question: its leakage-controlled CV-selected static policy did not improve held-out retrieval over the frozen 0.5/0.5 D0 control.
 
-The next task is protocol design, not execution. Before sweeping weights, predeclare a deterministic held-out or cross-validation scheme, tuning objective, candidate grid, weight tie-break, out-of-fold aggregation, and provenance contract.
+The next task is a read-only/offline per-query oracle/headroom analysis using the existing EXP-03 candidate cache. Its purpose is to determine whether query-dependent fusion has enough potential headroom to justify a learned/router-based experiment.
 
-Do not select `w_bm25` on all 107 queries and report performance on those same 107 queries as unbiased evaluation.
+Because the oracle uses ground truth to select the best per-query result, it must be reported only as an upper-bound diagnostic. It is neither deployable policy performance nor unbiased test performance.
 23. Source-of-Truth Entry Points
 Runtime:
 backend/app/config.py
@@ -639,7 +704,9 @@ Frozen evaluation:
 backend/scripts/Evaluation/configs/baseline_d0.yaml
 backend/scripts/Evaluation/configs/exp02_d0.yaml
 backend/scripts/Evaluation/configs/exp02_d1.yaml
+backend/scripts/Evaluation/configs/exp03_static_fusion_cv.yaml
 backend/scripts/Evaluation/experiments/baseline.py
+backend/scripts/Evaluation/experiments/exp03_static_fusion_cv.py
 backend/scripts/Evaluation/core/
 backend/scripts/Evaluation/retrieval/
 
@@ -647,6 +714,7 @@ Runtime regression tests:
 backend/scripts/Tests/test_runtime_retrieval.py
 backend/scripts/Tests/test_baseline_protocol.py
 backend/scripts/Tests/test_exp02_protocol.py
+backend/scripts/Tests/test_exp03_protocol.py
 
 Benchmark:
 backend/data/judgments_evaluation.json
@@ -674,4 +742,5 @@ Answer generation	PARTIAL	Gemini dependent
 Authentication	NOT IMPLEMENTED	no auth layer
 Database/vector server	NOT USED	local JSON + FAISS
 EXP-02	COMPLETE	D1 not promoted; baseline/runtime remain D0
-Next research step	DESIGN REQUIRED	EXP-03 static fusion-weight CV protocol
+EXP-03	COMPLETE	CV-selected static policy not promoted; fixed 0.5/0.5 retained
+Next research step	ANALYSIS REQUIRED	Offline per-query oracle/headroom diagnostic on existing EXP-03 cache

@@ -1,6 +1,6 @@
 # AI Supports Legislation — Decisions and History
 
-Last updated: 2026-10-13
+Last updated: 2026-10-16
 
 This document records:
 
@@ -771,14 +771,14 @@ reproduction is difficult
 regressions are hidden
 
 Consequence
-Current experiment order is:
+The staged experiment order adopted was:
 B0 / B1 / E1 frozen
     ↓
 EXP-02 D0 vs D1
     ↓
-static tuning
+EXP-03 leakage-controlled static tuning
     ↓
-dynamic hybrid
+oracle/headroom decision gate before dynamic hybrid
     ↓
 temporal
     ↓
@@ -788,18 +788,14 @@ reranking
 Historical concern
 Existing experimental code contains in-memory fusion tuning over the evaluation set.
 Decision
-Future hyperparameter selection must introduce:
+Hyperparameter selection must use:
 dev/test discipline
 
 or another defensible resampling protocol.
 Reason
 Tuning and evaluating on the same 107 queries biases reported performance.
 Consequence
-Before static hybrid tuning, define:
-deterministic split
-cross-validation
-or
-another predeclared paired evaluation design
+EXP-03 implemented this decision with deterministic five-fold CV and OOF-only evaluation. Any future tuning must retain an equivalent separation between selection and evaluation.
 
 36. EXP-02 Before Fusion Tuning
 Decision
@@ -845,7 +841,39 @@ Decision:
 - Runtime remains D0.
 - The frozen research baseline remains `baseline_d0_v2` with Q0/D0.
 - Runtime artifacts are not changed because of EXP-02.
-- The next research task is EXP-03 protocol design for leakage-controlled static fusion-weight tuning.
+- This decision led to the leakage-controlled EXP-03 evaluation recorded in Decision 36B.
+
+36B. EXP-03 Result — Retain Frozen 0.5/0.5 Static Hybrid
+
+EXP-03 `exp03_static_hybrid_weight_v1`, protocol `exp03_static_hybrid_5fold_cv_v1`, completed with clean provenance at commit `e78d9c4e62e7468ca4dc68d6255628b0c6e7baa6`.
+
+Official run:
+
+`exp03_static_hybrid_5fold_cv_v1_20261013_123303_632045_cef5ac23`
+
+Observed:
+
+- Golden parity passed for BM25, FAISS, and fixed 0.5 Hybrid against the official EXP-02 D0 control.
+- Five deterministic folds selected BM25 weights `0.4/0.5/0.5/0.5/0.4` using training-fold closed-world Weighted Recall@10.
+- OOF Weighted Recall@10 was `0.065288123567`, versus `0.072481155004` for the fixed 0.5 control: delta `-0.007193031`, approximately `-9.92%`.
+- OOF performance was below control on all four aggregate closed-world metrics at K=10.
+- Recall and Weighted Recall decreases had paired 95% intervals excluding zero with sign-flip `p < 0.05`; nDCG and MRR decreases were not statistically established.
+- Both held-out folds using 0.4 had negative primary effects; the three folds retaining 0.5 had zero policy delta.
+
+Interpretation:
+
+The predeclared static fusion tuning procedure did not generalize better than the frozen 0.5/0.5 policy. This does not prove that 0.5 is globally optimal, that 0.4 is intrinsically bad, that overfitting is the causal mechanism, or that dynamic routing will improve retrieval.
+
+Decision:
+
+- EXP-03 is complete.
+- Do not promote the CV-selected static policy.
+- Keep runtime and `baseline_d0_v2` at `w_bm25=0.5`, `w_dense=0.5`.
+- Do not create a new static-weight baseline.
+- Before implementing Dynamic Hybrid, perform a read-only/offline per-query oracle/headroom analysis on the existing EXP-03 candidate cache.
+- Treat that oracle strictly as a ground-truth-informed upper-bound diagnostic, not deployable or unbiased test performance.
+
+`PROJECT_STATE.md` is the canonical detailed EXP-03 result record.
 
 37. Human Annotation Is a Pilot
 Historical evidence
@@ -1064,25 +1092,24 @@ Do not describe them as current runtime behavior.
 49. Current Decisions Still Open
 The following remain genuinely unresolved.
 Research
-1. What deterministic held-out or cross-validation scheme should EXP-03 use?
-2. Which predeclared objective should select the static fusion weight?
-3. Does leakage-controlled tuned static Hybrid beat the frozen 0.5/0.5 baseline?
-4. Does dynamic fusion add value beyond tuned static fusion?
-5. Does temporal filtering improve legally valid retrieval without harming recall?
-6. Does reranking provide reliable gain relative to latency/cost?
-7. What manual annotation coverage is sufficient for benchmark confidence?
+1. How much per-query oracle/headroom exists in the frozen EXP-03 candidate cache?
+2. Is that upper bound large and structured enough to justify a query-dependent fusion experiment?
+3. Can a future router improve held-out performance over frozen 0.5/0.5 without using ground-truth information at inference time?
+4. Does temporal filtering improve legally valid retrieval without harming recall?
+5. Does reranking provide reliable gain relative to latency/cost?
+6. What manual annotation coverage is sufficient for benchmark confidence?
 Runtime / product
-8. Should /ask retain automatic answer evaluation or remove/replace it?
-9. What authentication and authorization model is required?
-10. What deployment topology is intended?
-11. Should generated retrieval artifacts be distributed externally or always regenerated?
-12. What artifact/version rollout and rollback mechanism is needed?
-13. What OCR upload limits and security policy are required?
-14. What retention/privacy policy applies to uploaded documents and generated reports?
+7. Should /ask retain automatic answer evaluation or remove/replace it?
+8. What authentication and authorization model is required?
+9. What deployment topology is intended?
+10. Should generated retrieval artifacts be distributed externally or always regenerated?
+11. What artifact/version rollout and rollback mechanism is needed?
+12. What OCR upload limits and security policy are required?
+13. What retention/privacy policy applies to uploaded documents and generated reports?
 Scope
-15. Should judgments eventually become a searchable precedent corpus?
-16. Should future runtime include a learned router?
-17. Should richer temporal article-version modeling be built?
+14. Should judgments eventually become a searchable precedent corpus?
+15. Should future runtime include a learned router?
+16. Should richer temporal article-version modeling be built?
 These questions remain open and should not be inferred from old code.
 50. Current Decision Matrix
 Topic	Decision
@@ -1109,6 +1136,8 @@ Runtime artifacts	Generated, ignored by Git
 Artifact validation	Manifest + SHA + structural checks
 Golden acceptance	Ranking parity
 EXP-02 decision	Complete; D1 not promoted
-Next research experiment	EXP-03 static fusion-weight tuning protocol
+EXP-03 decision	Complete; CV-selected static policy not promoted
+Static weights	Retain frozen 0.5 / 0.5
+Next research action	Offline per-query oracle/headroom diagnostic on existing EXP-03 cache
 Human annotation	Pilot only
 Database/vector server	Not used
