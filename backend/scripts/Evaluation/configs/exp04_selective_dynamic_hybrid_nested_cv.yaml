@@ -1,0 +1,137 @@
+# EXP-04: selective Dynamic Hybrid policy with leakage-controlled nested CV.
+
+protocol:
+  id: "exp04_selective_dynamic_hybrid_nested_5fold_cv_v1"
+  status: "experimental"
+  experiment_id: "exp04_selective_dynamic_hybrid_v1"
+  control_protocol: "baseline_d0_v2"
+
+evaluation:
+  mode: "exp04_selective_dynamic_hybrid_nested_cv"
+  experiment_id: "exp04_selective_dynamic_hybrid_v1"
+  query_representation: "q0"
+  document_representation: "d0"
+  temporal_filter: "none"
+  expected_query_count: 107
+  pool_k: 30
+  stored_k: 20
+  reported_k: [5, 10, 20]
+  alpha_core: 3
+  alpha_support: 1
+  random_seed: 42
+
+candidate_source:
+  run_id: "exp03_static_hybrid_5fold_cv_v1_20261013_123303_632045_cef5ac23"
+  path: "backend/data/runs/exp03_static_hybrid_5fold_cv_v1_20261013_123303_632045_cef5ac23/candidate_pools.json"
+  fingerprint: "4e94fc54bf2dc1ec09c4fbb605daadb1ba0dfa8c7c0c10a2d40ea34e90c2c805"
+
+fold_source:
+  path: "backend/data/runs/exp03_static_hybrid_5fold_cv_v1_20261013_123303_632045_cef5ac23/fold_manifest.json"
+  mapping_fingerprint: "94e9f68e7113f21b24e4cfbbccb2faacac1bfb106ac35e5c2167e7f51eee7310"
+  fold_count: 5
+  fold_sizes: [22, 22, 21, 21, 21]
+
+control:
+  name: "Fixed_0_5"
+  w_bm25: 0.5
+  source_summary: "backend/data/runs/exp03_static_hybrid_5fold_cv_v1_20261013_123303_632045_cef5ac23/summary_metrics.json"
+  parity_tolerance: 0.0
+
+labeling:
+  grid: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  objective:
+    world: "closed_world"
+    metric: "weighted_recall"
+    k: 10
+  rel_tol: 0.0
+  abs_tol: 1.0e-12
+  ambiguous_treatment: "STAY"
+
+policy:
+  family: "selective_directional_override"
+  default_w_bm25: 0.5
+  both_pass_action: "STAY"
+  neither_pass_action: "STAY"
+  action_pairs:
+    - {id: "A", dense_action: 0.4, bm25_action: 0.6}
+    - {id: "B", dense_action: 0.3, bm25_action: 0.7}
+    - {id: "C", dense_action: 0.2, bm25_action: 0.8}
+
+feature_contract:
+  version: "exp04_inference_features_v1"
+  dtype: "float64"
+  legal_ref_regex: '(?<!\w)(?:điều|khoản|điểm)\s+\d+[a-z]?(?!\w)'
+  legal_doc_regex: '(?<!\w)(?:bộ\s+luật|luật|nghị\s+định|thông\s+tư|nghị\s+quyết|pháp\s+lệnh)(?!\w)'
+  regex_flags: ["IGNORECASE", "UNICODE"]
+  ordered_features:
+    - "query_log_char_count"
+    - "query_log_token_count"
+    - "query_type_token_ratio"
+    - "query_digit_token_fraction"
+    - "query_log_legal_ref_count"
+    - "query_log_legal_doc_count"
+    - "bm25_top1_score"
+    - "bm25_gap_1_2_norm"
+    - "bm25_gap_1_5_norm"
+    - "bm25_score_sd_norm"
+    - "dense_top1_score"
+    - "dense_gap_1_2_norm"
+    - "dense_gap_1_5_norm"
+    - "dense_score_sd_norm"
+    - "top1_id_agreement"
+    - "top10_id_jaccard"
+    - "top10_reciprocal_rank_overlap"
+    - "top30_union_fraction"
+
+preprocessing:
+  scaler: "StandardScaler"
+  with_mean: true
+  with_std: true
+  missing_values: "error"
+
+model:
+  class: "LogisticRegression"
+  penalty: "l2"
+  solver: "liblinear"
+  dual: false
+  tol: 1.0e-4
+  fit_intercept: true
+  intercept_scaling: 1.0
+  class_weight: "balanced"
+  random_state: 42
+  max_iter: 1000
+  verbose: 0
+  warm_start: false
+  n_jobs: 1
+  score_method: "decision_function"
+  probability_calibration: false
+
+tuning:
+  c_grid: [0.01, 0.1, 1.0]
+  threshold_grid: [0.0, 0.5, 1.0]
+  config_count: 27
+  tie_break:
+    - "highest_unrounded_pooled_inner_oof_wr10"
+    - "fewer_total_overrides"
+    - "smaller_action_closeness"
+    - "smaller_c"
+    - "larger_threshold"
+    - "lexical_ascending_config_id"
+
+metric_protocol:
+  primary_world: "closed_world"
+  primary_metric: "weighted_recall"
+  primary_k: 10
+  secondary_metrics: ["recall", "ndcg", "mrr"]
+  reported_k: [5, 10, 20]
+
+statistics:
+  bootstrap_samples: 20000
+  bootstrap_seed: 42
+  bootstrap_ci_percentiles: [2.5, 97.5]
+  sign_flip_samples: 100000
+  sign_flip_seed: 42
+  sign_flip_two_sided: true
+
+paths:
+  output_dir: "backend/data"
