@@ -306,13 +306,11 @@ E1  Static Hybrid
 EXP-02  D0 vs D1
 EXP-03  leakage-controlled static fusion-weight CV
 offline oracle/headroom diagnostic
+EXP-04  selective Dynamic Hybrid nested CV
 
 Next:
-selective Dynamic Hybrid protocol design
-
-Then:
-nested-CV exploratory evaluation only after protocol approval
-confirmatory evaluation on an untouched benchmark before strong claims
+preserve EXP-04 and avoid immediate router retuning on the same 107 queries
+obtain an untouched benchmark before renewed Dynamic Hybrid work or strong claims
 temporal retrieval
 reranking
 statistical analysis
@@ -346,7 +344,17 @@ Status: **COMPLETE — DIAGNOSTIC ONLY**.
 
 Using ground truth and the frozen EXP-03 candidate cache, the per-query WR@10 oracle ceiling was 24.24% above fixed 0.5, but only 23/107 queries improved, median and p75 gain were zero, and broad tied-weight plateaus dominated. The evidence is classified as **MODERATE HEADROOM**.
 
-Decision: Dynamic Hybrid is motivated for leakage-safe selective-policy design, not implementation or runtime adoption. Results from future nested CV on the same 107 queries will remain exploratory because this all-query oracle influenced the policy-family choice; strong confirmatory claims should use an untouched additional benchmark. See `PROJECT_STATE.md` for the canonical detailed oracle record.
+Decision at that gate: proceed to a leakage-safe selective-policy experiment, without runtime adoption. The resulting same-benchmark nested-CV evidence remained exploratory because the all-query oracle influenced the policy-family choice. EXP-04 subsequently completed that experiment; see the next section and `PROJECT_STATE.md`.
+
+21C. EXP-04 — Selective Dynamic Hybrid
+
+Status: **COMPLETE — DO NOT PROMOTE**.
+
+Official run: `exp04_selective_dynamic_hybrid_nested_5fold_cv_v1_20261016_071606_287853_8d0649b7`.
+
+Dynamic OOF closed-world Weighted Recall@10 was `0.07053616402199708`, below `0.07248115500412532` for fixed 0.5. The router made 16 overrides: none improved primary WR@10, 13 tied, and 3 were harmful. No outer fold had a positive mean primary delta, while fixed-control parity remained exact.
+
+Decision: do not promote Dynamic Hybrid; keep static 0.5/0.5 fusion and runtime unchanged. Do not immediately retune the router on the same 107-query outcomes because repeated redesign would increase development-set overfitting risk. See `PROJECT_STATE.md` for the canonical detailed result and limitations.
 
 22. Human Annotation Status
 Current human annotation is only a pilot:

@@ -895,15 +895,51 @@ The evidence shows real but sparse and moderately concentrated query-dependent f
 Decision:
 
 - Classify the diagnostic as **MODERATE HEADROOM**.
-- Permit design of a selective Dynamic Hybrid protocol, not implementation or runtime adoption.
+- Permit a leakage-controlled selective Dynamic Hybrid experiment, not runtime adoption.
 - Default to fixed 0.5 and investigate overrides only when routing confidence is high.
 - Do not treat representative oracle weights as sharp preferences where tied-best plateaus are broad.
 
 Research-integrity consequence:
 
-The oracle used ground truth from all 107 queries and influenced selection of the next policy family. Any future Dynamic Hybrid evaluation on the same benchmark—even with required nested CV—is exploratory/development evidence rather than a pristine confirmatory result. Full-107 oracle labels must not leak into nested training, feature selection, threshold selection, or action selection. Strong confirmatory claims should use an additional untouched benchmark/test set.
+The oracle used ground truth from all 107 queries and influenced selection of the next policy family. The subsequent EXP-04 evaluation on the same benchmark—even with required nested CV—is exploratory/development evidence rather than a pristine confirmatory result. Full-107 oracle labels did not enter nested training, feature selection, threshold selection, or action selection. Strong confirmatory claims require an additional untouched benchmark/test set.
 
 `PROJECT_STATE.md` is the canonical detailed oracle/headroom record.
+
+36D. EXP-04 Result — Do Not Promote Selective Dynamic Hybrid
+
+EXP-04 protocol `exp04_selective_dynamic_hybrid_nested_5fold_cv_v1` completed in official run:
+
+`exp04_selective_dynamic_hybrid_nested_5fold_cv_v1_20261016_071606_287853_8d0649b7`
+
+Observed:
+
+- Primary closed-world Weighted Recall@10 was `0.07053616402199708` for Dynamic OOF versus `0.07248115500412532` for fixed 0.5.
+- The router overrode fixed 0.5 on 16/107 queries: 6 Dense overrides and 10 BM25 overrides.
+- No override improved primary WR@10; 13 tied and 3 were harmful.
+- Total positive gain was `0`; total negative harm was `0.2081140350877193`.
+- No outer fold had a positive mean WR@10 delta.
+- Fixed-control parity passed with maximum metric error `0.0`.
+- The predeclared success contract failed overall; only nonzero routing and no serious secondary-metric collapse held.
+
+Interpretation:
+
+The selective directional LogisticRegression router did not exploit the previously observed oracle headroom. The current evidence supports the narrower hypothesis that the frozen 18 inference-time features and simple selective model did not predict useful overrides reliably.
+
+This result does not establish that all Dynamic Hybrid methods cannot work, that oracle headroom was false, or that LogisticRegression is universally unsuitable.
+
+Decision:
+
+- EXP-04 is complete.
+- Do not promote Dynamic Hybrid.
+- Retain static Hybrid at `w_bm25=0.5`, `w_dense=0.5`.
+- Keep runtime, `baseline_d0_v2`, and runtime artifacts unchanged.
+- Do not immediately redesign or retune the router on the same 107 queries.
+
+Research-integrity consequence:
+
+Repeated router redesign using the same benchmark after observing EXP-04 would increase development-set overfitting risk. Renewed Dynamic Hybrid work should use additional untouched evaluation data.
+
+`PROJECT_STATE.md` is the canonical detailed EXP-04 result record.
 
 37. Human Annotation Is a Pilot
 Historical evidence
@@ -1122,24 +1158,22 @@ Do not describe them as current runtime behavior.
 49. Current Decisions Still Open
 The following remain genuinely unresolved.
 Research
-1. Can a simple selective router identify useful overrides without using ground-truth information at inference time?
-2. Which plateau-aware action labels and confidence threshold minimize harmful false overrides?
-3. Can nested exploratory evaluation outperform frozen 0.5/0.5, and does that result transfer to an untouched benchmark?
-4. Does temporal filtering improve legally valid retrieval without harming recall?
-5. Does reranking provide reliable gain relative to latency/cost?
-6. What manual annotation coverage is sufficient for benchmark confidence?
+1. Would a future Dynamic Hybrid approach transfer on an additional untouched benchmark without iterative same-benchmark retuning?
+2. Does temporal filtering improve legally valid retrieval without harming recall?
+3. Does reranking provide reliable gain relative to latency/cost?
+4. What manual annotation coverage is sufficient for benchmark confidence?
 Runtime / product
-7. Should /ask retain automatic answer evaluation or remove/replace it?
-8. What authentication and authorization model is required?
-9. What deployment topology is intended?
-10. Should generated retrieval artifacts be distributed externally or always regenerated?
-11. What artifact/version rollout and rollback mechanism is needed?
-12. What OCR upload limits and security policy are required?
-13. What retention/privacy policy applies to uploaded documents and generated reports?
+5. Should /ask retain automatic answer evaluation or remove/replace it?
+6. What authentication and authorization model is required?
+7. What deployment topology is intended?
+8. Should generated retrieval artifacts be distributed externally or always regenerated?
+9. What artifact/version rollout and rollback mechanism is needed?
+10. What OCR upload limits and security policy are required?
+11. What retention/privacy policy applies to uploaded documents and generated reports?
 Scope
-14. Should judgments eventually become a searchable precedent corpus?
-15. Should future runtime include a learned router?
-16. Should richer temporal article-version modeling be built?
+12. Should judgments eventually become a searchable precedent corpus?
+13. Should future runtime include a learned router if supported by new evidence?
+14. Should richer temporal article-version modeling be built?
 These questions remain open and should not be inferred from old code.
 50. Current Decision Matrix
 Topic	Decision
@@ -1169,6 +1203,7 @@ EXP-02 decision	Complete; D1 not promoted
 EXP-03 decision	Complete; CV-selected static policy not promoted
 Static weights	Retain frozen 0.5 / 0.5
 Oracle/headroom decision	Moderate headroom; protocol design justified, runtime adoption not justified
-Next research action	Selective Dynamic Hybrid protocol design with nested evaluation
+EXP-04 decision	Complete; selective Dynamic Hybrid not promoted
+Next research action	Preserve fixed 0.5/0.5 and obtain untouched data before renewed router work
 Human annotation	Pilot only
 Database/vector server	Not used

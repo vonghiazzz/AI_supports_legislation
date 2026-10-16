@@ -3,7 +3,7 @@
 Last updated: 2026-10-16
 Source-of-truth rule: `CODE > TEST > CONFIG > DOCUMENTATION > README > COMMENT > ASSUMPTION`
 
-This document describes the current repository state after repository hygiene, frozen-baseline recovery, deterministic artifact reconstruction, FastAPI runtime retrieval recovery, and completion of EXP-02 and EXP-03.
+This document describes the current repository state after repository hygiene, frozen-baseline recovery, deterministic artifact reconstruction, FastAPI runtime retrieval recovery, and completion of EXP-02, EXP-03, and EXP-04.
 
 ---
 
@@ -86,13 +86,13 @@ EXP-03  leakage-controlled static hybrid tuning
     ↓
 Per-query oracle/headroom analysis
     ↓
-Dynamic hybrid decision gate
+EXP-04  selective Dynamic Hybrid nested CV
     ↓
 Temporal retrieval / reranking
     ↓
 Statistical analysis
 
-EXP-02 and EXP-03 are complete. EXP-03 did not support promoting its CV-selected static policy. A subsequent offline oracle/headroom diagnostic found moderate but sparse and concentrated theoretical headroom, which is sufficient for Dynamic Hybrid protocol design but not runtime adoption.
+EXP-02, EXP-03, and EXP-04 are complete. EXP-03 did not support promoting its CV-selected static policy. The subsequent oracle/headroom diagnostic found moderate but sparse and concentrated theoretical headroom, but EXP-04's leakage-controlled selective router did not convert that headroom into useful held-out overrides. Runtime and the research baseline remain unchanged at static 0.5/0.5 fusion.
 3. Frozen Baseline Protocol
 Protocol ID:
 baseline_d0_v2
@@ -395,12 +395,107 @@ Some inference-time query or retrieval signals may identify the minority of quer
 Decision:
 
 - Classify the evidence as **MODERATE HEADROOM**.
-- Dynamic Hybrid is sufficiently motivated for protocol design, not implementation or runtime adoption.
+- Dynamic Hybrid was sufficiently motivated to proceed to the leakage-controlled EXP-04 experiment, but not for runtime adoption.
 - Prefer an initially selective policy that stays at 0.5 unless routing confidence is high.
 
 Methodological caveat:
 
-The oracle used ground truth from all 107 benchmark queries and influenced selection of the next policy family. A future Dynamic Hybrid result on these same 107 queries, even with nested CV, is therefore development/exploratory evidence rather than a pristine untouched confirmatory evaluation. Nested CV remains necessary to prevent direct router-training leakage. Strong confirmatory claims should use an additional untouched benchmark/test set.
+The oracle used ground truth from all 107 benchmark queries and influenced selection of the next policy family. The subsequent EXP-04 result on these same 107 queries, even with nested CV, is therefore development/exploratory evidence rather than a pristine untouched confirmatory evaluation. Nested CV remained necessary to prevent direct router-training leakage. Strong confirmatory claims require an additional untouched benchmark/test set.
+
+6D. EXP-04 — Selective Dynamic Hybrid Nested CV
+
+Status: **COMPLETE — DO NOT PROMOTE**
+
+Protocol: `exp04_selective_dynamic_hybrid_nested_5fold_cv_v1`
+
+Official run: `exp04_selective_dynamic_hybrid_nested_5fold_cv_v1_20261016_071606_287853_8d0649b7`
+
+Primary endpoint: closed-world Weighted Recall@10.
+
+The leakage-controlled nested evaluation trained a selective directional LogisticRegression router using only the frozen 18-dimensional inference-time feature contract. Fixed 0.5 used the same frozen candidate cache and retained exact parity with the EXP-03 control: maximum metric error `0.0`.
+
+Closed-world results @10:
+
+| Metric | Dynamic OOF | Fixed 0.5 |
+|---|---:|---:|
+| Recall | 0.08569671730749247 | 0.08825383049544679 |
+| nDCG | 0.05436130327518431 | 0.05286971847087022 |
+| MRR | 0.1891410769915442 | 0.1900904910250704 |
+| Weighted Recall | 0.07053616402199708 | 0.07248115500412532 |
+
+Routing outcomes:
+
+| Outcome | Count |
+|---|---:|
+| `route_count` | 16 |
+| `stay_count` | 91 |
+| `dense_override` | 6 |
+| `bm25_override` | 10 |
+| `beneficial` | 0 |
+| `tied` | 13 |
+| `harmful` | 3 |
+
+Total positive WR@10 gain was `0`; total negative harm was `0.2081140350877193`. The harmful queries were:
+
+| Query | WR@10 delta |
+|---:|---:|
+| 6 | -0.0625 |
+| 46 | -0.07894736842105263 |
+| 70 | -0.06666666666666667 |
+
+Outer-fold mean WR@10 deltas were:
+
+| Fold | 0 | 1 | 2 | 3 | 4 |
+|---|---:|---:|---:|---:|---:|
+| Mean delta | 0 | 0 | 0 | -0.0037593984962406013 | -0.00615079365079365 |
+
+No outer fold had a positive mean primary delta (`0/5`).
+
+Success contract:
+
+| Condition | Result |
+|---|---|
+| `dynamic_wr10_above_fixed` | false |
+| `bootstrap_lower_above_zero` | false |
+| `sign_flip_p_below_0_05` | false |
+| `nonzero_routing` | true |
+| `benefit_exceeds_harm` | false |
+| `positive_after_removing_largest_gain` | false |
+| `positive_in_at_least_three_folds` | false |
+| `no_serious_secondary_collapse` | true |
+| `all_conditions_hold` | false |
+
+Official decision: `DO_NOT_PROMOTE`.
+
+Observed:
+
+- Dynamic Hybrid routed 16/107 queries.
+- No override improved primary Weighted Recall@10; 13 tied fixed 0.5 and 3 were harmful.
+- Dynamic OOF Weighted Recall@10 was below fixed 0.5.
+- No outer fold had a positive mean Weighted Recall@10 delta.
+- Fixed-control parity remained exact.
+
+Interpretation:
+
+The selective directional LogisticRegression router did not exploit the oracle headroom identified earlier.
+
+Hypothesis:
+
+The theoretical query-dependent fusion headroom exists, but the current 18 inference-time features and simple selective routing model do not predict useful overrides reliably.
+
+This result does not establish that all Dynamic Hybrid methods cannot work, that the oracle headroom was false, or that LogisticRegression is universally unsuitable.
+
+Decision:
+
+- EXP-04 is complete.
+- Do not promote Dynamic Hybrid.
+- Keep static Hybrid at `w_bm25=0.5`, `w_dense=0.5`.
+- Keep runtime, `baseline_d0_v2`, and runtime artifacts unchanged.
+- Do not immediately retune the router on the same 107 queries.
+
+Methodological note:
+
+Repeated router redesign using the same 107-query benchmark after observing EXP-04 outcomes would increase development-set overfitting risk. Any renewed router work should be motivated and evaluated with additional untouched data rather than iterative same-benchmark tuning.
 
 7. Runtime Architecture
 Current runtime path:
@@ -746,22 +841,21 @@ Remaining issues include:
 21. Current Priority
 The runtime recovery engineering blocker has been resolved.
 Current order of work:
-1. Record and preserve the completed EXP-03 and oracle/headroom decisions
-2. Preserve runtime recovery state and `baseline_d0_v2`
-3. Design a leakage-safe, selective Dynamic Hybrid protocol without implementing it
-4. Require nested evaluation and keep fixed 0.5 as the primary control
-5. Obtain an untouched benchmark/test set before any strong confirmatory claim
-6. Continue temporal/reranking experiments and benchmark audit only under controlled protocols
+1. Record and preserve the completed EXP-04 decision
+2. Preserve runtime recovery state, `baseline_d0_v2`, and fixed 0.5/0.5 fusion
+3. Do not immediately redesign or retune the router on the same 107 queries
+4. Obtain an untouched benchmark/test set before renewed Dynamic Hybrid work or strong confirmatory claims
+5. Continue temporal/reranking experiments and benchmark audit only under controlled protocols
 
 No new runtime retrieval feature should be added merely because it exists in the experimental evaluator.
 Research modifications should first be evaluated as controlled experiments.
-22. Next Research Action — Dynamic Hybrid Protocol Design
+22. Next Research Action — Preserve EXP-04 and Avoid Same-Benchmark Retuning
 
-EXP-03 has answered its predeclared question: its leakage-controlled CV-selected static policy did not improve held-out retrieval over the frozen 0.5/0.5 D0 control.
+EXP-04 has answered its predeclared exploratory question: the selective directional router did not improve over the frozen 0.5/0.5 D0 control.
 
-The completed oracle diagnostic supports designing—but not yet implementing—a selective Dynamic Hybrid experiment. The research question is whether inference-time observable features can identify the minority of queries for which departing from fixed 0.5 improves closed-world Weighted Recall@10.
+Do not immediately redesign the router using the same 107-query outcomes. Preserve the official run and decision, keep fixed 0.5/0.5 as the runtime and research baseline, and obtain additional untouched evaluation data before renewed Dynamic Hybrid development.
 
-The initial hypothesis should default to 0.5 and override only at high confidence. Router labels, preprocessing, model selection, thresholds, and actions must be learned entirely inside training data for each outer fold. Results on the existing 107-query benchmark will remain exploratory because the full-dataset oracle influenced the policy-family choice.
+Controlled temporal retrieval, reranking, and benchmark audit may continue as separate research tracks without changing runtime.
 23. Source-of-Truth Entry Points
 Runtime:
 backend/app/config.py
@@ -779,8 +873,10 @@ backend/scripts/Evaluation/configs/baseline_d0.yaml
 backend/scripts/Evaluation/configs/exp02_d0.yaml
 backend/scripts/Evaluation/configs/exp02_d1.yaml
 backend/scripts/Evaluation/configs/exp03_static_fusion_cv.yaml
+backend/scripts/Evaluation/configs/exp04_selective_dynamic_hybrid_nested_cv.yaml
 backend/scripts/Evaluation/experiments/baseline.py
 backend/scripts/Evaluation/experiments/exp03_static_fusion_cv.py
+backend/scripts/Evaluation/experiments/exp04_selective_dynamic_hybrid_nested_cv.py
 backend/scripts/Evaluation/core/
 backend/scripts/Evaluation/retrieval/
 
@@ -789,6 +885,7 @@ backend/scripts/Tests/test_runtime_retrieval.py
 backend/scripts/Tests/test_baseline_protocol.py
 backend/scripts/Tests/test_exp02_protocol.py
 backend/scripts/Tests/test_exp03_protocol.py
+backend/scripts/Tests/test_exp04_protocol.py
 
 Benchmark:
 backend/data/judgments_evaluation.json
@@ -808,7 +905,7 @@ Golden parity	VERIFIED	321/321
 HTTP /search	VERIFIED	golden top-20 parity
 Reranking	EXPERIMENTAL	not in baseline runtime
 Temporal retrieval	EXPERIMENTAL	evaluator only
-Dynamic routing	EXPERIMENTAL	evaluator only
+Dynamic routing	EXPERIMENT COMPLETE / NOT PROMOTED	EXP-04 selective router did not improve primary WR@10
 Benchmark	FROZEN FOR CURRENT EXPERIMENTS	107 queries
 Human validation	INCOMPLETE	3-query pilot
 OCR	IMPLEMENTED / PARTIAL	validation/security gaps
@@ -818,4 +915,5 @@ Database/vector server	NOT USED	local JSON + FAISS
 EXP-02	COMPLETE	D1 not promoted; baseline/runtime remain D0
 EXP-03	COMPLETE	CV-selected static policy not promoted; fixed 0.5/0.5 retained
 Oracle/headroom	COMPLETE / DIAGNOSTIC	Moderate, sparse and concentrated upper-bound headroom
-Next research step	DESIGN REQUIRED	Selective Dynamic Hybrid protocol with nested evaluation
+EXP-04	COMPLETE / NOT PROMOTED	Dynamic OOF WR@10 below fixed 0.5; 0 beneficial and 3 harmful overrides
+Next research step	ADDITIONAL DATA REQUIRED	Avoid immediate router retuning on the same 107 queries

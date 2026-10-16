@@ -639,7 +639,7 @@ The research evaluator contains or explores features that are not active runtime
 Feature	State
 D1 representation	EXP-02 COMPLETE / NOT PROMOTED
 Static fusion tuning	EXP-03 COMPLETE / NOT PROMOTED
-Dynamic hybrid weights	PROTOCOL DESIGN ONLY / NOT IMPLEMENTED
+Dynamic hybrid weights	EXP-04 COMPLETE / NOT PROMOTED
 Intent/profile routing	EXPERIMENTAL
 Temporal filtering	EXPERIMENTAL
 PhoRanker reranking	EXPERIMENTAL
@@ -675,7 +675,20 @@ EXP-03 ownership:
 
 EXP-03 is complete and did not promote a new static policy. The evaluator and artifacts remain research-only; runtime continues to use frozen 0.5/0.5 Static Hybrid.
 
-The subsequent oracle/headroom diagnostic was computed read-only from `candidate_pools.json`; it created no repository implementation or official run artifact. It classified theoretical headroom as moderate and permits only selective Dynamic Hybrid protocol design. No EXP-04 config, evaluator, router, or test currently exists.
+The subsequent oracle/headroom diagnostic was computed read-only from `candidate_pools.json`; it created no repository implementation or official run artifact. It classified theoretical headroom as moderate and motivated the leakage-controlled EXP-04 experiment without justifying runtime adoption.
+
+EXP-04 ownership:
+
+| File | Responsibility |
+|---|---|
+| `backend/scripts/Evaluation/configs/exp04_selective_dynamic_hybrid_nested_cv.yaml` | Frozen selective Dynamic Hybrid protocol, feature/model grids, controls, and statistics |
+| `backend/scripts/Evaluation/experiments/exp04_selective_dynamic_hybrid_nested_cv.py` | Frozen-cache loading, inference features, nested selection, OOF routing, parity, statistics, and artifact assembly |
+| `backend/scripts/Evaluation/run_experiment.py` | Explicit EXP-04 CLI dispatch alongside earlier protocols |
+| `backend/scripts/Evaluation/reporting/serialization.py` | Atomic EXP-04 artifact publication |
+| `backend/scripts/Tests/test_exp04_protocol.py` | Protocol, leakage, routing, parity, statistics, dispatch, and persistence regression tests |
+| `backend/data/runs/exp04_selective_dynamic_hybrid_nested_5fold_cv_v1_20261016_071606_287853_8d0649b7/` | Official EXP-04 evidence |
+
+EXP-04 is complete and did not promote Dynamic Hybrid. Dynamic OOF closed-world Weighted Recall@10 was `0.07053616402199708` versus `0.07248115500412532` for fixed 0.5. Of 16 overrides, none improved the primary metric, 13 tied, and 3 were harmful. Runtime remains static 0.5/0.5.
 
 21. Statute Extraction Pipeline
 Directory:
@@ -1028,8 +1041,10 @@ backend/scripts/Evaluation/configs/baseline_d0.yaml
 backend/scripts/Evaluation/configs/exp02_d0.yaml
 backend/scripts/Evaluation/configs/exp02_d1.yaml
 backend/scripts/Evaluation/configs/exp03_static_fusion_cv.yaml
+backend/scripts/Evaluation/configs/exp04_selective_dynamic_hybrid_nested_cv.yaml
 backend/scripts/Evaluation/experiments/baseline.py
 backend/scripts/Evaluation/experiments/exp03_static_fusion_cv.py
+backend/scripts/Evaluation/experiments/exp04_selective_dynamic_hybrid_nested_cv.py
 backend/scripts/Evaluation/core/
 backend/scripts/Evaluation/retrieval/
 
@@ -1043,6 +1058,7 @@ backend/scripts/Tests/test_runtime_retrieval.py
 backend/scripts/Tests/test_baseline_protocol.py
 backend/scripts/Tests/test_exp02_protocol.py
 backend/scripts/Tests/test_exp03_protocol.py
+backend/scripts/Tests/test_exp04_protocol.py
 
 37. Current State Matrix
 Area	Status	Authoritative implementation/evidence
@@ -1069,4 +1085,5 @@ Advanced evaluator	EXPERIMENTAL	Evaluation modules
 EXP-02	COMPLETE	D1 not promoted; runtime/baseline remain D0
 EXP-03	COMPLETE	CV-selected static policy not promoted; frozen 0.5/0.5 retained
 Oracle/headroom	COMPLETE / DIAGNOSTIC	Moderate, sparse and concentrated upper-bound headroom
-Dynamic Hybrid	DESIGN ONLY	No EXP-04 implementation; selective nested protocol under audit
+EXP-04	COMPLETE / NOT PROMOTED	Selective nested router did not improve primary WR@10
+Dynamic Hybrid	RESEARCH-ONLY / NOT PROMOTED	Official EXP-04 evidence; runtime remains static 0.5/0.5
