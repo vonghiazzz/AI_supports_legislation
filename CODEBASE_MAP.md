@@ -639,12 +639,12 @@ The research evaluator contains or explores features that are not active runtime
 Feature	State
 D1 representation	EXP-02 COMPLETE / NOT PROMOTED
 Static fusion tuning	EXP-03 COMPLETE / NOT PROMOTED
-Dynamic hybrid weights	EXPERIMENTAL
+Dynamic hybrid weights	PROTOCOL DESIGN ONLY / NOT IMPLEMENTED
 Intent/profile routing	EXPERIMENTAL
 Temporal filtering	EXPERIMENTAL
 PhoRanker reranking	EXPERIMENTAL
 Failure taxonomy	EXPERIMENTAL
-Per-query oracle/headroom	NEXT READ-ONLY ANALYSIS
+Per-query oracle/headroom	COMPLETE / OFFLINE DIAGNOSTIC
 Statistical tests	EXPERIMENTAL
 Paper/LaTeX reporting	EXPERIMENTAL
 
@@ -674,6 +674,8 @@ EXP-03 ownership:
 | `backend/data/runs/exp03_static_hybrid_5fold_cv_v1_20261013_123303_632045_cef5ac23/` | Official EXP-03 evidence: candidate cache, folds, OOF results, summary, manifest, and config snapshot |
 
 EXP-03 is complete and did not promote a new static policy. The evaluator and artifacts remain research-only; runtime continues to use frozen 0.5/0.5 Static Hybrid.
+
+The subsequent oracle/headroom diagnostic was computed read-only from `candidate_pools.json`; it created no repository implementation or official run artifact. It classified theoretical headroom as moderate and permits only selective Dynamic Hybrid protocol design. No EXP-04 config, evaluator, router, or test currently exists.
 
 21. Statute Extraction Pipeline
 Directory:
@@ -1066,4 +1068,5 @@ Human annotation	INCOMPLETE	3-query pilot
 Advanced evaluator	EXPERIMENTAL	Evaluation modules
 EXP-02	COMPLETE	D1 not promoted; runtime/baseline remain D0
 EXP-03	COMPLETE	CV-selected static policy not promoted; frozen 0.5/0.5 retained
-Next research action	READ-ONLY ANALYSIS	Per-query oracle/headroom on existing EXP-03 candidate cache
+Oracle/headroom	COMPLETE / DIAGNOSTIC	Moderate, sparse and concentrated upper-bound headroom
+Dynamic Hybrid	DESIGN ONLY	No EXP-04 implementation; selective nested protocol under audit

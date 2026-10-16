@@ -92,7 +92,7 @@ Temporal retrieval / reranking
     ↓
 Statistical analysis
 
-EXP-02 and EXP-03 are complete. EXP-03 did not support promoting its CV-selected static policy. The immediate next research action is a read-only/offline per-query oracle/headroom analysis on the existing EXP-03 candidate cache before deciding whether a query-dependent fusion experiment is justified.
+EXP-02 and EXP-03 are complete. EXP-03 did not support promoting its CV-selected static policy. A subsequent offline oracle/headroom diagnostic found moderate but sparse and concentrated theoretical headroom, which is sufficient for Dynamic Hybrid protocol design but not runtime adoption.
 3. Frozen Baseline Protocol
 Protocol ID:
 baseline_d0_v2
@@ -327,7 +327,80 @@ Decision:
 - Keep frozen Static Hybrid at `w_bm25=0.5`, `w_dense=0.5`.
 - Keep `baseline_d0_v2`, runtime, and runtime artifacts unchanged.
 - Do not create a new static-weight baseline.
-- Next perform a read-only/offline per-query oracle/headroom analysis on the existing candidate cache. This is a ground-truth-informed upper-bound diagnostic, not deployable or unbiased test performance.
+- The subsequent oracle/headroom diagnostic is recorded in Section 6C.
+
+6C. Offline Oracle/Headroom Diagnostic
+
+Status: **COMPLETE — DIAGNOSTIC ONLY**
+
+This was an offline oracle/headroom diagnostic using ground truth, not a deployable experiment result or held-out policy evaluation.
+
+Input was the frozen candidate cache from official EXP-03 run `exp03_static_hybrid_5fold_cv_v1_20261013_123303_632045_cef5ac23`, fingerprint `4e94fc54bf2dc1ec09c4fbb605daadb1ba0dfa8c7c0c10a2d40ea34e90c2c805`. It used all 107 queries, complete BM25 and Dense top-30 pools, the existing min-max `fuse_pools()` behavior, and the predeclared grid `w_bm25 = 0.0, 0.1, ..., 1.0`.
+
+For each query, the oracle maximized closed-world Weighted Recall@10. Exact ties selected the representative weight closest to 0.5 and then the smaller BM25 weight; the complete tied-best set was retained for plateau analysis. Fixed-0.5 parity reproduced the EXP-03 control with maximum metric error `0.0`.
+
+Primary closed-world @10:
+
+| Metric | Fixed 0.5 | Per-query WR@10 oracle | Delta |
+|---|---:|---:|---:|
+| Recall | 0.088253830495 | 0.110923 | +0.022670 |
+| nDCG | 0.052869718471 | 0.061993 | +0.009123 |
+| MRR | 0.190090491025 | 0.196295 | +0.006205 |
+| Weighted Recall | 0.072481155004 | 0.090051 | +0.017569792095 |
+
+The primary WR@10 ceiling was `+24.24%` relative to fixed 0.5. This is intentionally optimistic because each query's ground truth selected its own ranking.
+
+Headroom distribution:
+
+| Diagnostic | Result |
+|---|---:|
+| Oracle better / tied / worse | 23 / 84 / 0 queries |
+| Mean / median delta | 0.017569792095 / 0 |
+| p75 / p90 / maximum | 0 / 0.070431893688 / 0.2 |
+| Gain >= 0.05 / 0.10 / 0.20 | 18 / 6 / 1 queries |
+| Top 1 / 5 / 10 share of headroom | 10.64% / 40.27% / 62.69% |
+
+Plateau analysis:
+
+- 84 best-weight sets contain 0.5.
+- 8 lie entirely below 0.5; 14 lie entirely above 0.5.
+- 72 span both sides of 0.5.
+- 46 queries are flat across all 11 weights; only 2 have a unique optimum.
+
+Representative weights were `0.1:1`, `0.3:2`, `0.4:6`, `0.5:84`, `0.6:5`, `0.7:3`, `0.8:4`, and `1.0:2`, with zero representatives at 0.0, 0.2, and 0.9. Grouped counts were 9 Dense-heavy, 84 balanced, and 14 BM25-heavy. These representatives must not be interpreted as sharp preferences or semantic query categories because most surfaces are broad.
+
+The descriptive all-query WR@10 surface was:
+
+| `w_bm25` | 0.0 | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1.0 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| WR@10 | 0.059063 | 0.059613 | 0.063450 | 0.066244 | 0.070223 | 0.072481 | 0.068713 | 0.065607 | 0.063992 | 0.060863 | 0.052248 |
+
+On this tested grid/data, 0.5 is the descriptive all-query maximum. This is not a claim of global mathematical optimality.
+
+Observed:
+
+- The oracle ceiling is materially above fixed 0.5, but only 23/107 queries improve.
+- Median and p75 gain are zero, and the top ten queries contribute 62.69% of total headroom.
+- Most weight-response surfaces are broad or completely flat.
+- Nevertheless, 22 queries have best sets exclusively on one side of 0.5, showing some genuine directional preference.
+
+Interpretation:
+
+Query-dependent fusion has real but sparse and moderately concentrated theoretical headroom.
+
+Hypothesis:
+
+Some inference-time query or retrieval signals may identify the minority of queries for which departing from 0.5 is useful. This has not been established.
+
+Decision:
+
+- Classify the evidence as **MODERATE HEADROOM**.
+- Dynamic Hybrid is sufficiently motivated for protocol design, not implementation or runtime adoption.
+- Prefer an initially selective policy that stays at 0.5 unless routing confidence is high.
+
+Methodological caveat:
+
+The oracle used ground truth from all 107 benchmark queries and influenced selection of the next policy family. A future Dynamic Hybrid result on these same 107 queries, even with nested CV, is therefore development/exploratory evidence rather than a pristine untouched confirmatory evaluation. Nested CV remains necessary to prevent direct router-training leakage. Strong confirmatory claims should use an additional untouched benchmark/test set.
 
 7. Runtime Architecture
 Current runtime path:
@@ -673,21 +746,22 @@ Remaining issues include:
 21. Current Priority
 The runtime recovery engineering blocker has been resolved.
 Current order of work:
-1. Record and preserve the completed EXP-03 decision and artifacts
+1. Record and preserve the completed EXP-03 and oracle/headroom decisions
 2. Preserve runtime recovery state and `baseline_d0_v2`
-3. Perform a read-only/offline per-query oracle/headroom analysis on the existing EXP-03 candidate cache
-4. Use that upper-bound diagnostic to decide whether a query-dependent fusion experiment is justified
-5. Continue temporal/reranking experiments and benchmark audit only under controlled protocols
+3. Design a leakage-safe, selective Dynamic Hybrid protocol without implementing it
+4. Require nested evaluation and keep fixed 0.5 as the primary control
+5. Obtain an untouched benchmark/test set before any strong confirmatory claim
+6. Continue temporal/reranking experiments and benchmark audit only under controlled protocols
 
 No new runtime retrieval feature should be added merely because it exists in the experimental evaluator.
 Research modifications should first be evaluated as controlled experiments.
-22. Next Research Action — Per-Query Oracle/Headroom Audit
+22. Next Research Action — Dynamic Hybrid Protocol Design
 
 EXP-03 has answered its predeclared question: its leakage-controlled CV-selected static policy did not improve held-out retrieval over the frozen 0.5/0.5 D0 control.
 
-The next task is a read-only/offline per-query oracle/headroom analysis using the existing EXP-03 candidate cache. Its purpose is to determine whether query-dependent fusion has enough potential headroom to justify a learned/router-based experiment.
+The completed oracle diagnostic supports designing—but not yet implementing—a selective Dynamic Hybrid experiment. The research question is whether inference-time observable features can identify the minority of queries for which departing from fixed 0.5 improves closed-world Weighted Recall@10.
 
-Because the oracle uses ground truth to select the best per-query result, it must be reported only as an upper-bound diagnostic. It is neither deployable policy performance nor unbiased test performance.
+The initial hypothesis should default to 0.5 and override only at high confidence. Router labels, preprocessing, model selection, thresholds, and actions must be learned entirely inside training data for each outer fold. Results on the existing 107-query benchmark will remain exploratory because the full-dataset oracle influenced the policy-family choice.
 23. Source-of-Truth Entry Points
 Runtime:
 backend/app/config.py
@@ -743,4 +817,5 @@ Authentication	NOT IMPLEMENTED	no auth layer
 Database/vector server	NOT USED	local JSON + FAISS
 EXP-02	COMPLETE	D1 not promoted; baseline/runtime remain D0
 EXP-03	COMPLETE	CV-selected static policy not promoted; fixed 0.5/0.5 retained
-Next research step	ANALYSIS REQUIRED	Offline per-query oracle/headroom diagnostic on existing EXP-03 cache
+Oracle/headroom	COMPLETE / DIAGNOSTIC	Moderate, sparse and concentrated upper-bound headroom
+Next research step	DESIGN REQUIRED	Selective Dynamic Hybrid protocol with nested evaluation

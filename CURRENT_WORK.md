@@ -24,10 +24,10 @@ Source-of-truth rule:
 The current priority order is:
 
 ```text
-1. Record and preserve the completed EXP-03 decision
+1. Record and preserve the completed EXP-03 and oracle/headroom decisions
 2. Preserve runtime_retrieval_v1 and baseline_d0_v2 unchanged
-3. Perform a read-only/offline per-query oracle/headroom analysis on the existing EXP-03 candidate cache
-4. Decide whether query-dependent fusion has enough headroom for a new controlled experiment
+3. Design a leakage-safe selective Dynamic Hybrid protocol without implementing it
+4. Plan nested exploratory evaluation and an untouched confirmatory benchmark
 5. Evaluate temporal retrieval
 6. Evaluate reranking
 7. Expand human annotation / benchmark audit
@@ -181,6 +181,13 @@ Decision:
 - Do not promote the CV-selected static policy.
 - Keep the frozen 0.5/0.5 policy, runtime, and `baseline_d0_v2` unchanged.
 - Use `PROJECT_STATE.md` as the canonical detailed EXP-03 result record.
+3B. Offline Oracle/Headroom Diagnostic
+
+Status: **COMPLETE — DIAGNOSTIC ONLY**
+
+Using the existing EXP-03 top-30 candidate cache and per-query ground truth, the WR@10 oracle ceiling was `0.090051` versus `0.072481` for fixed 0.5: `+0.017569792095`, or `+24.24%`. Only 23/107 queries improved, 84 tied, median and p75 gain were zero, and the top ten queries contributed 62.69% of headroom. Forty-six queries were flat over all eleven weights and only two had unique optima.
+
+Decision: **MODERATE HEADROOM**. This supports Dynamic Hybrid protocol design only. It is not held-out, deployable, or confirmatory evidence. `PROJECT_STATE.md` is the canonical detailed oracle record.
 4. Frozen Baseline
 Status
 COMPLETED / FROZEN
@@ -348,11 +355,11 @@ w_dense = 0.5
 No new static weight becomes the baseline. See `PROJECT_STATE.md` for the official run, full protocol, metrics, uncertainty, and interpretation.
 10. Dynamic Hybrid
 Status
-GATED RESEARCH
+PROTOCOL DESIGN JUSTIFIED — NOT IMPLEMENTED
 
-Before implementing Dynamic Hybrid, perform a read-only/offline per-query oracle/headroom analysis on the existing EXP-03 candidate cache.
+The completed oracle diagnostic found moderate theoretical headroom concentrated in a minority of queries.
 
-The oracle is a ground-truth-informed upper bound, not a deployable policy or unbiased test result. A dynamic/router experiment is justified only if the diagnostic shows meaningful headroom.
+The preferred initial hypothesis is selective routing: remain at fixed 0.5 unless an inference-time observable signal supports a high-confidence override. Do not default to unrestricted eleven-class weight prediction.
 
 Any router must be evaluated independently of the retrieval performance it is supposed to improve.
 11. Temporal Retrieval
@@ -513,7 +520,7 @@ unhealthy retrieval
 
 Those describe superseded runtime behavior.
 20. Do Not Do Yet
-Before the oracle/headroom decision gate, do not:
+Before a Dynamic Hybrid protocol is reviewed and approved, do not:
 change frozen baseline weights
 add reranking to runtime
 add temporal filtering to runtime
@@ -521,25 +528,28 @@ implement or add dynamic routing to runtime
 regenerate benchmark with Gemini
 mutate frozen ground truth
 overwrite runtime artifacts via Flow/03
-describe oracle performance as deployable or unbiased test performance
+use full-107 oracle labels for router fitting or nested-CV decisions
+describe oracle performance as deployable, held-out, or confirmatory performance
 claim EXP-03 proves dynamic routing will work
 claim benchmark is human validated
 
 21. Immediate Next Action
 
-Perform a read-only/offline per-query oracle/headroom analysis using the existing EXP-03 candidate cache:
+Design, but do not implement, a selective Dynamic Hybrid experiment:
 
-- Quantify the best achievable per-query outcome across the existing weight grid.
-- Compare the upper bound with the frozen 0.5/0.5 control.
-- Preserve query-level evidence and report the analysis explicitly as ground-truth-informed oracle headroom.
-- Use the result only to decide whether a learned/router-based experiment deserves implementation.
+- Default to fixed 0.5 and override only at high confidence.
+- Define plateau-aware labels using training-fold ground truth only.
+- Restrict features to inference-time query/retrieval signals.
+- Nest all preprocessing, model, threshold, and action selection inside outer training folds.
+- Keep fixed 0.5 as the primary control and treat same-benchmark nested-CV results as exploratory.
+- Plan an untouched additional benchmark before strong confirmatory claims.
 
 22. EXP-03 Guardrail
 
-EXP-03 satisfied this guardrail through deterministic five-fold selection and one held-out prediction per query.
+EXP-03 satisfied its direct tuning guardrail through deterministic five-fold selection and one held-out prediction per query.
 
-The next oracle analysis deliberately uses ground truth and therefore cannot be presented as deployable/test performance.
+The completed oracle deliberately used all-query ground truth and influenced the next policy-family choice. It cannot be presented as deployable/test performance, and its full-107 labels must not enter nested router training.
 
 23. Current Blocker
 
-There is no runtime retrieval blocker. The active research decision gate is whether the existing EXP-03 cache shows enough per-query oracle headroom to justify a future query-dependent fusion experiment.
+There is no runtime retrieval blocker. The active research task is methodological design: define a statistically defensible selective router under severe sample-size and class-imbalance constraints without allowing oracle information into outer held-out decisions.

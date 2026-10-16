@@ -870,10 +870,40 @@ Decision:
 - Do not promote the CV-selected static policy.
 - Keep runtime and `baseline_d0_v2` at `w_bm25=0.5`, `w_dense=0.5`.
 - Do not create a new static-weight baseline.
-- Before implementing Dynamic Hybrid, perform a read-only/offline per-query oracle/headroom analysis on the existing EXP-03 candidate cache.
+- Before implementing Dynamic Hybrid, use an offline per-query oracle/headroom diagnostic on the existing EXP-03 candidate cache as a policy-family decision gate.
 - Treat that oracle strictly as a ground-truth-informed upper-bound diagnostic, not deployable or unbiased test performance.
 
 `PROJECT_STATE.md` is the canonical detailed EXP-03 result record.
+
+36C. Oracle/Headroom Decision — Permit Dynamic Hybrid Protocol Design
+
+An offline oracle/headroom diagnostic reused the frozen EXP-03 top-30 candidate pools and existing fusion/metric semantics. It selected each query's weight using that query's ground truth, so it is an intentionally optimistic upper bound rather than deployable or held-out performance.
+
+Observed:
+
+- Fixed 0.5 parity was exact, with maximum metric error `0.0`.
+- Oracle WR@10 was `0.090051` versus `0.072481` for fixed 0.5: delta `+0.017569792095`, or `+24.24%`.
+- Only 23/107 queries improved; 84 tied and none worsened.
+- Median and p75 gain were zero; the top ten queries supplied 62.69% of total headroom.
+- Forty-six queries tied across all eleven weights and only two had a unique optimum.
+- Twenty-two queries nevertheless had best sets exclusively below or above 0.5.
+
+Interpretation:
+
+The evidence shows real but sparse and moderately concentrated query-dependent fusion headroom.
+
+Decision:
+
+- Classify the diagnostic as **MODERATE HEADROOM**.
+- Permit design of a selective Dynamic Hybrid protocol, not implementation or runtime adoption.
+- Default to fixed 0.5 and investigate overrides only when routing confidence is high.
+- Do not treat representative oracle weights as sharp preferences where tied-best plateaus are broad.
+
+Research-integrity consequence:
+
+The oracle used ground truth from all 107 queries and influenced selection of the next policy family. Any future Dynamic Hybrid evaluation on the same benchmark—even with required nested CV—is exploratory/development evidence rather than a pristine confirmatory result. Full-107 oracle labels must not leak into nested training, feature selection, threshold selection, or action selection. Strong confirmatory claims should use an additional untouched benchmark/test set.
+
+`PROJECT_STATE.md` is the canonical detailed oracle/headroom record.
 
 37. Human Annotation Is a Pilot
 Historical evidence
@@ -1092,9 +1122,9 @@ Do not describe them as current runtime behavior.
 49. Current Decisions Still Open
 The following remain genuinely unresolved.
 Research
-1. How much per-query oracle/headroom exists in the frozen EXP-03 candidate cache?
-2. Is that upper bound large and structured enough to justify a query-dependent fusion experiment?
-3. Can a future router improve held-out performance over frozen 0.5/0.5 without using ground-truth information at inference time?
+1. Can a simple selective router identify useful overrides without using ground-truth information at inference time?
+2. Which plateau-aware action labels and confidence threshold minimize harmful false overrides?
+3. Can nested exploratory evaluation outperform frozen 0.5/0.5, and does that result transfer to an untouched benchmark?
 4. Does temporal filtering improve legally valid retrieval without harming recall?
 5. Does reranking provide reliable gain relative to latency/cost?
 6. What manual annotation coverage is sufficient for benchmark confidence?
@@ -1138,6 +1168,7 @@ Golden acceptance	Ranking parity
 EXP-02 decision	Complete; D1 not promoted
 EXP-03 decision	Complete; CV-selected static policy not promoted
 Static weights	Retain frozen 0.5 / 0.5
-Next research action	Offline per-query oracle/headroom diagnostic on existing EXP-03 cache
+Oracle/headroom decision	Moderate headroom; protocol design justified, runtime adoption not justified
+Next research action	Selective Dynamic Hybrid protocol design with nested evaluation
 Human annotation	Pilot only
 Database/vector server	Not used

@@ -305,17 +305,19 @@ B1  Dense
 E1  Static Hybrid
 EXP-02  D0 vs D1
 EXP-03  leakage-controlled static fusion-weight CV
+offline oracle/headroom diagnostic
 
 Next:
-read-only/offline per-query oracle/headroom analysis on the existing EXP-03 candidate cache
+selective Dynamic Hybrid protocol design
 
 Then:
-decision on whether a query-dependent fusion experiment is justified
+nested-CV exploratory evaluation only after protocol approval
+confirmatory evaluation on an untouched benchmark before strong claims
 temporal retrieval
 reranking
 statistical analysis
 
-The oracle/headroom analysis uses ground truth and must be described only as an upper-bound diagnostic, not deployable or unbiased test performance.
+The completed oracle/headroom analysis uses ground truth and is only an upper-bound diagnostic, not deployable, held-out, or confirmatory performance.
 21. EXP-02 — D0 vs D1
 
 Status: **COMPLETE**.
@@ -336,7 +338,15 @@ Official run: `exp03_static_hybrid_5fold_cv_v1_20261013_123303_632045_cef5ac23`.
 
 The five-fold OOF selected policy was below the fixed 0.5/0.5 control on all four aggregate closed-world metrics at K=10. Primary Weighted Recall@10 changed by `-0.007193031`, approximately `-9.92%`; Recall and Weighted Recall decreases had paired intervals excluding zero and sign-flip `p < 0.05`.
 
-Decision: do not promote the CV-selected static policy. Runtime and `baseline_d0_v2` remain at 0.5/0.5. The next research action is a read-only/offline per-query oracle/headroom analysis using the existing EXP-03 candidate cache. See `PROJECT_STATE.md` for the canonical detailed protocol, results, uncertainty, limitations, and interpretation.
+Decision: do not promote the CV-selected static policy. Runtime and `baseline_d0_v2` remain at 0.5/0.5. See `PROJECT_STATE.md` for the canonical detailed protocol, results, uncertainty, limitations, and interpretation.
+
+21B. Offline Oracle/Headroom Diagnostic
+
+Status: **COMPLETE — DIAGNOSTIC ONLY**.
+
+Using ground truth and the frozen EXP-03 candidate cache, the per-query WR@10 oracle ceiling was 24.24% above fixed 0.5, but only 23/107 queries improved, median and p75 gain were zero, and broad tied-weight plateaus dominated. The evidence is classified as **MODERATE HEADROOM**.
+
+Decision: Dynamic Hybrid is motivated for leakage-safe selective-policy design, not implementation or runtime adoption. Results from future nested CV on the same 107 queries will remain exploratory because this all-query oracle influenced the policy-family choice; strong confirmatory claims should use an untouched additional benchmark. See `PROJECT_STATE.md` for the canonical detailed oracle record.
 
 22. Human Annotation Status
 Current human annotation is only a pilot:
