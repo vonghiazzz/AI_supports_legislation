@@ -1,6 +1,6 @@
 # AI Supports Legislation — Current Work
 
-Last updated: 2026-10-16
+Last updated: 2026-10-24
 
 This document records the work that is currently active or immediately next.
 
@@ -24,13 +24,11 @@ Source-of-truth rule:
 The current priority order is:
 
 ```text
-1. Record and preserve the completed EXP-04 decision
+1. Record and preserve the completed EXP-05 exploratory decision
 2. Preserve runtime_retrieval_v1 and baseline_d0_v2 unchanged
-3. Do not immediately redesign or retune the router on the same 107 queries
-4. Plan an untouched benchmark before renewed Dynamic Hybrid work or strong claims
-5. Evaluate temporal retrieval
-6. Evaluate reranking
-7. Expand human annotation / benchmark audit
+3. Keep runtime without reranking and avoid same-benchmark reranker tuning
+4. Choose between an independent confirmatory reranking benchmark and candidate-generation improvement
+5. Expand human annotation / benchmark audit
 ```
 
 The previous engineering blocker — broken FastAPI retrieval — has been resolved.
@@ -198,6 +196,16 @@ Official run: `exp04_selective_dynamic_hybrid_nested_5fold_cv_v1_20261016_071606
 At the primary closed-world Weighted Recall@10 endpoint, Dynamic OOF scored `0.07053616402199708` versus `0.07248115500412532` for fixed 0.5. The router made 16 overrides: 13 tied, 3 harmed, and none improved primary WR@10. No outer fold had a positive mean primary delta. Fixed-control parity passed with maximum metric error `0.0`.
 
 Decision: **DO NOT PROMOTE**. Keep static 0.5/0.5 fusion, runtime, and `baseline_d0_v2` unchanged. Do not immediately retune the router using the same 107-query outcomes. `PROJECT_STATE.md` is the canonical detailed EXP-04 record.
+
+3D. EXP-05 — Frozen Hybrid Top-30 Zero-Shot Reranking
+
+Status: **COMPLETE — EXPLORATORY_SUCCESS — NOT PROMOTED TO RUNTIME**
+
+Official run: `exp05_frozen_hybrid30_zero_shot_cross_encoder_eval_v1_20261017_025515_995783_bc3d1a8a`
+
+The frozen `BAAI/bge-reranker-v2-m3` treatment improved closed-world Weighted Recall@10 from `0.07248115500412532` to `0.09941759776486084`, a delta of `+0.026936442760735556` (about `+37.16%`). The 95% paired-bootstrap interval was `[0.00748263967052791, 0.04832875063731571]`, the paired sign-flip p-value was `0.01024989750102499`, and query outcomes were 37 wins, 56 ties, and 14 losses.
+
+Decision: record `EXPLORATORY_SUCCESS`, but do not promote the reranker. Runtime, `baseline_d0_v2`, the frozen Hybrid candidate generator, and static 0.5/0.5 fusion remain unchanged. The result concerns ranking inside the same top-30 candidates; it does not repair missing candidates. Do not tune the model, candidate depth, input length, or blending on these same 107 observed outcomes. `PROJECT_STATE.md` is the canonical detailed EXP-05 record.
 4. Frozen Baseline
 Status
 COMPLETED / FROZEN
@@ -391,18 +399,12 @@ judgment/dispute date semantics
 Temporal retrieval should not be enabled in runtime before this evidence exists.
 12. Reranking
 Status
-EXPERIMENTAL
+EXP-05 COMPLETE — EXPLORATORY_SUCCESS — NOT PROMOTED
 No reranker is part of the frozen baseline runtime.
-Research reranking should be evaluated only after the candidate retriever is stable.
-Questions to answer before runtime integration:
-Does reranking improve primary @10 metrics?
-Does it improve weighted recall?
-Does it harm recall by reordering core authorities?
-What is latency?
-What is the device requirement?
-Is the gain statistically reliable?
 
-Do not assume CrossEncoder reranking is better simply because it is more complex.
+EXP-05 found a statistically supported exploratory gain for zero-shot BGE reranking within frozen Hybrid top-30 candidates. It does not constitute independent confirmation or production-readiness evidence, and CPU inference took about 76.2 minutes for 3,210 pairs.
+
+Before runtime integration, the frozen protocol needs independent evaluation on untouched data, an explicit latency/compute decision, and separate treatment of candidate-coverage failures. Do not tune the reranker against the observed 107-query outcomes.
 13. Runtime Application Work
 Retrieval is recovered, but the application is not production-ready.
 Remaining runtime/application concerns include:
@@ -516,7 +518,7 @@ not the large generated FAISS/metadata artifacts themselves.
 Status
 CURRENT
 
-The project documentation records the completed EXP-02, EXP-03, and EXP-04 decisions. `PROJECT_STATE.md` is the canonical detailed result record; this file tracks only immediate work.
+The project documentation records the completed EXP-02 through EXP-05 decisions. `PROJECT_STATE.md` is the canonical detailed result record; this file tracks only immediate work.
 
 Documentation must remove stale claims that runtime currently uses:
 BGE-M3
@@ -530,12 +532,13 @@ unhealthy retrieval
 
 Those describe superseded runtime behavior.
 20. Do Not Do Yet
-Following EXP-04, do not:
+Following EXP-05, do not:
 change frozen baseline weights
 add reranking to runtime
 add temporal filtering to runtime
 promote or add EXP-04 dynamic routing to runtime
 immediately redesign or retune the router on the same 107-query benchmark
+retune BGE, `max_length`, candidate depth, blending, or model family on the same 107-query outcomes
 regenerate benchmark with Gemini
 mutate frozen ground truth
 overwrite runtime artifacts via Flow/03
@@ -545,12 +548,19 @@ claim EXP-04 proves all Dynamic Hybrid methods cannot work
 claim the oracle headroom was false
 claim LogisticRegression is universally unsuitable
 claim benchmark is human validated
+claim EXP-05 is production-ready or independently confirmed
+claim EXP-05 solved candidate coverage
 
 21. Immediate Next Action
 
-Preserve the completed EXP-04 run and decision. Keep fixed 0.5/0.5 as the runtime and research baseline, avoid immediate same-benchmark router retuning, and plan additional untouched evaluation data before renewed Dynamic Hybrid development or strong confirmatory claims.
+EXP-05 is complete with `EXPLORATORY_SUCCESS`; runtime remains unchanged. Preserve the official run and frozen protocol, keep fixed 0.5/0.5 without reranking as the runtime and research control, and do not tune against the same 107-query result.
 
-Temporal retrieval, reranking, and benchmark audit may continue under separate controlled protocols.
+The next research decision is between:
+
+- **A. Independent confirmatory benchmark:** evaluate the frozen EXP-05 protocol on untouched data; or
+- **B. Candidate-generation improvement:** target relevant laws missing from the frozen top-30 pool.
+
+Do not declare EXP-06 until that choice and its protocol are explicitly made.
 
 22. EXP-03 Guardrail
 
@@ -560,6 +570,8 @@ The completed oracle deliberately used all-query ground truth and influenced the
 
 EXP-04 used leakage-controlled nested evaluation, but its result remains exploratory because the oracle influenced the policy-family choice. Repeated redesign after observing EXP-04 on the same 107 queries would further increase development-set overfitting risk.
 
+EXP-05 used a frozen zero-shot treatment without label-based model selection, but its result was observed on the same 107-query research benchmark. It remains exploratory; using the result to redesign and retest reranker choices on that benchmark would create development-set overfitting risk.
+
 23. Current Blocker
 
-There is no runtime retrieval blocker. EXP-04 is complete and should not be immediately retuned on the same benchmark. Renewed router claims require additional untouched data; temporal retrieval, reranking, and benchmark audit remain separate controlled research options.
+There is no runtime retrieval blocker. EXP-05 is complete and should not be tuned on the same observed benchmark. The open research choice is independent reranking confirmation versus candidate-generation improvement; neither has been declared as EXP-06.

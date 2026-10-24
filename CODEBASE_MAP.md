@@ -1,6 +1,6 @@
 # AI Supports Legislation — Codebase Map
 
-Last updated: 2026-10-16
+Last updated: 2026-10-24
 
 This document maps current implementation to files/functions and explicitly separates:
 
@@ -642,7 +642,8 @@ Static fusion tuning	EXP-03 COMPLETE / NOT PROMOTED
 Dynamic hybrid weights	EXP-04 COMPLETE / NOT PROMOTED
 Intent/profile routing	EXPERIMENTAL
 Temporal filtering	EXPERIMENTAL
-PhoRanker reranking	EXPERIMENTAL
+Zero-shot BGE reranking	EXP-05 COMPLETE / EXPLORATORY_SUCCESS / NOT PROMOTED
+PhoRanker reranking	LEGACY / EXPERIMENTAL
 Failure taxonomy	EXPERIMENTAL
 Per-query oracle/headroom	COMPLETE / OFFLINE DIAGNOSTIC
 Statistical tests	EXPERIMENTAL
@@ -689,6 +690,19 @@ EXP-04 ownership:
 | `backend/data/runs/exp04_selective_dynamic_hybrid_nested_5fold_cv_v1_20261016_071606_287853_8d0649b7/` | Official EXP-04 evidence |
 
 EXP-04 is complete and did not promote Dynamic Hybrid. Dynamic OOF closed-world Weighted Recall@10 was `0.07053616402199708` versus `0.07248115500412532` for fixed 0.5. Of 16 overrides, none improved the primary metric, 13 tied, and 3 were harmful. Runtime remains static 0.5/0.5.
+
+EXP-05 ownership:
+
+| File | Responsibility |
+|---|---|
+| `backend/scripts/Evaluation/configs/exp05_frozen_hybrid30_zero_shot_reranker.yaml` | Frozen model revision, candidate source, input, scoring, statistics, and success contract |
+| `backend/scripts/Evaluation/experiments/exp05_frozen_hybrid30_zero_shot_reranker.py` | Provenance gates, frozen candidate reconstruction, label-blind scoring, artifact freezing, evaluation, and result assembly |
+| `backend/scripts/Evaluation/run_experiment.py` | Explicit EXP-05 CLI dispatch alongside earlier protocols |
+| `backend/scripts/Evaluation/reporting/serialization.py` | Strict and atomic EXP-05 artifact publication |
+| `backend/scripts/Tests/test_exp05_protocol.py` | Protocol, provenance, leakage, model-output, parity, statistics, and publication regression tests |
+| `backend/data/runs/exp05_frozen_hybrid30_zero_shot_cross_encoder_eval_v1_20261017_025515_995783_bc3d1a8a/` | Official EXP-05 evidence |
+
+EXP-05 is complete with `EXPLORATORY_SUCCESS`, but it is not promoted to runtime. It reranked the exact frozen Hybrid 0.5 top-30 candidates using `BAAI/bge-reranker-v2-m3`; treatment Weighted Recall@10 was `0.09941759776486084` versus `0.07248115500412532` for control. This is exploratory ranking evidence only: runtime still has no reranker, and candidate-generation coverage is unchanged.
 
 21. Statute Extraction Pipeline
 Directory:
@@ -1042,9 +1056,11 @@ backend/scripts/Evaluation/configs/exp02_d0.yaml
 backend/scripts/Evaluation/configs/exp02_d1.yaml
 backend/scripts/Evaluation/configs/exp03_static_fusion_cv.yaml
 backend/scripts/Evaluation/configs/exp04_selective_dynamic_hybrid_nested_cv.yaml
+backend/scripts/Evaluation/configs/exp05_frozen_hybrid30_zero_shot_reranker.yaml
 backend/scripts/Evaluation/experiments/baseline.py
 backend/scripts/Evaluation/experiments/exp03_static_fusion_cv.py
 backend/scripts/Evaluation/experiments/exp04_selective_dynamic_hybrid_nested_cv.py
+backend/scripts/Evaluation/experiments/exp05_frozen_hybrid30_zero_shot_reranker.py
 backend/scripts/Evaluation/core/
 backend/scripts/Evaluation/retrieval/
 
@@ -1059,6 +1075,7 @@ backend/scripts/Tests/test_baseline_protocol.py
 backend/scripts/Tests/test_exp02_protocol.py
 backend/scripts/Tests/test_exp03_protocol.py
 backend/scripts/Tests/test_exp04_protocol.py
+backend/scripts/Tests/test_exp05_protocol.py
 
 37. Current State Matrix
 Area	Status	Authoritative implementation/evidence
@@ -1087,3 +1104,5 @@ EXP-03	COMPLETE	CV-selected static policy not promoted; frozen 0.5/0.5 retained
 Oracle/headroom	COMPLETE / DIAGNOSTIC	Moderate, sparse and concentrated upper-bound headroom
 EXP-04	COMPLETE / NOT PROMOTED	Selective nested router did not improve primary WR@10
 Dynamic Hybrid	RESEARCH-ONLY / NOT PROMOTED	Official EXP-04 evidence; runtime remains static 0.5/0.5
+EXP-05	COMPLETE / EXPLORATORY_SUCCESS	Frozen top-30 BGE reranking improved primary WR@10; not promoted
+Zero-shot reranking	RESEARCH-ONLY / NOT PROMOTED	Official EXP-05 evidence; runtime reranker remains none

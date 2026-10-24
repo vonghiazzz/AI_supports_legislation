@@ -1,6 +1,6 @@
 # AI Supports Legislation — Decisions and History
 
-Last updated: 2026-10-16
+Last updated: 2026-10-24
 
 This document records:
 
@@ -941,6 +941,37 @@ Repeated router redesign using the same benchmark after observing EXP-04 would i
 
 `PROJECT_STATE.md` is the canonical detailed EXP-04 result record.
 
+36E. EXP-05 Result — Preserve Exploratory Reranking Success Without Runtime Promotion
+
+EXP-05 experiment `exp05_frozen_hybrid30_zero_shot_reranker_v1`, protocol `exp05_frozen_hybrid30_zero_shot_cross_encoder_eval_v1`, completed in official run:
+
+`exp05_frozen_hybrid30_zero_shot_cross_encoder_eval_v1_20261017_025515_995783_bc3d1a8a`
+
+The run used commit `8b107b5387e4f25bbc0b859a506b1132e0d42d48` and the exact local `BAAI/bge-reranker-v2-m3` revision `953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e`. It reranked, but did not change, the frozen Q0/D0 Hybrid 0.5 top-30 candidate sets.
+
+Observed:
+
+- Closed-world Weighted Recall@10 increased from `0.07248115500412532` to `0.09941759776486084`: delta `+0.026936442760735556`, approximately `+37.16%`.
+- The primary 95% paired-bootstrap interval was `[0.00748263967052791, 0.04832875063731571]`; paired sign-flip `p = 0.01024989750102499`.
+- Recall, nDCG, and MRR all improved; query outcomes were 37 wins, 56 ties, and 14 losses.
+- Four of five folds had positive mean Weighted Recall@10 deltas.
+- All seven predeclared success conditions passed.
+- CPU inference scored 3,210 pairs in about 76.2 minutes; 445 pairs were truncated on the document side, with no query budget threats or preservation failures.
+
+Interpretation:
+
+The frozen top-30 pools contain relevant laws whose ordering can be improved by the zero-shot cross-encoder. This addresses ranking within retrieved candidates and does not repair relevant laws missing from the candidate pool.
+
+Decision:
+
+- Mark EXP-05 complete with `EXPLORATORY_SUCCESS`.
+- Do not automatically promote the reranker or change runtime, the frozen candidate generator, or the 0.5/0.5 research control.
+- Do not claim production readiness, independent confirmation, or solved candidate coverage.
+- Do not tune model family, candidate depth, `max_length`, or score blending after observing these same 107-query outcomes.
+- Make the next research choice explicitly between an independent confirmatory reranking benchmark and candidate-generation improvement; do not implicitly declare EXP-06.
+
+`PROJECT_STATE.md` is the canonical detailed EXP-05 result record.
+
 37. Human Annotation Is a Pilot
 Historical evidence
 Current double-annotation experiment covers:
@@ -1160,7 +1191,7 @@ The following remain genuinely unresolved.
 Research
 1. Would a future Dynamic Hybrid approach transfer on an additional untouched benchmark without iterative same-benchmark retuning?
 2. Does temporal filtering improve legally valid retrieval without harming recall?
-3. Does reranking provide reliable gain relative to latency/cost?
+3. Does the frozen EXP-05 reranking gain transfer to an independent benchmark, and can its latency/compute profile support a future deployment decision?
 4. What manual annotation coverage is sufficient for benchmark confidence?
 Runtime / product
 5. Should /ask retain automatic answer evaluation or remove/replace it?
@@ -1204,6 +1235,7 @@ EXP-03 decision	Complete; CV-selected static policy not promoted
 Static weights	Retain frozen 0.5 / 0.5
 Oracle/headroom decision	Moderate headroom; protocol design justified, runtime adoption not justified
 EXP-04 decision	Complete; selective Dynamic Hybrid not promoted
-Next research action	Preserve fixed 0.5/0.5 and obtain untouched data before renewed router work
+EXP-05 decision	Complete; exploratory reranking success, not promoted to runtime
+Next research decision	Independent reranking confirmation or candidate-generation improvement; EXP-06 not declared
 Human annotation	Pilot only
 Database/vector server	Not used

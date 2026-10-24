@@ -307,15 +307,15 @@ EXP-02  D0 vs D1
 EXP-03  leakage-controlled static fusion-weight CV
 offline oracle/headroom diagnostic
 EXP-04  selective Dynamic Hybrid nested CV
+EXP-05  frozen Hybrid top-30 zero-shot cross-encoder reranking
 
 Next:
-preserve EXP-04 and avoid immediate router retuning on the same 107 queries
-obtain an untouched benchmark before renewed Dynamic Hybrid work or strong claims
-temporal retrieval
-reranking
-statistical analysis
+preserve EXP-05 as exploratory evidence without runtime promotion
+choose between an independent confirmatory reranking benchmark and candidate-generation improvement
+avoid tuning reranker choices on the same 107 observed outcomes
+expand human annotation / benchmark audit
 
-The completed oracle/headroom analysis uses ground truth and is only an upper-bound diagnostic, not deployable, held-out, or confirmatory performance.
+The completed oracle/headroom analysis uses ground truth and is only an upper-bound diagnostic, not deployable, held-out, or confirmatory performance. EXP-05 reranks frozen candidates only; it does not improve candidate coverage and is not independent confirmation.
 21. EXP-02 — D0 vs D1
 
 Status: **COMPLETE**.
@@ -356,6 +356,16 @@ Dynamic OOF closed-world Weighted Recall@10 was `0.07053616402199708`, below `0.
 
 Decision: do not promote Dynamic Hybrid; keep static 0.5/0.5 fusion and runtime unchanged. Do not immediately retune the router on the same 107-query outcomes because repeated redesign would increase development-set overfitting risk. See `PROJECT_STATE.md` for the canonical detailed result and limitations.
 
+21D. EXP-05 — Frozen Hybrid Top-30 Zero-Shot Reranking
+
+Status: **COMPLETE — EXPLORATORY_SUCCESS — NOT PROMOTED TO RUNTIME**.
+
+Official run: `exp05_frozen_hybrid30_zero_shot_cross_encoder_eval_v1_20261017_025515_995783_bc3d1a8a`.
+
+Using the exact frozen Hybrid 0.5 top-30 candidates, zero-shot `BAAI/bge-reranker-v2-m3` increased closed-world Weighted Recall@10 from `0.07248115500412532` to `0.09941759776486084`, a delta of `+0.026936442760735556` (about `+37.16%`). The primary 95% paired-bootstrap interval was entirely above zero, paired sign-flip `p = 0.01024989750102499`, and query outcomes were 37 wins, 56 ties, and 14 losses.
+
+Decision: preserve this as exploratory ranking evidence, not production readiness or independent confirmation. Runtime remains fixed Hybrid 0.5/0.5 with no reranker. EXP-05 cannot repair relevant laws absent from the top-30 candidate set, and its choices must not now be tuned against the same 107 observed outcomes. See `PROJECT_STATE.md` for the canonical detailed results, compute cost, protocol limits, and next-decision options.
+
 22. Human Annotation Status
 Current human annotation is only a pilot:
 3 / 107 queries
@@ -394,6 +404,10 @@ feat(runtime): add deterministic retrieval artifact recovery
 FastAPI runtime recovery:
 886a0783
 fix(runtime): recover deterministic baseline retrieval
+
+EXP-05 frozen zero-shot reranker scaffold:
+8b107b5387e4f25bbc0b859a506b1132e0d42d48
+feat(eval): add frozen zero-shot reranker experiment
 
 Historical exact experiment provenance is preserved separately and must not be confused with rewritten/sanitized Git commit hashes.
 25. Development Rule
