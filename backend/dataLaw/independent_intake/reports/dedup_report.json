@@ -1,0 +1,8 @@
+{
+  "report_version": "independent_source_dedup_v1",
+  "near_duplicate_threshold": 0.72,
+  "source_count": 0,
+  "eligible_source_count": 0,
+  "exclusions": [],
+  "duplicate_clusters": []
+}

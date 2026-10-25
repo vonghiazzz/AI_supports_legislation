@@ -227,19 +227,54 @@ def split_sections(pages: list) -> dict:
     
     return sections
 
-def save_json(output_data: dict, output_path: Path):
+def save_json(output_data: dict, output_path: Path, overwrite: bool = False) -> bool:
     """
     Lưu dữ liệu kết quả thành file JSON chuẩn mã hóa UTF-8.
     """
     try:
+        if output_path.exists() and not overwrite:
+            print(f"❌ Từ chối ghi đè file đã tồn tại: {output_path}")
+            return False
         output_path.parent.mkdir(parents=True, exist_ok=True)
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(output_data, f, ensure_ascii=False, indent=2)
         print(f"💾 Đã lưu cấu trúc JSON thành công vào: {output_path.relative_to(BASE_DIR) if output_path.is_relative_to(BASE_DIR) else output_path}")
+        return True
     except Exception as e:
         print(f"❌ Không thể ghi file JSON: {e}")
+        return False
 
-def process_judgment_file(pdf_path: Path, output_dir: Path, force_ocr: bool = False) -> bool:
+def save_json_at_fd(
+    output_data: dict,
+    output_filename: str,
+    output_dir_fd: int,
+    overwrite: bool = False,
+) -> bool:
+    """Write JSON relative to a caller-verified directory descriptor."""
+    flags = os.O_WRONLY | os.O_CREAT
+    flags |= os.O_TRUNC if overwrite else os.O_EXCL
+    try:
+        descriptor = os.open(output_filename, flags, 0o600, dir_fd=output_dir_fd)
+        with os.fdopen(descriptor, "w", encoding="utf-8") as handle:
+            json.dump(output_data, handle, ensure_ascii=False, indent=2)
+            handle.flush()
+            os.fsync(handle.fileno())
+        return True
+    except FileExistsError:
+        print(f"❌ Từ chối ghi đè file đã tồn tại: {output_filename}")
+        return False
+    except Exception as e:
+        print(f"❌ Không thể ghi file JSON qua directory FD: {e}")
+        return False
+
+def process_judgment_file(
+    pdf_path: Path,
+    output_dir: Path,
+    force_ocr: bool = False,
+    overwrite: bool = False,
+    output_dir_fd: int | None = None,
+    original_filename: str | None = None,
+) -> bool:
     """
     Xử lý trọn gói 1 file bản án PDF: Trích xuất trang, chia section và ghi JSON.
     """
@@ -258,24 +293,32 @@ def process_judgment_file(pdf_path: Path, output_dir: Path, force_ocr: bool = Fa
     sections = split_sections(pages)
     
     # 3. Gom cấu trúc dữ liệu JSON
+    judgment_name = original_filename or pdf_path.name
     output_data = {
-        "judgment_name": pdf_path.name,
+        "judgment_name": judgment_name,
         "page_count": len(pages),
         "pages": pages,
         "sections": sections
     }
     
     # 4. Lưu file JSON đầu ra
-    output_filename = f"{pdf_path.stem}_structured.json"
+    output_filename = f"{Path(judgment_name).stem}_structured.json"
+    if output_dir_fd is not None:
+        return save_json_at_fd(
+            output_data,
+            output_filename,
+            output_dir_fd,
+            overwrite=overwrite,
+        )
     output_path = output_dir / output_filename
-    save_json(output_data, output_path)
-    return True
+    return save_json(output_data, output_path, overwrite=overwrite)
 
 def main():
     parser = argparse.ArgumentParser(description="Tool OCR & Cấu trúc hóa bản án Việt Nam không sử dụng LLM.")
     parser.add_argument("input", help="Đường dẫn đến file PDF bản án hoặc thư mục chứa các bản án.")
     parser.add_argument("-o", "--output", help="Thư mục lưu kết quả JSON đầu ra. Mặc định lưu vào backend/data/structured_judgments/.")
     parser.add_argument("--force-ocr", action="store_true", help="Bắt buộc chạy OCR Tesseract cho tất cả các trang thay vì trích xuất trực tiếp.")
+    parser.add_argument("--overwrite", action="store_true", help="Cho phép ghi đè file JSON đầu ra đã tồn tại.")
     
     args = parser.parse_args()
     
@@ -291,7 +334,9 @@ def main():
         if input_path.suffix.lower() != ".pdf":
             print(f"❌ Chỉ hỗ trợ định dạng file PDF. Bỏ qua file: {input_path.name}")
             sys.exit(1)
-        success = process_judgment_file(input_path, output_dir, args.force_ocr)
+        success = process_judgment_file(
+            input_path, output_dir, args.force_ocr, overwrite=args.overwrite
+        )
         if success:
             print("\n🎉 Hoàn thành xử lý file bản án!")
         else:
@@ -307,7 +352,9 @@ def main():
         success_count = 0
         for pdf_file in pdf_files:
             try:
-                if process_judgment_file(pdf_file, output_dir, args.force_ocr):
+                if process_judgment_file(
+                    pdf_file, output_dir, args.force_ocr, overwrite=args.overwrite
+                ):
                     success_count += 1
             except Exception as e:
                 print(f"❌ Gặp lỗi đột ngột khi xử lý {pdf_file.name}: {e}")

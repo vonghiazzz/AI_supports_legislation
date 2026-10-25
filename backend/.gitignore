@@ -66,3 +66,23 @@ data/*.json
 # Raw law source documents are local artifacts
 /dataLaw/*
 !/dataLaw/laws_config.json
+!/dataLaw/independent_intake/
+!/dataLaw/independent_intake/*.json
+!/dataLaw/independent_intake/reports/
+!/dataLaw/independent_intake/reports/*.json
+!/dataLaw/independent_intake/raw/
+/dataLaw/independent_intake/raw/*
+!/dataLaw/independent_intake/raw/.gitkeep
+!/dataLaw/independent_intake/structured/
+/dataLaw/independent_intake/structured/*
+!/dataLaw/independent_intake/structured/.gitkeep
+!/dataLaw/independent_intake/quarantine/
+/dataLaw/independent_intake/quarantine/*
+!/dataLaw/independent_intake/quarantine/.gitkeep
+!/dataLaw/independent_intake/provenance/
+/dataLaw/independent_intake/provenance/*
+!/dataLaw/independent_intake/provenance/.gitkeep
+!/dataLaw/independent_intake/provenance/*.json
+!/dataLaw/independent_intake/transactions/
+/dataLaw/independent_intake/transactions/*
+!/dataLaw/independent_intake/transactions/.gitkeep

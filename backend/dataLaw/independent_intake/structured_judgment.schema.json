@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "independent_structured_judgment_v1",
+  "title": "Independent structured judgment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["judgment_name", "page_count", "pages", "sections"],
+  "properties": {
+    "judgment_name": {"type": "string", "minLength": 1},
+    "page_count": {"type": "integer", "minimum": 1},
+    "pages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["page", "text"],
+        "properties": {
+          "page": {"type": "integer", "minimum": 1},
+          "text": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "sections": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["header", "facts", "reasoning", "decision"],
+      "properties": {
+        "header": {"type": "string"},
+        "facts": {"type": "string"},
+        "reasoning": {"type": "string"},
+        "decision": {"type": "string"}
+      }
+    }
+  }
+}

@@ -17,6 +17,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from ..core.normalization import canonical_retrieval_id
+from .source_intake import inventory_independent_sources
 
 
 BENCHMARK_ID = "retrieval_independent_v1"
@@ -327,9 +328,17 @@ def _public_record(record: dict) -> dict:
 def deduplicate_against_development(
     inventory: list[dict],
     development_records: list[dict],
-    known_duplicate_links: dict[str, str] | None = None,
+    known_duplicate_links: dict[str, str] | list[tuple[str, str]] | None = None,
 ) -> tuple[list[dict], dict]:
-    known_duplicate_links = known_duplicate_links or {}
+    legacy_duplicate_links = (
+        known_duplicate_links if isinstance(known_duplicate_links, dict) else {}
+    )
+    linked_source_pairs = {
+        tuple(sorted((str(left), str(right))))
+        for left, right in (
+            known_duplicate_links if isinstance(known_duplicate_links, list) else []
+        )
+    }
     ordered_inventory = sorted(
         inventory,
         key=lambda item: (
@@ -338,10 +347,15 @@ def deduplicate_against_development(
             item.get("source_sha256", ""),
         ),
     )
-    inventory_by_name = {
-        canonical_source_name(record["source_name"]): record
-        for record in ordered_inventory
-    }
+    inventory_by_name = {}
+    for record in ordered_inventory:
+        name = canonical_source_name(record["source_name"])
+        existing = inventory_by_name.get(name)
+        if existing is None or (
+            record.get("source_id", "").startswith("judgment:")
+            and not existing.get("source_id", "").startswith("judgment:")
+        ):
+            inventory_by_name[name] = record
     consumed = []
     for development_record in development_records:
         name = canonical_source_name(development_record.get("judgment_name", ""))
@@ -371,7 +385,7 @@ def deduplicate_against_development(
             reasons.append("development_benchmark_exact_sha256")
         if record["case_id"] in consumed_case_ids:
             reasons.append("development_benchmark_same_case_id")
-        linked_case = known_duplicate_links.get(record["source_id"])
+        linked_case = legacy_duplicate_links.get(record["source_id"])
         if linked_case:
             reasons.append(f"known_underlying_dispute:{linked_case}")
         if not reasons and record.get("_dedup_text"):
@@ -423,6 +437,33 @@ def deduplicate_against_development(
                 pair_reasons.append("new_pool_duplicate_sha256")
             if left.get("case_id") == right.get("case_id"):
                 pair_reasons.append("new_pool_duplicate_case_id")
+            if (
+                left.get("structured_sha256")
+                and left.get("structured_sha256") == right.get("structured_sha256")
+            ):
+                pair_reasons.append("new_pool_duplicate_structured_sha256")
+            if (
+                left.get("judgment_number")
+                and _normalize_text(left["judgment_number"])
+                == _normalize_text(right.get("judgment_number", ""))
+            ):
+                pair_reasons.append("new_pool_duplicate_normalized_identity")
+            if (
+                left.get("underlying_dispute_id")
+                and left.get("underlying_dispute_id")
+                == right.get("underlying_dispute_id")
+            ):
+                pair_reasons.append("new_pool_same_underlying_dispute")
+            left_related = set(left.get("related_decision_ids", []))
+            right_related = set(right.get("related_decision_ids", []))
+            if (
+                left_related & right_related
+                or left.get("judgment_number") in right_related
+                or right.get("judgment_number") in left_related
+            ):
+                pair_reasons.append("new_pool_related_decision_ids")
+            if tuple(sorted((left["source_id"], right["source_id"]))) in linked_source_pairs:
+                pair_reasons.append("new_pool_known_duplicate_link")
             if left.get("_dedup_text") and right.get("_dedup_text"):
                 similarity = dedup_text_similarity(
                     left["_dedup_text"], right["_dedup_text"]
@@ -487,7 +528,15 @@ def deduplicate_against_development(
         "development_source_mapping": consumed,
         "exclusions": exclusions,
         "internal_duplicate_clusters": internal_duplicate_clusters,
-        "known_duplicate_links": dict(sorted(known_duplicate_links.items())),
+        "known_duplicate_links": (
+            dict(sorted(legacy_duplicate_links.items()))
+            if legacy_duplicate_links
+            else (
+                [list(pair) for pair in sorted(linked_source_pairs)]
+                if linked_source_pairs
+                else {}
+            )
+        ),
         "ordering_rule": (
             "case_id ASC, source_id ASC, source_sha256 ASC; "
             "first duplicate-cluster member is canonical"
@@ -1011,8 +1060,18 @@ def phase1_payloads(project_root: Path, generation_timestamp: str | None = None)
     timestamp = generation_timestamp or datetime.now(timezone.utc).isoformat()
     development_path = project_root / "backend/data/judgments_evaluation.json"
     development_records = json.loads(development_path.read_text(encoding="utf-8"))
-    inventory_private = inventory_judgment_sources(project_root, include_private_text=True)
-    eligible, dedup = deduplicate_against_development(inventory_private, development_records)
+    development_inventory = inventory_judgment_sources(
+        project_root, include_private_text=True
+    )
+    independent_inventory, intake_report, known_duplicate_links = (
+        inventory_independent_sources(project_root, include_private_text=True)
+    )
+    inventory_private = development_inventory + independent_inventory
+    eligible, dedup = deduplicate_against_development(
+        inventory_private,
+        development_records,
+        known_duplicate_links=known_duplicate_links,
+    )
     public_inventory = [_public_record(record) for record in inventory_private]
     inventory_fingerprint = canonical_json_fingerprint(public_inventory)
     eligible_fingerprint = canonical_json_fingerprint(eligible)
@@ -1025,6 +1084,8 @@ def phase1_payloads(project_root: Path, generation_timestamp: str | None = None)
         "inventory_fingerprint": inventory_fingerprint,
         "eligible_fingerprint": eligible_fingerprint,
     })
+    if intake_report["source_count"]:
+        dedup["independent_intake_validation"] = intake_report
     sampling = {
         "benchmark_id": BENCHMARK_ID,
         "phase": 1,
@@ -1060,7 +1121,6 @@ def phase1_payloads(project_root: Path, generation_timestamp: str | None = None)
             "ground-truth labels",
         ],
     }
-    validate_sampling_records(public_inventory)
     validate_sampling_records(eligible)
     return sampling, dedup
 
@@ -1090,8 +1150,14 @@ def draft_benchmark_manifest(
     source_paths = (
         project_root / "backend/data/judgments_evaluation.json",
         project_root / "backend/data/gt_schema_v2.json",
+        project_root / "backend/dataLaw/independent_intake/acquisition_manifest.json",
+        project_root / "backend/dataLaw/independent_intake/acquisition_manifest.schema.json",
+        project_root / "backend/dataLaw/independent_intake/structured_judgment.schema.json",
         project_root / "backend/scripts/Evaluation/benchmarking/independent_benchmark.py",
+        project_root / "backend/scripts/Evaluation/benchmarking/source_intake.py",
+        project_root / "backend/scripts/ocrFullBanAn.py",
         project_root / "backend/scripts/Tests/test_independent_benchmark_protocol.py",
+        project_root / "backend/scripts/Tests/test_independent_source_intake.py",
     )
     manifest = {
         "benchmark_id": BENCHMARK_ID,

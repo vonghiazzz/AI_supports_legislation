@@ -37,12 +37,36 @@
       "sha256": "35f8da5b45cdf4108af4832a18c91c361df41abed012baedb8d361b0a420255c"
     },
     {
+      "path": "backend/dataLaw/independent_intake/acquisition_manifest.json",
+      "sha256": "8ebbb51358648bcefb9a814cd8d8658d506314fc49ee9eefac576547a57c6aca"
+    },
+    {
+      "path": "backend/dataLaw/independent_intake/acquisition_manifest.schema.json",
+      "sha256": "9e08dc91d7cae6f8997bb8fa1d7483a5327abb219c336fc1025445b6b0a9664f"
+    },
+    {
+      "path": "backend/dataLaw/independent_intake/structured_judgment.schema.json",
+      "sha256": "f9db27046c30ab5b8cafe9e900cc0511985c6ec748d7f23e9010062aeee7c8eb"
+    },
+    {
       "path": "backend/scripts/Evaluation/benchmarking/independent_benchmark.py",
-      "sha256": "44e39305acac11c02518933e21f0abecbb68a88ef04594cfea47d8498a4b0e9c"
+      "sha256": "51c78cba6f2f4d34056ea40a24c80b8b7f543919647cf001adae912b6c14bfd7"
+    },
+    {
+      "path": "backend/scripts/Evaluation/benchmarking/source_intake.py",
+      "sha256": "27fba478053330335e50fe6c464979c76aa2c9f021daf54559498489b009d5e8"
+    },
+    {
+      "path": "backend/scripts/ocrFullBanAn.py",
+      "sha256": "808e04a99a06607627d2e409c454d18e879275591683cef28fa1bb1b8c51e3f0"
     },
     {
       "path": "backend/scripts/Tests/test_independent_benchmark_protocol.py",
       "sha256": "0b0a142782a527510f19f62117cd594e6cceee66528799d7bcb5274ca9bc3b29"
+    },
+    {
+      "path": "backend/scripts/Tests/test_independent_source_intake.py",
+      "sha256": "4da46c3aa1551aacb3065c2b359a123061ba6cb720282a1f3ada3fb3bf9e193e"
     }
   ],
   "phase1_artifacts": [

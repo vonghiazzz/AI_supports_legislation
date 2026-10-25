@@ -1,0 +1,200 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "independent_source_acquisition_v1",
+  "title": "Independent judgment source acquisition manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["manifest_version", "created_at", "sources", "immutable_provenance", "known_duplicate_links"],
+  "properties": {
+    "manifest_version": {"const": "independent_source_acquisition_v1"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "sources": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/source"}
+    },
+    "immutable_provenance": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/immutableProvenance"}
+    },
+    "known_duplicate_links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["acquisition_id", "related_acquisition_id", "reason"],
+        "properties": {
+          "acquisition_id": {"$ref": "#/$defs/acquisitionId"},
+          "related_acquisition_id": {"$ref": "#/$defs/acquisitionId"},
+          "reason": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "acquisitionId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]{2,127}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "status": {
+      "enum": [
+        "downloaded",
+        "hash_verified",
+        "extracted",
+        "metadata_verified",
+        "dedup_checked",
+        "eligible",
+        "quarantined",
+        "rejected"
+      ]
+    },
+    "immutableProvenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "acquisition_id",
+        "source_id",
+        "original_filename",
+        "stored_pdf_path",
+        "source_url",
+        "offline_provenance",
+        "source_domain",
+        "download_timestamp",
+        "sha256",
+        "immutable_fingerprint"
+      ],
+      "properties": {
+        "acquisition_id": {"$ref": "#/$defs/acquisitionId"},
+        "source_id": {"type": "string", "pattern": "^independent:[a-z0-9][a-z0-9._-]{2,127}$"},
+        "original_filename": {"type": "string", "pattern": "^[^/\\\\]+\\.[pP][dD][fF]$"},
+        "stored_pdf_path": {"type": "string", "minLength": 1},
+        "source_url": {"type": ["string", "null"], "format": "uri"},
+        "offline_provenance": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["description"],
+              "properties": {"description": {"type": "string", "minLength": 1}}
+            }
+          ]
+        },
+        "source_domain": {"type": "string", "minLength": 1},
+        "download_timestamp": {"type": "string", "format": "date-time"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "immutable_fingerprint": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {"properties": {"source_url": {"type": "null"}}},
+          "then": {"properties": {"offline_provenance": {"type": "object"}}},
+          "else": {"properties": {"offline_provenance": {"type": "null"}}}
+        }
+      ],
+      "required": [
+        "acquisition_id",
+        "source_id",
+        "original_filename",
+        "stored_pdf_path",
+        "source_url",
+        "offline_provenance",
+        "source_domain",
+        "download_timestamp",
+        "sha256",
+        "case_id",
+        "judgment_number",
+        "court",
+        "decision_date",
+        "procedure_stage",
+        "underlying_dispute_id",
+        "related_decision_ids",
+        "structured_path",
+        "structured_sha256",
+        "metadata_verification",
+        "acquisition_status",
+        "status_history",
+        "rejection_reasons",
+        "notes"
+      ],
+      "properties": {
+        "acquisition_id": {"$ref": "#/$defs/acquisitionId"},
+        "source_id": {"type": "string", "pattern": "^independent:[a-z0-9][a-z0-9._-]{2,127}$"},
+        "original_filename": {"type": "string", "pattern": "^[^/\\\\]+\\.[pP][dD][fF]$"},
+        "stored_pdf_path": {"type": "string", "minLength": 1},
+        "source_url": {"type": ["string", "null"], "format": "uri"},
+        "offline_provenance": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["description"],
+              "properties": {"description": {"type": "string", "minLength": 1}}
+            }
+          ]
+        },
+        "source_domain": {"type": "string", "minLength": 1},
+        "download_timestamp": {"type": "string", "format": "date-time"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "case_id": {"type": ["string", "null"]},
+        "judgment_number": {"type": ["string", "null"]},
+        "court": {"type": ["string", "null"]},
+        "decision_date": {"type": ["string", "null"], "format": "date"},
+        "procedure_stage": {"type": ["string", "null"]},
+        "underlying_dispute_id": {"type": ["string", "null"]},
+        "related_decision_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "structured_path": {"type": "string", "minLength": 1},
+        "structured_sha256": {"oneOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]},
+        "metadata_verification": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "judgment_number",
+            "case_id",
+            "court",
+            "decision_date",
+            "procedure_stage",
+            "development_overlap_check",
+            "internal_dedup_check",
+            "underlying_dispute_review"
+          ],
+          "properties": {
+            "judgment_number": {"type": "boolean"},
+            "case_id": {"type": "boolean"},
+            "court": {"type": "boolean"},
+            "decision_date": {"type": "boolean"},
+            "procedure_stage": {"type": "boolean"},
+            "development_overlap_check": {"type": "boolean"},
+            "internal_dedup_check": {"type": "boolean"},
+            "underlying_dispute_review": {"type": "boolean"}
+          }
+        },
+        "acquisition_status": {"$ref": "#/$defs/status"},
+        "status_history": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["status", "timestamp", "reasons"],
+            "properties": {
+              "status": {"$ref": "#/$defs/status"},
+              "timestamp": {"type": "string", "format": "date-time"},
+              "reasons": {"type": "array", "items": {"type": "string", "minLength": 1}}
+            }
+          }
+        },
+        "rejection_reasons": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "notes": {"type": ["string", "null"]}
+      }
+    }
+  }
+}
