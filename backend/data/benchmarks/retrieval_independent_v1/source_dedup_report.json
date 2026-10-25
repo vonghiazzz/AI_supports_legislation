@@ -1,0 +1,1848 @@
+{
+  "algorithm": "source_name_sha_case_id_text_shingle_v2",
+  "near_duplicate_threshold": 0.72,
+  "inventory_count": 107,
+  "development_record_count": 107,
+  "development_sources_matched": 107,
+  "development_sources_unmatched": 0,
+  "excluded_source_count": 107,
+  "eligible_source_count": 0,
+  "reason_counts": {
+    "development_benchmark_exact_sha256": 107,
+    "development_benchmark_exact_source": 107,
+    "development_benchmark_same_case_id": 107
+  },
+  "development_source_mapping": [
+    {
+      "development_query_id": 1,
+      "judgment_name": "174.pdf",
+      "source_id": "judgment:174.pdf",
+      "case_id": "174/2024/DS-GĐT",
+      "source_sha256": "af0280cc66a305a992cf849d82db59d87fdfebe68f0f32a7f5727df3102cf0a3",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 2,
+      "judgment_name": "175.pdf",
+      "source_id": "judgment:175.pdf",
+      "case_id": "175/2024/DS-GĐT",
+      "source_sha256": "3d0ee1d1e8730865ea34f33bbd297803baef635972fb3a91cfc6e013e0de1391",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 3,
+      "judgment_name": "217.pdf",
+      "source_id": "judgment:217.pdf",
+      "case_id": "217/2024/DS-GĐT",
+      "source_sha256": "76426840010829c86f48f52b0489e365ec2c2814635143375e30c27ed84b64d7",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 4,
+      "judgment_name": "289A.pdf",
+      "source_id": "judgment:289a.pdf",
+      "case_id": "289A/2022",
+      "source_sha256": "2a72f85654de17a9614b28e960fa9d75a7b4647c12c1ee497c66e233fca2e83e",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 5,
+      "judgment_name": "198.pdf",
+      "source_id": "judgment:198.pdf",
+      "case_id": "198/2024/DS-GĐT",
+      "source_sha256": "874863be5093c8fac5ce9aa53c06f76f546a9e4541632b26a8089d94f01eb690",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 6,
+      "judgment_name": "99.pdf",
+      "source_id": "judgment:99.pdf",
+      "case_id": "99/2024/DS-GĐT",
+      "source_sha256": "5536771f870c6defc23421dacc578cdac65eaff5fdc6de5dbaf8e5963cc7b400",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 7,
+      "judgment_name": "173.pdf",
+      "source_id": "judgment:173.pdf",
+      "case_id": "173/2024/DS-GĐT",
+      "source_sha256": "c2720d187fd66f43aa0a5126b8f85e202c6e3c71ed0cf6cea270e6fe7e5b6012",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 8,
+      "judgment_name": "239.pdf",
+      "source_id": "judgment:239.pdf",
+      "case_id": "239/2024/DS-GĐT",
+      "source_sha256": "2598fa653235ab11639e6a4244c7764e5355f0f6aad95bea9e61172c7d0f2604",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 9,
+      "judgment_name": "159.pdf",
+      "source_id": "judgment:159.pdf",
+      "case_id": "159/2024/DS-GĐT",
+      "source_sha256": "cbf6adf2d85bb9053527fbcef4db63955d1fca114ce96a1476f69e3753cc33c7",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 10,
+      "judgment_name": "171.pdf",
+      "source_id": "judgment:171.pdf",
+      "case_id": "171/2024/DS-GĐT",
+      "source_sha256": "8fb057daa34d49dbdadea6153d2cd202987f27a8eb854569913758f5cdbf041b",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 11,
+      "judgment_name": "158.pdf",
+      "source_id": "judgment:158.pdf",
+      "case_id": "158/2024/DS-GĐT",
+      "source_sha256": "e4cbf463ac67089d80827e692aa3222b3003949268288813225197c44f099aa7",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 12,
+      "judgment_name": "103.pdf",
+      "source_id": "judgment:103.pdf",
+      "case_id": "103/2024/DS-GĐT",
+      "source_sha256": "e902d7e34a1802966797b57fd6021cc484d1f9038fd2dd0038f3a3b46f1b3ad0",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 13,
+      "judgment_name": "117.pdf",
+      "source_id": "judgment:117.pdf",
+      "case_id": "117/2024/DS-GĐT",
+      "source_sha256": "8ca13eae154581f28ddee1210c1765435052d8da2dbd262ca12f0553ac85eec2",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 14,
+      "judgment_name": "116.pdf",
+      "source_id": "judgment:116.pdf",
+      "case_id": "116/2024/DS-GĐT",
+      "source_sha256": "c6e17075ae2fac56552139965ddc8b823ca84e57b41e513304391e8a8dbc49a0",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 15,
+      "judgment_name": "114.pdf",
+      "source_id": "judgment:114.pdf",
+      "case_id": "114/2024/DS-GĐT",
+      "source_sha256": "7c60b1857e9eae3f8cb5ed738c02650d56bb97319aaa84cc5a574129806dbd90",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 16,
+      "judgment_name": "128.pdf",
+      "source_id": "judgment:128.pdf",
+      "case_id": "128/2024/DS-GĐT",
+      "source_sha256": "cb80f96ae5d728cbd01382beb44d8d730137ffd31fda2fdb95d96bd1d62456ee",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 17,
+      "judgment_name": "129.pdf",
+      "source_id": "judgment:129.pdf",
+      "case_id": "129/2024/DS-GĐT",
+      "source_sha256": "eeabee7e6dc9a4f71e7c23f31a4229ad69ed6bcbd4011c1def5d465ee540d671",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 18,
+      "judgment_name": "115.pdf",
+      "source_id": "judgment:115.pdf",
+      "case_id": "115/2024/DS-GĐT",
+      "source_sha256": "bf6c3eddd0e3c8ff925b1f82c540aaefb1dd326ceaa9551aad332001a69a198d",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 19,
+      "judgment_name": "263.pdf",
+      "source_id": "judgment:263.pdf",
+      "case_id": "263/2024/DS-GĐT",
+      "source_sha256": "8a7421d0cfdfd4268d53f90ce7c9469f3a099cabb527c360d310661cadc4e516",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 20,
+      "judgment_name": "104.pdf",
+      "source_id": "judgment:104.pdf",
+      "case_id": "104/2024/DS-GĐT",
+      "source_sha256": "358e743fc7e2361cbe083d0687148d1d719ff4a54dbf1b0b089d6214b0f946ba",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 21,
+      "judgment_name": "110.pdf",
+      "source_id": "judgment:110.pdf",
+      "case_id": "110/2024/DS-GĐT",
+      "source_sha256": "8400d0f74e57fbfdc72b9348c292bf8f2d78d3a5a542d7e58930751e4c8a6a24",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 22,
+      "judgment_name": "113.pdf",
+      "source_id": "judgment:113.pdf",
+      "case_id": "113/2024/DS-GĐT",
+      "source_sha256": "f4c438e6d187590f977f84fefd306e97f3167bb541c861ea0e72c1c71254a3a5",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 23,
+      "judgment_name": "240.pdf",
+      "source_id": "judgment:240.pdf",
+      "case_id": "240/2024/DS-GĐT",
+      "source_sha256": "109cbec2d8685b68a9affc6f61b423a99ff731f5b5342c4e74fc202da44e3a0c",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 24,
+      "judgment_name": "123.pdf",
+      "source_id": "judgment:123.pdf",
+      "case_id": "123/2024/DS-GĐT",
+      "source_sha256": "f5770a0e5e2537b6605e422415342f4a3ef6151309510bba06e939f1412f1a3e",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 25,
+      "judgment_name": "282.pdf",
+      "source_id": "judgment:282.pdf",
+      "case_id": "282/2023/DS-GĐT",
+      "source_sha256": "99a41d4f6d75a3e1f8c372f4c9c7e4d9fd846264453c5c5a0c0e73858cd99114",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 26,
+      "judgment_name": "243.pdf",
+      "source_id": "judgment:243.pdf",
+      "case_id": "243/2024/DS-GĐT",
+      "source_sha256": "3a08bc9d514c022a5600c77b544a101a70997a9fd5b5d2160665bd8335b6696c",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 27,
+      "judgment_name": "20.pdf",
+      "source_id": "judgment:20.pdf",
+      "case_id": "20/2024/DS-GĐT",
+      "source_sha256": "f9f52553e7d0bc290efa9f535f57cad491ef9ca873bb3e2c4cd08fee187c7106",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 28,
+      "judgment_name": "21.pdf",
+      "source_id": "judgment:21.pdf",
+      "case_id": "21/2024/DS-GĐT",
+      "source_sha256": "e983ff1eb5aaa596c2d846d5c1e4c9b56535271059fa907ca03423fb678cba81",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 29,
+      "judgment_name": "134.pdf",
+      "source_id": "judgment:134.pdf",
+      "case_id": "134/2024/DS-GĐT",
+      "source_sha256": "bb59a68d0b4c9fe5913372b77a12d4e5caa4ef561854d448edc58672ec12b003",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 30,
+      "judgment_name": "246.pdf",
+      "source_id": "judgment:246.pdf",
+      "case_id": "246/2024/DS-GĐT",
+      "source_sha256": "42a523f0ddde23a5c9b3be729ec2c385bacee2946f011a7009640b1880d5a57b",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 31,
+      "judgment_name": "130.pdf",
+      "source_id": "judgment:130.pdf",
+      "case_id": "130/2024/DS-GĐT",
+      "source_sha256": "120f686d2cbc2e4ff2fed73dbf6440ebcaa5c14c1658facc653b49a1ee1d32c2",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 32,
+      "judgment_name": "124.pdf",
+      "source_id": "judgment:124.pdf",
+      "case_id": "124/2024/DS-GĐT",
+      "source_sha256": "23025eafe16b7e634041c182c24f6cca53c592bbd736e34688b86f6324391db9",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 33,
+      "judgment_name": "18.pdf",
+      "source_id": "judgment:18.pdf",
+      "case_id": "18/2024/DS-GĐT",
+      "source_sha256": "61ffe4f68b876fb73ed91f8c7c8b6e671a78a0d98a310bf715745d67a617ddda",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 34,
+      "judgment_name": "251.pdf",
+      "source_id": "judgment:251.pdf",
+      "case_id": "251/2022/DS-GĐT",
+      "source_sha256": "208c9004d6b33b0f06b0439bcced90961cfaedeefabdbfea196da2091c539eae",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 35,
+      "judgment_name": "245.pdf",
+      "source_id": "judgment:245.pdf",
+      "case_id": "245/2024/DS-GĐT",
+      "source_sha256": "19445081f3f15b02fe61c38262b9073bc6d4add544e214cc073cfb25c8b8fa48",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 36,
+      "judgment_name": "127.pdf",
+      "source_id": "judgment:127.pdf",
+      "case_id": "127/2024/DS-GĐT",
+      "source_sha256": "604615be906942618885560da3961e9517aa2a04f2dd260ae168d40632fa6948",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 37,
+      "judgment_name": "133.pdf",
+      "source_id": "judgment:133.pdf",
+      "case_id": "133/2024/DS-GĐT",
+      "source_sha256": "906e29e3b59c0305bb42c515e36953a0c37f1df1d2099b98f12b8361f2397efd",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 38,
+      "judgment_name": "250.pdf",
+      "source_id": "judgment:250.pdf",
+      "case_id": "250/2024/DS-GĐT",
+      "source_sha256": "1f2c360d4cd2c5dd03eaaf7a2ecc16b896614649491c53f0ca34979e8106ea34",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 39,
+      "judgment_name": "141.pdf",
+      "source_id": "judgment:141.pdf",
+      "case_id": "141/2024/DS-GĐT",
+      "source_sha256": "8f01be5638f75d71d5578de0dc2f58807f2ed93ba6d10f27a07105e94b185d26",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 40,
+      "judgment_name": "169.pdf",
+      "source_id": "judgment:169.pdf",
+      "case_id": "169/2024/DS-GĐT",
+      "source_sha256": "327e8359f902c483cc080de4711bf5415c727b95e3a4da2c0dd83eb34a15213e",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 41,
+      "judgment_name": "182.pdf",
+      "source_id": "judgment:182.pdf",
+      "case_id": "182/2024/DS-GĐT",
+      "source_sha256": "6e3ad7f349ff54265d5eb18dbdb91f6fda9d0e72cef78faa14b18adf1623fd18",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 42,
+      "judgment_name": "183.pdf",
+      "source_id": "judgment:183.pdf",
+      "case_id": "183/2024/DS-GĐT",
+      "source_sha256": "89f18f432160524c83f2324676c0745490c64e522f7880688b2e9aba63171048",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 43,
+      "judgment_name": "236.pdf",
+      "source_id": "judgment:236.pdf",
+      "case_id": "236/2024/DS-GĐT",
+      "source_sha256": "d60c26d3bb349c674539a968e8743961dbbdc250ec9b1b94dd428e84b9271af7",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 44,
+      "judgment_name": "220.pdf",
+      "source_id": "judgment:220.pdf",
+      "case_id": "220/2024/DS-GĐT",
+      "source_sha256": "62b83998e400dc32e8bf36b58bd14b80ab784d5268f7a6cf1b0ddc08f42541fc",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 45,
+      "judgment_name": "156.pdf",
+      "source_id": "judgment:156.pdf",
+      "case_id": "156/2024/DS-GĐT",
+      "source_sha256": "2e6589e0db53912fc2a8445c1089bd32a98e71ea426ded0ca58d9535f8549319",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 46,
+      "judgment_name": "95.pdf",
+      "source_id": "judgment:95.pdf",
+      "case_id": "95/2024/DS-GĐT",
+      "source_sha256": "41d55268431fa452c9b7cb26186f9e41cd4c7c2666b7eff77467bc38f93b9189",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 47,
+      "judgment_name": "221.pdf",
+      "source_id": "judgment:221.pdf",
+      "case_id": "221/2024/DS-GĐT",
+      "source_sha256": "612e97fcbe7157104897c7148753ad6b41890cdead325222258dee26b91b8d2f",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 48,
+      "judgment_name": "153.pdf",
+      "source_id": "judgment:153.pdf",
+      "case_id": "153/2024/DS-GĐT",
+      "source_sha256": "07f9b34c180e8c71817b3386284035f107be5cc52a3ca0ab46583d3c2249e8ec",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 49,
+      "judgment_name": "190.pdf",
+      "source_id": "judgment:190.pdf",
+      "case_id": "190/2023/DS-GĐT",
+      "source_sha256": "02076eebb1a02c817a7aa8303939d996528ac8e90f8be19a8e26222478eb1462",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 50,
+      "judgment_name": "84.pdf",
+      "source_id": "judgment:84.pdf",
+      "case_id": "84/2024/DS-GĐT",
+      "source_sha256": "c756809fc5d07a3c8c22c7f1231def1127f1bbdc4d8ecf9d58a723829493a30e",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 51,
+      "judgment_name": "226.pdf",
+      "source_id": "judgment:226.pdf",
+      "case_id": "226/2022/DS-GĐT",
+      "source_sha256": "16b7b05371398696cde0e66d05b3430175aabca23062506ada782fdb40d85405",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 52,
+      "judgment_name": "187.pdf",
+      "source_id": "judgment:187.pdf",
+      "case_id": "187/2024/DS-GĐT",
+      "source_sha256": "7e5c9a6ce82cd4d9b0624e5074f5e167a1f4b4df8ad0085aace841a53dbb52bc",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 53,
+      "judgment_name": "145.pdf",
+      "source_id": "judgment:145.pdf",
+      "case_id": "145/2024/DS-GĐT",
+      "source_sha256": "cfbe74984aac61fbb0607e6c841b9cc7896dce563ec36343727d07ea48724c80",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 54,
+      "judgment_name": "74:2023.pdf",
+      "source_id": "judgment:74:2023.pdf",
+      "case_id": "74/2023/DS-GĐT",
+      "source_sha256": "1362fffe087a9ff12c01091e4e6d12b5b42ec352d8085ee2a34d832b0e2775d7",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 55,
+      "judgment_name": "75:2023.pdf",
+      "source_id": "judgment:75:2023.pdf",
+      "case_id": "75/2023/DS-GĐT",
+      "source_sha256": "497ed51b85aac2d49bf628ba1c49a5fdb4cb78a890dddd6ec87462f597e267e5",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 56,
+      "judgment_name": "117:2023.pdf",
+      "source_id": "judgment:117:2023.pdf",
+      "case_id": "117/2023/DS-GĐT",
+      "source_sha256": "bdbaeb3536a350c1dc1aede27acb853ead6636af9477fdcc22153bd8d7098fee",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 57,
+      "judgment_name": "177:2023.pdf",
+      "source_id": "judgment:177:2023.pdf",
+      "case_id": "177/2023/DS-GĐT",
+      "source_sha256": "43a856bc5578e9ee33402635c3de30f1f98a699ed94756c2917e93a4ff72782c",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 58,
+      "judgment_name": "86:2023.pdf",
+      "source_id": "judgment:86:2023.pdf",
+      "case_id": "86/2023/DS-GĐT",
+      "source_sha256": "e090560612f470908085eb4a269ab30c167be2578c89874b7f52ac81c71b6b18",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 59,
+      "judgment_name": "101:2023.pdf",
+      "source_id": "judgment:101:2023.pdf",
+      "case_id": "101/2023/DS-GĐT",
+      "source_sha256": "9ef15f785414ebe69aa9a65d5b4605cd95bf62ac6f5ce9f803c39b178e9b30fa",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 60,
+      "judgment_name": "170:2023.pdf",
+      "source_id": "judgment:170:2023.pdf",
+      "case_id": "170/2023/DS-GĐT",
+      "source_sha256": "ae5e58bc7ded49c6c0cb373108a110958eb7e031d13457e7b0cd8bab220d05ff",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 61,
+      "judgment_name": "64:2023.pdf",
+      "source_id": "judgment:64:2023.pdf",
+      "case_id": "64/2023/DS-GĐT",
+      "source_sha256": "e5dfa32bb844554ba793b0a5571d22b857917e60bbb75268eaf221f4ce07f585",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 62,
+      "judgment_name": "167:2023.pdf",
+      "source_id": "judgment:167:2023.pdf",
+      "case_id": "167/2023/DS-GĐT",
+      "source_sha256": "1f271a115adbc5a849d5034bf8623924eeddf14c011cde35df3c3cd3d5ee6389",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 63,
+      "judgment_name": "166:2023.pdf",
+      "source_id": "judgment:166:2023.pdf",
+      "case_id": "166/2023/DS-GĐT",
+      "source_sha256": "daacdb4ab9d9a87298446eb634effcc5b8b1375182ae4a1566b2995140ce74d4",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 64,
+      "judgment_name": "79:2023.pdf",
+      "source_id": "judgment:79:2023.pdf",
+      "case_id": "79/2023/DS-GĐT",
+      "source_sha256": "316771bf7eddf0efb2e70e5c85c5a90d8ec167308e30f08db606e8f7d6d52202",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 65,
+      "judgment_name": "78:2023.pdf",
+      "source_id": "judgment:78:2023.pdf",
+      "case_id": "78/2023/DS-GĐT",
+      "source_sha256": "d97da5a84aac05a51b9dae7b6ac4bc1595d1aac8cae6f7bc51649cccc86841ae",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 66,
+      "judgment_name": "47:2023.pdf",
+      "source_id": "judgment:47:2023.pdf",
+      "case_id": "47/2023/DS-GĐT",
+      "source_sha256": "fc59e4f90b36d1db2de8ee486fc84ed6a0189d015704d687b5bcad11f40947a3",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 67,
+      "judgment_name": "109:2023.pdf",
+      "source_id": "judgment:109:2023.pdf",
+      "case_id": "109/2023/DS-GĐT",
+      "source_sha256": "6cd9000056621be1d991bef45dfa2e516c7f367e1b022682a32489f45b4341e6",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 68,
+      "judgment_name": "85:2023.pdf",
+      "source_id": "judgment:85:2023.pdf",
+      "case_id": "85/2023/DS-GĐT",
+      "source_sha256": "6787df3799b6210bcf4953d37e9e42206fc99dd87c4060744f7c0b063d87b451",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 69,
+      "judgment_name": "102:2023.pdf",
+      "source_id": "judgment:102:2023.pdf",
+      "case_id": "102/2023/DS-GĐT",
+      "source_sha256": "aa1e1e3e07c5cc382d2adcbca09bbc9716c5233dce7418bcd5b490a5014235a5",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 70,
+      "judgment_name": "169:2023.pdf",
+      "source_id": "judgment:169:2023.pdf",
+      "case_id": "169/2023/DS-GĐT",
+      "source_sha256": "1f82bbf53b07300c870a88085c8b7b31eef8345c02479c6484e7b3bfe705b1bd",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 71,
+      "judgment_name": "168:2023.pdf",
+      "source_id": "judgment:168:2023.pdf",
+      "case_id": "168/2023/DS-GĐT",
+      "source_sha256": "f1e079a0e0a4a82305ceee8b1bef02f645176790c32f1314dd1295275e1fceff",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 72,
+      "judgment_name": "98:2023.pdf",
+      "source_id": "judgment:98:2023.pdf",
+      "case_id": "98/2023/DS-GĐT",
+      "source_sha256": "a1948839d5f64e4b815fdddc5ab684d35c5f1359c41d9b93b80504be342772cd",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 73,
+      "judgment_name": "99:2023.pdf",
+      "source_id": "judgment:99:2023.pdf",
+      "case_id": "99/2023/DS-GĐT",
+      "source_sha256": "ac5dbc5f6c90ea53dc90aaa049a50e7b339ad95b1a7aaa36331cdda8e71441dc",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 74,
+      "judgment_name": "77:2023.pdf",
+      "source_id": "judgment:77:2023.pdf",
+      "case_id": "77/2023/DS-GĐT",
+      "source_sha256": "9e40119c36205a8f49a9e736f4a6cb26c26af5f611bca02b9f0803710d2806c7",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 75,
+      "judgment_name": "76:2023.pdf",
+      "source_id": "judgment:76:2023.pdf",
+      "case_id": "76/2023/DS-GĐT",
+      "source_sha256": "ec203892b4f8bbf5e2a06c29db1de6bde9c553309ee4af353dc1c413c763251a",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 76,
+      "judgment_name": "163:2023.pdf",
+      "source_id": "judgment:163:2023.pdf",
+      "case_id": "163/2023/DS-GĐT",
+      "source_sha256": "72a23427287fcaef10fd4f4deffd1a295d31193173f1547ba4c5981d36d507d3",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 77,
+      "judgment_name": "118:2023.pdf",
+      "source_id": "judgment:118:2023.pdf",
+      "case_id": "118/2023/DS-GĐT",
+      "source_sha256": "7efcfd550e3217f4116414753e5b3d259763140797731cb6f21acd4fe6436af8",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 78,
+      "judgment_name": "164:2023.pdf",
+      "source_id": "judgment:164:2023.pdf",
+      "case_id": "164/2023/DS-GĐT",
+      "source_sha256": "8b5abe3af49297de2fd1bb757c8dc8c14346972110cbbcc2e7df35a5ea83e919",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 79,
+      "judgment_name": "298:2023.pdf",
+      "source_id": "judgment:298:2023.pdf",
+      "case_id": "298/2023/DS-GĐT",
+      "source_sha256": "8e6304d8b5e5a7fba2e7ca306dd792cced93457e06f11ed4f86b740c09fadf57",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 80,
+      "judgment_name": "180:2023.pdf",
+      "source_id": "judgment:180:2023.pdf",
+      "case_id": "180/2023/DS-GĐT",
+      "source_sha256": "fc8bab364be79493456360ed8d1357a5ba90e81624e671fb4cc3114adec1c81f",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 81,
+      "judgment_name": "95:2023.pdf",
+      "source_id": "judgment:95:2023.pdf",
+      "case_id": "95/2023/DS-GĐT",
+      "source_sha256": "0b3f3d9b2d0990d3b200e1e50e89113124d9668f24fde7b184a0a673c7855233",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 82,
+      "judgment_name": "178:2023.pdf",
+      "source_id": "judgment:178:2023.pdf",
+      "case_id": "178/2023/DS-GĐT",
+      "source_sha256": "e1443c1de0d48bd200e3d9a7445f8898b91d5611d34cfc72fd823903ed0e94eb",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 83,
+      "judgment_name": "82:2023.pdf",
+      "source_id": "judgment:82:2023.pdf",
+      "case_id": "82/2023/DS-GĐT",
+      "source_sha256": "6ba1ff3030792d9277cb2b138237048d5427d830617b6db8067d1f2df6719f62",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 84,
+      "judgment_name": "08:2024.pdf",
+      "source_id": "judgment:08:2024.pdf",
+      "case_id": "08/2024/DS-TT",
+      "source_sha256": "063a16e6cf84b89075cf0bd33efc5ab8f1a85b0b369e8ec07e00b023f67e8e84",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 85,
+      "judgment_name": "109:2024.pdf",
+      "source_id": "judgment:109:2024.pdf",
+      "case_id": "109/2024/DS-GĐT",
+      "source_sha256": "0fb57976c0766c502d0d52201f5c9faee7ee5d2d4383ff94175af82cb808c3cd",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 86,
+      "judgment_name": "10:2023.pdf",
+      "source_id": "judgment:10:2023.pdf",
+      "case_id": "10/2023/KDTM-GĐT",
+      "source_sha256": "77b6bb92ed0066bb44a72ba05aa2ba12ac2f26bd9e393889bb4e037f7001ed10",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 87,
+      "judgment_name": "118:2024.pdf",
+      "source_id": "judgment:118:2024.pdf",
+      "case_id": "118/2024/DS-GĐT",
+      "source_sha256": "dc9a2256ec6e4db7d0c98c6db6eb08b46a524d8fe3c5267fb6f088687d212b94",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 88,
+      "judgment_name": "15:11:2023.pdf",
+      "source_id": "judgment:15:11:2023.pdf",
+      "case_id": "252/2023/DS-GĐT",
+      "source_sha256": "928da6cd7b0f876c3e0e57f1e84eeb1856e9676cb9b5dbf749cf1795c0ad10e5",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 89,
+      "judgment_name": "15:2024.pdf",
+      "source_id": "judgment:15:2024.pdf",
+      "case_id": "15/2024/DS-GĐT",
+      "source_sha256": "efbab6233c85aff2d709bdd1accb3b65851cbc56dfc4e9443ec118d9649e1fe3",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 90,
+      "judgment_name": "16:2024.pdf",
+      "source_id": "judgment:16:2024.pdf",
+      "case_id": "16/2024/DS-GĐT",
+      "source_sha256": "221378d675885556db40ea7e9af27309f4b414b8d697cf6bea55b25f76addaa8",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 91,
+      "judgment_name": "172:2023.pdf",
+      "source_id": "judgment:172:2023.pdf",
+      "case_id": "172/2023/DS-GĐT",
+      "source_sha256": "ba23c4739817742c77fc3b6df04025d5e80dd0b669b72caeaa1139f613a1dc99",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 92,
+      "judgment_name": "174:2023.pdf",
+      "source_id": "judgment:174:2023.pdf",
+      "case_id": "174/2023/DS-GĐT",
+      "source_sha256": "4b9ffc05ae67ec9251d082e600e98f01f68517f934b4eea7395136e125ee5a16",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 93,
+      "judgment_name": "175:2023.pdf",
+      "source_id": "judgment:175:2023.pdf",
+      "case_id": "175/2023/DS-GĐT",
+      "source_sha256": "3973dc36f5e8ecb2db2ea437f351ff7c7e5dc6109f15cda17bc1ab4221bd8af9",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 94,
+      "judgment_name": "189:2023.pdf",
+      "source_id": "judgment:189:2023.pdf",
+      "case_id": "189/2023/DS-GĐT",
+      "source_sha256": "6504087036f5a6876bd300f540d37c124247921e77691b5635c3dc3d72ba071f",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 95,
+      "judgment_name": "250:2022.pdf",
+      "source_id": "judgment:250:2022.pdf",
+      "case_id": "250/2022/DS-GĐT",
+      "source_sha256": "a43d95f7f220310292c9efe14a1d44c98c5982bee45531e769257750d158194e",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 96,
+      "judgment_name": "252:2022.pdf",
+      "source_id": "judgment:252:2022.pdf",
+      "case_id": "252/2022/DS-TT",
+      "source_sha256": "2bbab340e23a7daf2b06073516a678ccfba4a1fe966eeb051b218f173cd5f2e1",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 97,
+      "judgment_name": "253:2022.pdf",
+      "source_id": "judgment:253:2022.pdf",
+      "case_id": "253/2022/DS-GĐT",
+      "source_sha256": "ad289921266225bb582193eb2734d3e09a10467ea617ee54a444cb0e760208c3",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 98,
+      "judgment_name": "253:2023.pdf",
+      "source_id": "judgment:253:2023.pdf",
+      "case_id": "253/2023/DS-GĐT",
+      "source_sha256": "ef3446e9345cd8c7a0cb748b5f827a95b8bbb2303ec6a537684251e503697486",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 99,
+      "judgment_name": "255:2023.pdf",
+      "source_id": "judgment:255:2023.pdf",
+      "case_id": "255/2023/DS-GĐT",
+      "source_sha256": "d3cf513c4f6546e661e843f55fdc5027dcc432072fa349689e3b94e5dd121144",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 100,
+      "judgment_name": "272:2023.pdf",
+      "source_id": "judgment:272:2023.pdf",
+      "case_id": "272/2023/DS-GĐT",
+      "source_sha256": "e4f08d7b0340f75fb0a186d77d6536c4ca79d7de728ffcefd8c94e83bec97167",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 101,
+      "judgment_name": "273:2023.pdf",
+      "source_id": "judgment:273:2023.pdf",
+      "case_id": "273/2023/DS-GĐT",
+      "source_sha256": "3861a55622afb31b8f0e74c9882d8f5425ba4f4f9161f926ac3d405d70938462",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 102,
+      "judgment_name": "296:2022.pdf",
+      "source_id": "judgment:296:2022.pdf",
+      "case_id": "296/2022/DS-GĐT",
+      "source_sha256": "2969091b350bd4e326b19ee15e9cfda88255e2149a9c6d1b28235bd486c7ad88",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 103,
+      "judgment_name": "37:2024.pdf",
+      "source_id": "judgment:37:2024.pdf",
+      "case_id": "37/2024/DS-GĐT",
+      "source_sha256": "869335b48c6978e32de1bbaf9d0be645097d3d382376abf82484e5c15744f8e0",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 104,
+      "judgment_name": "38:2024.pdf",
+      "source_id": "judgment:38:2024.pdf",
+      "case_id": "38/2024/DS-GĐT",
+      "source_sha256": "6f6470d0f387213140c013dee3e31c8e1d54d2ff485f5d69930fb06e31edc6ab",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 105,
+      "judgment_name": "53:2024.pdf",
+      "source_id": "judgment:53:2024.pdf",
+      "case_id": "53/2024/DS-GĐT",
+      "source_sha256": "2914339048bb423e96bd294d2e98c0f4737f8ee483c7a4fa8c72dee1546ca520",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 106,
+      "judgment_name": "66:2023.pdf",
+      "source_id": "judgment:66:2023.pdf",
+      "case_id": "66/2023/DS-GĐT",
+      "source_sha256": "ff1a61e6aac7d8487bb161ede71f772fa1255406324e35e81fb99661bcbd2cdb",
+      "match_basis": "exact_normalized_source_name"
+    },
+    {
+      "development_query_id": 107,
+      "judgment_name": "85:2024.pdf",
+      "source_id": "judgment:85:2024.pdf",
+      "case_id": "85/2024/DS-GĐT",
+      "source_sha256": "47468b7531e430993d8bd628b5d5ae70c8cc6a3266a8848d5f1d84c4fda1fcad",
+      "match_basis": "exact_normalized_source_name"
+    }
+  ],
+  "exclusions": [
+    {
+      "source_id": "judgment:08:2024.pdf",
+      "case_id": "08/2024/DS-TT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:10:2023.pdf",
+      "case_id": "10/2023/KDTM-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:101:2023.pdf",
+      "case_id": "101/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:102:2023.pdf",
+      "case_id": "102/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:103.pdf",
+      "case_id": "103/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:104.pdf",
+      "case_id": "104/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:109:2023.pdf",
+      "case_id": "109/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:109:2024.pdf",
+      "case_id": "109/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:110.pdf",
+      "case_id": "110/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:113.pdf",
+      "case_id": "113/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:114.pdf",
+      "case_id": "114/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:115.pdf",
+      "case_id": "115/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:116.pdf",
+      "case_id": "116/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:117:2023.pdf",
+      "case_id": "117/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:117.pdf",
+      "case_id": "117/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:118:2023.pdf",
+      "case_id": "118/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:118:2024.pdf",
+      "case_id": "118/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:123.pdf",
+      "case_id": "123/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:124.pdf",
+      "case_id": "124/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:127.pdf",
+      "case_id": "127/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:128.pdf",
+      "case_id": "128/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:129.pdf",
+      "case_id": "129/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:130.pdf",
+      "case_id": "130/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:133.pdf",
+      "case_id": "133/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:134.pdf",
+      "case_id": "134/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:141.pdf",
+      "case_id": "141/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:145.pdf",
+      "case_id": "145/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:15:2024.pdf",
+      "case_id": "15/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:153.pdf",
+      "case_id": "153/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:156.pdf",
+      "case_id": "156/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:158.pdf",
+      "case_id": "158/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:159.pdf",
+      "case_id": "159/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:16:2024.pdf",
+      "case_id": "16/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:163:2023.pdf",
+      "case_id": "163/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:164:2023.pdf",
+      "case_id": "164/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:166:2023.pdf",
+      "case_id": "166/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:167:2023.pdf",
+      "case_id": "167/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:168:2023.pdf",
+      "case_id": "168/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:169:2023.pdf",
+      "case_id": "169/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:169.pdf",
+      "case_id": "169/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:170:2023.pdf",
+      "case_id": "170/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:171.pdf",
+      "case_id": "171/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:172:2023.pdf",
+      "case_id": "172/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:173.pdf",
+      "case_id": "173/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:174:2023.pdf",
+      "case_id": "174/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:174.pdf",
+      "case_id": "174/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:175:2023.pdf",
+      "case_id": "175/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:175.pdf",
+      "case_id": "175/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:177:2023.pdf",
+      "case_id": "177/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:178:2023.pdf",
+      "case_id": "178/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:18.pdf",
+      "case_id": "18/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:180:2023.pdf",
+      "case_id": "180/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:182.pdf",
+      "case_id": "182/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:183.pdf",
+      "case_id": "183/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:187.pdf",
+      "case_id": "187/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:189:2023.pdf",
+      "case_id": "189/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:190.pdf",
+      "case_id": "190/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:198.pdf",
+      "case_id": "198/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:20.pdf",
+      "case_id": "20/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:21.pdf",
+      "case_id": "21/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:217.pdf",
+      "case_id": "217/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:220.pdf",
+      "case_id": "220/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:221.pdf",
+      "case_id": "221/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:226.pdf",
+      "case_id": "226/2022/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:236.pdf",
+      "case_id": "236/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:239.pdf",
+      "case_id": "239/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:240.pdf",
+      "case_id": "240/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:243.pdf",
+      "case_id": "243/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:245.pdf",
+      "case_id": "245/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:246.pdf",
+      "case_id": "246/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:250:2022.pdf",
+      "case_id": "250/2022/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:250.pdf",
+      "case_id": "250/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:251.pdf",
+      "case_id": "251/2022/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:252:2022.pdf",
+      "case_id": "252/2022/DS-TT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:15:11:2023.pdf",
+      "case_id": "252/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:253:2022.pdf",
+      "case_id": "253/2022/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:253:2023.pdf",
+      "case_id": "253/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:255:2023.pdf",
+      "case_id": "255/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:263.pdf",
+      "case_id": "263/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:272:2023.pdf",
+      "case_id": "272/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:273:2023.pdf",
+      "case_id": "273/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:282.pdf",
+      "case_id": "282/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:289a.pdf",
+      "case_id": "289A/2022",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:296:2022.pdf",
+      "case_id": "296/2022/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:298:2023.pdf",
+      "case_id": "298/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:37:2024.pdf",
+      "case_id": "37/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:38:2024.pdf",
+      "case_id": "38/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:47:2023.pdf",
+      "case_id": "47/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:53:2024.pdf",
+      "case_id": "53/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:64:2023.pdf",
+      "case_id": "64/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:66:2023.pdf",
+      "case_id": "66/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:74:2023.pdf",
+      "case_id": "74/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:75:2023.pdf",
+      "case_id": "75/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:76:2023.pdf",
+      "case_id": "76/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:77:2023.pdf",
+      "case_id": "77/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:78:2023.pdf",
+      "case_id": "78/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:79:2023.pdf",
+      "case_id": "79/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:82:2023.pdf",
+      "case_id": "82/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:84.pdf",
+      "case_id": "84/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:85:2023.pdf",
+      "case_id": "85/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:85:2024.pdf",
+      "case_id": "85/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:86:2023.pdf",
+      "case_id": "86/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:95:2023.pdf",
+      "case_id": "95/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:95.pdf",
+      "case_id": "95/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:98:2023.pdf",
+      "case_id": "98/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:99:2023.pdf",
+      "case_id": "99/2023/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    },
+    {
+      "source_id": "judgment:99.pdf",
+      "case_id": "99/2024/DS-GĐT",
+      "reasons": [
+        "development_benchmark_exact_sha256",
+        "development_benchmark_exact_source",
+        "development_benchmark_same_case_id"
+      ]
+    }
+  ],
+  "internal_duplicate_clusters": [],
+  "known_duplicate_links": {},
+  "ordering_rule": "case_id ASC, source_id ASC, source_sha256 ASC; first duplicate-cluster member is canonical",
+  "benchmark_id": "retrieval_independent_v1",
+  "generated_at": "2026-10-24T00:00:00+07:00",
+  "git_commit": "da6e8fada6c13fb53de5fe8ae1a128de61981532",
+  "development_benchmark_path": "backend/data/judgments_evaluation.json",
+  "development_benchmark_sha256": "e0ff50ae78406430fc56815af7fbd3e125ddce0919e4ab93e5bcc44aefb61b16",
+  "inventory_fingerprint": "fd6a6f05e4b71a2c499584fc0296cf25cedf5eac958aea6d079bf449c864f754",
+  "eligible_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+}

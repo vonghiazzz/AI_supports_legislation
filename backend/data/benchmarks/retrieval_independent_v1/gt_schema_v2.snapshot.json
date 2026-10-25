@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$comment": "Independent benchmark Phase 1 snapshot at git base da6e8fada6c13fb53de5fe8ae1a128de61981532; validation semantics copied from backend/data/gt_schema_v2.json.",
+  "title": "Ground Truth Dataset Schema v2",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "judgment_name", "query", "ground_truth"],
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "judgment_name": {
+        "type": "string"
+      },
+      "is_updated": {
+        "type": "boolean"
+      },
+      "metadata": {
+        "type": "object",
+        "properties": {
+          "case_type": { "type": ["string", "null"] },
+          "procedure_stage": { "type": ["string", "null"] },
+          "court_level": { "type": ["string", "null"] },
+          "year": { "type": ["integer", "null"] },
+          "domain": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "dispute_year": { "type": ["integer", "null"] }
+        }
+      },
+      "query": {
+        "type": "string",
+        "minLength": 1
+      },
+      "query_intent": {
+        "type": "string"
+      },
+      "ground_truth": {
+        "type": "object",
+        "required": ["core", "supporting"],
+        "additionalProperties": false,
+        "properties": {
+          "core": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["law_code", "article", "reasoning", "importance", "importance_score", "source_type", "domain"],
+              "additionalProperties": false,
+              "properties": {
+                "law_code": { "type": "string", "minLength": 1 },
+                "article": { "type": "string" },
+                "reasoning": { "type": "string", "minLength": 1 },
+                "importance": { "type": "string", "const": "decisive" },
+                "importance_score": { "type": "integer", "const": 3 },
+                "source_type": { "type": "string", "enum": ["explicit", "inferred"] },
+                "domain": { "type": "string", "enum": ["substantive", "procedural"] }
+              }
+            }
+          },
+          "supporting": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["law_code", "article", "reasoning", "importance", "importance_score", "source_type", "domain"],
+              "additionalProperties": false,
+              "properties": {
+                "law_code": { "type": "string", "minLength": 1 },
+                "article": { "type": "string" },
+                "reasoning": { "type": "string", "minLength": 1 },
+                "importance": { "type": "string", "const": "supporting" },
+                "importance_score": { "type": "integer", "const": 1 },
+                "source_type": { "type": "string", "enum": ["explicit", "inferred"] },
+                "domain": { "type": "string", "enum": ["substantive", "procedural"] }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

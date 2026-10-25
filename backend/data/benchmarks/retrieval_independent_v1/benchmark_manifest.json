@@ -1,0 +1,140 @@
+{
+  "benchmark_id": "retrieval_independent_v1",
+  "manifest_version": "independent_benchmark_manifest_v1",
+  "schema_version": "gt_schema_v2",
+  "phase": 1,
+  "state": "DRAFT",
+  "benchmark_role": "independent_confirmatory_evaluation",
+  "development_benchmark_role": "development_exploratory_only",
+  "git_commit": "da6e8fada6c13fb53de5fe8ae1a128de61981532",
+  "generation_timestamp": "2026-10-24T00:00:00+07:00",
+  "corpus_fingerprint": "66fb0b20e0505993ed616f864ece99ecfad801de98b4ba3a37d20a3a7bf55e58",
+  "sampling_seed": null,
+  "deterministic_ordering": "case_id ASC, then source_id ASC",
+  "targets": {
+    "total": 250,
+    "main": 200,
+    "stress": 50,
+    "minimum_total": 180,
+    "minimum_main": 150,
+    "silent_quota_reduction_permitted": false
+  },
+  "current_counts": {
+    "available_sources": 107,
+    "development_sources_consumed": 107,
+    "eligible_sources": 0,
+    "selected_cases": 0,
+    "query_records": 0,
+    "ground_truth_records": 0
+  },
+  "source_files": [
+    {
+      "path": "backend/data/judgments_evaluation.json",
+      "sha256": "e0ff50ae78406430fc56815af7fbd3e125ddce0919e4ab93e5bcc44aefb61b16"
+    },
+    {
+      "path": "backend/data/gt_schema_v2.json",
+      "sha256": "35f8da5b45cdf4108af4832a18c91c361df41abed012baedb8d361b0a420255c"
+    },
+    {
+      "path": "backend/scripts/Evaluation/benchmarking/independent_benchmark.py",
+      "sha256": "44e39305acac11c02518933e21f0abecbb68a88ef04594cfea47d8498a4b0e9c"
+    },
+    {
+      "path": "backend/scripts/Tests/test_independent_benchmark_protocol.py",
+      "sha256": "0b0a142782a527510f19f62117cd594e6cceee66528799d7bcb5274ca9bc3b29"
+    }
+  ],
+  "phase1_artifacts": [
+    {
+      "path": "backend/data/benchmarks/retrieval_independent_v1/sampling_manifest.json",
+      "sha256": "0ed9d247666bd398c7e89eaef0bc4e29e40b1bc21d72a7c0d984fe70aa5d9d72"
+    },
+    {
+      "path": "backend/data/benchmarks/retrieval_independent_v1/source_dedup_report.json",
+      "sha256": "a033e1ee35e341c59bb67d2c7543a52a7d20b7b7df5b4b441eaf42a75e7a10ac"
+    },
+    {
+      "path": "backend/data/benchmarks/retrieval_independent_v1/gt_schema_v2.snapshot.json",
+      "sha256": "5fe88045a64e1aea6af0f88ba975c55aef133242899a472fa8dbc7a281feec4b"
+    },
+    {
+      "path": "backend/data/benchmarks/retrieval_independent_v1/annotation_guidelines.md",
+      "sha256": "6e6a9667f561d60deea65ff89cbadbe84adebd3ba70856b6dfda872f47306ef8"
+    }
+  ],
+  "gt_schema_path": "backend/data/benchmarks/retrieval_independent_v1/gt_schema_v2.snapshot.json",
+  "annotation_guidelines_path": "backend/data/benchmarks/retrieval_independent_v1/annotation_guidelines.md",
+  "state_machine": {
+    "states": [
+      "DRAFT",
+      "SAMPLING_FROZEN",
+      "ANNOTATION_IN_PROGRESS",
+      "ANNOTATION_FROZEN",
+      "SEALED",
+      "OPENED_FOR_CONFIRMATORY_EVALUATION"
+    ],
+    "transitions": {
+      "DRAFT": "SAMPLING_FROZEN",
+      "SAMPLING_FROZEN": "ANNOTATION_IN_PROGRESS",
+      "ANNOTATION_IN_PROGRESS": "ANNOTATION_FROZEN",
+      "ANNOTATION_FROZEN": "SEALED",
+      "SEALED": "OPENED_FOR_CONFIRMATORY_EVALUATION"
+    },
+    "no_skipped_or_backward_transitions": true
+  },
+  "sealing_contract": {
+    "sampling_frozen_requires": [
+      "sampling_seed",
+      "selection_mode",
+      "selected_case_count",
+      "selected_case_fingerprint",
+      "sampling_manifest_sha256",
+      "source_dedup_report_sha256",
+      "phase1_artifacts"
+    ],
+    "annotation_in_progress_requires": [
+      "annotation_started_at",
+      "annotation_guidelines_path",
+      "annotation_guidelines_sha256",
+      "annotator_role_assignments_fingerprint"
+    ],
+    "annotation_frozen_requires": [
+      "annotation_frozen_at",
+      "benchmark_path",
+      "benchmark_sha256",
+      "gt_schema_path",
+      "gt_schema_sha256",
+      "annotation_agreement_path",
+      "annotation_agreement_sha256"
+    ],
+    "sealed_requires": [
+      "selected case/source fingerprint",
+      "benchmark JSON SHA256",
+      "GT schema SHA256",
+      "annotation guideline SHA256",
+      "corpus fingerprint",
+      "sealed_at"
+    ],
+    "opened_requires": [
+      "opened_at",
+      "preregistration_path",
+      "preregistration_sha256"
+    ],
+    "sealed_content_use": "Query and GT content cannot be used for method, tokenizer, representation, fusion, or candidate-depth selection."
+  },
+  "blocked_transitions": [
+    "DRAFT -> SAMPLING_FROZEN"
+  ],
+  "blockers": [
+    "No eligible unconsumed judgment source remains in the repository.",
+    "Target and minimum sampling quotas cannot be met from the current source inventory."
+  ],
+  "explicit_absences": {
+    "final_benchmark_json": true,
+    "generated_queries": true,
+    "ground_truth_records": true,
+    "retrieval_outputs": true,
+    "retrieval_metrics": true
+  }
+}

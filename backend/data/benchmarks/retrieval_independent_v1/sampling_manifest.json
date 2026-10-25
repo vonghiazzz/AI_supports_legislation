@@ -1,0 +1,2449 @@
+{
+  "benchmark_id": "retrieval_independent_v1",
+  "phase": 1,
+  "state": "DRAFT",
+  "generated_at": "2026-10-24T00:00:00+07:00",
+  "git_commit": "da6e8fada6c13fb53de5fe8ae1a128de61981532",
+  "corpus_fingerprint": "66fb0b20e0505993ed616f864ece99ecfad801de98b4ba3a37d20a3a7bf55e58",
+  "targets": {
+    "total": 250,
+    "main": 200,
+    "stress": 50,
+    "minimum_total": 180,
+    "minimum_main": 150
+  },
+  "sampling_seed": null,
+  "selection_status": "NOT_STARTED",
+  "ordering_rule": "case_id ASC, then source_id ASC",
+  "inventory_fingerprint": "fd6a6f05e4b71a2c499584fc0296cf25cedf5eac958aea6d079bf449c864f754",
+  "eligible_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "available_source_inventory": [
+    {
+      "source_id": "judgment:08:2024.pdf",
+      "case_id": "08/2024/DS-TT",
+      "source_name": "08:2024.pdf",
+      "source_path": "backend/dataLaw/ban_an/08:2024.pdf",
+      "structured_path": "backend/data/structured_judgments/08:2024_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "tai_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp hợp đồng vay tài sản",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "063a16e6cf84b89075cf0bd33efc5ab8f1a85b0b369e8ec07e00b023f67e8e84",
+      "structured_sha256": "4ad5e7ee458789a9919f5619abe804172c01dfed1c5e049101be2fdb447c7821",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:101:2023.pdf",
+      "case_id": "101/2023/DS-GĐT",
+      "source_name": "101:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/101:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/101:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "9ef15f785414ebe69aa9a65d5b4605cd95bf62ac6f5ce9f803c39b178e9b30fa",
+      "structured_sha256": "fd49b8c3877b04a31c82d4c25a2c7e0770241eb2608624e82b445ddbeeabb11e",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:102:2023.pdf",
+      "case_id": "102/2023/DS-GĐT",
+      "source_name": "102:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/102:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/102:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp hợp đồng vay tài sản, hợp đồng tín dụng",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "aa1e1e3e07c5cc382d2adcbca09bbc9716c5233dce7418bcd5b490a5014235a5",
+      "structured_sha256": "b400f917be28fae9831b1334e43c0110c7ceca8a5fc812db14d727ab7eb3ecc1",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:103.pdf",
+      "case_id": "103/2024/DS-GĐT",
+      "source_name": "103.pdf",
+      "source_path": "backend/dataLaw/ban_an/103.pdf",
+      "structured_path": "backend/data/structured_judgments/103_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "e902d7e34a1802966797b57fd6021cc484d1f9038fd2dd0038f3a3b46f1b3ad0",
+      "structured_sha256": "aeaf120172c2909133469cbbe0a801986a2fdb7ee5cc163c82630b61228626aa",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:104.pdf",
+      "case_id": "104/2024/DS-GĐT",
+      "source_name": "104.pdf",
+      "source_path": "backend/dataLaw/ban_an/104.pdf",
+      "structured_path": "backend/data/structured_judgments/104_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp về thừa kế tài sản",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "358e743fc7e2361cbe083d0687148d1d719ff4a54dbf1b0b089d6214b0f946ba",
+      "structured_sha256": "413a6110ded5359762cdfcf1ef95c58412d2052bb8056cb0a05d81d9937bdd24",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:109:2023.pdf",
+      "case_id": "109/2023/DS-GĐT",
+      "source_name": "109:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/109:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/109:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "tranh chấp đòi tài sản, hủy giấy chứng nhận quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "6cd9000056621be1d991bef45dfa2e516c7f367e1b022682a32489f45b4341e6",
+      "structured_sha256": "83f2952bdf9159eaf40145d2fbde48224eacda546ac5e5b800bcb298de5dfb3e",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:109:2024.pdf",
+      "case_id": "109/2024/DS-GĐT",
+      "source_name": "109:2024.pdf",
+      "source_path": "backend/dataLaw/ban_an/109:2024.pdf",
+      "structured_path": "backend/data/structured_judgments/109:2024_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "tranh chấp Hợp đồng đặt cọc",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "0fb57976c0766c502d0d52201f5c9faee7ee5d2d4383ff94175af82cb808c3cd",
+      "structured_sha256": "799f0c244c1f6c13e76ac681971deb3b48dc0cc732731d8dcf34d1eb8bbc57b0",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:10:2023.pdf",
+      "case_id": "10/2023/KDTM-GĐT",
+      "source_name": "10:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/10:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/10:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp hợp đồng tín dụng, yêu cầu hỗ trợ lãi suất và bồi thường thiệt hại về tài sản",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "77b6bb92ed0066bb44a72ba05aa2ba12ac2f26bd9e393889bb4e037f7001ed10",
+      "structured_sha256": "1df510f86f8d45f2b6754078eaa30dbdd4e16724cbb60a1d7e7fa555c04903d0",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:110.pdf",
+      "case_id": "110/2024/DS-GĐT",
+      "source_name": "110.pdf",
+      "source_path": "backend/dataLaw/ban_an/110.pdf",
+      "structured_path": "backend/data/structured_judgments/110_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "tranh chấp thừa kế tài sản",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS",
+        "HNGD_2014"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "8400d0f74e57fbfdc72b9348c292bf8f2d78d3a5a542d7e58930751e4c8a6a24",
+      "structured_sha256": "f85c93d71f04073605e68a4c213c953bc4edb609040c7c3db363807adfe759fa",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:113.pdf",
+      "case_id": "113/2024/DS-GĐT",
+      "source_name": "113.pdf",
+      "source_path": "backend/dataLaw/ban_an/113.pdf",
+      "structured_path": "backend/data/structured_judgments/113_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp hợp đồng vay tài sản, tranh chấp tiền huê",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "f4c438e6d187590f977f84fefd306e97f3167bb541c861ea0e72c1c71254a3a5",
+      "structured_sha256": "78bba8a39409179ff4a3c1f2cf625ca6f0d849c63af29758af0d5b912cb74825",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:114.pdf",
+      "case_id": "114/2024/DS-GĐT",
+      "source_name": "114.pdf",
+      "source_path": "backend/dataLaw/ban_an/114.pdf",
+      "structured_path": "backend/data/structured_judgments/114_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất và quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "7c60b1857e9eae3f8cb5ed738c02650d56bb97319aaa84cc5a574129806dbd90",
+      "structured_sha256": "edb45f3e28273cb3d16cf27c8c736fef306d11c8b7ac779baa2dc030599aadab",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:115.pdf",
+      "case_id": "115/2024/DS-GĐT",
+      "source_name": "115.pdf",
+      "source_path": "backend/dataLaw/ban_an/115.pdf",
+      "structured_path": "backend/data/structured_judgments/115_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp hợp đồng ủy quyền, hợp đồng chuyển nhượng quyền sử dụng đất và hợp đồng hợp tác kinh doanh",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "bf6c3eddd0e3c8ff925b1f82c540aaefb1dd326ceaa9551aad332001a69a198d",
+      "structured_sha256": "43e8ee9b919d8853d69b0da0ecc8407a418f5235b047bb3af12ab4ef7315a882",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:116.pdf",
+      "case_id": "116/2024/DS-GĐT",
+      "source_name": "116.pdf",
+      "source_path": "backend/dataLaw/ban_an/116.pdf",
+      "structured_path": "backend/data/structured_judgments/116_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp hợp đồng vay tài sản",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "c6e17075ae2fac56552139965ddc8b823ca84e57b41e513304391e8a8dbc49a0",
+      "structured_sha256": "861721b5043366f6765dcd4add7ae0a3cc75391be788878245fdd4d7f17b2813",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:117.pdf",
+      "case_id": "117/2024/DS-GĐT",
+      "source_name": "117.pdf",
+      "source_path": "backend/dataLaw/ban_an/117.pdf",
+      "structured_path": "backend/data/structured_judgments/117_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "8ca13eae154581f28ddee1210c1765435052d8da2dbd262ca12f0553ac85eec2",
+      "structured_sha256": "3d6e9a00b2ed6934de15547bea895c59a575007d64fc821d849eadd84b181d73",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:117:2023.pdf",
+      "case_id": "117/2023/DS-GĐT",
+      "source_name": "117:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/117:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/117:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp đòi tài sản, HĐ thuê nhà, HĐ vay tài sản, HĐ mua bán nhà ở và chuyển nhượng QSD đất ở, yêu cầu hủy cập nhật biến động",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS",
+        "LAND_UNSPECIFIED"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "bdbaeb3536a350c1dc1aede27acb853ead6636af9477fdcc22153bd8d7098fee",
+      "structured_sha256": "6f943c888df68b282f55534d22df0867d19883f8dc773cf4904268d2bae034fc",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:118:2023.pdf",
+      "case_id": "118/2023/DS-GĐT",
+      "source_name": "118:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/118:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/118:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấphợpđồngvay tài sảnvà nợhụi",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "7efcfd550e3217f4116414753e5b3d259763140797731cb6f21acd4fe6436af8",
+      "structured_sha256": "5b2f3c40d0131166b668af100534caa82326e907e585823941c2bdec759b63fe",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:118:2024.pdf",
+      "case_id": "118/2024/DS-GĐT",
+      "source_name": "118:2024.pdf",
+      "source_path": "backend/dataLaw/ban_an/118:2024.pdf",
+      "structured_path": "backend/data/structured_judgments/118:2024_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "tranh chấp hợp đồng tín dụng",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "dc9a2256ec6e4db7d0c98c6db6eb08b46a524d8fe3c5267fb6f088687d212b94",
+      "structured_sha256": "ab27652ff273bbe79138ef24388c2e94404d6e7fba1a737e39b8d7a5af1181cc",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:123.pdf",
+      "case_id": "123/2024/DS-GĐT",
+      "source_name": "123.pdf",
+      "source_path": "backend/dataLaw/ban_an/123.pdf",
+      "structured_path": "backend/data/structured_judgments/123_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "tranh chấp quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "f5770a0e5e2537b6605e422415342f4a3ef6151309510bba06e939f1412f1a3e",
+      "structured_sha256": "c847d96f8eb230d9ceabeb279784bd5d5e40fb8ab2154f055833d22c67162c26",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:124.pdf",
+      "case_id": "124/2024/DS-GĐT",
+      "source_name": "124.pdf",
+      "source_path": "backend/dataLaw/ban_an/124.pdf",
+      "structured_path": "backend/data/structured_judgments/124_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "tranh chấp quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "23025eafe16b7e634041c182c24f6cca53c592bbd736e34688b86f6324391db9",
+      "structured_sha256": "92ab313bdbe8ec7e9c6743b9107e26bc0d018e944e7d487161e395e1606808ae",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:127.pdf",
+      "case_id": "127/2024/DS-GĐT",
+      "source_name": "127.pdf",
+      "source_path": "backend/dataLaw/ban_an/127.pdf",
+      "structured_path": "backend/data/structured_judgments/127_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "tranh chấp quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "604615be906942618885560da3961e9517aa2a04f2dd260ae168d40632fa6948",
+      "structured_sha256": "9201e0b5b9f6dd7efeb03b76d4393997a2ce2fb6c7159831ce2e735bc634a91c",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:128.pdf",
+      "case_id": "128/2024/DS-GĐT",
+      "source_name": "128.pdf",
+      "source_path": "backend/dataLaw/ban_an/128.pdf",
+      "structured_path": "backend/data/structured_judgments/128_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp hợp đồng tín dụng, hợp đồng tặng cho, chuyển nhượng và thế chấp quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "cb80f96ae5d728cbd01382beb44d8d730137ffd31fda2fdb95d96bd1d62456ee",
+      "structured_sha256": "a162820b5f4e21c8c8fc47f5e87894133e3904c9817e180795d014d5ea0086ef",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:129.pdf",
+      "case_id": "129/2024/DS-GĐT",
+      "source_name": "129.pdf",
+      "source_path": "backend/dataLaw/ban_an/129.pdf",
+      "structured_path": "backend/data/structured_judgments/129_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp hợp đồng thuê quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "eeabee7e6dc9a4f71e7c23f31a4229ad69ed6bcbd4011c1def5d465ee540d671",
+      "structured_sha256": "4574a37308e83f3efd667188f10fd95c9f3a3c6d51aeef8b62cdc3ce7f4e472a",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:130.pdf",
+      "case_id": "130/2024/DS-GĐT",
+      "source_name": "130.pdf",
+      "source_path": "backend/dataLaw/ban_an/130.pdf",
+      "structured_path": "backend/data/structured_judgments/130_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp đòi tài sản",
+      "preliminary_law_families": [
+        "BLTTDS",
+        "LAND_2013"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "120f686d2cbc2e4ff2fed73dbf6440ebcaa5c14c1658facc653b49a1ee1d32c2",
+      "structured_sha256": "9e3d88bcf804a70a6f26a97b6d16b113f81ceb0d214251c824ba97550655fb91",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:133.pdf",
+      "case_id": "133/2024/DS-GĐT",
+      "source_name": "133.pdf",
+      "source_path": "backend/dataLaw/ban_an/133.pdf",
+      "structured_path": "backend/data/structured_judgments/133_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp hợp đồng tín dụng",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "906e29e3b59c0305bb42c515e36953a0c37f1df1d2099b98f12b8361f2397efd",
+      "structured_sha256": "bea245550658afe623300c52c8a9b7716451f02c608e91749f41429c78f90ec3",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:134.pdf",
+      "case_id": "134/2024/DS-GĐT",
+      "source_name": "134.pdf",
+      "source_path": "backend/dataLaw/ban_an/134.pdf",
+      "structured_path": "backend/data/structured_judgments/134_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "tranh chấp thừa kế tài sản",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "bb59a68d0b4c9fe5913372b77a12d4e5caa4ef561854d448edc58672ec12b003",
+      "structured_sha256": "3001d21f4ddc8d1c1245ef4c87c16b48fca5c394aa8fac07a632a205ae07fdf1",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:141.pdf",
+      "case_id": "141/2024/DS-GĐT",
+      "source_name": "141.pdf",
+      "source_path": "backend/dataLaw/ban_an/141.pdf",
+      "structured_path": "backend/data/structured_judgments/141_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "tranh chấp quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "8f01be5638f75d71d5578de0dc2f58807f2ed93ba6d10f27a07105e94b185d26",
+      "structured_sha256": "dfe988ccba76b8447078e742702368fb4da846ee5b9d68afdaea002bcd65f5e6",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:145.pdf",
+      "case_id": "145/2024/DS-GĐT",
+      "source_name": "145.pdf",
+      "source_path": "backend/dataLaw/ban_an/145.pdf",
+      "structured_path": "backend/data/structured_judgments/145_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "cfbe74984aac61fbb0607e6c841b9cc7896dce563ec36343727d07ea48724c80",
+      "structured_sha256": "2f91efe6ba5c9561eacee5f567c3477e43db1d29672ffd22d888469cfe99ec36",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:153.pdf",
+      "case_id": "153/2024/DS-GĐT",
+      "source_name": "153.pdf",
+      "source_path": "backend/dataLaw/ban_an/153.pdf",
+      "structured_path": "backend/data/structured_judgments/153_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất, sở hữu nhà; hợp đồng vay tài sản và hợp đồng tín dụng",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "07f9b34c180e8c71817b3386284035f107be5cc52a3ca0ab46583d3c2249e8ec",
+      "structured_sha256": "5bb277fadcd06a6ca6fddada9c267300fa69d6c58990ea9a411c5446e83bc4dc",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:156.pdf",
+      "case_id": "156/2024/DS-GĐT",
+      "source_name": "156.pdf",
+      "source_path": "backend/dataLaw/ban_an/156.pdf",
+      "structured_path": "backend/data/structured_judgments/156_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp hợp đồng mua bán tài sản",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "2e6589e0db53912fc2a8445c1089bd32a98e71ea426ded0ca58d9535f8549319",
+      "structured_sha256": "3ca358f9aaa5b93353f02abc88eb4e348242ff1a8e77f7cb295e5bdbb5cb4aac",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:158.pdf",
+      "case_id": "158/2024/DS-GĐT",
+      "source_name": "158.pdf",
+      "source_path": "backend/dataLaw/ban_an/158.pdf",
+      "structured_path": "backend/data/structured_judgments/158_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "tranh chấp hợp đồng hợp tác đầu tư",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS",
+        "HNGD_2014"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "e4cbf463ac67089d80827e692aa3222b3003949268288813225197c44f099aa7",
+      "structured_sha256": "3e2ddc0c48dd6c43c3979768b6df91ca49eaf02630efd6d45960efa1bf74e5f1",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:159.pdf",
+      "case_id": "159/2024/DS-GĐT",
+      "source_name": "159.pdf",
+      "source_path": "backend/dataLaw/ban_an/159.pdf",
+      "structured_path": "backend/data/structured_judgments/159_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS",
+        "LAND_UNSPECIFIED"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "cbf6adf2d85bb9053527fbcef4db63955d1fca114ce96a1476f69e3753cc33c7",
+      "structured_sha256": "0baf6aab9a793225596c6337aa50691556cdecd4f56365c70516e68b475524f1",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:15:11:2023.pdf",
+      "case_id": "252/2023/DS-GĐT",
+      "source_name": "15:11:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/15:11:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/15:11:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp yêu cầu tuyên bố hợp đồng chuyển nhượng quyền sử dụng đất vô hiệu",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "928da6cd7b0f876c3e0e57f1e84eeb1856e9676cb9b5dbf749cf1795c0ad10e5",
+      "structured_sha256": "5ece94c3c39c4244992623081029fa5b7dbf2718274045303257025c97578a06",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:15:2024.pdf",
+      "case_id": "15/2024/DS-GĐT",
+      "source_name": "15:2024.pdf",
+      "source_path": "backend/dataLaw/ban_an/15:2024.pdf",
+      "structured_path": "backend/data/structured_judgments/15:2024_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấpQSDĐ;yêucầuhủy GCNQSDĐ;yêucầuhủy hợpđồng thế chấpQSDĐ",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS",
+        "LAND_UNSPECIFIED"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "efbab6233c85aff2d709bdd1accb3b65851cbc56dfc4e9443ec118d9649e1fe3",
+      "structured_sha256": "256c9a95e27036247ecda09dafa415eef127b747025d21b5b8f0db3970ffbaf6",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:163:2023.pdf",
+      "case_id": "163/2023/DS-GĐT",
+      "source_name": "163:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/163:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/163:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "tranh chấp thừa kế",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "72a23427287fcaef10fd4f4deffd1a295d31193173f1547ba4c5981d36d507d3",
+      "structured_sha256": "3bf505e512ca899ea40b1bf165339704d63361861bfa41e0256652c693b7defa",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:164:2023.pdf",
+      "case_id": "164/2023/DS-GĐT",
+      "source_name": "164:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/164:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/164:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "8b5abe3af49297de2fd1bb757c8dc8c14346972110cbbcc2e7df35a5ea83e919",
+      "structured_sha256": "b6d581f6dc4881d10b677ff4f5552f85cf4ebfc3ed0f473e3dd0c1379c7f5fea",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:166:2023.pdf",
+      "case_id": "166/2023/DS-GĐT",
+      "source_name": "166:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/166:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/166:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "daacdb4ab9d9a87298446eb634effcc5b8b1375182ae4a1566b2995140ce74d4",
+      "structured_sha256": "05a11242f50b9390d8240427ae22e78e967d01716d5d735c38d882f4b4805671",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:167:2023.pdf",
+      "case_id": "167/2023/DS-GĐT",
+      "source_name": "167:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/167:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/167:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "1f271a115adbc5a849d5034bf8623924eeddf14c011cde35df3c3cd3d5ee6389",
+      "structured_sha256": "9c4dd700a6e9e975802e29009e9ad26502e50984dad8baebb81c98cab878e003",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:168:2023.pdf",
+      "case_id": "168/2023/DS-GĐT",
+      "source_name": "168:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/168:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/168:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "f1e079a0e0a4a82305ceee8b1bef02f645176790c32f1314dd1295275e1fceff",
+      "structured_sha256": "3f06f9a30e0340531eebc3cdc775deef8be3d4521b7e021cc2fb9b6bf7e2146d",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:169.pdf",
+      "case_id": "169/2024/DS-GĐT",
+      "source_name": "169.pdf",
+      "source_path": "backend/dataLaw/ban_an/169.pdf",
+      "structured_path": "backend/data/structured_judgments/169_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp di sản thừa kế",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "327e8359f902c483cc080de4711bf5415c727b95e3a4da2c0dd83eb34a15213e",
+      "structured_sha256": "36a5bc752248cb71814f28d190c5d40ed4d5b2bd79333b6f0a21c2a0d53da4a7",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:169:2023.pdf",
+      "case_id": "169/2023/DS-GĐT",
+      "source_name": "169:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/169:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/169:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS",
+        "LAND_UNSPECIFIED"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "1f82bbf53b07300c870a88085c8b7b31eef8345c02479c6484e7b3bfe705b1bd",
+      "structured_sha256": "622392e7f14af3bd00d54a905c4ce8e435b2142f1ca81528ba9f7224ae0d3ec2",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:16:2024.pdf",
+      "case_id": "16/2024/DS-GĐT",
+      "source_name": "16:2024.pdf",
+      "source_path": "backend/dataLaw/ban_an/16:2024.pdf",
+      "structured_path": "backend/data/structured_judgments/16:2024_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất, hợp đồng đặt cọc, hợp đồng tín dụng, hợp đồng hứa chuyển nhượng",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "221378d675885556db40ea7e9af27309f4b414b8d697cf6bea55b25f76addaa8",
+      "structured_sha256": "2ea7a2de48a5a51e3ac0faf61043172c75a6acfbb7825f8da32cbb9c15c96fe6",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:170:2023.pdf",
+      "case_id": "170/2023/DS-GĐT",
+      "source_name": "170:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/170:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/170:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp hợp đồng chuyển nhượngquyềnsử dụngđất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "ae5e58bc7ded49c6c0cb373108a110958eb7e031d13457e7b0cd8bab220d05ff",
+      "structured_sha256": "123e6b5b1df4c6a1c0a1baf092cc08fdc1e9d65f57ac9234d44c96e6eafa5022",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:171.pdf",
+      "case_id": "171/2024/DS-GĐT",
+      "source_name": "171.pdf",
+      "source_path": "backend/dataLaw/ban_an/171.pdf",
+      "structured_path": "backend/data/structured_judgments/171_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp về hợp đồng vay tài sản ”  : - NHÂNDANH _ NƯỚC CỌNG HÒA XÃ HỌI CHỦ NGHĨA VIỆT NAM",
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "8fb057daa34d49dbdadea6153d2cd202987f27a8eb854569913758f5cdbf041b",
+      "structured_sha256": "d6b4aa80d6e9849402b9a78b6289f4f3bac12234df61718273475ebaea072b9a",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:172:2023.pdf",
+      "case_id": "172/2023/DS-GĐT",
+      "source_name": "172:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/172:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/172:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "ba23c4739817742c77fc3b6df04025d5e80dd0b669b72caeaa1139f613a1dc99",
+      "structured_sha256": "f908bd86c987c77b16e5764c85833d93caf140e676d698db240c7baab6cafd74",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:173.pdf",
+      "case_id": "173/2024/DS-GĐT",
+      "source_name": "173.pdf",
+      "source_path": "backend/dataLaw/ban_an/173.pdf",
+      "structured_path": "backend/data/structured_judgments/173_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "tranh chấp hợp đồng vay tài sản",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "c2720d187fd66f43aa0a5126b8f85e202c6e3c71ed0cf6cea270e6fe7e5b6012",
+      "structured_sha256": "46d9d2679342b370a6634bf2a8a53e956d1ea8dbaec45d8b6cbaf29d26a77cdc",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:174.pdf",
+      "case_id": "174/2024/DS-GĐT",
+      "source_name": "174.pdf",
+      "source_path": "backend/dataLaw/ban_an/174.pdf",
+      "structured_path": "backend/data/structured_judgments/174_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp bồi thường thiệt hại ngoài hợp đồng",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "af0280cc66a305a992cf849d82db59d87fdfebe68f0f32a7f5727df3102cf0a3",
+      "structured_sha256": "4cb3a07d85a0a037079c61a825e800fa0be5f8d4f8545e02081c797e23c3dde1",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:174:2023.pdf",
+      "case_id": "174/2023/DS-GĐT",
+      "source_name": "174:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/174:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/174:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "tranh chấp hợp đồng chuyển nhượng và hợp đồng tặng cho quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "4b9ffc05ae67ec9251d082e600e98f01f68517f934b4eea7395136e125ee5a16",
+      "structured_sha256": "df2bd788b7d8779572bf7b5245c3bb815d93e0979c71e9776875b52bd541b410",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:175.pdf",
+      "case_id": "175/2024/DS-GĐT",
+      "source_name": "175.pdf",
+      "source_path": "backend/dataLaw/ban_an/175.pdf",
+      "structured_path": "backend/data/structured_judgments/175_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp hợp đồng góp vốn; đòi lại quyền sử dụng đất; đòi lại tài sản; bồi thường thiệt hại về tài sản",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "3d0ee1d1e8730865ea34f33bbd297803baef635972fb3a91cfc6e013e0de1391",
+      "structured_sha256": "521af2784fa550f37651bae43c3ec071453e580439b6bf0f5dbb26e6982fe873",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:175:2023.pdf",
+      "case_id": "175/2023/DS-GĐT",
+      "source_name": "175:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/175:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/175:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "tranh chấp nợ hụi",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "3973dc36f5e8ecb2db2ea437f351ff7c7e5dc6109f15cda17bc1ab4221bd8af9",
+      "structured_sha256": "35f3426f7c212a223c423936929f1795aa93847422ade8a3babd8c447b0720bb",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:177:2023.pdf",
+      "case_id": "177/2023/DS-GĐT",
+      "source_name": "177:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/177:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/177:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS",
+        "LAND_UNSPECIFIED"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "43a856bc5578e9ee33402635c3de30f1f98a699ed94756c2917e93a4ff72782c",
+      "structured_sha256": "8faa95a9b97f0b51c0ab88bc2f5a5c934510dbe00b28afc66e2da09fe2c418c2",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:178:2023.pdf",
+      "case_id": "178/2023/DS-GĐT",
+      "source_name": "178:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/178:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/178:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Kiện đòi tài sản",
+      "preliminary_law_families": [
+        "BLTTDS",
+        "HNGD_2014"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "e1443c1de0d48bd200e3d9a7445f8898b91d5611d34cfc72fd823903ed0e94eb",
+      "structured_sha256": "f55299049b397064dfc1bed8dc143f4cb74cdeeda6d4d4c6ad822859b3984c89",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:18.pdf",
+      "case_id": "18/2024/DS-GĐT",
+      "source_name": "18.pdf",
+      "source_path": "backend/dataLaw/ban_an/18.pdf",
+      "structured_path": "backend/data/structured_judgments/18_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "tranh châp quyên sử dụng đât",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS",
+        "LAND_UNSPECIFIED"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "61ffe4f68b876fb73ed91f8c7c8b6e671a78a0d98a310bf715745d67a617ddda",
+      "structured_sha256": "e53d92c63f786b10ba6447784dfcad379ebd061c0645c49ee234ed08688d9abb",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:180:2023.pdf",
+      "case_id": "180/2023/DS-GĐT",
+      "source_name": "180:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/180:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/180:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "tranh chấp về kết quả bán đấu giá tài sản và tranh chấp hợp đồng mua bán tài sản đấu giá",
+      "preliminary_law_families": [
+        "BLTTDS",
+        "LAND_UNSPECIFIED"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "fc8bab364be79493456360ed8d1357a5ba90e81624e671fb4cc3114adec1c81f",
+      "structured_sha256": "bd80e4a0e78466f4843a5e2a93df68af1f2ec66bdc71fcca7ff8960bee730f34",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:182.pdf",
+      "case_id": "182/2024/DS-GĐT",
+      "source_name": "182.pdf",
+      "source_path": "backend/dataLaw/ban_an/182.pdf",
+      "structured_path": "backend/data/structured_judgments/182_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp đòi quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS",
+        "LAND_2013"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "6e3ad7f349ff54265d5eb18dbdb91f6fda9d0e72cef78faa14b18adf1623fd18",
+      "structured_sha256": "37dda28a75e9d0444f218d25f086b458049096c014c611eebf2600e4c9408bf0",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:183.pdf",
+      "case_id": "183/2024/DS-GĐT",
+      "source_name": "183.pdf",
+      "source_path": "backend/dataLaw/ban_an/183.pdf",
+      "structured_path": "backend/data/structured_judgments/183_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "tranh chấp hợp đồng tặng cho, chuyển nhượng QSDĐ, thuê QSDĐ và tài sản",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "89f18f432160524c83f2324676c0745490c64e522f7880688b2e9aba63171048",
+      "structured_sha256": "41cfff24d2a67ab2ffc2418d0638621123f6f406d398674a239421a5f649be53",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:187.pdf",
+      "case_id": "187/2024/DS-GĐT",
+      "source_name": "187.pdf",
+      "source_path": "backend/dataLaw/ban_an/187.pdf",
+      "structured_path": "backend/data/structured_judgments/187_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "tranh chấp quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "7e5c9a6ce82cd4d9b0624e5074f5e167a1f4b4df8ad0085aace841a53dbb52bc",
+      "structured_sha256": "28de4dfc82e4b3ebb642250a94998e90481e84e4975b170dfc14ecca317980f6",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:189:2023.pdf",
+      "case_id": "189/2023/DS-GĐT",
+      "source_name": "189:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/189:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/189:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "tranh chấp hợp đồng đặt cọc",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS",
+        "LAND_2013"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "6504087036f5a6876bd300f540d37c124247921e77691b5635c3dc3d72ba071f",
+      "structured_sha256": "87acc0936238a02674ace3b763af5da35033cb2092bb9bf3178115ee5337b191",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:190.pdf",
+      "case_id": "190/2023/DS-GĐT",
+      "source_name": "190.pdf",
+      "source_path": "backend/dataLaw/ban_an/190.pdf",
+      "structured_path": "backend/data/structured_judgments/190_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp về lối đi qua bất động sản liền kề",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "02076eebb1a02c817a7aa8303939d996528ac8e90f8be19a8e26222478eb1462",
+      "structured_sha256": "9e79d9d2a411a31e84fe8da549c9467ccdcb58a27d194f49fe1fad2348d9db10",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:198.pdf",
+      "case_id": "198/2024/DS-GĐT",
+      "source_name": "198.pdf",
+      "source_path": "backend/dataLaw/ban_an/198.pdf",
+      "structured_path": "backend/data/structured_judgments/198_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "tranh chấp hợp đồng vay tài sản",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "874863be5093c8fac5ce9aa53c06f76f546a9e4541632b26a8089d94f01eb690",
+      "structured_sha256": "90965c36c0a70f3010c767a9a43de2c5c132c5ad643bfcf381bb8636d19b824f",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:20.pdf",
+      "case_id": "20/2024/DS-GĐT",
+      "source_name": "20.pdf",
+      "source_path": "backend/dataLaw/ban_an/20.pdf",
+      "structured_path": "backend/data/structured_judgments/20_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "tranh chấp quyền sử dụng đất và hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "f9f52553e7d0bc290efa9f535f57cad491ef9ca873bb3e2c4cd08fee187c7106",
+      "structured_sha256": "d0f20caca4392a04a7f5bc4b7b9ca44a988ce58763aa405edce001609f655b04",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:21.pdf",
+      "case_id": "21/2024/DS-GĐT",
+      "source_name": "21.pdf",
+      "source_path": "backend/dataLaw/ban_an/21.pdf",
+      "structured_path": "backend/data/structured_judgments/21_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "tranh chấp quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "e983ff1eb5aaa596c2d846d5c1e4c9b56535271059fa907ca03423fb678cba81",
+      "structured_sha256": "53135926e77d91678d9ebafe1fc224d804cc38ab970e423fb2b0582a5f28de34",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:217.pdf",
+      "case_id": "217/2024/DS-GĐT",
+      "source_name": "217.pdf",
+      "source_path": "backend/dataLaw/ban_an/217.pdf",
+      "structured_path": "backend/data/structured_judgments/217_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp hợp đồng đặt cọc mua bán nhà ở và chuyển nhượng QSD đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "76426840010829c86f48f52b0489e365ec2c2814635143375e30c27ed84b64d7",
+      "structured_sha256": "cb4f8500f2fabc2608298d2af48049fc46abe87e353b35314d5f1b07f6817597",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:220.pdf",
+      "case_id": "220/2024/DS-GĐT",
+      "source_name": "220.pdf",
+      "source_path": "backend/dataLaw/ban_an/220.pdf",
+      "structured_path": "backend/data/structured_judgments/220_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp quyền sử dụng đất (lối đi)",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "62b83998e400dc32e8bf36b58bd14b80ab784d5268f7a6cf1b0ddc08f42541fc",
+      "structured_sha256": "2b029d7f0a5e5476006d70559353e18f07465d37e11b8a2c5d88fa5e1dc2e682",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:221.pdf",
+      "case_id": "221/2024/DS-GĐT",
+      "source_name": "221.pdf",
+      "source_path": "backend/dataLaw/ban_an/221.pdf",
+      "structured_path": "backend/data/structured_judgments/221_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS",
+        "LAND_2013"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "612e97fcbe7157104897c7148753ad6b41890cdead325222258dee26b91b8d2f",
+      "structured_sha256": "d470c64f5cd2b644df9a539acf3de1591ecf563e68d14e4b183da66c0a6f6704",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:226.pdf",
+      "case_id": "226/2022/DS-GĐT",
+      "source_name": "226.pdf",
+      "source_path": "backend/dataLaw/ban_an/226.pdf",
+      "structured_path": "backend/data/structured_judgments/226_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2022,
+      "case_type": "Tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "16b7b05371398696cde0e66d05b3430175aabca23062506ada782fdb40d85405",
+      "structured_sha256": "fd58d0ccd1a341a3238c5df5695747af64d4ec61f9a889d0fa0ed7e3383276c9",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:236.pdf",
+      "case_id": "236/2024/DS-GĐT",
+      "source_name": "236.pdf",
+      "source_path": "backend/dataLaw/ban_an/236.pdf",
+      "structured_path": "backend/data/structured_judgments/236_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS",
+        "LAND_2013"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "d60c26d3bb349c674539a968e8743961dbbdc250ec9b1b94dd428e84b9271af7",
+      "structured_sha256": "6906f831ab62daeedccace086a2bad439df730259efb94dea1702aff9e8c19cd",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:239.pdf",
+      "case_id": "239/2024/DS-GĐT",
+      "source_name": "239.pdf",
+      "source_path": "backend/dataLaw/ban_an/239.pdf",
+      "structured_path": "backend/data/structured_judgments/239_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp chia tài sản chung là quyền sử dụng đất, chia thừa kế quyền sử dụng đất, yêu cầu hủy giấy chứng nhận quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "2598fa653235ab11639e6a4244c7764e5355f0f6aad95bea9e61172c7d0f2604",
+      "structured_sha256": "5b4553526a159de2a80d25cd0baaa0cfd46836a4a1969537d5a4b5c4eaad7fb2",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:240.pdf",
+      "case_id": "240/2024/DS-GĐT",
+      "source_name": "240.pdf",
+      "source_path": "backend/dataLaw/ban_an/240.pdf",
+      "structured_path": "backend/data/structured_judgments/240_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp về quyền sở hữu tài sản, yêu cầu hủy hợp đồng chuyển nhượng và yêu cầu bàn giao nhà",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "109cbec2d8685b68a9affc6f61b423a99ff731f5b5342c4e74fc202da44e3a0c",
+      "structured_sha256": "503d577daed59cae89353d306dd886974a7b3bada5f2e6b880ea107bf7a62fa5",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:243.pdf",
+      "case_id": "243/2024/DS-GĐT",
+      "source_name": "243.pdf",
+      "source_path": "backend/dataLaw/ban_an/243.pdf",
+      "structured_path": "backend/data/structured_judgments/243_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Hủy kết quả bán đấu giá tài sản",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "3a08bc9d514c022a5600c77b544a101a70997a9fd5b5d2160665bd8335b6696c",
+      "structured_sha256": "9de652c3b6c1b6dc39209c6f30cb85d8efa2a0500f89b6a8ef403b21c5d4fa27",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:245.pdf",
+      "case_id": "245/2024/DS-GĐT",
+      "source_name": "245.pdf",
+      "source_path": "backend/dataLaw/ban_an/245.pdf",
+      "structured_path": "backend/data/structured_judgments/245_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp hợp đồng vay tài sản",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "19445081f3f15b02fe61c38262b9073bc6d4add544e214cc073cfb25c8b8fa48",
+      "structured_sha256": "7445ad23590a56d36507929142cca24f826b4f3c75934fd719dd28b8130c58ae",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:246.pdf",
+      "case_id": "246/2024/DS-GĐT",
+      "source_name": "246.pdf",
+      "source_path": "backend/dataLaw/ban_an/246.pdf",
+      "structured_path": "backend/data/structured_judgments/246_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "42a523f0ddde23a5c9b3be729ec2c385bacee2946f011a7009640b1880d5a57b",
+      "structured_sha256": "4ab02dc51ceafaad64c7898443bd6b78db39d685990a7f68f49a76fd0b05a0cd",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:250.pdf",
+      "case_id": "250/2024/DS-GĐT",
+      "source_name": "250.pdf",
+      "source_path": "backend/dataLaw/ban_an/250.pdf",
+      "structured_path": "backend/data/structured_judgments/250_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "1f2c360d4cd2c5dd03eaaf7a2ecc16b896614649491c53f0ca34979e8106ea34",
+      "structured_sha256": "9e27d61ce2bd82113d9ab51c41d2a4804acbc11a3057a823b93e56a0311989c2",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:250:2022.pdf",
+      "case_id": "250/2022/DS-GĐT",
+      "source_name": "250:2022.pdf",
+      "source_path": "backend/dataLaw/ban_an/250:2022.pdf",
+      "structured_path": "backend/data/structured_judgments/250:2022_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2022,
+      "case_type": "tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "a43d95f7f220310292c9efe14a1d44c98c5982bee45531e769257750d158194e",
+      "structured_sha256": "8c0220e3a48be35756d622a3b41363ca0e84b0fef2063ca2be1da24949a9fda6",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:251.pdf",
+      "case_id": "251/2022/DS-GĐT",
+      "source_name": "251.pdf",
+      "source_path": "backend/dataLaw/ban_an/251.pdf",
+      "structured_path": "backend/data/structured_judgments/251_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2022,
+      "case_type": "tranh chấp hợp đồng mua bán nhà",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "208c9004d6b33b0f06b0439bcced90961cfaedeefabdbfea196da2091c539eae",
+      "structured_sha256": "1dcf59e7c9b1695ed0f8dac334c65815730050230e44a479b5dd5a488dde9257",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:252:2022.pdf",
+      "case_id": "252/2022/DS-TT",
+      "source_name": "252:2022.pdf",
+      "source_path": "backend/dataLaw/ban_an/252:2022.pdf",
+      "structured_path": "backend/data/structured_judgments/252:2022_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "tai_tham",
+      "year": 2022,
+      "case_type": "tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "2bbab340e23a7daf2b06073516a678ccfba4a1fe966eeb051b218f173cd5f2e1",
+      "structured_sha256": "06b852727a56047358afe9d7f67cf3d32340feed8dd716c39fab3e606ff827b3",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:253:2022.pdf",
+      "case_id": "253/2022/DS-GĐT",
+      "source_name": "253:2022.pdf",
+      "source_path": "backend/dataLaw/ban_an/253:2022.pdf",
+      "structured_path": "backend/data/structured_judgments/253:2022_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2022,
+      "case_type": "tranh chấp quyền sử dụng đất và yêu cầu chấm dứt hành vi cản trở trái pháp luật",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "ad289921266225bb582193eb2734d3e09a10467ea617ee54a444cb0e760208c3",
+      "structured_sha256": "670616a8d8d385c714828acfbabcb3718448fde2c4b757897e38e35687a96696",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:253:2023.pdf",
+      "case_id": "253/2023/DS-GĐT",
+      "source_name": "253:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/253:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/253:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "ef3446e9345cd8c7a0cb748b5f827a95b8bbb2303ec6a537684251e503697486",
+      "structured_sha256": "ff024e1146f763b1d368059e7bcee380ee1a33d888610f6da58d7c7a425745f5",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:255:2023.pdf",
+      "case_id": "255/2023/DS-GĐT",
+      "source_name": "255:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/255:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/255:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranhchấpyêucầuchấmdứt hànhvi cảntrởquyềnsửdụngđất",
+      "preliminary_law_families": [
+        "BLTTDS",
+        "LAND_2013"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "d3cf513c4f6546e661e843f55fdc5027dcc432072fa349689e3b94e5dd121144",
+      "structured_sha256": "e4cda02df703d790850ce81727bc45748d345026578c025074c2ffeda16d01f9",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:263.pdf",
+      "case_id": "263/2024/DS-GĐT",
+      "source_name": "263.pdf",
+      "source_path": "backend/dataLaw/ban_an/263.pdf",
+      "structured_path": "backend/data/structured_judgments/263_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "8a7421d0cfdfd4268d53f90ce7c9469f3a099cabb527c360d310661cadc4e516",
+      "structured_sha256": "aca895d0d2135630b096d2f9e59590ea41bc240d2d55e9762d49603e43214e98",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:272:2023.pdf",
+      "case_id": "272/2023/DS-GĐT",
+      "source_name": "272:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/272:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/272:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "e4f08d7b0340f75fb0a186d77d6536c4ca79d7de728ffcefd8c94e83bec97167",
+      "structured_sha256": "f51f3e29ed38a9c8df944c1a03acb35776c1e1abd57c0a3ca008138337045568",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:273:2023.pdf",
+      "case_id": "273/2023/DS-GĐT",
+      "source_name": "273:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/273:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/273:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "3861a55622afb31b8f0e74c9882d8f5425ba4f4f9161f926ac3d405d70938462",
+      "structured_sha256": "c2e3592d00ea7114cd4cc95f93191412155aee8223547a33f88b17b4c1aa5428",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:282.pdf",
+      "case_id": "282/2023/DS-GĐT",
+      "source_name": "282.pdf",
+      "source_path": "backend/dataLaw/ban_an/282.pdf",
+      "structured_path": "backend/data/structured_judgments/282_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "99a41d4f6d75a3e1f8c372f4c9c7e4d9fd846264453c5c5a0c0e73858cd99114",
+      "structured_sha256": "8113ee5235bae4eb315d8905c773e4bf1f5e61234bc8997a8a3f6fc6f1fa27a5",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:289a.pdf",
+      "case_id": "289A/2022",
+      "source_name": "289A.pdf",
+      "source_path": "backend/dataLaw/ban_an/289A.pdf",
+      "structured_path": "backend/data/structured_judgments/289A_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2022,
+      "case_type": "tranh chấp hợp đồng hợp tác",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "2a72f85654de17a9614b28e960fa9d75a7b4647c12c1ee497c66e233fca2e83e",
+      "structured_sha256": "d6d54ade745659cd6258b5d047ba3396aef649c8b12affb6a5e16f5e76c80078",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:296:2022.pdf",
+      "case_id": "296/2022/DS-GĐT",
+      "source_name": "296:2022.pdf",
+      "source_path": "backend/dataLaw/ban_an/296:2022.pdf",
+      "structured_path": "backend/data/structured_judgments/296:2022_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2022,
+      "case_type": "tranh chấp về thừa kế tài sản",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "2969091b350bd4e326b19ee15e9cfda88255e2149a9c6d1b28235bd486c7ad88",
+      "structured_sha256": "e8a1faf856e0aab9aab0939b3040361a3c5432d6d46e4490d2c4d19037783467",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:298:2023.pdf",
+      "case_id": "298/2023/DS-GĐT",
+      "source_name": "298:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/298:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/298:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": null,
+      "preliminary_law_families": [
+        "BLDS"
+      ],
+      "preliminary_legal_functions": [
+        "substantive"
+      ],
+      "source_sha256": "8e6304d8b5e5a7fba2e7ca306dd792cced93457e06f11ed4f86b740c09fadf57",
+      "structured_sha256": "c06d4535b54b4f00070e671da6565620ee264b721d4d40a5dad30ab1db2f8db9",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:37:2024.pdf",
+      "case_id": "37/2024/DS-GĐT",
+      "source_name": "37:2024.pdf",
+      "source_path": "backend/dataLaw/ban_an/37:2024.pdf",
+      "structured_path": "backend/data/structured_judgments/37:2024_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp chia di sản thừa kế theo pháp luật và yêu cầu công nhận HĐ chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "869335b48c6978e32de1bbaf9d0be645097d3d382376abf82484e5c15744f8e0",
+      "structured_sha256": "8beb6229120b1ffbd639d21d95be8c52248fa809bb9c67d788908af4fe020734",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:38:2024.pdf",
+      "case_id": "38/2024/DS-GĐT",
+      "source_name": "38:2024.pdf",
+      "source_path": "backend/dataLaw/ban_an/38:2024.pdf",
+      "structured_path": "backend/data/structured_judgments/38:2024_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "6f6470d0f387213140c013dee3e31c8e1d54d2ff485f5d69930fb06e31edc6ab",
+      "structured_sha256": "f7d2053aea6438f044e7be58ad2ca2cc4299673303e336a1ab96a06db9873c40",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:47:2023.pdf",
+      "case_id": "47/2023/DS-GĐT",
+      "source_name": "47:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/47:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/47:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp hợp đồng cầm cố QSDĐ, QSH nhà ở, đòi tài sản",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS",
+        "LAND_2013"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "fc59e4f90b36d1db2de8ee486fc84ed6a0189d015704d687b5bcad11f40947a3",
+      "structured_sha256": "33ef19996909601a6f0657c2108f6a951cf449b4df5cd1cf42707bdb51144b6d",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:53:2024.pdf",
+      "case_id": "53/2024/DS-GĐT",
+      "source_name": "53:2024.pdf",
+      "source_path": "backend/dataLaw/ban_an/53:2024.pdf",
+      "structured_path": "backend/data/structured_judgments/53:2024_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "2914339048bb423e96bd294d2e98c0f4737f8ee483c7a4fa8c72dee1546ca520",
+      "structured_sha256": "8dea0201da9514a75c1f97290ad38b90a2383ced4d2b1c95a4c78644057c8a64",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:64:2023.pdf",
+      "case_id": "64/2023/DS-GĐT",
+      "source_name": "64:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/64:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/64:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "e5dfa32bb844554ba793b0a5571d22b857917e60bbb75268eaf221f4ce07f585",
+      "structured_sha256": "5ac8ccc54f75db094cd147633d8230ada6056dad3ef0d3f234bb71279988feb9",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:66:2023.pdf",
+      "case_id": "66/2023/DS-GĐT",
+      "source_name": "66:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/66:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/66:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "tranh chấp quyền sử dụng đất và hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS",
+        "LAND_2013"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "ff1a61e6aac7d8487bb161ede71f772fa1255406324e35e81fb99661bcbd2cdb",
+      "structured_sha256": "2f9e8199841a76a3c13df2013c6713966487fcf4daae2565854fe7f6a50faf61",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:74:2023.pdf",
+      "case_id": "74/2023/DS-GĐT",
+      "source_name": "74:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/74:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/74:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp về thừa kế di sản",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "1362fffe087a9ff12c01091e4e6d12b5b42ec352d8085ee2a34d832b0e2775d7",
+      "structured_sha256": "2e9e961851d36bca23751445118c18a509433a535fb9586aca3679d7c2405d80",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:75:2023.pdf",
+      "case_id": "75/2023/DS-GĐT",
+      "source_name": "75:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/75:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/75:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp tài sản thuộc sở hữu chung và yêu cầu công nhận hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "497ed51b85aac2d49bf628ba1c49a5fdb4cb78a890dddd6ec87462f597e267e5",
+      "structured_sha256": "cf2334e535837836b4344bdb79f9225451c0631cf7eb5e51110471526445e28e",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:76:2023.pdf",
+      "case_id": "76/2023/DS-GĐT",
+      "source_name": "76:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/76:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/76:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "ec203892b4f8bbf5e2a06c29db1de6bde9c553309ee4af353dc1c413c763251a",
+      "structured_sha256": "3eba245e0e5c7083c18967bcbf025647e64baeb5b134db084bc163c444ae7a20",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:77:2023.pdf",
+      "case_id": "77/2023/DS-GĐT",
+      "source_name": "77:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/77:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/77:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "9e40119c36205a8f49a9e736f4a6cb26c26af5f611bca02b9f0803710d2806c7",
+      "structured_sha256": "fd2d87cf87ff702fbf1975e8661cff1fefef042a555c8f4576ef79f66bf72daa",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:78:2023.pdf",
+      "case_id": "78/2023/DS-GĐT",
+      "source_name": "78:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/78:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/78:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "d97da5a84aac05a51b9dae7b6ac4bc1595d1aac8cae6f7bc51649cccc86841ae",
+      "structured_sha256": "3d8651d702e36584cf7ad994c4c6ade2f60f7306100da0d7f5d0ded837f9e575",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:79:2023.pdf",
+      "case_id": "79/2023/DS-GĐT",
+      "source_name": "79:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/79:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/79:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp di sản thừa kế và tranh chấp quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "316771bf7eddf0efb2e70e5c85c5a90d8ec167308e30f08db606e8f7d6d52202",
+      "structured_sha256": "0d94480ce6dccc18dca64a8f9b78a7f7fa5a6e33f723c08d15f71e5a4bff568c",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:82:2023.pdf",
+      "case_id": "82/2023/DS-GĐT",
+      "source_name": "82:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/82:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/82:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp hủy văn bản thỏa thuận về việc chuyển nhượng quyền sử dụng đất và phạt cọc",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "6ba1ff3030792d9277cb2b138237048d5427d830617b6db8067d1f2df6719f62",
+      "structured_sha256": "5f382861da4b10601ff47fe11f61cb062d4e5c5f98504d2093d67cb1344c329b",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:84.pdf",
+      "case_id": "84/2024/DS-GĐT",
+      "source_name": "84.pdf",
+      "source_path": "backend/dataLaw/ban_an/84.pdf",
+      "structured_path": "backend/data/structured_judgments/84_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": null,
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS",
+        "LAND_2013"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "c756809fc5d07a3c8c22c7f1231def1127f1bbdc4d8ecf9d58a723829493a30e",
+      "structured_sha256": "cbb88f68027355d9d82d2b08103677911c3c2ce29c6483f4e66f05cc24706c20",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:85:2023.pdf",
+      "case_id": "85/2023/DS-GĐT",
+      "source_name": "85:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/85:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/85:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": null,
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "6787df3799b6210bcf4953d37e9e42206fc99dd87c4060744f7c0b063d87b451",
+      "structured_sha256": "7ca1c7b8d488799b390e9eef9e00fdf09124858c8cbaea52e817009e018c162d",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:85:2024.pdf",
+      "case_id": "85/2024/DS-GĐT",
+      "source_name": "85:2024.pdf",
+      "source_path": "backend/dataLaw/ban_an/85:2024.pdf",
+      "structured_path": "backend/data/structured_judgments/85:2024_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "tranh chấp hợp đồng vay tài sản và đòi lại giấy chứng nhận quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural"
+      ],
+      "source_sha256": "47468b7531e430993d8bd628b5d5ae70c8cc6a3266a8848d5f1d84c4fda1fcad",
+      "structured_sha256": "b0bc824610a6045ddd55cf3458bd6c0034e7d4e2f85403288a1a359f1d9c8801",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:86:2023.pdf",
+      "case_id": "86/2023/DS-GĐT",
+      "source_name": "86:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/86:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/86:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": null,
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "e090560612f470908085eb4a269ab30c167be2578c89874b7f52ac81c71b6b18",
+      "structured_sha256": "fead72e318c74610e425709822059868f25ba4f1ac3f1ca1558202a3cf08b55c",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:95.pdf",
+      "case_id": "95/2024/DS-GĐT",
+      "source_name": "95.pdf",
+      "source_path": "backend/dataLaw/ban_an/95.pdf",
+      "structured_path": "backend/data/structured_judgments/95_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS",
+        "LAND_UNSPECIFIED"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "41d55268431fa452c9b7cb26186f9e41cd4c7c2666b7eff77467bc38f93b9189",
+      "structured_sha256": "397a2acb29537d45b1e3e7f726d175c4fb42cf9f3683b56af1f494a5ecceaf35",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:95:2023.pdf",
+      "case_id": "95/2023/DS-GĐT",
+      "source_name": "95:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/95:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/95:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "tranh chấp chia di sản thừa kế",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "0b3f3d9b2d0990d3b200e1e50e89113124d9668f24fde7b184a0a673c7855233",
+      "structured_sha256": "e81112bc2d1cbcfcf481fc033d9e968e12e83fed71cdeb1630cb93ae179ae816",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:98:2023.pdf",
+      "case_id": "98/2023/DS-GĐT",
+      "source_name": "98:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/98:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/98:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp quyền sử dụng đất, hợp đồng chuyển nhượng quyền sử dụng đất và bồi thường thiệt hại về tài sản",
+      "preliminary_law_families": [
+        "BLDS",
+        "BLTTDS"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "a1948839d5f64e4b815fdddc5ab684d35c5f1359c41d9b93b80504be342772cd",
+      "structured_sha256": "a7655897ce5fd57a85a82da679a13d13b7bc75608005f67f13fedca807245852",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:99.pdf",
+      "case_id": "99/2024/DS-GĐT",
+      "source_name": "99.pdf",
+      "source_path": "backend/dataLaw/ban_an/99.pdf",
+      "structured_path": "backend/data/structured_judgments/99_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2024,
+      "case_type": "Tranh chấp về hợp đồng chuyển nhượng nên nhà",
+      "preliminary_law_families": [
+        "LAND_2013"
+      ],
+      "preliminary_legal_functions": [
+        "substantive"
+      ],
+      "source_sha256": "5536771f870c6defc23421dacc578cdac65eaff5fdc6de5dbaf8e5963cc7b400",
+      "structured_sha256": "96edcb89ada495b7da8ec4f45338400f7fa02a4a3bf06535ad6646f51752a51e",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    },
+    {
+      "source_id": "judgment:99:2023.pdf",
+      "case_id": "99/2023/DS-GĐT",
+      "source_name": "99:2023.pdf",
+      "source_path": "backend/dataLaw/ban_an/99:2023.pdf",
+      "structured_path": "backend/data/structured_judgments/99:2023_structured.json",
+      "court": "toa_an_cap_cao",
+      "procedure_stage": "giam_doc_tham",
+      "year": 2023,
+      "case_type": "Tranh chấp đòi lại quyền sử dụng đất; hợp đồng chuyển nhượng quyền sử dụng đất; hủy và chỉnh lý giấy chứng nhận quyền sử dụng đất",
+      "preliminary_law_families": [
+        "BLTTDS",
+        "LAND_UNSPECIFIED"
+      ],
+      "preliminary_legal_functions": [
+        "procedural",
+        "substantive"
+      ],
+      "source_sha256": "ac5dbc5f6c90ea53dc90aaa049a50e7b339ad95b1a7aaa36331cdda8e71441dc",
+      "structured_sha256": "8f46f00856a9c0744b5985dfa203379b0ca32588016dee39a71d1b6c1cd7f3d0",
+      "metadata_source": "structured_judgment_text_regex_v1"
+    }
+  ],
+  "eligible_sources": [],
+  "available_breakdown": {
+    "total": 107,
+    "by_law_family_preliminary": {
+      "BLDS": 46,
+      "BLTTDS": 104,
+      "HNGD_2014": 3,
+      "LAND_2013": 10,
+      "LAND_UNSPECIFIED": 9
+    },
+    "by_legal_function_preliminary": {
+      "procedural": 104,
+      "substantive": 54,
+      "unknown": 1
+    },
+    "by_case_type": {
+      "Hủy kết quả bán đấu giá tài sản": 1,
+      "Kiện đòi tài sản": 1,
+      "Tranh chấp bồi thường thiệt hại ngoài hợp đồng": 1,
+      "Tranh chấp chia di sản thừa kế theo pháp luật và yêu cầu công nhận HĐ chuyển nhượng quyền sử dụng đất": 1,
+      "Tranh chấp chia tài sản chung là quyền sử dụng đất, chia thừa kế quyền sử dụng đất, yêu cầu hủy giấy chứng nhận quyền sử dụng đất": 1,
+      "Tranh chấp di sản thừa kế": 1,
+      "Tranh chấp di sản thừa kế và tranh chấp quyền sử dụng đất": 1,
+      "Tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất": 10,
+      "Tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất và quyền sử dụng đất": 1,
+      "Tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất, hợp đồng đặt cọc, hợp đồng tín dụng, hợp đồng hứa chuyển nhượng": 1,
+      "Tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất, sở hữu nhà; hợp đồng vay tài sản và hợp đồng tín dụng": 1,
+      "Tranh chấp hợp đồng chuyển nhượngquyềnsử dụngđất": 1,
+      "Tranh chấp hợp đồng cầm cố QSDĐ, QSH nhà ở, đòi tài sản": 1,
+      "Tranh chấp hợp đồng góp vốn; đòi lại quyền sử dụng đất; đòi lại tài sản; bồi thường thiệt hại về tài sản": 1,
+      "Tranh chấp hợp đồng mua bán tài sản": 1,
+      "Tranh chấp hợp đồng thuê quyền sử dụng đất": 1,
+      "Tranh chấp hợp đồng tín dụng": 1,
+      "Tranh chấp hợp đồng tín dụng, hợp đồng tặng cho, chuyển nhượng và thế chấp quyền sử dụng đất": 1,
+      "Tranh chấp hợp đồng tín dụng, yêu cầu hỗ trợ lãi suất và bồi thường thiệt hại về tài sản": 1,
+      "Tranh chấp hợp đồng vay tài sản": 3,
+      "Tranh chấp hợp đồng vay tài sản, hợp đồng tín dụng": 1,
+      "Tranh chấp hợp đồng vay tài sản, tranh chấp tiền huê": 1,
+      "Tranh chấp hợp đồng đặt cọc mua bán nhà ở và chuyển nhượng QSD đất": 1,
+      "Tranh chấp hợp đồng ủy quyền, hợp đồng chuyển nhượng quyền sử dụng đất và hợp đồng hợp tác kinh doanh": 1,
+      "Tranh chấp hủy văn bản thỏa thuận về việc chuyển nhượng quyền sử dụng đất và phạt cọc": 1,
+      "Tranh chấp quyền sử dụng đất": 11,
+      "Tranh chấp quyền sử dụng đất (lối đi)": 1,
+      "Tranh chấp quyền sử dụng đất, hợp đồng chuyển nhượng quyền sử dụng đất và bồi thường thiệt hại về tài sản": 1,
+      "Tranh chấp tài sản thuộc sở hữu chung và yêu cầu công nhận hợp đồng chuyển nhượng quyền sử dụng đất": 1,
+      "Tranh chấp về hợp đồng chuyển nhượng nên nhà": 1,
+      "Tranh chấp về hợp đồng vay tài sản ”  : - NHÂNDANH _ NƯỚC CỌNG HÒA XÃ HỌI CHỦ NGHĨA VIỆT NAM": 1,
+      "Tranh chấp về lối đi qua bất động sản liền kề": 1,
+      "Tranh chấp về quyền sở hữu tài sản, yêu cầu hủy hợp đồng chuyển nhượng và yêu cầu bàn giao nhà": 1,
+      "Tranh chấp về thừa kế di sản": 1,
+      "Tranh chấp về thừa kế tài sản": 1,
+      "Tranh chấp yêu cầu tuyên bố hợp đồng chuyển nhượng quyền sử dụng đất vô hiệu": 1,
+      "Tranh chấp đòi lại quyền sử dụng đất; hợp đồng chuyển nhượng quyền sử dụng đất; hủy và chỉnh lý giấy chứng nhận quyền sử dụng đất": 1,
+      "Tranh chấp đòi quyền sử dụng đất": 1,
+      "Tranh chấp đòi tài sản": 1,
+      "Tranh chấp đòi tài sản, HĐ thuê nhà, HĐ vay tài sản, HĐ mua bán nhà ở và chuyển nhượng QSD đất ở, yêu cầu hủy cập nhật biến động": 1,
+      "Tranh chấpQSDĐ;yêucầuhủy GCNQSDĐ;yêucầuhủy hợpđồng thế chấpQSDĐ": 1,
+      "Tranh chấphợpđồngvay tài sảnvà nợhụi": 1,
+      "Tranhchấpyêucầuchấmdứt hànhvi cảntrởquyềnsửdụngđất": 1,
+      "UNKNOWN": 4,
+      "tranh châp quyên sử dụng đât": 1,
+      "tranh chấp Hợp đồng đặt cọc": 1,
+      "tranh chấp chia di sản thừa kế": 1,
+      "tranh chấp hợp đồng chuyển nhượng quyền sử dụng đất": 10,
+      "tranh chấp hợp đồng chuyển nhượng và hợp đồng tặng cho quyền sử dụng đất": 1,
+      "tranh chấp hợp đồng hợp tác": 1,
+      "tranh chấp hợp đồng hợp tác đầu tư": 1,
+      "tranh chấp hợp đồng mua bán nhà": 1,
+      "tranh chấp hợp đồng tín dụng": 1,
+      "tranh chấp hợp đồng tặng cho, chuyển nhượng QSDĐ, thuê QSDĐ và tài sản": 1,
+      "tranh chấp hợp đồng vay tài sản": 2,
+      "tranh chấp hợp đồng vay tài sản và đòi lại giấy chứng nhận quyền sử dụng đất": 1,
+      "tranh chấp hợp đồng đặt cọc": 1,
+      "tranh chấp nợ hụi": 1,
+      "tranh chấp quyền sử dụng đất": 6,
+      "tranh chấp quyền sử dụng đất và hợp đồng chuyển nhượng quyền sử dụng đất": 2,
+      "tranh chấp quyền sử dụng đất và yêu cầu chấm dứt hành vi cản trở trái pháp luật": 1,
+      "tranh chấp thừa kế": 1,
+      "tranh chấp thừa kế tài sản": 2,
+      "tranh chấp về kết quả bán đấu giá tài sản và tranh chấp hợp đồng mua bán tài sản đấu giá": 1,
+      "tranh chấp về thừa kế tài sản": 1,
+      "tranh chấp đòi tài sản, hủy giấy chứng nhận quyền sử dụng đất": 1
+    },
+    "by_court": {
+      "toa_an_cap_cao": 107
+    },
+    "by_procedure_stage": {
+      "giam_doc_tham": 105,
+      "tai_tham": 2
+    },
+    "by_year": {
+      "2022": 7,
+      "2023": 43,
+      "2024": 57
+    }
+  },
+  "eligible_breakdown": {
+    "total": 0,
+    "by_law_family_preliminary": {},
+    "by_legal_function_preliminary": {},
+    "by_case_type": {},
+    "by_court": {},
+    "by_procedure_stage": {},
+    "by_year": {}
+  },
+  "quota_feasibility": {
+    "status": "INFEASIBLE",
+    "eligible_count": 0,
+    "target_total": 250,
+    "minimum_total": 180,
+    "targets": {
+      "BLDS_core_substantive": {
+        "minimum": 55,
+        "maximum": 65,
+        "available_preliminary": 0,
+        "preliminary_minimum_feasible": false,
+        "requires_annotation_confirmation": true
+      },
+      "BLTTDS_primary_procedural": {
+        "minimum": 30,
+        "maximum": 40,
+        "available_preliminary": 0,
+        "preliminary_minimum_feasible": false,
+        "requires_annotation_confirmation": true
+      },
+      "LAND_2013": {
+        "minimum": 35,
+        "maximum": 45,
+        "available_preliminary": 0,
+        "preliminary_minimum_feasible": false,
+        "requires_annotation_confirmation": true
+      },
+      "LAND_2024": {
+        "minimum": 35,
+        "maximum": 45,
+        "available_preliminary": 0,
+        "preliminary_minimum_feasible": false,
+        "requires_annotation_confirmation": true
+      },
+      "HNGD_2014": {
+        "minimum": 30,
+        "maximum": 40,
+        "available_preliminary": 0,
+        "preliminary_minimum_feasible": false,
+        "requires_annotation_confirmation": true
+      }
+    },
+    "main_guardrails": {
+      "BLTTDS_only_procedural_max_ratio": 0.2,
+      "substantive_core_min_ratio": 0.65,
+      "status": "NOT_ASSESSABLE_BEFORE_ANNOTATION"
+    },
+    "blockers": [
+      "eligible source count 0 is below minimum total 180",
+      "BLDS_core_substantive preliminary availability 0 is below minimum 55",
+      "BLTTDS_primary_procedural preliminary availability 0 is below minimum 30",
+      "LAND_2013 preliminary availability 0 is below minimum 35",
+      "LAND_2024 preliminary availability 0 is below minimum 35",
+      "HNGD_2014 preliminary availability 0 is below minimum 30"
+    ]
+  },
+  "blockers": [
+    "No unconsumed judgment source remains after excluding the 107 development cases."
+  ],
+  "prohibited_content": [
+    "retrieval outputs",
+    "candidate rankings",
+    "retrieval metrics",
+    "generated queries",
+    "ground-truth labels"
+  ]
+}
