@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "pilot-20261025-024",
+  "anchor_fingerprint": "91b92925a94bec8a71c724c703a923c88ff0de448d3fdd1dffe09acfd012aeb9",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-25T14:33:51.380299+07:00",
+  "offline_provenance": null,
+  "original_filename": "BA_HNGD_Huong__Trong_pdf.pdf",
+  "pdf_sha256": "2b2b2d240483e0788376bb9d2a930da3176a06ee8f451d44d2744085fefad7d0",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:pilot-20261025-024",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1907512t1cvn/BA_HNGD_Huong__Trong_pdf.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/pilot-20261025-024/BA_HNGD_Huong__Trong_pdf.pdf"
+}

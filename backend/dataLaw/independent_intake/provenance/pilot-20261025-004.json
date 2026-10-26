@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "pilot-20261025-004",
+  "anchor_fingerprint": "48d55b3313e0589cc1d9f978a4b6f6bbe15a532906ad0d9bea91ff3f48022961",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-25T14:33:31.779472+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_Dan_su_2025_Ngan_hang_Chinh_sach_xa_hoi___Lam_Thi_Gia_cong_bo_C.pdf",
+  "pdf_sha256": "388d54fa872b3808305e40796203acef21e8d301c32f11a3a99db62ba8d90151",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:pilot-20261025-004",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1995503t1cvn/Ban_an_Dan_su_2025_Ngan_hang_Chinh_sach_xa_hoi___Lam_Thi_Gia_cong_bo_C.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/pilot-20261025-004/Ban_an_Dan_su_2025_Ngan_hang_Chinh_sach_xa_hoi___Lam_Thi_Gia_cong_bo_C.pdf"
+}

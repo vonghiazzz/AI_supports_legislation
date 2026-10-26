@@ -11,6 +11,7 @@ import pytest
 
 from backend.scripts.Evaluation.benchmarking import independent_benchmark, source_intake
 from backend.scripts.Evaluation.benchmarking.independent_benchmark import (
+    canonical_json_fingerprint,
     deduplicate_against_development,
     inventory_judgment_sources,
     phase1_payloads,
@@ -28,6 +29,7 @@ from backend.scripts.Evaluation.benchmarking.source_intake import (
     immutable_provenance_snapshot,
     inventory_independent_sources,
     load_acquisition_manifest,
+    promote_source_to_eligible,
     stable_source_id,
     validate_acquisition_manifest,
     validate_pdf_source,
@@ -215,6 +217,33 @@ def _eligible_fixture(
     return source, manifest
 
 
+def _extracted_fixture(
+    root: Path,
+    acquisition_id: str = "src-001",
+    filename: str = "decision.pdf",
+    *,
+    text: str = "Nội dung bản án hợp lệ",
+    structured_payload: dict | None = None,
+) -> tuple[dict, dict]:
+    source = _source(acquisition_id, filename, status="extracted")
+    source["case_id"] = f"CASE-{acquisition_id}"
+    source["judgment_number"] = f"JUDGMENT-{acquisition_id}"
+    _materialize(
+        root,
+        source,
+        pdf_bytes=_minimal_pdf_bytes(acquisition_id),
+        structured_payload=(
+            structured_payload or _structured(filename, text)
+        ),
+    )
+    manifest = _manifest([source])
+    _write_manifest(root, manifest)
+    development_path = root / "backend/data/judgments_evaluation.json"
+    development_path.parent.mkdir(parents=True, exist_ok=True)
+    development_path.write_text("[]", encoding="utf-8")
+    return source, manifest
+
+
 def _hash_verified_fixture(
     root: Path,
     acquisition_id: str = "src-001",
@@ -268,12 +297,42 @@ def _assert_failed_extraction_is_clean(
         assert not list(output_path.parent.glob(".extract-partial-*"))
 
 
-def test_valid_acquisition_manifest_and_empty_production_manifest():
-    checked = json.loads(
-        (PROJECT_ROOT / ACQUISITION_MANIFEST_RELATIVE).read_text(encoding="utf-8")
+def test_valid_acquisition_manifest_and_current_production_pilot_state():
+    checked = load_acquisition_manifest(PROJECT_ROOT)
+    expected_ids = {
+        f"pilot-20261025-{index:03d}" for index in range(1, 25)
+    }
+    assert {source["acquisition_id"] for source in checked["sources"]} == expected_ids
+    assert {
+        source["acquisition_id"]
+        for source in checked["sources"]
+        if source["acquisition_status"] == "extracted"
+    } == set()
+    assert {
+        source["acquisition_id"]
+        for source in checked["sources"]
+        if source["acquisition_status"] == "hash_verified"
+    } == set()
+    assert {
+        source["acquisition_id"]
+        for source in checked["sources"]
+        if source["acquisition_status"] == "eligible"
+    } == expected_ids
+    assert all(source["structured_sha256"] is not None for source in checked["sources"])
+    assert {
+        path.parent.name
+        for path in (PROJECT_ROOT / INTAKE_ROOT_RELATIVE / "structured").rglob("*.json")
+    } == expected_ids
+    pilot_023 = next(
+        source
+        for source in checked["sources"]
+        if source["acquisition_id"] == "pilot-20261025-023"
     )
-    validate_acquisition_manifest(checked)
-    assert checked["sources"] == []
+    assert pilot_023["acquisition_status"] == "eligible"
+    assert pilot_023["structured_sha256"] is not None
+    assert not list(
+        (PROJECT_ROOT / TRANSACTION_ROOT_RELATIVE).glob("*.json")
+    )
 
 
 def test_duplicate_acquisition_id_is_rejected():
@@ -1607,6 +1666,12 @@ def test_intake_ocr_adapter_is_explicit_scoped_and_non_overwriting(
     fake_module = types.ModuleType("backend.scripts.ocrFullBanAn")
     fake_module.process_judgment_file = fake_process
     monkeypatch.setitem(sys.modules, "backend.scripts.ocrFullBanAn", fake_module)
+    monkeypatch.setattr(
+        sys.modules["backend.scripts"],
+        "ocrFullBanAn",
+        fake_module,
+        raising=False,
+    )
     raw_path = tmp_path / "decision.pdf"
     output_dir = tmp_path / "structured"
     raw_path.write_bytes(b"test")
@@ -1645,22 +1710,480 @@ def test_structured_json_requires_nfc():
 def test_historical_inventory_and_fingerprint_remain_unchanged():
     inventory = inventory_judgment_sources(PROJECT_ROOT)
     assert len(inventory) == 107
-    sampling, _ = phase1_payloads(PROJECT_ROOT, generation_timestamp=FIXED_TIME)
-    checked = json.loads(
-        (BENCHMARK_DIR / "sampling_manifest.json").read_text(encoding="utf-8")
-    )
-    assert sampling["inventory_fingerprint"] == (
+    assert canonical_json_fingerprint(inventory) == (
         "fd6a6f05e4b71a2c499584fc0296cf25cedf5eac958aea6d079bf449c864f754"
     )
-    assert sampling["inventory_fingerprint"] == checked["inventory_fingerprint"]
 
 
-def test_current_independent_pool_is_empty_and_benchmark_is_draft():
+def test_current_independent_pool_has_24_eligible_sources_and_benchmark_is_draft():
     inventory, report, links = inventory_independent_sources(PROJECT_ROOT)
     benchmark_manifest = json.loads(
         (BENCHMARK_DIR / "benchmark_manifest.json").read_text(encoding="utf-8")
     )
-    assert inventory == []
-    assert report["eligible_source_count"] == 0
+    assert [record["source_id"] for record in inventory] == [
+        f"independent:pilot-20261025-{index:03d}" for index in range(1, 25)
+    ]
+    assert report["eligible_source_count"] == 24
     assert links == []
     assert benchmark_manifest["state"] == "DRAFT"
+    assert benchmark_manifest["current_counts"]["selected_cases"] == 0
+    assert benchmark_manifest["current_counts"]["query_records"] == 0
+    assert benchmark_manifest["current_counts"]["ground_truth_records"] == 0
+
+
+def test_explicit_blank_page_is_visible_without_automatic_eligibility(tmp_path):
+    source = _source("src-001", "decision.pdf", status="extracted")
+    payload = {
+        "judgment_name": "decision.pdf",
+        "page_count": 2,
+        "pages": [
+            {
+                "page": 1,
+                "text": "Nội dung bản án hợp lệ",
+                "extraction_status": "native_text",
+            },
+            {
+                "page": 2,
+                "text": "",
+                "extraction_status": "empty_after_native_and_ocr",
+            },
+        ],
+        "sections": {
+            "header": "Nội dung bản án hợp lệ",
+            "facts": "",
+            "reasoning": "",
+            "decision": "",
+        },
+    }
+    _materialize(tmp_path, source, structured_payload=payload)
+    _write_manifest(tmp_path, _manifest([source]))
+
+    inventory, report, _ = inventory_independent_sources(tmp_path)
+
+    assert inventory == []
+    assert report["eligible_source_count"] == 0
+    assert report["sources"] == [
+        {
+            "acquisition_id": "src-001",
+            "source_id": "independent:src-001",
+            "claimed_status": "extracted",
+            "eligible": False,
+            "gate_failures": [],
+            "blank_page_numbers": [2],
+        }
+    ]
+
+
+def test_promote_extracted_source_to_eligible_is_atomic_and_artifact_blind(
+    tmp_path,
+):
+    source, _ = _extracted_fixture(tmp_path)
+    second = _source("src-002", "other.pdf", status="hash_verified")
+    second_pdf = _minimal_pdf_bytes("src-002")
+    second_pdf_path = tmp_path / second["stored_pdf_path"]
+    second_pdf_path.parent.mkdir(parents=True, exist_ok=True)
+    second_pdf_path.write_bytes(second_pdf)
+    second["sha256"] = _sha(second_pdf)
+    manifest = _manifest([source, second])
+    _write_manifest(tmp_path, manifest)
+    manifest_path = tmp_path / ACQUISITION_MANIFEST_RELATIVE
+    raw_path = tmp_path / source["stored_pdf_path"]
+    structured_path = tmp_path / source["structured_path"]
+    anchor_path = (
+        tmp_path / PROVENANCE_ROOT_RELATIVE / f"{source['acquisition_id']}.json"
+    )
+    before_history = copy.deepcopy(source["status_history"])
+    protected = {
+        "raw": raw_path.read_bytes(),
+        "structured": structured_path.read_bytes(),
+        "anchor": anchor_path.read_bytes(),
+    }
+    before_inventory, before_report, _ = inventory_independent_sources(tmp_path)
+    assert source["source_id"] not in {
+        item["source_id"] for item in before_inventory
+    }
+    assert not next(
+        item
+        for item in before_report["sources"]
+        if item["acquisition_id"] == source["acquisition_id"]
+    )["eligible"]
+
+    result = promote_source_to_eligible(tmp_path, source["acquisition_id"])
+
+    checked = load_acquisition_manifest(tmp_path)
+    promoted = next(
+        item for item in checked["sources"] if item["acquisition_id"] == "src-001"
+    )
+    untouched = next(
+        item for item in checked["sources"] if item["acquisition_id"] == "src-002"
+    )
+    assert result["acquisition_status"] == "eligible"
+    assert promoted["acquisition_status"] == "eligible"
+    assert promoted["status_history"][:-1] == before_history
+    assert promoted["status_history"][-1]["status"] == "eligible"
+    assert promoted["status_history"][-1]["reasons"] == []
+    assert len(promoted["status_history"]) == len(before_history) + 1
+    assert untouched == second
+    assert raw_path.read_bytes() == protected["raw"]
+    assert structured_path.read_bytes() == protected["structured"]
+    assert anchor_path.read_bytes() == protected["anchor"]
+    assert manifest_path.is_file() and not manifest_path.is_symlink()
+    inventory, report, _ = inventory_independent_sources(tmp_path)
+    assert [item["source_id"] for item in inventory] == [source["source_id"]]
+    assert next(
+        item for item in report["sources"] if item["acquisition_id"] == "src-001"
+    )["eligible"]
+
+
+@pytest.mark.parametrize(
+    "status",
+    ["downloaded", "hash_verified", "rejected", "quarantined", "eligible"],
+)
+def test_promote_rejects_every_non_extracted_status(tmp_path, status):
+    if status == "eligible":
+        source, _ = _eligible_fixture(tmp_path)
+    elif status == "hash_verified":
+        source, _, _, _ = _hash_verified_fixture(tmp_path)
+    elif status == "downloaded":
+        source = _source(status="downloaded")
+        pdf = _minimal_pdf_bytes("downloaded")
+        path = tmp_path / source["stored_pdf_path"]
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(pdf)
+        source["sha256"] = _sha(pdf)
+        _write_manifest(tmp_path, _manifest([source]))
+    else:
+        source, _ = _extracted_fixture(tmp_path)
+        source["acquisition_status"] = status
+        source["status_history"].append({
+            "status": status,
+            "timestamp": FIXED_TIME,
+            "reasons": ["terminal review"],
+        })
+        _write_manifest(tmp_path, _manifest([source]))
+    before = (tmp_path / ACQUISITION_MANIFEST_RELATIVE).read_bytes()
+
+    with pytest.raises(
+        SourceIntakeError, match="requires extracted status"
+    ):
+        promote_source_to_eligible(tmp_path, source["acquisition_id"])
+
+    assert (tmp_path / ACQUISITION_MANIFEST_RELATIVE).read_bytes() == before
+
+
+def test_promote_rejects_missing_source(tmp_path):
+    _extracted_fixture(tmp_path)
+    with pytest.raises(SourceIntakeError, match="Unknown acquisition_id"):
+        promote_source_to_eligible(tmp_path, "src-missing")
+
+
+def test_promote_rejects_development_overlap(tmp_path):
+    source, _ = _extracted_fixture(tmp_path)
+    development_path = tmp_path / "backend/data/judgments_evaluation.json"
+    development_path.write_text(
+        json.dumps([{"id": 1, "judgment_name": source["original_filename"]}]),
+        encoding="utf-8",
+    )
+    before = (tmp_path / ACQUISITION_MANIFEST_RELATIVE).read_bytes()
+
+    with pytest.raises(
+        SourceIntakeError, match="development_benchmark_exact_source"
+    ):
+        promote_source_to_eligible(tmp_path, source["acquisition_id"])
+
+    assert (tmp_path / ACQUISITION_MANIFEST_RELATIVE).read_bytes() == before
+
+
+def test_promote_rejects_noncanonical_exact_duplicate(tmp_path):
+    left, _ = _extracted_fixture(tmp_path, "src-001", "left.pdf")
+    right = _source("src-002", "right.pdf", status="extracted")
+    right["case_id"] = "CASE-src-002"
+    right["judgment_number"] = "JUDGMENT-src-002"
+    _materialize(
+        tmp_path,
+        right,
+        pdf_bytes=(tmp_path / left["stored_pdf_path"]).read_bytes(),
+        structured_payload=_structured("right.pdf", "Nội dung khác hợp lệ"),
+    )
+    _write_manifest(tmp_path, _manifest([left, right]))
+    before = (tmp_path / ACQUISITION_MANIFEST_RELATIVE).read_bytes()
+
+    with pytest.raises(SourceIntakeError, match="new_pool_duplicate_sha256"):
+        promote_source_to_eligible(tmp_path, right["acquisition_id"])
+
+    assert (tmp_path / ACQUISITION_MANIFEST_RELATIVE).read_bytes() == before
+
+
+@pytest.mark.parametrize(
+    ("mutation", "expected"),
+    [
+        ("metadata", "unverified_court"),
+        ("development_review", "incomplete_development_overlap_check"),
+        ("dedup_review", "incomplete_internal_dedup_check"),
+        ("underlying_review", "incomplete_underlying_dispute_review"),
+        ("rejection_reason", "unresolved_rejection_reasons"),
+    ],
+)
+def test_promote_rejects_incomplete_eligibility_contract(
+    tmp_path, mutation, expected
+):
+    source, manifest = _extracted_fixture(tmp_path)
+    if mutation == "metadata":
+        source["metadata_verification"]["court"] = False
+    elif mutation == "rejection_reason":
+        source["rejection_reasons"] = ["manual review unresolved"]
+    else:
+        field = {
+            "development_review": "development_overlap_check",
+            "dedup_review": "internal_dedup_check",
+            "underlying_review": "underlying_dispute_review",
+        }[mutation]
+        source["metadata_verification"][field] = False
+    _write_manifest(tmp_path, manifest)
+
+    with pytest.raises(SourceIntakeError, match=expected):
+        promote_source_to_eligible(tmp_path, source["acquisition_id"])
+
+
+def test_promote_rejects_coordinated_provenance_drift(tmp_path):
+    source, manifest = _extracted_fixture(tmp_path)
+    source["source_url"] = "https://example.test/judgments/rewritten.pdf"
+    manifest["immutable_provenance"] = [immutable_provenance_snapshot(source)]
+    (tmp_path / ACQUISITION_MANIFEST_RELATIVE).write_text(
+        json.dumps(manifest, ensure_ascii=False), encoding="utf-8"
+    )
+
+    with pytest.raises(SourceIntakeError, match="differs from anchor"):
+        promote_source_to_eligible(tmp_path, source["acquisition_id"])
+
+
+def test_promote_rejects_raw_pdf_drift(tmp_path):
+    source, _ = _extracted_fixture(tmp_path)
+    raw_path = tmp_path / source["stored_pdf_path"]
+    raw_path.write_bytes(_minimal_pdf_bytes("tampered"))
+
+    with pytest.raises(SourceIntakeError, match="PDF SHA256 mismatch"):
+        promote_source_to_eligible(tmp_path, source["acquisition_id"])
+
+
+@pytest.mark.parametrize(
+    ("mutation", "expected"),
+    [
+        ("drift", "valid structured JSON|Structured artifact"),
+        ("missing", "Structured artifact"),
+    ],
+)
+def test_promote_rejects_structured_artifact_failure(
+    tmp_path, mutation, expected
+):
+    source, _ = _extracted_fixture(tmp_path)
+    structured_path = tmp_path / source["structured_path"]
+    if mutation == "drift":
+        structured_path.write_bytes(structured_path.read_bytes() + b"tampered")
+    else:
+        structured_path.unlink()
+
+    with pytest.raises(SourceIntakeError, match=expected):
+        promote_source_to_eligible(tmp_path, source["acquisition_id"])
+
+
+def test_promote_rejects_invalid_blank_page_artifact(tmp_path):
+    payload = {
+        "judgment_name": "decision.pdf",
+        "page_count": 2,
+        "pages": [
+            {"page": 1, "text": "Nội dung hợp lệ", "extraction_status": "native_text"},
+            {
+                "page": 2,
+                "text": "Không được có nội dung",
+                "extraction_status": "empty_after_native_and_ocr",
+            },
+        ],
+        "sections": {
+            "header": "Nội dung hợp lệ",
+            "facts": "",
+            "reasoning": "",
+            "decision": "",
+        },
+    }
+    source, _ = _extracted_fixture(
+        tmp_path, structured_payload=_structured("decision.pdf")
+    )
+    structured_path = tmp_path / source["structured_path"]
+    structured_path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+    manifest = json.loads(
+        (tmp_path / ACQUISITION_MANIFEST_RELATIVE).read_text(encoding="utf-8")
+    )
+    manifest["sources"][0]["structured_sha256"] = _sha(structured_path.read_bytes())
+    _write_manifest(tmp_path, manifest)
+
+    with pytest.raises(SourceIntakeError, match="empty extraction status"):
+        promote_source_to_eligible(tmp_path, source["acquisition_id"])
+
+
+def test_promote_accepts_valid_explicit_blank_page_without_rewriting_it(tmp_path):
+    payload = {
+        "judgment_name": "decision.pdf",
+        "page_count": 2,
+        "pages": [
+            {"page": 1, "text": "Nội dung hợp lệ", "extraction_status": "native_text"},
+            {
+                "page": 2,
+                "text": "",
+                "extraction_status": "empty_after_native_and_ocr",
+            },
+        ],
+        "sections": {
+            "header": "Nội dung hợp lệ",
+            "facts": "",
+            "reasoning": "",
+            "decision": "",
+        },
+    }
+    source, _ = _extracted_fixture(tmp_path, structured_payload=payload)
+    structured_path = tmp_path / source["structured_path"]
+    before = structured_path.read_bytes()
+
+    promote_source_to_eligible(tmp_path, source["acquisition_id"])
+
+    assert structured_path.read_bytes() == before
+    _, report, _ = inventory_independent_sources(tmp_path)
+    assert report["sources"][0]["blank_page_numbers"] == [2]
+
+
+def test_promote_publication_failure_preserves_old_manifest(tmp_path, monkeypatch):
+    source, _ = _extracted_fixture(tmp_path)
+    manifest_path = tmp_path / ACQUISITION_MANIFEST_RELATIVE
+    before = manifest_path.read_bytes()
+
+    def fail_publication(*args, **kwargs):
+        raise OSError("simulated publication failure")
+
+    monkeypatch.setattr(source_intake, "_atomic_write_bytes_at", fail_publication)
+    with pytest.raises(OSError, match="simulated publication failure"):
+        promote_source_to_eligible(tmp_path, source["acquisition_id"])
+
+    assert manifest_path.read_bytes() == before
+    assert load_acquisition_manifest(tmp_path)["sources"][0][
+        "acquisition_status"
+    ] == "extracted"
+
+
+def test_promote_failure_after_atomic_replace_rolls_back_manifest(
+    tmp_path, monkeypatch
+):
+    source, _ = _extracted_fixture(tmp_path)
+    manifest_path = tmp_path / ACQUISITION_MANIFEST_RELATIVE
+    before = manifest_path.read_bytes()
+    real_atomic_write = source_intake._atomic_write_bytes_at
+    calls = 0
+
+    def replace_then_fail(*args, **kwargs):
+        nonlocal calls
+        calls += 1
+        real_atomic_write(*args, **kwargs)
+        if calls == 1:
+            raise OSError("simulated post-replace failure")
+
+    monkeypatch.setattr(
+        source_intake, "_atomic_write_bytes_at", replace_then_fail
+    )
+    with pytest.raises(SourceIntakeError, match="previous manifest restored"):
+        promote_source_to_eligible(tmp_path, source["acquisition_id"])
+
+    assert calls == 2
+    assert manifest_path.read_bytes() == before
+    assert load_acquisition_manifest(tmp_path)["sources"][0][
+        "acquisition_status"
+    ] == "extracted"
+
+
+def test_promote_manifest_race_fails_without_lost_update(tmp_path, monkeypatch):
+    source, _ = _extracted_fixture(tmp_path)
+    manifest_path = tmp_path / ACQUISITION_MANIFEST_RELATIVE
+
+    def concurrent_update(checkpoint):
+        if checkpoint != "before_manifest_compare":
+            return
+        concurrent = json.loads(manifest_path.read_text(encoding="utf-8"))
+        concurrent["sources"][0]["notes"] = "concurrent update retained"
+        manifest_path.write_text(
+            json.dumps(concurrent, ensure_ascii=False), encoding="utf-8"
+        )
+
+    monkeypatch.setattr(
+        source_intake, "_eligibility_publication_checkpoint", concurrent_update
+    )
+    with pytest.raises(SourceIntakeError, match="changed during eligibility"):
+        promote_source_to_eligible(tmp_path, source["acquisition_id"])
+
+    checked = load_acquisition_manifest(tmp_path)["sources"][0]
+    assert checked["acquisition_status"] == "extracted"
+    assert checked["notes"] == "concurrent update retained"
+
+
+def test_promote_postpublication_failure_rolls_back_manifest(tmp_path, monkeypatch):
+    source, _ = _extracted_fixture(tmp_path)
+    manifest_path = tmp_path / ACQUISITION_MANIFEST_RELATIVE
+    before = manifest_path.read_bytes()
+
+    def fail_postpublication(*args, **kwargs):
+        raise SourceIntakeError("simulated post-publication verification failure")
+
+    monkeypatch.setattr(
+        source_intake, "inventory_independent_sources", fail_postpublication
+    )
+    with pytest.raises(SourceIntakeError, match="previous manifest restored"):
+        promote_source_to_eligible(tmp_path, source["acquisition_id"])
+
+    assert manifest_path.read_bytes() == before
+    assert load_acquisition_manifest(tmp_path)["sources"][0][
+        "acquisition_status"
+    ] == "extracted"
+
+
+def test_promote_cli_delegates_without_force_or_bypass(tmp_path, monkeypatch, capsys):
+    calls = []
+
+    def fake_promote(root, acquisition_id):
+        calls.append((Path(root), acquisition_id))
+        return {
+            "acquisition_id": acquisition_id,
+            "source_id": f"independent:{acquisition_id}",
+            "acquisition_status": "eligible",
+            "status_history_length": 4,
+        }
+
+    monkeypatch.setattr(source_intake, "promote_source_to_eligible", fake_promote)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "source_intake",
+            "promote-eligible",
+            "--project-root",
+            str(tmp_path),
+            "--acquisition-id",
+            "src-001",
+        ],
+    )
+    source_intake.main()
+    assert calls == [(tmp_path, "src-001")]
+    assert json.loads(capsys.readouterr().out)["acquisition_status"] == "eligible"
+
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "source_intake",
+            "promote-eligible",
+            "--project-root",
+            str(tmp_path),
+            "--acquisition-id",
+            "src-001",
+            "--force-ocr",
+        ],
+    )
+    with pytest.raises(SystemExit):
+        source_intake.main()
+    assert calls == [(tmp_path, "src-001")]

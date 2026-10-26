@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "pilot-20261025-017",
+  "anchor_fingerprint": "1f6d768ce5d09f00f1c6148b215e7eaf06a6b099b3ea9b1901d5f653652b19af",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-25T14:33:44.185768+07:00",
+  "offline_provenance": null,
+  "original_filename": "Can_bang.pdf",
+  "pdf_sha256": "479793c40f267be0bdad881fda5f7266222de9fd7a6ad53ee732c5d8c65e9430",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:pilot-20261025-017",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1922304t1cvn/Can_bang.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/pilot-20261025-017/Can_bang.pdf"
+}

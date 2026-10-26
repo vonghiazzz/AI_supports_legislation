@@ -5,26 +5,27 @@ import json
 import argparse
 from pathlib import Path
 from tqdm import tqdm
-from dotenv import load_dotenv
 
-# Thêm thư mục gốc vào sys.path để import cấu hình app
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-sys.path.append(str(BASE_DIR / "backend"))
+DEFAULT_TESSERACT_PATH = "/Users/tannghiavo/miniconda3/bin/tesseract"
+NATIVE_TEXT_STATUS = "native_text"
+OCR_TEXT_STATUS = "ocr_text"
+EMPTY_AFTER_NATIVE_AND_OCR_STATUS = "empty_after_native_and_ocr"
 
-# Load configuration and environment variables
-load_dotenv(dotenv_path=BASE_DIR / "backend" / ".env")
 
-try:
-    from app.config import settings
-    TESSERACT_PATH = settings.TESSERACT_PATH
-    POPPLER_PATH = settings.POPPLER_PATH
-except ImportError:
-    TESSERACT_PATH = os.getenv("TESSERACT_PATH", "/Users/tannghiavo/miniconda3/bin/tesseract")
-    POPPLER_PATH = os.getenv("POPPLER_PATH", "/Users/tannghiavo/miniconda3/bin")
+def _resolve_tesseract_path(tesseract_path: str | None = None) -> str:
+    """Resolve only the local OCR executable needed by extraction."""
 
-# Cấu hình đường dẫn Tesseract cho pytesseract
-import pytesseract
-pytesseract.pytesseract.tesseract_cmd = TESSERACT_PATH
+    return tesseract_path or os.getenv("TESSERACT_PATH") or DEFAULT_TESSERACT_PATH
+
+
+def _load_cli_tesseract_path() -> str:
+    """Load CLI-specific environment without importing application settings."""
+
+    from dotenv import load_dotenv
+
+    load_dotenv(dotenv_path=BASE_DIR / "backend" / ".env")
+    return _resolve_tesseract_path()
 
 def clean_page_text(text: str) -> str:
     """
@@ -71,7 +72,11 @@ def strip_accents(text: str) -> str:
     only_ascii = only_ascii.replace('đ̣', 'd').replace('Đ̣', 'd')
     return only_ascii.lower()
 
-def extract_full_pages(pdf_path: Path, force_ocr: bool = False) -> list:
+def extract_full_pages(
+    pdf_path: Path,
+    force_ocr: bool = False,
+    tesseract_path: str | None = None,
+) -> list:
     """
     Trích xuất toàn bộ các trang của file PDF.
     Ưu tiên dùng pdfplumber trước. Nếu phát hiện trang scan (text quá ngắn), 
@@ -102,7 +107,13 @@ def extract_full_pages(pdf_path: Path, force_ocr: bool = False) -> list:
                 page_text = plumber_page.extract_text() or ""
                 
             # 2. Fallback sang OCR nếu text trực tiếp quá ngắn (ví dụ < 100 ký tự) hoặc force OCR
-            if force_ocr or len(page_text.strip()) < 100:
+            used_ocr = force_ocr or len(page_text.strip()) < 100
+            if used_ocr:
+                import pytesseract
+
+                pytesseract.pytesseract.tesseract_cmd = _resolve_tesseract_path(
+                    tesseract_path
+                )
                 # print(f"    - Trang {page_num}: Chạy OCR...")
                 ium_page = pdf_ium[idx]
                 # Render trang với scale=2 (DPI ~144) để tối ưu giữa chất lượng và tốc độ
@@ -114,10 +125,19 @@ def extract_full_pages(pdf_path: Path, force_ocr: bool = False) -> list:
                 
             # Làm sạch dữ liệu trang
             cleaned_text = clean_page_text(page_text)
+            if used_ocr:
+                extraction_status = (
+                    OCR_TEXT_STATUS
+                    if cleaned_text.strip()
+                    else EMPTY_AFTER_NATIVE_AND_OCR_STATUS
+                )
+            else:
+                extraction_status = NATIVE_TEXT_STATUS
             
             pages_data.append({
                 "page": page_num,
-                "text": cleaned_text
+                "text": cleaned_text,
+                "extraction_status": extraction_status,
             })
             
         pdf_plumber.close()
@@ -274,6 +294,7 @@ def process_judgment_file(
     overwrite: bool = False,
     output_dir_fd: int | None = None,
     original_filename: str | None = None,
+    tesseract_path: str | None = None,
 ) -> bool:
     """
     Xử lý trọn gói 1 file bản án PDF: Trích xuất trang, chia section và ghi JSON.
@@ -283,7 +304,11 @@ def process_judgment_file(
     print(f"=======================================================")
     
     # 1. Trích xuất toàn bộ các trang
-    pages = extract_full_pages(pdf_path, force_ocr=force_ocr)
+    pages = extract_full_pages(
+        pdf_path,
+        force_ocr=force_ocr,
+        tesseract_path=tesseract_path,
+    )
     if not pages:
         print(f"❌ Thất bại khi trích xuất các trang của file {pdf_path.name}")
         return False
@@ -321,6 +346,7 @@ def main():
     parser.add_argument("--overwrite", action="store_true", help="Cho phép ghi đè file JSON đầu ra đã tồn tại.")
     
     args = parser.parse_args()
+    tesseract_path = _load_cli_tesseract_path()
     
     input_path = Path(args.input)
     
@@ -335,7 +361,11 @@ def main():
             print(f"❌ Chỉ hỗ trợ định dạng file PDF. Bỏ qua file: {input_path.name}")
             sys.exit(1)
         success = process_judgment_file(
-            input_path, output_dir, args.force_ocr, overwrite=args.overwrite
+            input_path,
+            output_dir,
+            args.force_ocr,
+            overwrite=args.overwrite,
+            tesseract_path=tesseract_path,
         )
         if success:
             print("\n🎉 Hoàn thành xử lý file bản án!")
@@ -353,7 +383,11 @@ def main():
         for pdf_file in pdf_files:
             try:
                 if process_judgment_file(
-                    pdf_file, output_dir, args.force_ocr, overwrite=args.overwrite
+                    pdf_file,
+                    output_dir,
+                    args.force_ocr,
+                    overwrite=args.overwrite,
+                    tesseract_path=tesseract_path,
                 ):
                     success_count += 1
             except Exception as e:

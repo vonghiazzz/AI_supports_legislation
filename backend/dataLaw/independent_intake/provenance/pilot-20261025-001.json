@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "pilot-20261025-001",
+  "anchor_fingerprint": "2e16f938d488fbc01f2a90761c495063eee38265d46cec50094d00ee9684bb3e",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-25T14:33:31.117112+07:00",
+  "offline_provenance": null,
+  "original_filename": "DSPT_2025_TB.pdf",
+  "pdf_sha256": "dcd6edf906440a30160db6bb47e8c1a6e65a70256c5b9b215266cab613365dc6",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:pilot-20261025-001",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2014517t1cvn/DSPT_2025_TB.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/pilot-20261025-001/DSPT_2025_TB.pdf"
+}

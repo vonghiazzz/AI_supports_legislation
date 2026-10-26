@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "pilot-20261025-014",
+  "anchor_fingerprint": "4ba07205ce4b5a6565f10db41d0fea711ad423e84d619c99593b2eca58f72f69",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-25T14:33:39.886975+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ong_C_ong_TR_yeu_cau_tuyen_bo_GDS_vo_hieu.pdf",
+  "pdf_sha256": "f9cd6be949bc977e72f3b3b595448119368a3316b02afe202727ed0be84f1108",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:pilot-20261025-014",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2034329t1cvn/Ong_C_ong_TR_yeu_cau_tuyen_bo_GDS_vo_hieu.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/pilot-20261025-014/Ong_C_ong_TR_yeu_cau_tuyen_bo_GDS_vo_hieu.pdf"
+}

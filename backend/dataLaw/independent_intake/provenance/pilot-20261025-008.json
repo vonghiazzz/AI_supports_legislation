@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "pilot-20261025-008",
+  "anchor_fingerprint": "15a9b6f16bf4b6d946e2a5ebc1c9a8e2c5ed072f460dd51e0cf39ffc1c2dbd36",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-25T14:33:35.611845+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_ma_hoa.pdf",
+  "pdf_sha256": "4f4a58735724a3fb68c874a55544808f3ce7714a75d45315c70eb54ee045b643",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:pilot-20261025-008",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1997438t1cvn/Ban_an_ma_hoa.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/pilot-20261025-008/Ban_an_ma_hoa.pdf"
+}

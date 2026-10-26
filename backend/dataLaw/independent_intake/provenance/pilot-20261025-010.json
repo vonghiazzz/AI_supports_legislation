@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "pilot-20261025-010",
+  "anchor_fingerprint": "8cd59a3d3ad5c1ffa6da7fd0044a039bda162ae91a72dad39598e3597076ae4b",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-25T14:33:35.655529+07:00",
+  "offline_provenance": null,
+  "original_filename": "BAST__Hoang_Hung.pdf",
+  "pdf_sha256": "2e96cec520876dcd919c3c923a9b8aa70f51143521f2e3525450dec9895b5b62",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:pilot-20261025-010",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1991701t1cvn/BAST__Hoang_Hung.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/pilot-20261025-010/BAST__Hoang_Hung.pdf"
+}

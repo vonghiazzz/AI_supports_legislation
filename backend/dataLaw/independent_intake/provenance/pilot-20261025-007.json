@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "pilot-20261025-007",
+  "anchor_fingerprint": "cee0903c4a59645b35a070915ce1025d5591a05554851011c141ba2afc48435e",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-25T14:33:34.138285+07:00",
+  "offline_provenance": null,
+  "original_filename": "BAN_AN_PHUC_THAM_MA_HOA.pdf",
+  "pdf_sha256": "5b85a8ecbe7da87f8008a8203303643feb86593a52853a0af2169c46a03ea562",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:pilot-20261025-007",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1782697t1cvn/BAN_AN_PHUC_THAM_MA_HOA.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/pilot-20261025-007/BAN_AN_PHUC_THAM_MA_HOA.pdf"
+}

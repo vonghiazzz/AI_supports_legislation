@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "pilot-20261025-013",
+  "anchor_fingerprint": "b6348d9169397d73752d3cdfe6b89daf1e912e1a1e93fcb0e917c8c84ad4f825",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-25T14:33:38.140057+07:00",
+  "offline_provenance": null,
+  "original_filename": "BAN_AN_THONG_LAN_MA_HOA.pdf",
+  "pdf_sha256": "195ad773c5a082df8f2d3f58c7364e45daa01fced11ab22ca6835f630a0cfd6b",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:pilot-20261025-013",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1694415t1cvn/BAN_AN_THONG_LAN_MA_HOA.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/pilot-20261025-013/BAN_AN_THONG_LAN_MA_HOA.pdf"
+}

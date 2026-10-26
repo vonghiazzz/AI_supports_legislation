@@ -6,7 +6,7 @@
   "state": "DRAFT",
   "benchmark_role": "independent_confirmatory_evaluation",
   "development_benchmark_role": "development_exploratory_only",
-  "git_commit": "da6e8fada6c13fb53de5fe8ae1a128de61981532",
+  "git_commit": "91e4899ffa1e8bf317f42ac335208ece7c2d37d5",
   "generation_timestamp": "2026-10-24T00:00:00+07:00",
   "corpus_fingerprint": "66fb0b20e0505993ed616f864ece99ecfad801de98b4ba3a37d20a3a7bf55e58",
   "sampling_seed": null,
@@ -20,9 +20,9 @@
     "silent_quota_reduction_permitted": false
   },
   "current_counts": {
-    "available_sources": 107,
+    "available_sources": 131,
     "development_sources_consumed": 107,
-    "eligible_sources": 0,
+    "eligible_sources": 24,
     "selected_cases": 0,
     "query_records": 0,
     "ground_truth_records": 0
@@ -38,7 +38,7 @@
     },
     {
       "path": "backend/dataLaw/independent_intake/acquisition_manifest.json",
-      "sha256": "8ebbb51358648bcefb9a814cd8d8658d506314fc49ee9eefac576547a57c6aca"
+      "sha256": "602c17b7ac684f5e0c489c1989ad90a3fcc1f1985a1f543bbc8ae15e67080c11"
     },
     {
       "path": "backend/dataLaw/independent_intake/acquisition_manifest.schema.json",
@@ -46,37 +46,45 @@
     },
     {
       "path": "backend/dataLaw/independent_intake/structured_judgment.schema.json",
-      "sha256": "f9db27046c30ab5b8cafe9e900cc0511985c6ec748d7f23e9010062aeee7c8eb"
+      "sha256": "3427521c87a9e7c88b30940ef2403434b40ff4854bccd797080f18f9f971487b"
     },
     {
       "path": "backend/scripts/Evaluation/benchmarking/independent_benchmark.py",
-      "sha256": "51c78cba6f2f4d34056ea40a24c80b8b7f543919647cf001adae912b6c14bfd7"
+      "sha256": "cb7d4e3a03c8fe0fd935b76da1bc19a037790426da29a79310fe9f0a2a4a32c7"
     },
     {
       "path": "backend/scripts/Evaluation/benchmarking/source_intake.py",
-      "sha256": "27fba478053330335e50fe6c464979c76aa2c9f021daf54559498489b009d5e8"
+      "sha256": "fc6ccef309dd6aba5c45d73111a3962a9133c5d5b8e9f6ea9cd689e039cf08a8"
     },
     {
       "path": "backend/scripts/ocrFullBanAn.py",
-      "sha256": "808e04a99a06607627d2e409c454d18e879275591683cef28fa1bb1b8c51e3f0"
+      "sha256": "196f1cb2260f26dd268659838d0d0d7b4495a809feb9e35f09a125efc3a2ad8e"
     },
     {
       "path": "backend/scripts/Tests/test_independent_benchmark_protocol.py",
-      "sha256": "0b0a142782a527510f19f62117cd594e6cceee66528799d7bcb5274ca9bc3b29"
+      "sha256": "b46557c20cf75d37a1247bd40e504b895c72c8734adf2982b1737854f188ca8b"
     },
     {
       "path": "backend/scripts/Tests/test_independent_source_intake.py",
-      "sha256": "4da46c3aa1551aacb3065c2b359a123061ba6cb720282a1f3ada3fb3bf9e193e"
+      "sha256": "0df8b0e6c2ceb5aa9c686f5846e737b76fa9bbc6224b2ab5a2a2158b62905a33"
+    },
+    {
+      "path": "backend/scripts/Tests/test_ocr_full_ban_an_import.py",
+      "sha256": "8411528433a56537e5110fb58fcf3c681581eca9a5e0791f2465903f7f77d994"
+    },
+    {
+      "path": "backend/scripts/Tests/test_blank_page_contract.py",
+      "sha256": "75a6a5bd953f779d9361ef2321d3411a204b96067d8499d8a379a030114b9a59"
     }
   ],
   "phase1_artifacts": [
     {
       "path": "backend/data/benchmarks/retrieval_independent_v1/sampling_manifest.json",
-      "sha256": "0ed9d247666bd398c7e89eaef0bc4e29e40b1bc21d72a7c0d984fe70aa5d9d72"
+      "sha256": "bf9573e36075299ba366731a3a71bb1b86ce2a7e14204aba9629a99f6434fb9e"
     },
     {
       "path": "backend/data/benchmarks/retrieval_independent_v1/source_dedup_report.json",
-      "sha256": "a033e1ee35e341c59bb67d2c7543a52a7d20b7b7df5b4b441eaf42a75e7a10ac"
+      "sha256": "d5a7b870cb3086323fa56f9e5ea0612f68940ed281f8555ce1944e1ca5acaf16"
     },
     {
       "path": "backend/data/benchmarks/retrieval_independent_v1/gt_schema_v2.snapshot.json",
@@ -151,8 +159,12 @@
     "DRAFT -> SAMPLING_FROZEN"
   ],
   "blockers": [
-    "No eligible unconsumed judgment source remains in the repository.",
-    "Target and minimum sampling quotas cannot be met from the current source inventory."
+    "eligible source count 24 is below minimum total 180",
+    "BLDS_core_substantive preliminary availability 0 is below minimum 55",
+    "BLTTDS_primary_procedural preliminary availability 0 is below minimum 30",
+    "LAND_2013 preliminary availability 0 is below minimum 35",
+    "LAND_2024 preliminary availability 0 is below minimum 35",
+    "HNGD_2014 preliminary availability 0 is below minimum 30"
   ],
   "explicit_absences": {
     "final_benchmark_json": true,

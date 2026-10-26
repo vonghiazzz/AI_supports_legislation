@@ -1147,6 +1147,45 @@ def draft_benchmark_manifest(
             "path": _relative(path, project_root),
             "sha256": sha256_file(path),
         })
+    try:
+        sampling_snapshot = json.loads(
+            (benchmark_dir / "sampling_manifest.json").read_text(encoding="utf-8")
+        )
+        dedup_snapshot = json.loads(
+            (benchmark_dir / "source_dedup_report.json").read_text(encoding="utf-8")
+        )
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise BenchmarkProtocolError(
+            "Phase-1 inventory snapshots must be valid UTF-8 JSON"
+        ) from exc
+    if (
+        sampling_snapshot.get("state") != "DRAFT"
+        or sampling_snapshot.get("selection_status") != "NOT_STARTED"
+    ):
+        raise BenchmarkProtocolError(
+            "Draft manifest requires an unselected DRAFT sampling snapshot"
+        )
+    available_sources = sampling_snapshot.get("available_source_inventory")
+    eligible_sources = sampling_snapshot.get("eligible_sources")
+    development_sources_consumed = dedup_snapshot.get(
+        "development_sources_matched"
+    )
+    if (
+        not isinstance(available_sources, list)
+        or not isinstance(eligible_sources, list)
+        or not isinstance(development_sources_consumed, int)
+        or isinstance(development_sources_consumed, bool)
+    ):
+        raise BenchmarkProtocolError(
+            "Phase-1 inventory snapshots contain invalid count inputs"
+        )
+    quota_feasibility = sampling_snapshot.get("quota_feasibility")
+    if not isinstance(quota_feasibility, dict) or not isinstance(
+        quota_feasibility.get("blockers"), list
+    ):
+        raise BenchmarkProtocolError(
+            "Sampling snapshot must contain quota-feasibility blockers"
+        )
     source_paths = (
         project_root / "backend/data/judgments_evaluation.json",
         project_root / "backend/data/gt_schema_v2.json",
@@ -1158,6 +1197,8 @@ def draft_benchmark_manifest(
         project_root / "backend/scripts/ocrFullBanAn.py",
         project_root / "backend/scripts/Tests/test_independent_benchmark_protocol.py",
         project_root / "backend/scripts/Tests/test_independent_source_intake.py",
+        project_root / "backend/scripts/Tests/test_ocr_full_ban_an_import.py",
+        project_root / "backend/scripts/Tests/test_blank_page_contract.py",
     )
     manifest = {
         "benchmark_id": BENCHMARK_ID,
@@ -1181,9 +1222,9 @@ def draft_benchmark_manifest(
             "silent_quota_reduction_permitted": False,
         },
         "current_counts": {
-            "available_sources": 107,
-            "development_sources_consumed": 107,
-            "eligible_sources": 0,
+            "available_sources": len(available_sources),
+            "development_sources_consumed": development_sources_consumed,
+            "eligible_sources": len(eligible_sources),
             "selected_cases": 0,
             "query_records": 0,
             "ground_truth_records": 0,
@@ -1250,10 +1291,7 @@ def draft_benchmark_manifest(
         "blocked_transitions": [
             "DRAFT -> SAMPLING_FROZEN"
         ],
-        "blockers": [
-            "No eligible unconsumed judgment source remains in the repository.",
-            "Target and minimum sampling quotas cannot be met from the current source inventory.",
-        ],
+        "blockers": list(quota_feasibility["blockers"]),
         "explicit_absences": {
             "final_benchmark_json": True,
             "generated_queries": True,

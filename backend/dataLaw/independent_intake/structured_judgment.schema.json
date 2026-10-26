@@ -11,14 +11,50 @@
     "pages": {
       "type": "array",
       "minItems": 1,
+      "contains": {
+        "type": "object",
+        "required": ["text"],
+        "properties": {
+          "text": {"type": "string", "pattern": "\\S"}
+        }
+      },
+      "minContains": 1,
       "items": {
         "type": "object",
         "additionalProperties": false,
         "required": ["page", "text"],
         "properties": {
           "page": {"type": "integer", "minimum": 1},
-          "text": {"type": "string", "minLength": 1}
-        }
+          "text": {"type": "string"},
+          "extraction_status": {
+            "type": "string",
+            "enum": [
+              "native_text",
+              "ocr_text",
+              "empty_after_native_and_ocr"
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "required": ["extraction_status"],
+              "properties": {
+                "extraction_status": {"const": "empty_after_native_and_ocr"}
+              }
+            },
+            "then": {
+              "properties": {
+                "text": {"const": ""}
+              }
+            },
+            "else": {
+              "properties": {
+                "text": {"pattern": "\\S"}
+              }
+            }
+          }
+        ]
       }
     },
     "sections": {

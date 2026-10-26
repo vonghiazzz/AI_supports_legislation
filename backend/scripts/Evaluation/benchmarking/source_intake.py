@@ -47,6 +47,12 @@ ELIGIBLE_STATUS_HISTORY = (
     "dedup_checked",
     "eligible",
 )
+DIRECT_ELIGIBLE_STATUS_HISTORY = (
+    "downloaded",
+    "hash_verified",
+    "extracted",
+    "eligible",
+)
 VERIFICATION_FIELDS = (
     "judgment_number",
     "case_id",
@@ -105,6 +111,12 @@ IMMUTABLE_PROVENANCE_FIELDS = (
     "sha256",
 )
 JOURNAL_STATES = ("PREPARED", "ARTIFACT_PUBLISHED", "MANIFEST_PUBLISHED")
+PAGE_EXTRACTION_STATUSES = (
+    "native_text",
+    "ocr_text",
+    "empty_after_native_and_ocr",
+)
+EMPTY_PAGE_EXTRACTION_STATUS = "empty_after_native_and_ocr"
 
 
 class SourceIntakeError(ValueError):
@@ -659,7 +671,15 @@ def _validate_status_history(source: dict, index: int) -> None:
             f"sources[{index}] current status must equal final status_history entry"
         )
     current_status = source["acquisition_status"]
-    if current_status in ELIGIBLE_STATUS_HISTORY:
+    if current_status == "eligible":
+        if tuple(statuses) not in {
+            ELIGIBLE_STATUS_HISTORY,
+            DIRECT_ELIGIBLE_STATUS_HISTORY,
+        }:
+            raise SourceIntakeError(
+                f"sources[{index}] status requires the complete ordered status history"
+            )
+    elif current_status in ELIGIBLE_STATUS_HISTORY:
         expected = ELIGIBLE_STATUS_HISTORY[: ELIGIBLE_STATUS_HISTORY.index(current_status) + 1]
         if tuple(statuses) != expected:
             raise SourceIntakeError(
@@ -967,15 +987,39 @@ def validate_structured_judgment(payload: dict, original_filename: str | None = 
         raise SourceIntakeError("Structured page_count must be a positive integer")
     if not isinstance(pages, list) or payload["page_count"] != len(pages):
         raise SourceIntakeError("Structured page_count must equal len(pages)")
+    document_has_usable_text = False
+    legacy_page_fields = {"page", "text"}
+    classified_page_fields = {"page", "text", "extraction_status"}
     for index, page in enumerate(pages, start=1):
-        if not isinstance(page, dict) or set(page) != {"page", "text"}:
+        page_fields = frozenset(page) if isinstance(page, dict) else frozenset()
+        if not isinstance(page, dict) or page_fields not in {
+            frozenset(legacy_page_fields),
+            frozenset(classified_page_fields),
+        }:
             raise SourceIntakeError(f"Structured page {index} has invalid fields")
         if page["page"] != index:
             raise SourceIntakeError("Structured page numbers must be consecutive and one-based")
-        if not isinstance(page["text"], str) or not page["text"].strip():
+        text = page["text"]
+        if not isinstance(text, str):
+            raise SourceIntakeError(f"Structured page {index} text must be a string")
+        extraction_status = page.get("extraction_status")
+        if extraction_status is not None and extraction_status not in PAGE_EXTRACTION_STATUSES:
+            raise SourceIntakeError(
+                f"Structured page {index} has unknown extraction_status"
+            )
+        if extraction_status == EMPTY_PAGE_EXTRACTION_STATUS:
+            if text != "":
+                raise SourceIntakeError(
+                    f"Structured page {index} empty extraction status requires empty text"
+                )
+        elif not text.strip():
             raise SourceIntakeError(f"Structured page {index} must contain usable text")
-        if unicodedata.normalize("NFC", page["text"]) != page["text"]:
+        else:
+            document_has_usable_text = True
+        if unicodedata.normalize("NFC", text) != text:
             raise SourceIntakeError(f"Structured page {index} text must be Unicode NFC")
+    if not document_has_usable_text:
+        raise SourceIntakeError("Structured judgment must contain usable document text")
     sections = payload["sections"]
     required_sections = {"header", "facts", "reasoning", "decision"}
     if not isinstance(sections, dict) or set(sections) != required_sections:
@@ -985,6 +1029,16 @@ def validate_structured_judgment(payload: dict, original_filename: str | None = 
             raise SourceIntakeError(f"Structured section {name} must be a string")
         if unicodedata.normalize("NFC", text) != text:
             raise SourceIntakeError(f"Structured section {name} must be Unicode NFC")
+
+
+def structured_blank_page_numbers(payload: dict) -> list[int]:
+    """Return explicitly classified blank page numbers in deterministic order."""
+
+    return [
+        page["page"]
+        for page in payload["pages"]
+        if page.get("extraction_status") == EMPTY_PAGE_EXTRACTION_STATUS
+    ]
 
 
 def _read_json_utf8(path: Path) -> dict:
@@ -1080,6 +1134,7 @@ def _source_to_inventory_record(
         "preliminary_legal_functions": ["unknown"],
         "source_sha256": source["sha256"],
         "structured_sha256": source["structured_sha256"],
+        "blank_page_numbers": structured_blank_page_numbers(structured_payload),
         "metadata_source": "verified_independent_acquisition_manifest_v1",
     }
     if include_private_text:
@@ -1384,12 +1439,20 @@ def inventory_independent_sources(
             inventory.append(
                 _source_to_inventory_record(source, structured_payload, include_private_text)
             )
+        blank_page_numbers = (
+            structured_blank_page_numbers(structured_payload)
+            if structured_payload is not None and not any(
+                failure.startswith("invalid_structured_") for failure in failures
+            )
+            else []
+        )
         source_results.append({
             "acquisition_id": source["acquisition_id"],
             "source_id": source["source_id"],
             "claimed_status": source["acquisition_status"],
             "eligible": claims_eligible and not failures,
             "gate_failures": failures,
+            "blank_page_numbers": blank_page_numbers,
         })
 
     links = [
@@ -1407,6 +1470,278 @@ def inventory_independent_sources(
         "sources": source_results,
     }
     return inventory, report, sorted(links)
+
+
+def _eligibility_dedup_failures(
+    project_root: Path,
+    manifest: dict,
+    acquisition_id: str,
+) -> list[str]:
+    """Evaluate the committed development/internal dedup contract for one source."""
+
+    from .independent_benchmark import (
+        deduplicate_against_development,
+        inventory_judgment_sources,
+    )
+
+    development_path = (
+        Path(project_root).resolve() / "backend/data/judgments_evaluation.json"
+    )
+    if (
+        not _lexists(development_path)
+        or development_path.is_symlink()
+        or not development_path.is_file()
+    ):
+        raise SourceIntakeError(
+            "Development benchmark must be an existing regular non-symlink file"
+        )
+    try:
+        development_records = json.loads(development_path.read_bytes().decode("utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise SourceIntakeError("Development benchmark is not valid UTF-8 JSON") from exc
+    if not isinstance(development_records, list):
+        raise SourceIntakeError("Development benchmark must be a JSON array")
+
+    development_inventory = inventory_judgment_sources(
+        project_root, include_private_text=True
+    )
+    independent_inventory = []
+    candidate_statuses = {
+        "extracted",
+        "metadata_verified",
+        "dedup_checked",
+        "eligible",
+    }
+    for source in sorted(
+        manifest["sources"], key=lambda item: item["acquisition_id"]
+    ):
+        if source["acquisition_status"] not in candidate_statuses:
+            continue
+        failures, structured_payload = _source_gate_failures(source, project_root)
+        if failures or structured_payload is None:
+            joined = ", ".join(failures) or "structured_payload_unavailable"
+            raise SourceIntakeError(
+                "Cannot evaluate independent-source dedup pool for "
+                f"{source['acquisition_id']}: {joined}"
+            )
+        independent_inventory.append(
+            _source_to_inventory_record(
+                source, structured_payload, include_private_text=True
+            )
+        )
+
+    known_links = [
+        (
+            stable_source_id(link["acquisition_id"]),
+            stable_source_id(link["related_acquisition_id"]),
+        )
+        for link in manifest["known_duplicate_links"]
+    ]
+    eligible, report = deduplicate_against_development(
+        development_inventory + independent_inventory,
+        development_records,
+        known_duplicate_links=known_links,
+    )
+    target_source_id = stable_source_id(acquisition_id)
+    if target_source_id in {record["source_id"] for record in eligible}:
+        return []
+
+    reasons = sorted({
+        reason
+        for exclusion in report["exclusions"]
+        if exclusion["source_id"] == target_source_id
+        for reason in exclusion["reasons"]
+    })
+    if not reasons:
+        reasons = ["source_absent_from_deduplicated_eligible_pool"]
+    return [f"dedup_or_development_overlap:{reason}" for reason in reasons]
+
+
+def promote_source_to_eligible(project_root: Path, acquisition_id: str) -> dict:
+    """Atomically promote one fully validated extracted source to eligible."""
+
+    project_root = Path(project_root).resolve()
+    manifest, original_manifest_bytes = _load_authoritative_manifest(project_root)
+    matches = [
+        source
+        for source in manifest["sources"]
+        if source["acquisition_id"] == acquisition_id
+    ]
+    if len(matches) != 1:
+        raise SourceIntakeError(f"Unknown acquisition_id: {acquisition_id}")
+    source = matches[0]
+    if source["acquisition_status"] != "extracted":
+        raise SourceIntakeError(
+            "Eligibility promotion requires extracted status; "
+            f"found {source['acquisition_status']}"
+        )
+
+    failures, _ = _source_gate_failures(source, project_root)
+    failures.extend(
+        _eligibility_dedup_failures(project_root, manifest, acquisition_id)
+    )
+    failures = sorted(set(failures))
+    if failures:
+        raise SourceIntakeError(
+            f"Eligibility gates failed for {acquisition_id}: {', '.join(failures)}"
+        )
+
+    updated_manifest = deepcopy(manifest)
+    updated_source = next(
+        item
+        for item in updated_manifest["sources"]
+        if item["acquisition_id"] == acquisition_id
+    )
+    timestamp = datetime.now().astimezone()
+    prior_timestamp = _parse_offset_timestamp(
+        updated_source["status_history"][-1]["timestamp"],
+        "status_history final timestamp",
+    )
+    if timestamp < prior_timestamp:
+        raise SourceIntakeError(
+            "System clock precedes the final source status-history timestamp"
+        )
+    updated_source["acquisition_status"] = "eligible"
+    updated_source["status_history"].append({
+        "status": "eligible",
+        "timestamp": timestamp.isoformat(),
+        "reasons": [],
+    })
+    validate_acquisition_manifest(updated_manifest, prior_manifest=manifest)
+    _validate_manifest_anchors(project_root, updated_manifest)
+    intended_manifest_bytes = _canonical_json_bytes(updated_manifest)
+
+    _, intake_chain = _open_trusted_directory(
+        project_root, INTAKE_ROOT_RELATIVE, create=False
+    )
+    published = False
+    try:
+        _eligibility_publication_checkpoint("before_manifest_compare")
+        current_manifest_bytes = _read_regular_bytes_at(
+            intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+        )
+        if current_manifest_bytes != original_manifest_bytes:
+            raise SourceIntakeError(
+                "Acquisition manifest changed during eligibility validation"
+            )
+        intake_chain.assert_identity()
+        try:
+            _atomic_write_bytes_at(
+                intake_chain.fd,
+                ACQUISITION_MANIFEST_RELATIVE.name,
+                intended_manifest_bytes,
+            )
+        except Exception as publication_error:
+            current_manifest_bytes = _read_regular_bytes_at(
+                intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+            )
+            if current_manifest_bytes == intended_manifest_bytes:
+                _atomic_write_bytes_at(
+                    intake_chain.fd,
+                    ACQUISITION_MANIFEST_RELATIVE.name,
+                    original_manifest_bytes,
+                )
+                if (
+                    _read_regular_bytes_at(
+                        intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+                    )
+                    != original_manifest_bytes
+                ):
+                    raise SourceIntakeError(
+                        "Eligibility publication rollback verification failed"
+                    ) from publication_error
+                raise SourceIntakeError(
+                    "Eligibility publication failed after replacement; "
+                    "previous manifest restored"
+                ) from publication_error
+            if current_manifest_bytes != original_manifest_bytes:
+                raise SourceIntakeError(
+                    "Eligibility publication failed with an unexpected manifest "
+                    "state; refusing unsafe overwrite"
+                ) from publication_error
+            raise
+        published = True
+        if (
+            _read_regular_bytes_at(
+                intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+            )
+            != intended_manifest_bytes
+        ):
+            raise SourceIntakeError("Published eligibility manifest verification failed")
+        intake_chain.assert_identity()
+    finally:
+        intake_chain.close()
+
+    try:
+        checked_manifest = load_acquisition_manifest(project_root)
+        checked_source = next(
+            item
+            for item in checked_manifest["sources"]
+            if item["acquisition_id"] == acquisition_id
+        )
+        if checked_source["acquisition_status"] != "eligible":
+            raise SourceIntakeError("Eligibility status was not published")
+        checked_inventory, checked_report, _ = inventory_independent_sources(
+            project_root
+        )
+        checked_result = next(
+            item
+            for item in checked_report["sources"]
+            if item["acquisition_id"] == acquisition_id
+        )
+        if (
+            not checked_result["eligible"]
+            or checked_result["gate_failures"]
+            or checked_source["source_id"]
+            not in {record["source_id"] for record in checked_inventory}
+        ):
+            raise SourceIntakeError("Promoted source failed authoritative reload")
+    except Exception as verification_error:
+        if published:
+            _, rollback_chain = _open_trusted_directory(
+                project_root, INTAKE_ROOT_RELATIVE, create=False
+            )
+            try:
+                current_manifest_bytes = _read_regular_bytes_at(
+                    rollback_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+                )
+                if current_manifest_bytes != intended_manifest_bytes:
+                    raise SourceIntakeError(
+                        "Post-publication verification failed after a concurrent "
+                        "manifest change; refusing unsafe rollback"
+                    ) from verification_error
+                rollback_chain.assert_identity()
+                _atomic_write_bytes_at(
+                    rollback_chain.fd,
+                    ACQUISITION_MANIFEST_RELATIVE.name,
+                    original_manifest_bytes,
+                )
+                if (
+                    _read_regular_bytes_at(
+                        rollback_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+                    )
+                    != original_manifest_bytes
+                ):
+                    raise SourceIntakeError(
+                        "Eligibility manifest rollback verification failed"
+                    ) from verification_error
+                rollback_chain.assert_identity()
+            finally:
+                rollback_chain.close()
+        raise SourceIntakeError(
+            "Eligibility promotion verification failed; previous manifest restored"
+        ) from verification_error
+
+    return {
+        "acquisition_id": acquisition_id,
+        "source_id": checked_source["source_id"],
+        "acquisition_status": "eligible",
+        "status_history_length": len(checked_source["status_history"]),
+    }
+
+
+def _eligibility_publication_checkpoint(name: str) -> None:
+    """Test seam for manifest races and publication failures."""
 
 
 def extract_intake_source(
@@ -1695,7 +2030,9 @@ def _source_gate_failures_for_extraction(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Independent judgment source intake")
-    parser.add_argument("command", choices=("validate", "extract"))
+    parser.add_argument(
+        "command", choices=("validate", "extract", "promote-eligible")
+    )
     parser.add_argument("--project-root", type=Path, default=Path(__file__).resolve().parents[4])
     parser.add_argument("--acquisition-id")
     parser.add_argument("--force-ocr", action="store_true")
@@ -1703,6 +2040,16 @@ def main() -> None:
     if args.command == "validate":
         _, report, _ = inventory_independent_sources(args.project_root)
         print(json.dumps(report, ensure_ascii=False, indent=2))
+        return
+    if args.command == "promote-eligible":
+        if args.force_ocr:
+            parser.error("--force-ocr is only valid for extract")
+        if not args.acquisition_id:
+            parser.error("promote-eligible requires --acquisition-id")
+        result = promote_source_to_eligible(
+            args.project_root, args.acquisition_id
+        )
+        print(json.dumps(result, ensure_ascii=False, indent=2))
         return
     if not args.acquisition_id:
         parser.error("extract requires --acquisition-id")

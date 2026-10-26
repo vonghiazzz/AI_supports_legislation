@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "pilot-20261025-006",
+  "anchor_fingerprint": "901fca2179ab7a04e92253e038c6e1412919f175ba6fd894255b7c63bc86b57b",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-25T14:33:35.735397+07:00",
+  "offline_provenance": null,
+  "original_filename": "Pham_Thi_DHo_Van_D.pdf",
+  "pdf_sha256": "90b1128e7900efe305e9578eb39b2cba10d68cbdb5caa77875c1d8a93a1a85dc",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:pilot-20261025-006",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1715682t1cvn/Pham_Thi_DHo_Van_D.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/pilot-20261025-006/Pham_Thi_DHo_Van_D.pdf"
+}

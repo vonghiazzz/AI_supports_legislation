@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "pilot-20261025-016",
+  "anchor_fingerprint": "5a4413525476aebf7fa3b9e7444bc90117814bbb3e4ab199937ec472d20c55a1",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-25T14:33:42.731201+07:00",
+  "offline_provenance": null,
+  "original_filename": "Quyet_dinh_cong_nhan_thoa_thuan_duong_su_ve_thua_ke.pdf",
+  "pdf_sha256": "dde1dc4c5347c633e35c5047fe3145434adc0b388e223f12b0804c085ad471ac",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:pilot-20261025-016",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1347772t1cvn/Quyet_dinh_cong_nhan_thoa_thuan_duong_su_ve_thua_ke.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/pilot-20261025-016/Quyet_dinh_cong_nhan_thoa_thuan_duong_su_ve_thua_ke.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "pilot-20261025-003",
+  "anchor_fingerprint": "e2b58b6b5061ef7e432875f02062067e2c788d6e8f5f09b03013d0f5a76a94bc",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-25T14:33:31.285166+07:00",
+  "offline_provenance": null,
+  "original_filename": "NoiNhu_phat_hanh.pdf",
+  "pdf_sha256": "a2d78bed201935616efdccdf190098ef33581946c83b0e0ecd7c8f539ac4f66e",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:pilot-20261025-003",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1742195t1cvn/NoiNhu_phat_hanh.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/pilot-20261025-003/NoiNhu_phat_hanh.pdf"
+}

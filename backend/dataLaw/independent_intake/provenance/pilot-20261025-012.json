@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "pilot-20261025-012",
+  "anchor_fingerprint": "595542c5098794555bcf78ef14c188ce4a73a2449b0f67c7987972b2e9c91afa",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-25T14:33:40.676639+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ma_hoa_BA.pdf",
+  "pdf_sha256": "dd8bdca255c98f426cbe959b1be659fe002f768a8a0982a11c820b0f8ed2393b",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:pilot-20261025-012",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1976670t1cvn/Ma_hoa_BA.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/pilot-20261025-012/Ma_hoa_BA.pdf"
+}

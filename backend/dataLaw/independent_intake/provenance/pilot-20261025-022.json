@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "pilot-20261025-022",
+  "anchor_fingerprint": "313ac00fb39c824f1401f7b653eea22bb1545209c12de58c0117ac55e581f0cf",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-25T14:33:49.079810+07:00",
+  "offline_provenance": null,
+  "original_filename": "Bản_án.pdf",
+  "pdf_sha256": "4eff03c9cb796abaafb0fc3215a9593e94c2c4efad3d2dac4f5dfe765d720d14",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:pilot-20261025-022",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1992309t1cvn/Ba%CC%89n_a%CC%81n.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/pilot-20261025-022/Bản_án.pdf"
+}
