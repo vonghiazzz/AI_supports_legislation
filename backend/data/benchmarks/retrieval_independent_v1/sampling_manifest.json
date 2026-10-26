@@ -3,7 +3,7 @@
   "phase": 1,
   "state": "DRAFT",
   "generated_at": "2026-10-24T00:00:00+00:00",
-  "git_commit": "91e4899ffa1e8bf317f42ac335208ece7c2d37d5",
+  "git_commit": "c7190edaa9dd279dcdddfb359b9e48d0e4126258",
   "corpus_fingerprint": "66fb0b20e0505993ed616f864ece99ecfad801de98b4ba3a37d20a3a7bf55e58",
   "targets": {
     "total": 250,
@@ -15,8 +15,8 @@
   "sampling_seed": null,
   "selection_status": "NOT_STARTED",
   "ordering_rule": "case_id ASC, then source_id ASC",
-  "inventory_fingerprint": "4a4c6f3b8fe62c9786aa840cdae7c1ebbb815c4a371618caa7474e13818f6fef",
-  "eligible_fingerprint": "16436bb4126c12c0d7532f5094c426077ff4cf3910a3eaee4de1ddbf9ff30133",
+  "inventory_fingerprint": "983941b85f6fc39d69e0d778596636c2ed65f20a348dd4d601baeae7073e6269",
+  "eligible_fingerprint": "014955f5ff8ef8d8ca24b8c0bbcd70e5253ff432367892970fc36ffd5f6aacfd",
   "available_source_inventory": [
     {
       "source_id": "judgment:08:2024.pdf",
@@ -2869,6 +2869,37 @@
       "structured_sha256": "7266a34069d6853585e3f30d324f53b7130c6673d6ddac0d6625a0923c3201d3",
       "blank_page_numbers": [],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261026-001",
+      "acquisition_id": "scale-20261026-001",
+      "case_id": "09/2026/DS-PT",
+      "judgment_number": "09/2026/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "59/2025/DS-ST",
+        "141/2025/TLPT-DS",
+        "392/2025/QĐPT-DS",
+        "483/2025/QĐ-PT"
+      ],
+      "source_name": "DSPT_Muoi__Trong.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261026-001/DSPT_Muoi__Trong.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261026-001/DSPT_Muoi__Trong_structured.json",
+      "court": "Tòa án nhân dân thành phố Đà Nẵng",
+      "procedure_stage": "phuc_tham",
+      "year": 2026,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "a481031abfe442267acf94eb782798b15c5536df77376dbb8bcfb1a0e3704cce",
+      "structured_sha256": "9f0b1a98e18f2f9a0f37e3f4f27c408b54b90a91fb2febdd586cabcf8a93d254",
+      "blank_page_numbers": [
+        7,
+        8
+      ],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
     }
   ],
   "eligible_sources": [
@@ -2966,6 +2997,37 @@
       "source_sha256": "31e0320eedd2591020af5b765bdc7e9837539ff4a1d5b95340c95c822e589301",
       "structured_sha256": "0f0396ebf3a79e45b79d081338c10e65c5b7c48d24290af430ff28130d9c5052",
       "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261026-001",
+      "acquisition_id": "scale-20261026-001",
+      "case_id": "09/2026/DS-PT",
+      "judgment_number": "09/2026/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "59/2025/DS-ST",
+        "141/2025/TLPT-DS",
+        "392/2025/QĐPT-DS",
+        "483/2025/QĐ-PT"
+      ],
+      "source_name": "DSPT_Muoi__Trong.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261026-001/DSPT_Muoi__Trong.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261026-001/DSPT_Muoi__Trong_structured.json",
+      "court": "Tòa án nhân dân thành phố Đà Nẵng",
+      "procedure_stage": "phuc_tham",
+      "year": 2026,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "a481031abfe442267acf94eb782798b15c5536df77376dbb8bcfb1a0e3704cce",
+      "structured_sha256": "9f0b1a98e18f2f9a0f37e3f4f27c408b54b90a91fb2febdd586cabcf8a93d254",
+      "blank_page_numbers": [
+        7,
+        8
+      ],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
@@ -3470,7 +3532,7 @@
     }
   ],
   "available_breakdown": {
-    "total": 131,
+    "total": 132,
     "by_law_family_preliminary": {
       "BLDS": 46,
       "BLTTDS": 104,
@@ -3481,7 +3543,7 @@
     "by_legal_function_preliminary": {
       "procedural": 104,
       "substantive": 54,
-      "unknown": 25
+      "unknown": 26
     },
     "by_case_type": {
       "Hủy kết quả bán đấu giá tài sản": 1,
@@ -3527,7 +3589,7 @@
       "Tranh chấpQSDĐ;yêucầuhủy GCNQSDĐ;yêucầuhủy hợpđồng thế chấpQSDĐ": 1,
       "Tranh chấphợpđồngvay tài sảnvà nợhụi": 1,
       "Tranhchấpyêucầuchấmdứt hànhvi cảntrởquyềnsửdụngđất": 1,
-      "UNKNOWN": 28,
+      "UNKNOWN": 29,
       "tranh châp quyên sử dụng đât": 1,
       "tranh chấp Hợp đồng đặt cọc": 1,
       "tranh chấp chia di sản thừa kế": 1,
@@ -3558,6 +3620,7 @@
       "Tòa án nhân dân khu vực 7 - Thành phố Hồ Chí Minh": 1,
       "Tòa án nhân dân khu vực 8 - Cần Thơ": 1,
       "Tòa án nhân dân thành phố Hà Nội": 1,
+      "Tòa án nhân dân thành phố Đà Nẵng": 1,
       "Tòa án nhân dân tỉnh Bình Thuận": 1,
       "Tòa án nhân dân tỉnh Bắc Ninh": 1,
       "Tòa án nhân dân tỉnh Hà Nam": 1,
@@ -3575,7 +3638,7 @@
     },
     "by_procedure_stage": {
       "giam_doc_tham": 105,
-      "phuc_tham": 16,
+      "phuc_tham": 17,
       "so_tham": 8,
       "tai_tham": 2
     },
@@ -3585,17 +3648,17 @@
       "2023": 44,
       "2024": 59,
       "2025": 17,
-      "2026": 3
+      "2026": 4
     }
   },
   "eligible_breakdown": {
-    "total": 24,
+    "total": 25,
     "by_law_family_preliminary": {},
     "by_legal_function_preliminary": {
-      "unknown": 24
+      "unknown": 25
     },
     "by_case_type": {
-      "UNKNOWN": 24
+      "UNKNOWN": 25
     },
     "by_court": {
       "Tòa án nhân dân Thành phố Hồ Chí Minh": 1,
@@ -3604,6 +3667,7 @@
       "Tòa án nhân dân khu vực 7 - Thành phố Hồ Chí Minh": 1,
       "Tòa án nhân dân khu vực 8 - Cần Thơ": 1,
       "Tòa án nhân dân thành phố Hà Nội": 1,
+      "Tòa án nhân dân thành phố Đà Nẵng": 1,
       "Tòa án nhân dân tỉnh Bình Thuận": 1,
       "Tòa án nhân dân tỉnh Bắc Ninh": 1,
       "Tòa án nhân dân tỉnh Hà Nam": 1,
@@ -3619,7 +3683,7 @@
       "Tòa án nhân dân tỉnh Đồng Tháp": 2
     },
     "by_procedure_stage": {
-      "phuc_tham": 16,
+      "phuc_tham": 17,
       "so_tham": 8
     },
     "by_year": {
@@ -3627,12 +3691,12 @@
       "2023": 1,
       "2024": 2,
       "2025": 17,
-      "2026": 3
+      "2026": 4
     }
   },
   "quota_feasibility": {
     "status": "INFEASIBLE",
-    "eligible_count": 24,
+    "eligible_count": 25,
     "target_total": 250,
     "minimum_total": 180,
     "targets": {
@@ -3678,7 +3742,7 @@
       "status": "NOT_ASSESSABLE_BEFORE_ANNOTATION"
     },
     "blockers": [
-      "eligible source count 24 is below minimum total 180",
+      "eligible source count 25 is below minimum total 180",
       "BLDS_core_substantive preliminary availability 0 is below minimum 55",
       "BLTTDS_primary_procedural preliminary availability 0 is below minimum 30",
       "LAND_2013 preliminary availability 0 is below minimum 35",

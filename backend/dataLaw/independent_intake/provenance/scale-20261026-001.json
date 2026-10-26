@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-001",
+  "anchor_fingerprint": "e4bb5fbee05a3625c8ff3499a39d2119e47701e33c6d1f55ba0760f60677b8f4",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-26T14:36:24.440293+07:00",
+  "offline_provenance": null,
+  "original_filename": "DSPT_Muoi__Trong.pdf",
+  "pdf_sha256": "a481031abfe442267acf94eb782798b15c5536df77376dbb8bcfb1a0e3704cce",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-001",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2035785t1cvn/DSPT_Muoi__Trong.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-001/DSPT_Muoi__Trong.pdf"
+}

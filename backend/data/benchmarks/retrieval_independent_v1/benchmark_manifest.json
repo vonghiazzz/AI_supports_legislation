@@ -6,7 +6,7 @@
   "state": "DRAFT",
   "benchmark_role": "independent_confirmatory_evaluation",
   "development_benchmark_role": "development_exploratory_only",
-  "git_commit": "91e4899ffa1e8bf317f42ac335208ece7c2d37d5",
+  "git_commit": "c7190edaa9dd279dcdddfb359b9e48d0e4126258",
   "generation_timestamp": "2026-10-24T00:00:00+07:00",
   "corpus_fingerprint": "66fb0b20e0505993ed616f864ece99ecfad801de98b4ba3a37d20a3a7bf55e58",
   "sampling_seed": null,
@@ -20,9 +20,9 @@
     "silent_quota_reduction_permitted": false
   },
   "current_counts": {
-    "available_sources": 131,
+    "available_sources": 132,
     "development_sources_consumed": 107,
-    "eligible_sources": 24,
+    "eligible_sources": 25,
     "selected_cases": 0,
     "query_records": 0,
     "ground_truth_records": 0
@@ -38,7 +38,7 @@
     },
     {
       "path": "backend/dataLaw/independent_intake/acquisition_manifest.json",
-      "sha256": "602c17b7ac684f5e0c489c1989ad90a3fcc1f1985a1f543bbc8ae15e67080c11"
+      "sha256": "9a5aa079b231fe2b4fed63cd5911ed800ccd47ebfa884e0c48ccf6b59f948b90"
     },
     {
       "path": "backend/dataLaw/independent_intake/acquisition_manifest.schema.json",
@@ -50,11 +50,11 @@
     },
     {
       "path": "backend/scripts/Evaluation/benchmarking/independent_benchmark.py",
-      "sha256": "cb7d4e3a03c8fe0fd935b76da1bc19a037790426da29a79310fe9f0a2a4a32c7"
+      "sha256": "37b9056e676bd50347d84b820504ff133c31d86bd48228d97837054249bde2fd"
     },
     {
       "path": "backend/scripts/Evaluation/benchmarking/source_intake.py",
-      "sha256": "fc6ccef309dd6aba5c45d73111a3962a9133c5d5b8e9f6ea9cd689e039cf08a8"
+      "sha256": "9a8ce7d3351dbe2e1949c3750189114af6b2beb923b2791e03b992d6b7be733f"
     },
     {
       "path": "backend/scripts/ocrFullBanAn.py",
@@ -62,11 +62,19 @@
     },
     {
       "path": "backend/scripts/Tests/test_independent_benchmark_protocol.py",
-      "sha256": "b46557c20cf75d37a1247bd40e504b895c72c8734adf2982b1737854f188ca8b"
+      "sha256": "6433ca02b6f94687d379e2712c3801bcea5fde121951e1e3d02c6bd20e934086"
     },
     {
       "path": "backend/scripts/Tests/test_independent_source_intake.py",
-      "sha256": "0df8b0e6c2ceb5aa9c686f5846e737b76fa9bbc6224b2ab5a2a2158b62905a33"
+      "sha256": "f56d7c80360380daefff5fa4138c05b085b65355de2afdeca466d4484115b8ba"
+    },
+    {
+      "path": "backend/scripts/Tests/test_independent_source_registration.py",
+      "sha256": "e7181b72904d2eb896d73f9c52828ff0291866d5533708a44f5f92f85afa3f73"
+    },
+    {
+      "path": "backend/scripts/Tests/test_independent_source_review.py",
+      "sha256": "58ae518f3ddb849cea0cf71a63d79d218f1cd3ac0806720efb94462dd277dc6d"
     },
     {
       "path": "backend/scripts/Tests/test_ocr_full_ban_an_import.py",
@@ -80,11 +88,11 @@
   "phase1_artifacts": [
     {
       "path": "backend/data/benchmarks/retrieval_independent_v1/sampling_manifest.json",
-      "sha256": "bf9573e36075299ba366731a3a71bb1b86ce2a7e14204aba9629a99f6434fb9e"
+      "sha256": "b4e7cef7e2aa88c1d1188501bc58927d5a02dd5258a3fa11e960e46b8d639bb3"
     },
     {
       "path": "backend/data/benchmarks/retrieval_independent_v1/source_dedup_report.json",
-      "sha256": "d5a7b870cb3086323fa56f9e5ea0612f68940ed281f8555ce1944e1ca5acaf16"
+      "sha256": "dac2c24a3e67785dc25fec7014e00659794a8353cfe1b301ab52505de99b215e"
     },
     {
       "path": "backend/data/benchmarks/retrieval_independent_v1/gt_schema_v2.snapshot.json",
@@ -159,7 +167,7 @@
     "DRAFT -> SAMPLING_FROZEN"
   ],
   "blockers": [
-    "eligible source count 24 is below minimum total 180",
+    "eligible source count 25 is below minimum total 180",
     "BLDS_core_substantive preliminary availability 0 is below minimum 55",
     "BLTTDS_primary_procedural preliminary availability 0 is below minimum 30",
     "LAND_2013 preliminary availability 0 is below minimum 35",

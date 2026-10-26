@@ -1197,6 +1197,8 @@ def draft_benchmark_manifest(
         project_root / "backend/scripts/ocrFullBanAn.py",
         project_root / "backend/scripts/Tests/test_independent_benchmark_protocol.py",
         project_root / "backend/scripts/Tests/test_independent_source_intake.py",
+        project_root / "backend/scripts/Tests/test_independent_source_registration.py",
+        project_root / "backend/scripts/Tests/test_independent_source_review.py",
         project_root / "backend/scripts/Tests/test_ocr_full_ban_an_import.py",
         project_root / "backend/scripts/Tests/test_blank_page_contract.py",
     )

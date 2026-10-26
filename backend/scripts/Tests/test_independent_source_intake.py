@@ -22,6 +22,7 @@ from backend.scripts.Evaluation.benchmarking.source_intake import (
     INTAKE_ROOT_RELATIVE,
     MANIFEST_VERSION,
     PROVENANCE_ROOT_RELATIVE,
+    REVIEW_METADATA_FIELDS,
     SourceIntakeError,
     TRANSACTION_ROOT_RELATIVE,
     create_provenance_anchor,
@@ -297,11 +298,13 @@ def _assert_failed_extraction_is_clean(
         assert not list(output_path.parent.glob(".extract-partial-*"))
 
 
-def test_valid_acquisition_manifest_and_current_production_pilot_state():
+def test_valid_acquisition_manifest_and_current_production_intake_state():
     checked = load_acquisition_manifest(PROJECT_ROOT)
-    expected_ids = {
+    pilot_ids = {
         f"pilot-20261025-{index:03d}" for index in range(1, 25)
     }
+    scale_id = "scale-20261026-001"
+    expected_ids = pilot_ids | {scale_id}
     assert {source["acquisition_id"] for source in checked["sources"]} == expected_ids
     assert {
         source["acquisition_id"]
@@ -330,6 +333,20 @@ def test_valid_acquisition_manifest_and_current_production_pilot_state():
     )
     assert pilot_023["acquisition_status"] == "eligible"
     assert pilot_023["structured_sha256"] is not None
+    scale = next(
+        source
+        for source in checked["sources"]
+        if source["acquisition_id"] == scale_id
+    )
+    assert scale["acquisition_status"] == "eligible"
+    assert {field: scale[field] for field in REVIEW_METADATA_FIELDS} == {
+        "judgment_number": "09/2026/DS-PT",
+        "case_id": "09/2026/DS-PT",
+        "court": "Tòa án nhân dân thành phố Đà Nẵng",
+        "decision_date": "2026-01-09",
+        "procedure_stage": "phuc_tham",
+    }
+    assert all(scale["metadata_verification"].values())
     assert not list(
         (PROJECT_ROOT / TRANSACTION_ROOT_RELATIVE).glob("*.json")
     )
@@ -1715,15 +1732,15 @@ def test_historical_inventory_and_fingerprint_remain_unchanged():
     )
 
 
-def test_current_independent_pool_has_24_eligible_sources_and_benchmark_is_draft():
+def test_current_independent_pool_has_25_eligible_sources_and_benchmark_is_draft():
     inventory, report, links = inventory_independent_sources(PROJECT_ROOT)
     benchmark_manifest = json.loads(
         (BENCHMARK_DIR / "benchmark_manifest.json").read_text(encoding="utf-8")
     )
     assert [record["source_id"] for record in inventory] == [
         f"independent:pilot-20261025-{index:03d}" for index in range(1, 25)
-    ]
-    assert report["eligible_source_count"] == 24
+    ] + ["independent:scale-20261026-001"]
+    assert report["eligible_source_count"] == 25
     assert links == []
     assert benchmark_manifest["state"] == "DRAFT"
     assert benchmark_manifest["current_counts"]["selected_cases"] == 0

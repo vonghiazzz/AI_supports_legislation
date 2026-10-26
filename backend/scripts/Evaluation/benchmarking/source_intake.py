@@ -8,6 +8,7 @@ Historical development judgments remain outside this contract.
 from __future__ import annotations
 
 import argparse
+import fcntl
 import hashlib
 import json
 import os
@@ -27,6 +28,8 @@ MANIFEST_VERSION = "independent_source_acquisition_v1"
 STRUCTURED_SCHEMA_VERSION = "independent_structured_judgment_v1"
 PROVENANCE_ANCHOR_VERSION = "independent_provenance_anchor_v1"
 PUBLICATION_JOURNAL_VERSION = "independent_publication_journal_v1"
+REGISTRATION_JOURNAL_VERSION = "independent_registration_journal_v1"
+REVIEW_PAYLOAD_VERSION = "independent_source_review_v1"
 PROVENANCE_ROOT_RELATIVE = INTAKE_ROOT_RELATIVE / "provenance"
 TRANSACTION_ROOT_RELATIVE = INTAKE_ROOT_RELATIVE / "transactions"
 ACQUISITION_STATUSES = (
@@ -111,12 +114,36 @@ IMMUTABLE_PROVENANCE_FIELDS = (
     "sha256",
 )
 JOURNAL_STATES = ("PREPARED", "ARTIFACT_PUBLISHED", "MANIFEST_PUBLISHED")
+REGISTRATION_JOURNAL_STATES = (
+    "PREPARED",
+    "RAW_PUBLISHED",
+    "ANCHOR_PUBLISHED",
+    "MANIFEST_PUBLISHED",
+)
 PAGE_EXTRACTION_STATUSES = (
     "native_text",
     "ocr_text",
     "empty_after_native_and_ocr",
 )
 EMPTY_PAGE_EXTRACTION_STATUS = "empty_after_native_and_ocr"
+REVIEW_PROCEDURE_STAGES = (
+    "so_tham",
+    "phuc_tham",
+    "giam_doc_tham",
+    "tai_tham",
+)
+REVIEW_METADATA_FIELDS = (
+    "judgment_number",
+    "case_id",
+    "court",
+    "decision_date",
+    "procedure_stage",
+)
+REVIEW_COMPLETION_FIELDS = (
+    "development_overlap_check",
+    "internal_dedup_check",
+    "underlying_dispute_review",
+)
 
 
 class SourceIntakeError(ValueError):
@@ -265,6 +292,18 @@ def _open_trusted_directory(
     return chain.path, chain
 
 
+def _acquire_manifest_mutation_lock(intake_chain: _TrustedDirectoryChain) -> None:
+    """Serialize cooperative manifest writers on the stable intake directory FD."""
+
+    intake_chain.assert_identity()
+    fcntl.flock(intake_chain.fd, fcntl.LOCK_EX)
+    intake_chain.assert_identity()
+
+
+def _release_manifest_mutation_lock(intake_chain: _TrustedDirectoryChain) -> None:
+    fcntl.flock(intake_chain.fd, fcntl.LOCK_UN)
+
+
 def _entry_lstat(directory_fd: int, name: str):
     try:
         return os.stat(name, dir_fd=directory_fd, follow_symlinks=False)
@@ -326,6 +365,64 @@ def _write_bytes_create_once_at(directory_fd: int, name: str, payload: bytes) ->
             os.unlink(temporary_name, dir_fd=directory_fd)
         except FileNotFoundError:
             pass
+
+
+def _copy_fd_create_once_at(
+    directory_fd: int,
+    name: str,
+    source_fd: int,
+    expected_sha256: str,
+    temporary_name: str,
+) -> None:
+    """Copy a held regular file into a trusted directory without overwriting."""
+
+    descriptor = None
+    try:
+        descriptor = os.open(
+            temporary_name,
+            os.O_WRONLY | os.O_CREAT | os.O_EXCL | getattr(os, "O_NOFOLLOW", 0),
+            0o600,
+            dir_fd=directory_fd,
+        )
+        digest = hashlib.sha256()
+        os.lseek(source_fd, 0, os.SEEK_SET)
+        while True:
+            chunk = os.read(source_fd, 1024 * 1024)
+            if not chunk:
+                break
+            digest.update(chunk)
+            view = memoryview(chunk)
+            while view:
+                written = os.write(descriptor, view)
+                if written <= 0:
+                    raise SourceIntakeError("Raw PDF copy made no progress")
+                view = view[written:]
+        os.fsync(descriptor)
+        if digest.hexdigest() != expected_sha256:
+            raise SourceIntakeError("Raw PDF changed during registration copy")
+        os.close(descriptor)
+        descriptor = None
+        try:
+            os.link(
+                temporary_name,
+                name,
+                src_dir_fd=directory_fd,
+                dst_dir_fd=directory_fd,
+                follow_symlinks=False,
+            )
+        except FileExistsError as exc:
+            raise SourceIntakeError(
+                f"Refusing to overwrite create-once raw PDF: {name}"
+            ) from exc
+        os.fsync(directory_fd)
+    finally:
+        if descriptor is not None:
+            os.close(descriptor)
+        try:
+            os.unlink(temporary_name, dir_fd=directory_fd)
+        except FileNotFoundError:
+            pass
+        os.lseek(source_fd, 0, os.SEEK_SET)
 
 
 def _atomic_write_bytes_at(directory_fd: int, name: str, payload: bytes) -> None:
@@ -603,6 +700,156 @@ def stable_source_id(acquisition_id: str) -> str:
             "acquisition_id must be 3-128 lowercase ASCII letters, digits, dot, underscore, or hyphen"
         )
     return f"independent:{acquisition_id}"
+
+
+def _require_review_text(value, field_name: str, *, maximum: int = 512) -> str:
+    if not isinstance(value, str) or not value:
+        raise SourceIntakeError(f"review.{field_name} must be a non-empty string")
+    if value != unicodedata.normalize("NFC", value):
+        raise SourceIntakeError(f"review.{field_name} must be Unicode NFC")
+    if value != " ".join(value.split()) or len(value) > maximum:
+        raise SourceIntakeError(
+            f"review.{field_name} must be canonical normalized text"
+        )
+    if any(unicodedata.category(character) == "Cc" for character in value):
+        raise SourceIntakeError(f"review.{field_name} contains control characters")
+    return value
+
+
+def _require_review_decision_id(value, field_name: str) -> str:
+    checked = _require_review_text(value, field_name, maximum=128)
+    if not re.fullmatch(r"\d{1,4}/(?:19|20)\d{2}/[A-ZĐ0-9-]+", checked):
+        raise SourceIntakeError(
+            f"review.{field_name} must be a canonical Vietnamese decision identity"
+        )
+    return checked
+
+
+def validate_source_review_payload(payload: dict) -> dict:
+    """Validate the strict, non-patch input accepted by source review mutation."""
+
+    root_fields = {
+        "review_version",
+        "verified_metadata",
+        "verified_fields",
+        "related_decision_ids",
+        "underlying_dispute_id",
+        "reviews",
+    }
+    if not isinstance(payload, dict) or set(payload) != root_fields:
+        raise SourceIntakeError("Source review payload has invalid root fields")
+    if payload["review_version"] != REVIEW_PAYLOAD_VERSION:
+        raise SourceIntakeError("Unsupported source review payload version")
+
+    metadata = payload["verified_metadata"]
+    if not isinstance(metadata, dict) or set(metadata) != set(REVIEW_METADATA_FIELDS):
+        raise SourceIntakeError("Source review verified_metadata fields are invalid")
+    checked_metadata = {
+        "judgment_number": _require_review_decision_id(
+            metadata["judgment_number"], "verified_metadata.judgment_number"
+        ),
+        "case_id": _require_review_decision_id(
+            metadata["case_id"], "verified_metadata.case_id"
+        ),
+        "court": _require_review_text(
+            metadata["court"], "verified_metadata.court"
+        ),
+        "decision_date": _require_review_text(
+            metadata["decision_date"], "verified_metadata.decision_date", maximum=10
+        ),
+        "procedure_stage": _require_review_text(
+            metadata["procedure_stage"],
+            "verified_metadata.procedure_stage",
+            maximum=32,
+        ),
+    }
+    try:
+        parsed_date = datetime.strptime(
+            checked_metadata["decision_date"], "%Y-%m-%d"
+        )
+    except ValueError as exc:
+        raise SourceIntakeError(
+            "review.verified_metadata.decision_date must use valid YYYY-MM-DD"
+        ) from exc
+    if parsed_date.strftime("%Y-%m-%d") != checked_metadata["decision_date"]:
+        raise SourceIntakeError(
+            "review.verified_metadata.decision_date must be canonical"
+        )
+    if checked_metadata["procedure_stage"] not in REVIEW_PROCEDURE_STAGES:
+        raise SourceIntakeError(
+            "review.verified_metadata.procedure_stage is not an allowed value"
+        )
+
+    verified_fields = payload["verified_fields"]
+    if (
+        not isinstance(verified_fields, dict)
+        or set(verified_fields) != set(REVIEW_METADATA_FIELDS)
+        or not all(verified_fields[field] is True for field in REVIEW_METADATA_FIELDS)
+    ):
+        raise SourceIntakeError(
+            "Source review requires every supplied legal metadata field to be verified=true"
+        )
+
+    related = payload["related_decision_ids"]
+    if not isinstance(related, list):
+        raise SourceIntakeError("review.related_decision_ids must be an array")
+    checked_related = [
+        _require_review_decision_id(value, f"related_decision_ids[{index}]")
+        for index, value in enumerate(related)
+    ]
+    if len(checked_related) != len(set(checked_related)):
+        raise SourceIntakeError("review.related_decision_ids contains duplicates")
+
+    underlying = payload["underlying_dispute_id"]
+    if underlying is not None:
+        underlying = _require_review_text(
+            underlying, "underlying_dispute_id", maximum=256
+        )
+
+    reviews = payload["reviews"]
+    if not isinstance(reviews, dict) or set(reviews) != set(
+        REVIEW_COMPLETION_FIELDS
+    ):
+        raise SourceIntakeError("Source review completion fields are invalid")
+    checked_reviews = {}
+    for field in REVIEW_COMPLETION_FIELDS:
+        review = reviews[field]
+        if not isinstance(review, dict) or set(review) != {"completed", "findings"}:
+            raise SourceIntakeError(f"review.reviews.{field} fields are invalid")
+        if not isinstance(review["completed"], bool):
+            raise SourceIntakeError(
+                f"review.reviews.{field}.completed must be boolean"
+            )
+        findings = review["findings"]
+        if not isinstance(findings, list):
+            raise SourceIntakeError(
+                f"review.reviews.{field}.findings must be an array"
+            )
+        checked_findings = [
+            _require_review_text(
+                value, f"reviews.{field}.findings[{index}]", maximum=512
+            )
+            for index, value in enumerate(findings)
+        ]
+        if checked_findings != sorted(set(checked_findings)):
+            raise SourceIntakeError(
+                f"review.reviews.{field}.findings must be sorted and unique"
+            )
+        checked_reviews[field] = {
+            "completed": review["completed"],
+            "findings": checked_findings,
+        }
+
+    return {
+        "review_version": REVIEW_PAYLOAD_VERSION,
+        "verified_metadata": checked_metadata,
+        "verified_fields": {
+            field: True for field in REVIEW_METADATA_FIELDS
+        },
+        "related_decision_ids": checked_related,
+        "underlying_dispute_id": underlying,
+        "reviews": checked_reviews,
+    }
 
 
 def _validate_source_url(source: dict, index: int) -> None:
@@ -1147,6 +1394,376 @@ def _journal_payload(base: dict) -> dict:
     return {**record, "journal_fingerprint": _canonical_json_sha256(record)}
 
 
+def _registration_journal_payload(base: dict) -> dict:
+    record = {
+        key: value
+        for key, value in base.items()
+        if key != "journal_fingerprint"
+    }
+    return {**record, "journal_fingerprint": _canonical_json_sha256(record)}
+
+
+def _registration_journal_name(acquisition_id: str) -> str:
+    stable_source_id(acquisition_id)
+    return f"{acquisition_id}.register.json"
+
+
+def _validate_registration_journal(journal: dict, acquisition_id: str) -> None:
+    expected_fields = {
+        "journal_version",
+        "transaction_id",
+        "acquisition_id",
+        "source_id",
+        "state",
+        "previous_manifest_sha256",
+        "intended_manifest_sha256",
+        "raw_directory_name",
+        "raw_artifact_name",
+        "raw_temporary_name",
+        "raw_relative_path",
+        "raw_sha256",
+        "anchor_name",
+        "anchor_sha256",
+        "created_at",
+        "updated_at",
+        "journal_fingerprint",
+    }
+    if not isinstance(journal, dict) or set(journal) != expected_fields:
+        raise SourceIntakeError("Registration journal has invalid fields")
+    record = {key: journal[key] for key in journal if key != "journal_fingerprint"}
+    if journal["journal_fingerprint"] != _canonical_json_sha256(record):
+        raise SourceIntakeError("Registration journal fingerprint mismatch")
+    if journal["journal_version"] != REGISTRATION_JOURNAL_VERSION:
+        raise SourceIntakeError("Unsupported registration journal version")
+    if journal["acquisition_id"] != acquisition_id:
+        raise SourceIntakeError("Registration journal refers to wrong acquisition")
+    if journal["source_id"] != stable_source_id(acquisition_id):
+        raise SourceIntakeError("Registration journal source identity is invalid")
+    if journal["state"] not in REGISTRATION_JOURNAL_STATES:
+        raise SourceIntakeError("Registration journal state is invalid")
+    transaction_id = journal["transaction_id"]
+    if not isinstance(transaction_id, str) or not re.fullmatch(
+        r"[0-9a-f]{32}", transaction_id
+    ):
+        raise SourceIntakeError("Registration journal transaction_id is invalid")
+    if journal["raw_directory_name"] != acquisition_id:
+        raise SourceIntakeError("Registration journal raw directory is invalid")
+    raw_name = journal["raw_artifact_name"]
+    if (
+        not isinstance(raw_name, str)
+        or Path(raw_name).name != raw_name
+        or Path(raw_name).suffix.casefold() != ".pdf"
+    ):
+        raise SourceIntakeError("Registration journal raw artifact is invalid")
+    if journal["raw_temporary_name"] != f".register-partial-{transaction_id}":
+        raise SourceIntakeError("Registration journal temporary name is invalid")
+    expected_raw_path = (
+        INTAKE_ROOT_RELATIVE / "raw" / acquisition_id / raw_name
+    ).as_posix()
+    if journal["raw_relative_path"] != expected_raw_path:
+        raise SourceIntakeError("Registration journal raw path is invalid")
+    if journal["anchor_name"] != f"{acquisition_id}.json":
+        raise SourceIntakeError("Registration journal anchor name is invalid")
+    for field in (
+        "previous_manifest_sha256",
+        "intended_manifest_sha256",
+        "raw_sha256",
+        "anchor_sha256",
+    ):
+        if not _is_sha256(journal[field]):
+            raise SourceIntakeError(
+                f"Registration journal {field} is not a valid SHA256"
+            )
+    _require_offset_timestamp(journal["created_at"], "journal.created_at")
+    _require_offset_timestamp(journal["updated_at"], "journal.updated_at")
+
+
+def _read_registration_journal_at(
+    transaction_fd: int, acquisition_id: str
+) -> dict:
+    name = _registration_journal_name(acquisition_id)
+    try:
+        journal = json.loads(_read_regular_bytes_at(transaction_fd, name))
+    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise SourceIntakeError(f"Corrupt registration journal: {name}") from exc
+    _validate_registration_journal(journal, acquisition_id)
+    return journal
+
+
+def _write_registration_journal_at(
+    transaction_fd: int, journal: dict, *, create_once: bool
+) -> dict:
+    checked = _registration_journal_payload(journal)
+    _validate_registration_journal(checked, checked.get("acquisition_id"))
+    name = _registration_journal_name(checked["acquisition_id"])
+    payload = _canonical_json_bytes(checked)
+    if create_once:
+        _write_bytes_create_once_at(transaction_fd, name, payload)
+    else:
+        _atomic_write_bytes_at(transaction_fd, name, payload)
+    return checked
+
+
+def _registration_raw_state(
+    project_root: Path, journal: dict, *, rollback: bool
+) -> bool:
+    """Validate and optionally remove raw artifacts named by a journal."""
+
+    _, raw_root_chain = _open_trusted_directory(
+        project_root, INTAKE_ROOT_RELATIVE / "raw", create=False
+    )
+    try:
+        acquisition_id = journal["acquisition_id"]
+        exists = _entry_lstat(raw_root_chain.fd, acquisition_id)
+        if exists is None:
+            return False
+        if not stat.S_ISDIR(exists.st_mode):
+            raise SourceIntakeError(
+                "Registration raw destination is not a directory"
+            )
+        _, raw_chain = _open_trusted_directory(
+            project_root,
+            INTAKE_ROOT_RELATIVE / "raw" / acquisition_id,
+            create=False,
+        )
+        try:
+            allowed = {
+                journal["raw_artifact_name"],
+                journal["raw_temporary_name"],
+            }
+            names = set(os.listdir(raw_chain.fd))
+            unexpected = names - allowed
+            if unexpected:
+                raise SourceIntakeError(
+                    f"Unexpected registration raw objects: {sorted(unexpected)}"
+                )
+            raw_name = journal["raw_artifact_name"]
+            raw_metadata = _entry_lstat(raw_chain.fd, raw_name)
+            raw_exists = raw_metadata is not None
+            if raw_exists:
+                if not stat.S_ISREG(raw_metadata.st_mode):
+                    raise SourceIntakeError(
+                        "Registration raw artifact is not regular"
+                    )
+                flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)
+                raw_fd = os.open(raw_name, flags, dir_fd=raw_chain.fd)
+                try:
+                    _validate_pdf_fd(raw_fd, journal["raw_sha256"])
+                finally:
+                    os.close(raw_fd)
+            temporary_name = journal["raw_temporary_name"]
+            temporary_metadata = _entry_lstat(raw_chain.fd, temporary_name)
+            if temporary_metadata is not None and not stat.S_ISREG(
+                temporary_metadata.st_mode
+            ):
+                raise SourceIntakeError(
+                    "Registration temporary raw artifact is unsafe"
+                )
+            raw_chain.assert_identity()
+            raw_root_chain.assert_identity()
+            if rollback:
+                for name in (raw_name, temporary_name):
+                    if _entry_lstat(raw_chain.fd, name) is not None:
+                        os.unlink(name, dir_fd=raw_chain.fd)
+                os.fsync(raw_chain.fd)
+            elif temporary_metadata is not None:
+                os.unlink(temporary_name, dir_fd=raw_chain.fd)
+                os.fsync(raw_chain.fd)
+            raw_chain.assert_identity()
+        finally:
+            raw_chain.close()
+        if rollback:
+            os.rmdir(acquisition_id, dir_fd=raw_root_chain.fd)
+            os.fsync(raw_root_chain.fd)
+        raw_root_chain.assert_identity()
+        return raw_exists
+    finally:
+        raw_root_chain.close()
+
+
+def _registration_anchor_state(
+    project_root: Path, journal: dict, *, rollback: bool
+) -> bool:
+    """Validate and optionally remove the create-once registration anchor."""
+
+    _, anchor_chain = _open_trusted_directory(
+        project_root, PROVENANCE_ROOT_RELATIVE, create=False
+    )
+    try:
+        anchor_name = journal["anchor_name"]
+        metadata = _entry_lstat(anchor_chain.fd, anchor_name)
+        if metadata is None:
+            return False
+        if not stat.S_ISREG(metadata.st_mode):
+            raise SourceIntakeError("Registration provenance anchor is not regular")
+        if _hash_regular_file_at(anchor_chain.fd, anchor_name) != journal[
+            "anchor_sha256"
+        ]:
+            raise SourceIntakeError("Registration provenance anchor SHA256 mismatch")
+        anchor_chain.assert_identity()
+        if rollback:
+            os.unlink(anchor_name, dir_fd=anchor_chain.fd)
+            os.fsync(anchor_chain.fd)
+        anchor_chain.assert_identity()
+        return True
+    finally:
+        anchor_chain.close()
+
+
+def _rollback_registration_artifacts(project_root: Path, journal: dict) -> None:
+    _registration_anchor_state(project_root, journal, rollback=True)
+    _registration_raw_state(project_root, journal, rollback=True)
+
+
+def _rollback_registration_artifacts_at(
+    raw_root_fd: int, anchor_fd: int, journal: dict
+) -> None:
+    """Rollback through already trusted FDs even if visible parents moved."""
+
+    anchor_name = journal["anchor_name"]
+    anchor_metadata = _entry_lstat(anchor_fd, anchor_name)
+    if anchor_metadata is not None:
+        if not stat.S_ISREG(anchor_metadata.st_mode):
+            raise SourceIntakeError("Registration provenance anchor is not regular")
+        if _hash_regular_file_at(anchor_fd, anchor_name) != journal[
+            "anchor_sha256"
+        ]:
+            raise SourceIntakeError("Registration provenance anchor SHA256 mismatch")
+        os.unlink(anchor_name, dir_fd=anchor_fd)
+        os.fsync(anchor_fd)
+
+    acquisition_id = journal["acquisition_id"]
+    raw_directory_metadata = _entry_lstat(raw_root_fd, acquisition_id)
+    if raw_directory_metadata is None:
+        return
+    if not stat.S_ISDIR(raw_directory_metadata.st_mode):
+        raise SourceIntakeError("Registration raw destination is not a directory")
+    raw_fd = os.open(acquisition_id, _directory_open_flags(), dir_fd=raw_root_fd)
+    try:
+        raw_name = journal["raw_artifact_name"]
+        temporary_name = journal["raw_temporary_name"]
+        names = set(os.listdir(raw_fd))
+        unexpected = names - {raw_name, temporary_name}
+        if unexpected:
+            raise SourceIntakeError(
+                f"Unexpected registration raw objects: {sorted(unexpected)}"
+            )
+        raw_metadata = _entry_lstat(raw_fd, raw_name)
+        if raw_metadata is not None:
+            if not stat.S_ISREG(raw_metadata.st_mode):
+                raise SourceIntakeError("Registration raw artifact is not regular")
+            held_pdf_fd = os.open(
+                raw_name,
+                os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0),
+                dir_fd=raw_fd,
+            )
+            try:
+                _validate_pdf_fd(held_pdf_fd, journal["raw_sha256"])
+            finally:
+                os.close(held_pdf_fd)
+        temporary_metadata = _entry_lstat(raw_fd, temporary_name)
+        if temporary_metadata is not None and not stat.S_ISREG(
+            temporary_metadata.st_mode
+        ):
+            raise SourceIntakeError("Registration temporary raw artifact is unsafe")
+        for name in (raw_name, temporary_name):
+            if _entry_lstat(raw_fd, name) is not None:
+                os.unlink(name, dir_fd=raw_fd)
+        os.fsync(raw_fd)
+    finally:
+        os.close(raw_fd)
+    os.rmdir(acquisition_id, dir_fd=raw_root_fd)
+    os.fsync(raw_root_fd)
+
+
+def _reconcile_registration_journals(
+    project_root: Path, manifest: dict, manifest_bytes: bytes
+) -> None:
+    """Recover interrupted raw/anchor/manifest registration transactions."""
+
+    _, transaction_chain = _open_trusted_directory(
+        project_root, TRANSACTION_ROOT_RELATIVE, create=False
+    )
+    try:
+        journal_names = sorted(
+            name
+            for name in os.listdir(transaction_chain.fd)
+            if name.endswith(".register.json")
+        )
+        for journal_name in journal_names:
+            acquisition_id = journal_name[: -len(".register.json")]
+            journal = _read_registration_journal_at(
+                transaction_chain.fd, acquisition_id
+            )
+            current_hash = _sha256_bytes(manifest_bytes)
+            matching = [
+                source
+                for source in manifest["sources"]
+                if source["acquisition_id"] == acquisition_id
+                or source["source_id"] == journal["source_id"]
+            ]
+            if current_hash == journal["intended_manifest_sha256"]:
+                if len(matching) != 1:
+                    raise SourceIntakeError(
+                        "Manifest-published registration source is missing"
+                    )
+                source = matching[0]
+                if (
+                    source["acquisition_id"] != acquisition_id
+                    or source["source_id"] != journal["source_id"]
+                    or source["stored_pdf_path"] != journal["raw_relative_path"]
+                    or source["sha256"] != journal["raw_sha256"]
+                ):
+                    raise SourceIntakeError(
+                        "Manifest-published registration identity is inconsistent"
+                    )
+                if not _registration_raw_state(
+                    project_root, journal, rollback=False
+                ):
+                    raise SourceIntakeError(
+                        "Manifest-published registration raw PDF is missing"
+                    )
+                if not _registration_anchor_state(
+                    project_root, journal, rollback=False
+                ):
+                    raise SourceIntakeError(
+                        "Manifest-published registration anchor is missing"
+                    )
+                _, anchor_chain = _open_trusted_directory(
+                    project_root, PROVENANCE_ROOT_RELATIVE, create=False
+                )
+                try:
+                    anchor = json.loads(
+                        _read_regular_bytes_at(
+                            anchor_chain.fd, journal["anchor_name"]
+                        )
+                    )
+                    anchor_chain.assert_identity()
+                except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+                    raise SourceIntakeError(
+                        "Manifest-published registration anchor is invalid JSON"
+                    ) from exc
+                finally:
+                    anchor_chain.close()
+                _validate_provenance_anchor(anchor, source)
+            elif current_hash == journal["previous_manifest_sha256"]:
+                if matching:
+                    raise SourceIntakeError(
+                        "Previous registration manifest unexpectedly contains source"
+                    )
+                _rollback_registration_artifacts(project_root, journal)
+            else:
+                raise SourceIntakeError(
+                    "Registration journal manifest fingerprint mismatch"
+                )
+            transaction_chain.assert_identity()
+            os.unlink(journal_name, dir_fd=transaction_chain.fd)
+            os.fsync(transaction_chain.fd)
+        transaction_chain.assert_identity()
+    finally:
+        transaction_chain.close()
+
+
 def _validate_journal(journal: dict, acquisition_id: str) -> None:
     expected_fields = {
         "journal_version",
@@ -1391,26 +2008,39 @@ def _validate_manifest_artifacts(project_root: Path, manifest: dict) -> None:
             output_chain.close()
 
 
+def _load_authoritative_manifest_locked(
+    project_root: Path, intake_chain: _TrustedDirectoryChain
+) -> tuple[dict, bytes]:
+    """Load and reconcile the live manifest while its mutation lock is held."""
+
+    project_root = Path(project_root).resolve()
+    intake_chain.assert_identity()
+    manifest_bytes = _read_regular_bytes_at(
+        intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+    )
+    try:
+        manifest = json.loads(manifest_bytes.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise SourceIntakeError("Acquisition manifest is not valid UTF-8 JSON") from exc
+    validate_acquisition_manifest(manifest)
+    _reconcile_registration_journals(project_root, manifest, manifest_bytes)
+    _reconcile_publication_journals(project_root, manifest, manifest_bytes)
+    _validate_manifest_anchors(project_root, manifest)
+    _validate_manifest_artifacts(project_root, manifest)
+    intake_chain.assert_identity()
+    return manifest, manifest_bytes
+
+
 def _load_authoritative_manifest(project_root: Path) -> tuple[dict, bytes]:
     project_root = Path(project_root).resolve()
     _, intake_chain = _open_trusted_directory(
         project_root, INTAKE_ROOT_RELATIVE, create=False
     )
+    _acquire_manifest_mutation_lock(intake_chain)
     try:
-        manifest_bytes = _read_regular_bytes_at(
-            intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
-        )
-        try:
-            manifest = json.loads(manifest_bytes.decode("utf-8"))
-        except (UnicodeDecodeError, json.JSONDecodeError) as exc:
-            raise SourceIntakeError("Acquisition manifest is not valid UTF-8 JSON") from exc
-        validate_acquisition_manifest(manifest)
-        _validate_manifest_anchors(project_root, manifest)
-        _reconcile_publication_journals(project_root, manifest, manifest_bytes)
-        _validate_manifest_artifacts(project_root, manifest)
-        intake_chain.assert_identity()
-        return manifest, manifest_bytes
+        return _load_authoritative_manifest_locked(project_root, intake_chain)
     finally:
+        _release_manifest_mutation_lock(intake_chain)
         intake_chain.close()
 
 
@@ -1472,12 +2102,427 @@ def inventory_independent_sources(
     return inventory, report, sorted(links)
 
 
-def _eligibility_dedup_failures(
+def _registration_publication_checkpoint(name: str) -> None:
+    """Test seam for registration races and hard-stop recovery boundaries."""
+
+
+def register_source(
+    project_root: Path,
+    acquisition_id: str,
+    input_pdf: Path,
+    source_url: str | None,
+    source_domain: str,
+    download_timestamp: str,
+    original_filename: str,
+    offline_provenance: dict | None = None,
+) -> dict:
+    """Register one validated raw PDF using a recoverable create-once transaction.
+
+    Registration stops at ``hash_verified``.  It does not extract, attach legal
+    identity metadata, run deduplication, or mutate benchmark selection state.
+    """
+
+    project_root = Path(project_root).resolve()
+    source_id = stable_source_id(acquisition_id)
+    if (
+        not isinstance(original_filename, str)
+        or Path(original_filename).name != original_filename
+        or Path(original_filename).suffix.casefold() != ".pdf"
+    ):
+        raise SourceIntakeError("original_filename must be a PDF basename")
+    parsed_download_timestamp = _parse_offset_timestamp(
+        download_timestamp, "download_timestamp"
+    )
+    input_path = Path(input_pdf)
+    if not _lexists(input_path) or input_path.is_symlink() or not input_path.is_file():
+        raise SourceIntakeError(
+            "Registration input PDF must be an existing regular non-symlink file"
+        )
+    flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)
+    try:
+        input_fd = os.open(input_path, flags)
+    except OSError as exc:
+        raise SourceIntakeError(
+            "Registration input PDF must be an existing regular non-symlink file"
+        ) from exc
+
+    intake_chain = None
+    transaction_chain = None
+    raw_root_chain = None
+    raw_chain = None
+    anchor_chain = None
+    structured_root_chain = None
+    journal = None
+    transaction_started = False
+    journal_exists = False
+    mutation_lock_held = False
+    original_manifest_bytes = None
+    intended_manifest_bytes = None
+    try:
+        input_metadata = os.fstat(input_fd)
+        if not stat.S_ISREG(input_metadata.st_mode):
+            raise SourceIntakeError("Registration input PDF must be a regular file")
+        pdf_sha256 = _sha256_fd(input_fd)
+        _validate_pdf_fd(input_fd, pdf_sha256)
+        _assert_file_fd_identity(input_path, input_fd)
+
+        registration_timestamp = datetime.now().astimezone()
+        if registration_timestamp < parsed_download_timestamp:
+            raise SourceIntakeError(
+                "System clock precedes the source download_timestamp"
+            )
+        hash_verified_timestamp = registration_timestamp.isoformat()
+        stored_pdf_path = (
+            INTAKE_ROOT_RELATIVE
+            / "raw"
+            / acquisition_id
+            / original_filename
+        ).as_posix()
+        structured_path = (
+            INTAKE_ROOT_RELATIVE
+            / "structured"
+            / acquisition_id
+            / f"{Path(original_filename).stem}_structured.json"
+        ).as_posix()
+        source = {
+            "acquisition_id": acquisition_id,
+            "source_id": source_id,
+            "original_filename": original_filename,
+            "stored_pdf_path": stored_pdf_path,
+            "source_url": source_url,
+            "offline_provenance": deepcopy(offline_provenance),
+            "source_domain": source_domain,
+            "download_timestamp": download_timestamp,
+            "sha256": pdf_sha256,
+            "case_id": None,
+            "judgment_number": None,
+            "court": None,
+            "decision_date": None,
+            "procedure_stage": None,
+            "underlying_dispute_id": None,
+            "related_decision_ids": [],
+            "structured_path": structured_path,
+            "structured_sha256": None,
+            "metadata_verification": {
+                field: False for field in VERIFICATION_FIELDS
+            },
+            "acquisition_status": "hash_verified",
+            "status_history": [
+                {
+                    "status": "downloaded",
+                    "timestamp": download_timestamp,
+                    "reasons": [],
+                },
+                {
+                    "status": "hash_verified",
+                    "timestamp": hash_verified_timestamp,
+                    "reasons": [],
+                },
+            ],
+            "rejection_reasons": [],
+            "notes": None,
+        }
+        _validate_source_shape(source, 0)
+        expected_pdf, expected_structured = _expected_paths(source)
+        if (
+            source["stored_pdf_path"] != expected_pdf
+            or source["structured_path"] != expected_structured
+        ):
+            raise SourceIntakeError("Registration paths do not match source identity")
+
+        manifest, original_manifest_bytes = _load_authoritative_manifest(
+            project_root
+        )
+        if any(
+            item["acquisition_id"] == acquisition_id
+            for item in manifest["sources"]
+        ):
+            raise SourceIntakeError(
+                f"Duplicate acquisition_id is forbidden: {acquisition_id}"
+            )
+        if any(item["source_id"] == source_id for item in manifest["sources"]):
+            raise SourceIntakeError(f"Duplicate source_id is forbidden: {source_id}")
+
+        updated_manifest = deepcopy(manifest)
+        updated_manifest["sources"].append(source)
+        updated_manifest["sources"].sort(
+            key=lambda item: item["acquisition_id"]
+        )
+        updated_manifest["immutable_provenance"].append(
+            immutable_provenance_snapshot(source)
+        )
+        updated_manifest["immutable_provenance"].sort(
+            key=lambda item: item["acquisition_id"]
+        )
+        validate_acquisition_manifest(updated_manifest, prior_manifest=manifest)
+        intended_manifest_bytes = _canonical_json_bytes(updated_manifest)
+        anchor_bytes = _canonical_json_bytes(_provenance_anchor_payload(source))
+
+        _, intake_chain = _open_trusted_directory(
+            project_root, INTAKE_ROOT_RELATIVE, create=False
+        )
+        _acquire_manifest_mutation_lock(intake_chain)
+        mutation_lock_held = True
+        _, transaction_chain = _open_trusted_directory(
+            project_root, TRANSACTION_ROOT_RELATIVE, create=False
+        )
+        _, raw_root_chain = _open_trusted_directory(
+            project_root, INTAKE_ROOT_RELATIVE / "raw", create=False
+        )
+        _, anchor_chain = _open_trusted_directory(
+            project_root, PROVENANCE_ROOT_RELATIVE, create=False
+        )
+        _, structured_root_chain = _open_trusted_directory(
+            project_root, INTAKE_ROOT_RELATIVE / "structured", create=False
+        )
+        _registration_publication_checkpoint("before_manifest_publication")
+        if (
+            _read_regular_bytes_at(
+                intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+            )
+            != original_manifest_bytes
+        ):
+            raise SourceIntakeError(
+                "Acquisition manifest changed before registration"
+            )
+        if _entry_lstat(raw_root_chain.fd, acquisition_id) is not None:
+            raise SourceIntakeError(
+                f"Raw acquisition destination already exists: {acquisition_id}"
+            )
+        if _entry_lstat(structured_root_chain.fd, acquisition_id) is not None:
+            raise SourceIntakeError(
+                f"Structured acquisition destination already exists: {acquisition_id}"
+            )
+        anchor_name = f"{acquisition_id}.json"
+        if _entry_lstat(anchor_chain.fd, anchor_name) is not None:
+            raise SourceIntakeError(
+                f"Provenance anchor already exists: {anchor_name}"
+            )
+        journal_name = _registration_journal_name(acquisition_id)
+        if (
+            _entry_lstat(transaction_chain.fd, journal_name) is not None
+            or _entry_lstat(
+                transaction_chain.fd, f"{acquisition_id}.json"
+            )
+            is not None
+        ):
+            raise SourceIntakeError(
+                f"Source transaction already exists: {acquisition_id}"
+            )
+
+        transaction_id = uuid.uuid4().hex
+        now = datetime.now().astimezone().isoformat()
+        journal = _write_registration_journal_at(
+            transaction_chain.fd,
+            {
+                "journal_version": REGISTRATION_JOURNAL_VERSION,
+                "transaction_id": transaction_id,
+                "acquisition_id": acquisition_id,
+                "source_id": source_id,
+                "state": "PREPARED",
+                "previous_manifest_sha256": _sha256_bytes(
+                    original_manifest_bytes
+                ),
+                "intended_manifest_sha256": _sha256_bytes(
+                    intended_manifest_bytes
+                ),
+                "raw_directory_name": acquisition_id,
+                "raw_artifact_name": original_filename,
+                "raw_temporary_name": f".register-partial-{transaction_id}",
+                "raw_relative_path": stored_pdf_path,
+                "raw_sha256": pdf_sha256,
+                "anchor_name": anchor_name,
+                "anchor_sha256": _sha256_bytes(anchor_bytes),
+                "created_at": now,
+                "updated_at": now,
+            },
+            create_once=True,
+        )
+        transaction_started = True
+        journal_exists = True
+        _registration_publication_checkpoint("after_prepared")
+
+        raw_root_chain.assert_identity()
+        os.mkdir(acquisition_id, mode=0o700, dir_fd=raw_root_chain.fd)
+        os.fsync(raw_root_chain.fd)
+        _, raw_chain = _open_trusted_directory(
+            project_root,
+            INTAKE_ROOT_RELATIVE / "raw" / acquisition_id,
+            create=False,
+        )
+        _copy_fd_create_once_at(
+            raw_chain.fd,
+            original_filename,
+            input_fd,
+            pdf_sha256,
+            journal["raw_temporary_name"],
+        )
+        raw_chain.assert_identity()
+        raw_root_chain.assert_identity()
+        _validate_pdf_fd(input_fd, pdf_sha256)
+        _assert_file_fd_identity(input_path, input_fd)
+        journal["state"] = "RAW_PUBLISHED"
+        journal["updated_at"] = datetime.now().astimezone().isoformat()
+        journal = _write_registration_journal_at(
+            transaction_chain.fd, journal, create_once=False
+        )
+        _registration_publication_checkpoint("after_raw_published")
+
+        anchor_chain.assert_identity()
+        _write_bytes_create_once_at(
+            anchor_chain.fd, anchor_name, anchor_bytes
+        )
+        anchor_chain.assert_identity()
+        journal["state"] = "ANCHOR_PUBLISHED"
+        journal["updated_at"] = datetime.now().astimezone().isoformat()
+        journal = _write_registration_journal_at(
+            transaction_chain.fd, journal, create_once=False
+        )
+        _registration_publication_checkpoint("after_anchor_published")
+
+        if (
+            _read_regular_bytes_at(
+                intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+            )
+            != original_manifest_bytes
+        ):
+            raise SourceIntakeError(
+                "Acquisition manifest changed during registration"
+            )
+        intake_chain.assert_identity()
+        raw_root_chain.assert_identity()
+        raw_chain.assert_identity()
+        anchor_chain.assert_identity()
+        transaction_chain.assert_identity()
+        _atomic_write_bytes_at(
+            intake_chain.fd,
+            ACQUISITION_MANIFEST_RELATIVE.name,
+            intended_manifest_bytes,
+        )
+        if (
+            _read_regular_bytes_at(
+                intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+            )
+            != intended_manifest_bytes
+        ):
+            raise SourceIntakeError("Published registration manifest verification failed")
+        journal["state"] = "MANIFEST_PUBLISHED"
+        journal["updated_at"] = datetime.now().astimezone().isoformat()
+        journal = _write_registration_journal_at(
+            transaction_chain.fd, journal, create_once=False
+        )
+        _registration_publication_checkpoint("after_manifest_published")
+
+        if _hash_regular_file_at(raw_chain.fd, original_filename) != pdf_sha256:
+            raise SourceIntakeError("Final registered raw PDF SHA256 mismatch")
+        if _hash_regular_file_at(anchor_chain.fd, anchor_name) != _sha256_bytes(
+            anchor_bytes
+        ):
+            raise SourceIntakeError("Final registration anchor SHA256 mismatch")
+        intake_chain.assert_identity()
+        raw_chain.assert_identity()
+        anchor_chain.assert_identity()
+        transaction_chain.assert_identity()
+        os.unlink(journal_name, dir_fd=transaction_chain.fd)
+        os.fsync(transaction_chain.fd)
+        journal_exists = False
+        transaction_started = False
+        return {
+            "acquisition_id": acquisition_id,
+            "source_id": source_id,
+            "stored_pdf_path": stored_pdf_path,
+            "sha256": pdf_sha256,
+            "acquisition_status": "hash_verified",
+        }
+    except Exception as registration_error:
+        if transaction_started and journal is not None:
+            try:
+                current_manifest_bytes = _read_regular_bytes_at(
+                    intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+                )
+                if current_manifest_bytes == intended_manifest_bytes:
+                    intake_chain.assert_identity()
+                    _atomic_write_bytes_at(
+                        intake_chain.fd,
+                        ACQUISITION_MANIFEST_RELATIVE.name,
+                        original_manifest_bytes,
+                    )
+                    current_manifest_bytes = _read_regular_bytes_at(
+                        intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+                    )
+                if current_manifest_bytes != original_manifest_bytes:
+                    try:
+                        concurrent_manifest = json.loads(
+                            current_manifest_bytes.decode("utf-8")
+                        )
+                    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+                        raise SourceIntakeError(
+                            "Registration failed after an invalid concurrent "
+                            "manifest mutation; journal recovery is required"
+                        ) from exc
+                    validate_acquisition_manifest(
+                        concurrent_manifest, prior_manifest=manifest
+                    )
+                    if any(
+                        item["acquisition_id"] == acquisition_id
+                        or item["source_id"] == source_id
+                        for item in concurrent_manifest["sources"]
+                    ):
+                        raise SourceIntakeError(
+                            "Concurrent manifest mutation claimed the registering "
+                            "source; journal recovery is required"
+                        )
+                if raw_root_chain is not None and anchor_chain is not None:
+                    _rollback_registration_artifacts_at(
+                        raw_root_chain.fd, anchor_chain.fd, journal
+                    )
+                else:
+                    _rollback_registration_artifacts(project_root, journal)
+                if journal_exists:
+                    checked_journal = _read_registration_journal_at(
+                        transaction_chain.fd, acquisition_id
+                    )
+                    if checked_journal["transaction_id"] != journal[
+                        "transaction_id"
+                    ]:
+                        raise SourceIntakeError(
+                            "Registration journal identity changed during rollback"
+                        )
+                    os.unlink(
+                        _registration_journal_name(acquisition_id),
+                        dir_fd=transaction_chain.fd,
+                    )
+                    os.fsync(transaction_chain.fd)
+                    journal_exists = False
+                transaction_started = False
+            except Exception as rollback_error:
+                raise SourceIntakeError(
+                    "Registration rollback failed; journal recovery is required"
+                ) from rollback_error
+        raise registration_error
+    finally:
+        if structured_root_chain is not None:
+            structured_root_chain.close()
+        if anchor_chain is not None:
+            anchor_chain.close()
+        if raw_chain is not None:
+            raw_chain.close()
+        if raw_root_chain is not None:
+            raw_root_chain.close()
+        if transaction_chain is not None:
+            transaction_chain.close()
+        if intake_chain is not None:
+            if mutation_lock_held:
+                _release_manifest_mutation_lock(intake_chain)
+            intake_chain.close()
+        os.close(input_fd)
+
+
+def _eligibility_dedup_report(
     project_root: Path,
     manifest: dict,
-    acquisition_id: str,
-) -> list[str]:
-    """Evaluate the committed development/internal dedup contract for one source."""
+) -> tuple[list[dict], dict]:
+    """Evaluate the committed development/internal dedup contract."""
 
     from .independent_benchmark import (
         deduplicate_against_development,
@@ -1518,8 +2563,17 @@ def _eligibility_dedup_failures(
         if source["acquisition_status"] not in candidate_statuses:
             continue
         failures, structured_payload = _source_gate_failures(source, project_root)
-        if failures or structured_payload is None:
-            joined = ", ".join(failures) or "structured_payload_unavailable"
+        dedup_blockers = [
+            failure
+            for failure in failures
+            if not failure.startswith("incomplete_")
+            and not failure.startswith("unresolved_rejection_reasons")
+        ]
+        if dedup_blockers or structured_payload is None:
+            joined = (
+                ", ".join(dedup_blockers)
+                or "structured_payload_unavailable"
+            )
             raise SourceIntakeError(
                 "Cannot evaluate independent-source dedup pool for "
                 f"{source['acquisition_id']}: {joined}"
@@ -1542,19 +2596,313 @@ def _eligibility_dedup_failures(
         development_records,
         known_duplicate_links=known_links,
     )
-    target_source_id = stable_source_id(acquisition_id)
-    if target_source_id in {record["source_id"] for record in eligible}:
-        return []
+    return eligible, report
 
-    reasons = sorted({
+
+def _eligibility_review_findings(
+    project_root: Path,
+    manifest: dict,
+    acquisition_id: str,
+) -> dict[str, list[str]]:
+    """Return deterministic findings grouped by the existing review gates."""
+
+    eligible, report = _eligibility_dedup_report(project_root, manifest)
+    target_source_id = stable_source_id(acquisition_id)
+    reasons = {
         reason
         for exclusion in report["exclusions"]
         if exclusion["source_id"] == target_source_id
         for reason in exclusion["reasons"]
-    })
-    if not reasons:
-        reasons = ["source_absent_from_deduplicated_eligible_pool"]
-    return [f"dedup_or_development_overlap:{reason}" for reason in reasons]
+        if not reason.startswith("canonical_representative:")
+    }
+    for cluster in report["internal_duplicate_clusters"]:
+        if target_source_id not in cluster["member_source_ids"]:
+            continue
+        member_ids = set(cluster["member_source_ids"])
+        reasons.update(
+            reason
+            for exclusion in report["exclusions"]
+            if exclusion["source_id"] in member_ids
+            for reason in exclusion["reasons"]
+            if not reason.startswith("canonical_representative:")
+        )
+    if (
+        target_source_id not in {record["source_id"] for record in eligible}
+        and not reasons
+    ):
+        reasons.add("source_absent_from_deduplicated_eligible_pool")
+
+    underlying_prefixes = (
+        "known_underlying_dispute:",
+        "new_pool_known_duplicate_link",
+        "new_pool_related_decision_ids",
+        "new_pool_same_underlying_dispute",
+    )
+    development_prefixes = (
+        "development_benchmark_",
+        "near_duplicate_source_text:",
+    )
+    findings = {field: [] for field in REVIEW_COMPLETION_FIELDS}
+    for reason in sorted(reasons):
+        if reason.startswith(underlying_prefixes):
+            field = "underlying_dispute_review"
+        elif reason.startswith(development_prefixes):
+            field = "development_overlap_check"
+        else:
+            field = "internal_dedup_check"
+        findings[field].append(reason)
+    return findings
+
+
+def _eligibility_dedup_failures(
+    project_root: Path,
+    manifest: dict,
+    acquisition_id: str,
+) -> list[str]:
+    findings = _eligibility_review_findings(
+        project_root, manifest, acquisition_id
+    )
+    return [
+        f"dedup_or_development_overlap:{reason}"
+        for field in REVIEW_COMPLETION_FIELDS
+        for reason in findings[field]
+    ]
+
+
+def _review_publication_checkpoint(name: str) -> None:
+    """Test seam for review races and atomic-publication failures."""
+
+
+def _source_review_result(
+    project_root: Path,
+    manifest: dict,
+    source: dict,
+    *,
+    idempotent_noop: bool,
+) -> dict:
+    failures, _ = _source_gate_failures(source, project_root)
+    failures.extend(
+        _eligibility_dedup_failures(
+            project_root, manifest, source["acquisition_id"]
+        )
+    )
+    return {
+        "acquisition_id": source["acquisition_id"],
+        "source_id": source["source_id"],
+        "acquisition_status": source["acquisition_status"],
+        "metadata_verification": deepcopy(source["metadata_verification"]),
+        "gate_failures": sorted(set(failures)),
+        "idempotent_noop": idempotent_noop,
+    }
+
+
+def record_source_review(
+    project_root: Path,
+    acquisition_id: str,
+    review_payload: dict,
+) -> dict:
+    """Record one strict, independently verified review without promotion.
+
+    The intake mutation lock covers authoritative loading, validation,
+    comparison, publication, and authoritative reloading.  Only legal metadata,
+    its verification state, related-decision metadata, and deterministic review
+    findings can change; provenance, artifacts, status, and status history remain
+    immutable.
+    """
+
+    project_root = Path(project_root).resolve()
+    checked_review = validate_source_review_payload(review_payload)
+    _, intake_chain = _open_trusted_directory(
+        project_root, INTAKE_ROOT_RELATIVE, create=False
+    )
+    _acquire_manifest_mutation_lock(intake_chain)
+    try:
+        manifest, original_manifest_bytes = _load_authoritative_manifest_locked(
+            project_root, intake_chain
+        )
+        matches = [
+            source
+            for source in manifest["sources"]
+            if source["acquisition_id"] == acquisition_id
+        ]
+        if len(matches) != 1:
+            raise SourceIntakeError(f"Unknown acquisition_id: {acquisition_id}")
+        source = matches[0]
+        if source["acquisition_status"] != "extracted":
+            raise SourceIntakeError(
+                "Source review requires extracted status; "
+                f"found {source['acquisition_status']}"
+            )
+
+        updated_manifest = deepcopy(manifest)
+        updated_source = next(
+            item
+            for item in updated_manifest["sources"]
+            if item["acquisition_id"] == acquisition_id
+        )
+        for field in REVIEW_METADATA_FIELDS:
+            prior_value = source[field]
+            reviewed_value = checked_review["verified_metadata"][field]
+            if prior_value is not None and prior_value != reviewed_value:
+                raise SourceIntakeError(
+                    f"Source review conflicts with existing {field}"
+                )
+            updated_source[field] = reviewed_value
+            updated_source["metadata_verification"][field] = True
+
+        prior_related = source["related_decision_ids"]
+        reviewed_related = checked_review["related_decision_ids"]
+        if prior_related and prior_related != reviewed_related:
+            raise SourceIntakeError(
+                "Source review conflicts with existing related_decision_ids"
+            )
+        updated_source["related_decision_ids"] = reviewed_related
+
+        prior_underlying = source["underlying_dispute_id"]
+        reviewed_underlying = checked_review["underlying_dispute_id"]
+        if prior_underlying is not None and prior_underlying != reviewed_underlying:
+            raise SourceIntakeError(
+                "Source review conflicts with existing underlying_dispute_id"
+            )
+        updated_source["underlying_dispute_id"] = reviewed_underlying
+
+        for field in REVIEW_COMPLETION_FIELDS:
+            completed = checked_review["reviews"][field]["completed"]
+            if source["metadata_verification"][field] and not completed:
+                raise SourceIntakeError(
+                    f"Source review cannot regress completed {field}"
+                )
+            updated_source["metadata_verification"][field] = completed
+
+        computed_findings = _eligibility_review_findings(
+            project_root, updated_manifest, acquisition_id
+        )
+        for field in REVIEW_COMPLETION_FIELDS:
+            supplied_findings = checked_review["reviews"][field]["findings"]
+            if supplied_findings != computed_findings[field]:
+                raise SourceIntakeError(
+                    f"Source review findings mismatch for {field}"
+                )
+
+        deterministic_rejections = sorted(
+            f"dedup_or_development_overlap:{reason}"
+            for field in REVIEW_COMPLETION_FIELDS
+            for reason in computed_findings[field]
+        )
+        if (
+            source["rejection_reasons"]
+            and source["rejection_reasons"] != deterministic_rejections
+        ):
+            raise SourceIntakeError(
+                "Source review conflicts with existing rejection_reasons"
+            )
+        updated_source["rejection_reasons"] = deterministic_rejections
+
+        allowed_changes = set(REVIEW_METADATA_FIELDS) | {
+            "underlying_dispute_id",
+            "related_decision_ids",
+            "metadata_verification",
+            "rejection_reasons",
+        }
+        for field in SOURCE_REQUIRED_FIELDS - allowed_changes:
+            if updated_source[field] != source[field]:
+                raise SourceIntakeError(
+                    f"Source review attempted forbidden mutation: {field}"
+                )
+        validate_acquisition_manifest(updated_manifest, prior_manifest=manifest)
+        _validate_manifest_anchors(project_root, updated_manifest)
+        _validate_manifest_artifacts(project_root, updated_manifest)
+
+        if updated_source == source:
+            return _source_review_result(
+                project_root,
+                updated_manifest,
+                updated_source,
+                idempotent_noop=True,
+            )
+
+        intended_manifest_bytes = _canonical_json_bytes(updated_manifest)
+        try:
+            _review_publication_checkpoint("before_manifest_compare")
+            current_manifest_bytes = _read_regular_bytes_at(
+                intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+            )
+            if current_manifest_bytes != original_manifest_bytes:
+                raise SourceIntakeError(
+                    "Acquisition manifest changed during source review"
+                )
+            intake_chain.assert_identity()
+            _atomic_write_bytes_at(
+                intake_chain.fd,
+                ACQUISITION_MANIFEST_RELATIVE.name,
+                intended_manifest_bytes,
+            )
+            _review_publication_checkpoint("after_manifest_replacement")
+            if (
+                _read_regular_bytes_at(
+                    intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+                )
+                != intended_manifest_bytes
+            ):
+                raise SourceIntakeError(
+                    "Published source-review manifest verification failed"
+                )
+            checked_manifest, checked_bytes = _load_authoritative_manifest_locked(
+                project_root, intake_chain
+            )
+            checked_source = next(
+                item
+                for item in checked_manifest["sources"]
+                if item["acquisition_id"] == acquisition_id
+            )
+            if checked_bytes != intended_manifest_bytes or checked_source != updated_source:
+                raise SourceIntakeError(
+                    "Published source review failed authoritative reload"
+                )
+            result = _source_review_result(
+                project_root,
+                checked_manifest,
+                checked_source,
+                idempotent_noop=False,
+            )
+        except Exception as publication_error:
+            current_manifest_bytes = _read_regular_bytes_at(
+                intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+            )
+            if current_manifest_bytes == intended_manifest_bytes:
+                try:
+                    _atomic_write_bytes_at(
+                        intake_chain.fd,
+                        ACQUISITION_MANIFEST_RELATIVE.name,
+                        original_manifest_bytes,
+                    )
+                    if (
+                        _read_regular_bytes_at(
+                            intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+                        )
+                        != original_manifest_bytes
+                    ):
+                        raise SourceIntakeError(
+                            "Source-review rollback verification failed"
+                        )
+                    _load_authoritative_manifest_locked(project_root, intake_chain)
+                except Exception as rollback_error:
+                    raise SourceIntakeError(
+                        "Source-review publication rollback failed"
+                    ) from rollback_error
+                raise SourceIntakeError(
+                    "Source-review publication failed; previous manifest restored"
+                ) from publication_error
+            if current_manifest_bytes != original_manifest_bytes:
+                raise SourceIntakeError(
+                    "Source-review publication failed with an unexpected manifest "
+                    "state; refusing unsafe overwrite"
+                ) from publication_error
+            raise
+        return result
+    finally:
+        _release_manifest_mutation_lock(intake_chain)
+        intake_chain.close()
 
 
 def promote_source_to_eligible(project_root: Path, acquisition_id: str) -> dict:
@@ -1614,6 +2962,7 @@ def promote_source_to_eligible(project_root: Path, acquisition_id: str) -> dict:
     _, intake_chain = _open_trusted_directory(
         project_root, INTAKE_ROOT_RELATIVE, create=False
     )
+    _acquire_manifest_mutation_lock(intake_chain)
     published = False
     try:
         _eligibility_publication_checkpoint("before_manifest_compare")
@@ -1670,6 +3019,7 @@ def promote_source_to_eligible(project_root: Path, acquisition_id: str) -> dict:
             raise SourceIntakeError("Published eligibility manifest verification failed")
         intake_chain.assert_identity()
     finally:
+        _release_manifest_mutation_lock(intake_chain)
         intake_chain.close()
 
     try:
@@ -1765,15 +3115,6 @@ def extract_intake_source(
     _, intake_chain = _open_trusted_directory(
         project_root, INTAKE_ROOT_RELATIVE, create=False
     )
-    if (
-        _read_regular_bytes_at(
-            intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
-        )
-        != original_manifest_bytes
-    ):
-        intake_chain.close()
-        raise SourceIntakeError("Acquisition manifest changed before extraction")
-
     raw_chain, raw_path, raw_fd = _open_acquisition_file_fd(
         project_root, source, "raw"
     )
@@ -1798,7 +3139,15 @@ def extract_intake_source(
     journal_created = False
     final_published = False
     manifest_published = False
+    _acquire_manifest_mutation_lock(intake_chain)
     try:
+        if (
+            _read_regular_bytes_at(
+                intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+            )
+            != original_manifest_bytes
+        ):
+            raise SourceIntakeError("Acquisition manifest changed before extraction")
         succeeded = _run_local_extractor(
             raw_fd,
             temporary_fd,
@@ -1983,6 +3332,7 @@ def extract_intake_source(
             output_chain.close()
             os.close(raw_fd)
             raw_chain.close()
+            _release_manifest_mutation_lock(intake_chain)
             intake_chain.close()
 
 
@@ -2029,19 +3379,108 @@ def _source_gate_failures_for_extraction(
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Independent judgment source intake")
+    parser = argparse.ArgumentParser(
+        description="Independent judgment source intake", allow_abbrev=False
+    )
     parser.add_argument(
-        "command", choices=("validate", "extract", "promote-eligible")
+        "command",
+        choices=("validate", "register", "extract", "review", "promote-eligible"),
     )
     parser.add_argument("--project-root", type=Path, default=Path(__file__).resolve().parents[4])
     parser.add_argument("--acquisition-id")
+    parser.add_argument("--pdf", type=Path)
+    parser.add_argument("--source-url")
+    parser.add_argument("--offline-description")
+    parser.add_argument("--source-domain")
+    parser.add_argument("--download-timestamp")
+    parser.add_argument("--original-filename")
+    parser.add_argument("--review-file", type=Path)
     parser.add_argument("--force-ocr", action="store_true")
     args = parser.parse_args()
     if args.command == "validate":
+        if args.review_file is not None:
+            parser.error("--review-file is only valid for review")
         _, report, _ = inventory_independent_sources(args.project_root)
         print(json.dumps(report, ensure_ascii=False, indent=2))
         return
+    if args.command == "register":
+        if args.review_file is not None:
+            parser.error("--review-file is only valid for review")
+        if args.force_ocr:
+            parser.error("--force-ocr is not valid for register")
+        required = {
+            "--acquisition-id": args.acquisition_id,
+            "--pdf": args.pdf,
+            "--source-domain": args.source_domain,
+            "--download-timestamp": args.download_timestamp,
+            "--original-filename": args.original_filename,
+        }
+        missing = [name for name, value in required.items() if value is None]
+        if missing:
+            parser.error(f"register requires {', '.join(missing)}")
+        if (args.source_url is None) == (args.offline_description is None):
+            parser.error(
+                "register requires exactly one of --source-url or "
+                "--offline-description"
+            )
+        result = register_source(
+            args.project_root,
+            args.acquisition_id,
+            args.pdf,
+            args.source_url,
+            args.source_domain,
+            args.download_timestamp,
+            args.original_filename,
+            (
+                {"description": args.offline_description}
+                if args.offline_description is not None
+                else None
+            ),
+        )
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return
+    if args.command == "review":
+        forbidden = {
+            "--pdf": args.pdf,
+            "--source-url": args.source_url,
+            "--offline-description": args.offline_description,
+            "--source-domain": args.source_domain,
+            "--download-timestamp": args.download_timestamp,
+            "--original-filename": args.original_filename,
+        }
+        supplied_forbidden = [
+            name for name, value in forbidden.items() if value is not None
+        ]
+        if args.force_ocr:
+            supplied_forbidden.append("--force-ocr")
+        if supplied_forbidden:
+            parser.error(
+                "review rejects unrelated arguments: "
+                + ", ".join(supplied_forbidden)
+            )
+        if not args.acquisition_id or args.review_file is None:
+            parser.error(
+                "review requires --acquisition-id and --review-file"
+            )
+        review_path = args.review_file
+        if (
+            not _lexists(review_path)
+            or review_path.is_symlink()
+            or not review_path.is_file()
+        ):
+            parser.error("--review-file must be a regular non-symlink file")
+        try:
+            review_payload = json.loads(review_path.read_bytes().decode("utf-8"))
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+            parser.error(f"--review-file must contain valid UTF-8 JSON: {exc}")
+        result = record_source_review(
+            args.project_root, args.acquisition_id, review_payload
+        )
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return
     if args.command == "promote-eligible":
+        if args.review_file is not None:
+            parser.error("--review-file is only valid for review")
         if args.force_ocr:
             parser.error("--force-ocr is only valid for extract")
         if not args.acquisition_id:
@@ -2051,6 +3490,8 @@ def main() -> None:
         )
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return
+    if args.review_file is not None:
+        parser.error("--review-file is only valid for review")
     if not args.acquisition_id:
         parser.error("extract requires --acquisition-id")
     result = extract_intake_source(args.project_root, args.acquisition_id, args.force_ocr)

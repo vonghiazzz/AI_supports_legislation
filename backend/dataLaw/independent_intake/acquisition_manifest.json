@@ -288,6 +288,18 @@
       "source_id": "independent:pilot-20261025-024",
       "source_url": "https://congbobanan.toaan.gov.vn/5ta1907512t1cvn/BA_HNGD_Huong__Trong_pdf.pdf",
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/pilot-20261025-024/BA_HNGD_Huong__Trong_pdf.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261026-001",
+      "download_timestamp": "2026-10-26T14:36:24.440293+07:00",
+      "immutable_fingerprint": "c51be7d5047d9bfa8a85c6f8a2a202899416aabaf7507e5a3fbd3a337a548e87",
+      "offline_provenance": null,
+      "original_filename": "DSPT_Muoi__Trong.pdf",
+      "sha256": "a481031abfe442267acf94eb782798b15c5536df77376dbb8bcfb1a0e3704cce",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261026-001",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2035785t1cvn/DSPT_Muoi__Trong.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-001/DSPT_Muoi__Trong.pdf"
     }
   ],
   "known_duplicate_links": [],
@@ -1644,6 +1656,66 @@
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/pilot-20261025-024/BA_HNGD_Huong__Trong_pdf.pdf",
       "structured_path": "backend/dataLaw/independent_intake/structured/pilot-20261025-024/BA_HNGD_Huong__Trong_pdf_structured.json",
       "structured_sha256": "7266a34069d6853585e3f30d324f53b7130c6673d6ddac0d6625a0923c3201d3",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261026-001",
+      "acquisition_status": "eligible",
+      "case_id": "09/2026/DS-PT",
+      "court": "Tòa án nhân dân thành phố Đà Nẵng",
+      "decision_date": "2026-01-09",
+      "download_timestamp": "2026-10-26T14:36:24.440293+07:00",
+      "judgment_number": "09/2026/DS-PT",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "DSPT_Muoi__Trong.pdf",
+      "procedure_stage": "phuc_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "59/2025/DS-ST",
+        "141/2025/TLPT-DS",
+        "392/2025/QĐPT-DS",
+        "483/2025/QĐ-PT"
+      ],
+      "sha256": "a481031abfe442267acf94eb782798b15c5536df77376dbb8bcfb1a0e3704cce",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261026-001",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2035785t1cvn/DSPT_Muoi__Trong.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-26T14:36:24.440293+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-26T14:36:30.205563+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-26T14:48:44.033941+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-26T20:17:10.915490+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-001/DSPT_Muoi__Trong.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261026-001/DSPT_Muoi__Trong_structured.json",
+      "structured_sha256": "9f0b1a98e18f2f9a0f37e3f4f27c408b54b90a91fb2febdd586cabcf8a93d254",
       "underlying_dispute_id": null
     }
   ]
