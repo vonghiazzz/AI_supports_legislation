@@ -30,6 +30,7 @@ PROVENANCE_ANCHOR_VERSION = "independent_provenance_anchor_v1"
 PUBLICATION_JOURNAL_VERSION = "independent_publication_journal_v1"
 REGISTRATION_JOURNAL_VERSION = "independent_registration_journal_v1"
 REVIEW_PAYLOAD_VERSION = "independent_source_review_v1"
+IDENTITY_PAYLOAD_VERSION = "independent_source_identity_v1"
 PROVENANCE_ROOT_RELATIVE = INTAKE_ROOT_RELATIVE / "provenance"
 TRANSACTION_ROOT_RELATIVE = INTAKE_ROOT_RELATIVE / "transactions"
 ACQUISITION_STATUSES = (
@@ -728,7 +729,7 @@ def _require_review_decision_id(value, field_name: str) -> str:
 def validate_source_review_payload(payload: dict) -> dict:
     """Validate the strict, non-patch input accepted by source review mutation."""
 
-    root_fields = {
+    combined_root_fields = {
         "review_version",
         "verified_metadata",
         "verified_fields",
@@ -736,14 +737,53 @@ def validate_source_review_payload(payload: dict) -> dict:
         "underlying_dispute_id",
         "reviews",
     }
-    if not isinstance(payload, dict) or set(payload) != root_fields:
+    review_only_root_fields = {"review_version", "reviews"}
+    if not isinstance(payload, dict) or frozenset(payload) not in {
+        frozenset(combined_root_fields),
+        frozenset(review_only_root_fields),
+    }:
         raise SourceIntakeError("Source review payload has invalid root fields")
     if payload["review_version"] != REVIEW_PAYLOAD_VERSION:
         raise SourceIntakeError("Unsupported source review payload version")
 
+    checked_identity = None
+    if set(payload) == combined_root_fields:
+        checked_identity = validate_source_identity_payload(
+            {
+                "identity_version": IDENTITY_PAYLOAD_VERSION,
+                "verified_metadata": payload["verified_metadata"],
+                "verified_fields": payload["verified_fields"],
+                "related_decision_ids": payload["related_decision_ids"],
+                "underlying_dispute_id": payload["underlying_dispute_id"],
+            }
+        )
+
+    checked_reviews = _validate_review_completion_payload(payload["reviews"])
+    return {
+        "review_version": REVIEW_PAYLOAD_VERSION,
+        "identity": checked_identity,
+        "reviews": checked_reviews,
+    }
+
+
+def validate_source_identity_payload(payload: dict) -> dict:
+    """Validate the strict, per-document identity mutation payload."""
+
+    root_fields = {
+        "identity_version",
+        "verified_metadata",
+        "verified_fields",
+        "related_decision_ids",
+        "underlying_dispute_id",
+    }
+    if not isinstance(payload, dict) or set(payload) != root_fields:
+        raise SourceIntakeError("Source identity payload has invalid root fields")
+    if payload["identity_version"] != IDENTITY_PAYLOAD_VERSION:
+        raise SourceIntakeError("Unsupported source identity payload version")
+
     metadata = payload["verified_metadata"]
     if not isinstance(metadata, dict) or set(metadata) != set(REVIEW_METADATA_FIELDS):
-        raise SourceIntakeError("Source review verified_metadata fields are invalid")
+        raise SourceIntakeError("Source identity verified_metadata fields are invalid")
     checked_metadata = {
         "judgment_number": _require_review_decision_id(
             metadata["judgment_number"], "verified_metadata.judgment_number"
@@ -787,7 +827,7 @@ def validate_source_review_payload(payload: dict) -> dict:
         or not all(verified_fields[field] is True for field in REVIEW_METADATA_FIELDS)
     ):
         raise SourceIntakeError(
-            "Source review requires every supplied legal metadata field to be verified=true"
+            "Source identity requires every supplied legal metadata field to be verified=true"
         )
 
     related = payload["related_decision_ids"]
@@ -806,7 +846,18 @@ def validate_source_review_payload(payload: dict) -> dict:
             underlying, "underlying_dispute_id", maximum=256
         )
 
-    reviews = payload["reviews"]
+    return {
+        "identity_version": IDENTITY_PAYLOAD_VERSION,
+        "verified_metadata": checked_metadata,
+        "verified_fields": {
+            field: True for field in REVIEW_METADATA_FIELDS
+        },
+        "related_decision_ids": checked_related,
+        "underlying_dispute_id": underlying,
+    }
+
+
+def _validate_review_completion_payload(reviews: dict) -> dict:
     if not isinstance(reviews, dict) or set(reviews) != set(
         REVIEW_COMPLETION_FIELDS
     ):
@@ -840,16 +891,7 @@ def validate_source_review_payload(payload: dict) -> dict:
             "findings": checked_findings,
         }
 
-    return {
-        "review_version": REVIEW_PAYLOAD_VERSION,
-        "verified_metadata": checked_metadata,
-        "verified_fields": {
-            field: True for field in REVIEW_METADATA_FIELDS
-        },
-        "related_decision_ids": checked_related,
-        "underlying_dispute_id": underlying,
-        "reviews": checked_reviews,
-    }
+    return checked_reviews
 
 
 def _validate_source_url(source: dict, index: int) -> None:
@@ -1356,6 +1398,33 @@ def _source_gate_failures(source: dict, project_root: Path) -> tuple[list[str], 
     if source["rejection_reasons"]:
         failures.append("unresolved_rejection_reasons")
     return sorted(set(failures)), structured_payload
+
+
+def _source_identity_failures(source: dict) -> list[str]:
+    """Return only failures that mean a source is not identity-ready."""
+
+    failures = []
+    for field in REVIEW_METADATA_FIELDS:
+        if not source[field]:
+            failures.append(f"missing_{field}")
+        if not source["metadata_verification"][field]:
+            failures.append(f"unverified_{field}")
+    return sorted(set(failures))
+
+
+def _source_integrity_failures(
+    source: dict, project_root: Path
+) -> tuple[list[str], dict | None]:
+    """Validate artifacts while excluding lifecycle gates from the result."""
+
+    failures, structured_payload = _source_gate_failures(source, project_root)
+    lifecycle_failures = set(_source_identity_failures(source)) | {
+        f"incomplete_{field}" for field in REVIEW_COMPLETION_FIELDS
+    } | {"unresolved_rejection_reasons"}
+    return (
+        [failure for failure in failures if failure not in lifecycle_failures],
+        structured_payload,
+    )
 
 
 def _source_to_inventory_record(
@@ -2562,21 +2631,23 @@ def _eligibility_dedup_report(
     ):
         if source["acquisition_status"] not in candidate_statuses:
             continue
-        failures, structured_payload = _source_gate_failures(source, project_root)
-        dedup_blockers = [
-            failure
-            for failure in failures
-            if not failure.startswith("incomplete_")
-            and not failure.startswith("unresolved_rejection_reasons")
-        ]
-        if dedup_blockers or structured_payload is None:
+        integrity_failures, structured_payload = _source_integrity_failures(
+            source, project_root
+        )
+        if integrity_failures or structured_payload is None:
             joined = (
-                ", ".join(dedup_blockers)
+                ", ".join(integrity_failures)
                 or "structured_payload_unavailable"
             )
             raise SourceIntakeError(
                 "Cannot evaluate independent-source dedup pool for "
                 f"{source['acquisition_id']}: {joined}"
+            )
+        identity_failures = _source_identity_failures(source)
+        if identity_failures:
+            raise SourceIntakeError(
+                "Peer identity not ready for independent-source dedup pool: "
+                f"{source['acquisition_id']}: {', '.join(identity_failures)}"
             )
         independent_inventory.append(
             _source_to_inventory_record(
@@ -2673,6 +2744,222 @@ def _review_publication_checkpoint(name: str) -> None:
     """Test seam for review races and atomic-publication failures."""
 
 
+def _identity_publication_checkpoint(name: str) -> None:
+    """Test seam for identity races and atomic-publication failures."""
+
+
+def _apply_verified_identity(source: dict, checked_identity: dict) -> None:
+    """Apply one validated identity without allowing conflicting overwrites."""
+
+    identity_was_ready = not _source_identity_failures(source)
+    for field in REVIEW_METADATA_FIELDS:
+        prior_value = source[field]
+        identity_value = checked_identity["verified_metadata"][field]
+        if prior_value is not None and prior_value != identity_value:
+            raise SourceIntakeError(
+                f"Source identity conflicts with existing {field}"
+            )
+        source[field] = identity_value
+        source["metadata_verification"][field] = True
+
+    prior_related = source["related_decision_ids"]
+    identity_related = checked_identity["related_decision_ids"]
+    if (
+        (identity_was_ready and prior_related != identity_related)
+        or (not identity_was_ready and prior_related and prior_related != identity_related)
+    ):
+        raise SourceIntakeError(
+            "Source identity conflicts with existing related_decision_ids"
+        )
+    source["related_decision_ids"] = list(identity_related)
+
+    prior_underlying = source["underlying_dispute_id"]
+    identity_underlying = checked_identity["underlying_dispute_id"]
+    if (
+        (identity_was_ready and prior_underlying != identity_underlying)
+        or (
+            not identity_was_ready
+            and prior_underlying is not None
+            and prior_underlying != identity_underlying
+        )
+    ):
+        raise SourceIntakeError(
+            "Source identity conflicts with existing underlying_dispute_id"
+        )
+    source["underlying_dispute_id"] = identity_underlying
+
+
+def _source_identity_result(source: dict, project_root: Path, *, idempotent_noop: bool) -> dict:
+    failures, _ = _source_gate_failures(source, project_root)
+    return {
+        "acquisition_id": source["acquisition_id"],
+        "source_id": source["source_id"],
+        "acquisition_status": source["acquisition_status"],
+        "metadata_verification": deepcopy(source["metadata_verification"]),
+        "gate_failures": failures,
+        "idempotent_noop": idempotent_noop,
+    }
+
+
+def record_source_identity(
+    project_root: Path,
+    acquisition_id: str,
+    identity_payload: dict,
+) -> dict:
+    """Persist verified per-document identity without review or promotion."""
+
+    project_root = Path(project_root).resolve()
+    checked_identity = validate_source_identity_payload(identity_payload)
+    _, intake_chain = _open_trusted_directory(
+        project_root, INTAKE_ROOT_RELATIVE, create=False
+    )
+    _acquire_manifest_mutation_lock(intake_chain)
+    try:
+        manifest, original_manifest_bytes = _load_authoritative_manifest_locked(
+            project_root, intake_chain
+        )
+        matches = [
+            source
+            for source in manifest["sources"]
+            if source["acquisition_id"] == acquisition_id
+        ]
+        if len(matches) != 1:
+            raise SourceIntakeError(f"Unknown acquisition_id: {acquisition_id}")
+        source = matches[0]
+        if source["acquisition_status"] != "extracted":
+            raise SourceIntakeError(
+                "Source identity requires extracted status; "
+                f"found {source['acquisition_status']}"
+            )
+        integrity_failures, structured_payload = _source_integrity_failures(
+            source, project_root
+        )
+        if integrity_failures or structured_payload is None:
+            joined = (
+                ", ".join(integrity_failures)
+                or "structured_payload_unavailable"
+            )
+            raise SourceIntakeError(
+                f"Source identity integrity gates failed for {acquisition_id}: {joined}"
+            )
+
+        updated_manifest = deepcopy(manifest)
+        updated_source = next(
+            item
+            for item in updated_manifest["sources"]
+            if item["acquisition_id"] == acquisition_id
+        )
+        _apply_verified_identity(updated_source, checked_identity)
+
+        allowed_changes = set(REVIEW_METADATA_FIELDS) | {
+            "underlying_dispute_id",
+            "related_decision_ids",
+            "metadata_verification",
+        }
+        for field in SOURCE_REQUIRED_FIELDS - allowed_changes:
+            if updated_source[field] != source[field]:
+                raise SourceIntakeError(
+                    f"Source identity attempted forbidden mutation: {field}"
+                )
+        for field in REVIEW_COMPLETION_FIELDS:
+            if (
+                updated_source["metadata_verification"][field]
+                != source["metadata_verification"][field]
+            ):
+                raise SourceIntakeError(
+                    f"Source identity attempted review mutation: {field}"
+                )
+
+        validate_acquisition_manifest(updated_manifest, prior_manifest=manifest)
+        _validate_manifest_anchors(project_root, updated_manifest)
+        _validate_manifest_artifacts(project_root, updated_manifest)
+
+        if updated_source == source:
+            return _source_identity_result(
+                updated_source, project_root, idempotent_noop=True
+            )
+
+        intended_manifest_bytes = _canonical_json_bytes(updated_manifest)
+        try:
+            _identity_publication_checkpoint("before_manifest_compare")
+            current_manifest_bytes = _read_regular_bytes_at(
+                intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+            )
+            if current_manifest_bytes != original_manifest_bytes:
+                raise SourceIntakeError(
+                    "Acquisition manifest changed during source identity"
+                )
+            intake_chain.assert_identity()
+            _atomic_write_bytes_at(
+                intake_chain.fd,
+                ACQUISITION_MANIFEST_RELATIVE.name,
+                intended_manifest_bytes,
+            )
+            _identity_publication_checkpoint("after_manifest_replacement")
+            if (
+                _read_regular_bytes_at(
+                    intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+                )
+                != intended_manifest_bytes
+            ):
+                raise SourceIntakeError(
+                    "Published source-identity manifest verification failed"
+                )
+            checked_manifest, checked_bytes = _load_authoritative_manifest_locked(
+                project_root, intake_chain
+            )
+            checked_source = next(
+                item
+                for item in checked_manifest["sources"]
+                if item["acquisition_id"] == acquisition_id
+            )
+            if checked_bytes != intended_manifest_bytes or checked_source != updated_source:
+                raise SourceIntakeError(
+                    "Published source identity failed authoritative reload"
+                )
+            result = _source_identity_result(
+                checked_source, project_root, idempotent_noop=False
+            )
+        except Exception as publication_error:
+            current_manifest_bytes = _read_regular_bytes_at(
+                intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+            )
+            if current_manifest_bytes == intended_manifest_bytes:
+                try:
+                    _atomic_write_bytes_at(
+                        intake_chain.fd,
+                        ACQUISITION_MANIFEST_RELATIVE.name,
+                        original_manifest_bytes,
+                    )
+                    if (
+                        _read_regular_bytes_at(
+                            intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+                        )
+                        != original_manifest_bytes
+                    ):
+                        raise SourceIntakeError(
+                            "Source-identity rollback verification failed"
+                        )
+                    _load_authoritative_manifest_locked(project_root, intake_chain)
+                except Exception as rollback_error:
+                    raise SourceIntakeError(
+                        "Source-identity publication rollback failed"
+                    ) from rollback_error
+                raise SourceIntakeError(
+                    "Source-identity publication failed; previous manifest restored"
+                ) from publication_error
+            if current_manifest_bytes != original_manifest_bytes:
+                raise SourceIntakeError(
+                    "Source-identity publication failed with an unexpected manifest "
+                    "state; refusing unsafe overwrite"
+                ) from publication_error
+            raise
+        return result
+    finally:
+        _release_manifest_mutation_lock(intake_chain)
+        intake_chain.close()
+
+
 def _source_review_result(
     project_root: Path,
     manifest: dict,
@@ -2740,31 +3027,15 @@ def record_source_review(
             for item in updated_manifest["sources"]
             if item["acquisition_id"] == acquisition_id
         )
-        for field in REVIEW_METADATA_FIELDS:
-            prior_value = source[field]
-            reviewed_value = checked_review["verified_metadata"][field]
-            if prior_value is not None and prior_value != reviewed_value:
+        if checked_review["identity"] is not None:
+            _apply_verified_identity(updated_source, checked_review["identity"])
+        else:
+            identity_failures = _source_identity_failures(source)
+            if identity_failures:
                 raise SourceIntakeError(
-                    f"Source review conflicts with existing {field}"
+                    "Source review target identity not ready: "
+                    + ", ".join(identity_failures)
                 )
-            updated_source[field] = reviewed_value
-            updated_source["metadata_verification"][field] = True
-
-        prior_related = source["related_decision_ids"]
-        reviewed_related = checked_review["related_decision_ids"]
-        if prior_related and prior_related != reviewed_related:
-            raise SourceIntakeError(
-                "Source review conflicts with existing related_decision_ids"
-            )
-        updated_source["related_decision_ids"] = reviewed_related
-
-        prior_underlying = source["underlying_dispute_id"]
-        reviewed_underlying = checked_review["underlying_dispute_id"]
-        if prior_underlying is not None and prior_underlying != reviewed_underlying:
-            raise SourceIntakeError(
-                "Source review conflicts with existing underlying_dispute_id"
-            )
-        updated_source["underlying_dispute_id"] = reviewed_underlying
 
         for field in REVIEW_COMPLETION_FIELDS:
             completed = checked_review["reviews"][field]["completed"]
@@ -3384,7 +3655,14 @@ def main() -> None:
     )
     parser.add_argument(
         "command",
-        choices=("validate", "register", "extract", "review", "promote-eligible"),
+        choices=(
+            "validate",
+            "register",
+            "extract",
+            "identify",
+            "review",
+            "promote-eligible",
+        ),
     )
     parser.add_argument("--project-root", type=Path, default=Path(__file__).resolve().parents[4])
     parser.add_argument("--acquisition-id")
@@ -3394,16 +3672,21 @@ def main() -> None:
     parser.add_argument("--source-domain")
     parser.add_argument("--download-timestamp")
     parser.add_argument("--original-filename")
+    parser.add_argument("--identity-file", type=Path)
     parser.add_argument("--review-file", type=Path)
     parser.add_argument("--force-ocr", action="store_true")
     args = parser.parse_args()
     if args.command == "validate":
+        if args.identity_file is not None:
+            parser.error("--identity-file is only valid for identify")
         if args.review_file is not None:
             parser.error("--review-file is only valid for review")
         _, report, _ = inventory_independent_sources(args.project_root)
         print(json.dumps(report, ensure_ascii=False, indent=2))
         return
     if args.command == "register":
+        if args.identity_file is not None:
+            parser.error("--identity-file is only valid for identify")
         if args.review_file is not None:
             parser.error("--review-file is only valid for review")
         if args.force_ocr:
@@ -3439,6 +3722,48 @@ def main() -> None:
         )
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return
+    if args.command == "identify":
+        forbidden = {
+            "--pdf": args.pdf,
+            "--source-url": args.source_url,
+            "--offline-description": args.offline_description,
+            "--source-domain": args.source_domain,
+            "--download-timestamp": args.download_timestamp,
+            "--original-filename": args.original_filename,
+            "--review-file": args.review_file,
+        }
+        supplied_forbidden = [
+            name for name, value in forbidden.items() if value is not None
+        ]
+        if args.force_ocr:
+            supplied_forbidden.append("--force-ocr")
+        if supplied_forbidden:
+            parser.error(
+                "identify rejects unrelated arguments: "
+                + ", ".join(supplied_forbidden)
+            )
+        if not args.acquisition_id or args.identity_file is None:
+            parser.error(
+                "identify requires --acquisition-id and --identity-file"
+            )
+        identity_path = args.identity_file
+        if (
+            not _lexists(identity_path)
+            or identity_path.is_symlink()
+            or not identity_path.is_file()
+        ):
+            parser.error("--identity-file must be a regular non-symlink file")
+        try:
+            identity_payload = json.loads(
+                identity_path.read_bytes().decode("utf-8")
+            )
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+            parser.error(f"--identity-file must contain valid UTF-8 JSON: {exc}")
+        result = record_source_identity(
+            args.project_root, args.acquisition_id, identity_payload
+        )
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return
     if args.command == "review":
         forbidden = {
             "--pdf": args.pdf,
@@ -3447,6 +3772,7 @@ def main() -> None:
             "--source-domain": args.source_domain,
             "--download-timestamp": args.download_timestamp,
             "--original-filename": args.original_filename,
+            "--identity-file": args.identity_file,
         }
         supplied_forbidden = [
             name for name, value in forbidden.items() if value is not None
@@ -3479,6 +3805,8 @@ def main() -> None:
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return
     if args.command == "promote-eligible":
+        if args.identity_file is not None:
+            parser.error("--identity-file is only valid for identify")
         if args.review_file is not None:
             parser.error("--review-file is only valid for review")
         if args.force_ocr:
@@ -3490,6 +3818,8 @@ def main() -> None:
         )
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return
+    if args.identity_file is not None:
+        parser.error("--identity-file is only valid for identify")
     if args.review_file is not None:
         parser.error("--review-file is only valid for review")
     if not args.acquisition_id:

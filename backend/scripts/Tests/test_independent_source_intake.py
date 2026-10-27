@@ -304,13 +304,21 @@ def test_valid_acquisition_manifest_and_current_production_intake_state():
         f"pilot-20261025-{index:03d}" for index in range(1, 25)
     }
     scale_id = "scale-20261026-001"
-    expected_ids = pilot_ids | {scale_id}
+    batch_ids = {
+        f"scale-20261026-{index:03d}" for index in range(2, 51)
+    }
+    blocked_ids = {
+        f"scale-20261026-{index:03d}"
+        for index in (3, 8, 9, 12, 20, 22, 23, 42, 46, 47, 50)
+    }
+    eligible_ids = pilot_ids | {scale_id} | (batch_ids - blocked_ids)
+    expected_ids = eligible_ids | batch_ids
     assert {source["acquisition_id"] for source in checked["sources"]} == expected_ids
     assert {
         source["acquisition_id"]
         for source in checked["sources"]
         if source["acquisition_status"] == "extracted"
-    } == set()
+    } == blocked_ids
     assert {
         source["acquisition_id"]
         for source in checked["sources"]
@@ -320,7 +328,7 @@ def test_valid_acquisition_manifest_and_current_production_intake_state():
         source["acquisition_id"]
         for source in checked["sources"]
         if source["acquisition_status"] == "eligible"
-    } == expected_ids
+    } == eligible_ids
     assert all(source["structured_sha256"] is not None for source in checked["sources"])
     assert {
         path.parent.name
@@ -1732,15 +1740,20 @@ def test_historical_inventory_and_fingerprint_remain_unchanged():
     )
 
 
-def test_current_independent_pool_has_25_eligible_sources_and_benchmark_is_draft():
+def test_current_independent_pool_has_63_eligible_sources_and_benchmark_is_draft():
     inventory, report, links = inventory_independent_sources(PROJECT_ROOT)
     benchmark_manifest = json.loads(
         (BENCHMARK_DIR / "benchmark_manifest.json").read_text(encoding="utf-8")
     )
+    blocked_numbers = {3, 8, 9, 12, 20, 22, 23, 42, 46, 47, 50}
     assert [record["source_id"] for record in inventory] == [
         f"independent:pilot-20261025-{index:03d}" for index in range(1, 25)
-    ] + ["independent:scale-20261026-001"]
-    assert report["eligible_source_count"] == 25
+    ] + [
+        f"independent:scale-20261026-{index:03d}"
+        for index in range(1, 51)
+        if index not in blocked_numbers
+    ]
+    assert report["eligible_source_count"] == 63
     assert links == []
     assert benchmark_manifest["state"] == "DRAFT"
     assert benchmark_manifest["current_counts"]["selected_cases"] == 0

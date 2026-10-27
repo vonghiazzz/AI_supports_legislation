@@ -176,15 +176,20 @@ def test_phase1_inventory_combines_development_and_eligible_independent_sources(
     sampling, report = phase1_payloads(
         PROJECT_ROOT, generation_timestamp="2026-10-24T00:00:00+00:00"
     )
-    assert len(sampling["available_source_inventory"]) == 132
+    assert len(sampling["available_source_inventory"]) == 170
     assert report["development_sources_matched"] == 107
     assert report["development_sources_unmatched"] == 0
     eligible_ids = [record["source_id"] for record in sampling["eligible_sources"]]
-    assert len(eligible_ids) == 25
+    assert len(eligible_ids) == 63
+    blocked_numbers = {3, 8, 9, 12, 20, 22, 23, 42, 46, 47, 50}
     assert set(eligible_ids) == {
         f"independent:pilot-20261025-{index:03d}" for index in range(1, 25)
-    } | {"independent:scale-20261026-001"}
-    assert report["eligible_source_count"] == 25
+    } | {
+        f"independent:scale-20261026-{index:03d}"
+        for index in range(1, 51)
+        if index not in blocked_numbers
+    }
+    assert report["eligible_source_count"] == 63
     assert not [
         exclusion
         for exclusion in report["exclusions"]
@@ -328,9 +333,9 @@ def test_quota_guardrails_fail_closed_for_insufficient_eligible_frame():
     sampling = json.loads((BENCHMARK_DIR / "sampling_manifest.json").read_text(encoding="utf-8"))
     feasibility = sampling["quota_feasibility"]
     assert feasibility["status"] == "INFEASIBLE"
-    assert feasibility["eligible_count"] == 25
+    assert feasibility["eligible_count"] == 63
     assert feasibility["minimum_total"] == 180
-    assert "eligible source count 25 is below minimum total 180" in feasibility["blockers"]
+    assert "eligible source count 63 is below minimum total 180" in feasibility["blockers"]
     assert feasibility["main_guardrails"]["BLTTDS_only_procedural_max_ratio"] == 0.20
     assert feasibility["main_guardrails"]["substantive_core_min_ratio"] == 0.65
 
@@ -551,9 +556,9 @@ def test_draft_manifest_hashes_all_phase1_artifacts():
     assert checked["corpus_fingerprint"] == CORPUS_FINGERPRINT
     assert checked["phase1_artifacts"] == manifest["phase1_artifacts"]
     assert checked["source_files"] == manifest["source_files"]
-    assert checked["current_counts"]["available_sources"] == 132
+    assert checked["current_counts"]["available_sources"] == 170
     assert checked["current_counts"]["development_sources_consumed"] == 107
-    assert checked["current_counts"]["eligible_sources"] == 25
+    assert checked["current_counts"]["eligible_sources"] == 63
     assert checked["current_counts"]["selected_cases"] == 0
     assert checked["current_counts"]["query_records"] == 0
     assert checked["current_counts"]["ground_truth_records"] == 0
@@ -563,6 +568,6 @@ def test_no_final_benchmark_or_gt_records_exist():
     assert not (BENCHMARK_DIR / "judgments_evaluation_independent_v1.json").exists()
     sampling = json.loads((BENCHMARK_DIR / "sampling_manifest.json").read_text(encoding="utf-8"))
     assert sampling["selection_status"] == "NOT_STARTED"
-    assert len(sampling["eligible_sources"]) == 25
+    assert len(sampling["eligible_sources"]) == 63
     assert "selected_cases" not in sampling
 
