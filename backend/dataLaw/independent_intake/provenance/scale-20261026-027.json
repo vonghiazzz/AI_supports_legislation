@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-027",
+  "anchor_fingerprint": "6601083c82da3df819e4bccc43d1987218f78cf196983c58c090be535f646473",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:34.910927+07:00",
+  "offline_provenance": null,
+  "original_filename": "án_PTDS_Dức_Thành_thừa_kế_phát_hành.pdf",
+  "pdf_sha256": "51cf3aa78066bbf1c52cabb3d0605c5cddeac3328b815cae7a45f7aa14d42cd4",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-027",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1150254t1cvn/a%CC%81n_PTDS_Du%CC%9B%CC%81c_Tha%CC%80nh_thu%CC%9B%CC%80a_ke%CC%82%CC%81_pha%CC%81t_ha%CC%80nh.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-027/án_PTDS_Dức_Thành_thừa_kế_phát_hành.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-049",
+  "anchor_fingerprint": "b951c1553ce7b80c8dededfadcb3513d1b51e8c737afb4f9799d1eb559274284",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:43.541598+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_H___N.pdf",
+  "pdf_sha256": "07f7637bb9ec31032699a38e059bab55b1c0e9e299e5cfe3627e625dacbc4628",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-049",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta584816t1cvn/Ban_an_H___N.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-049/Ban_an_H___N.pdf"
+}

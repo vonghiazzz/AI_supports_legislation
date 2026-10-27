@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-044",
+  "anchor_fingerprint": "a9870bc4bcb5f005719ded5f6dc39666a9104518b4e1585e7cc4528378c6765a",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:41.626000+07:00",
+  "offline_provenance": null,
+  "original_filename": "Quyet_dinh_Cong_chung_vo_hieu.pdf",
+  "pdf_sha256": "a6cd896f8419fadf1f94553cdab6ac84f45619eded26bf88ace31a83897bae5d",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-044",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta597421t1cvn/Quyet_dinh_Cong_chung_vo_hieu.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-044/Quyet_dinh_Cong_chung_vo_hieu.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-015",
+  "anchor_fingerprint": "8203ee3631d8906ffeef18e45ff40d6bf15ad3be069e068fcb2d7e21e1bd55ba",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:30.217228+07:00",
+  "offline_provenance": null,
+  "original_filename": "126_AN_KDTM.pdf",
+  "pdf_sha256": "febd8ddecacf0949a3bb33b3c58286ead03ed262f616e71724fca7359797ac94",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-015",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1991022t1cvn/126_AN_KDTM.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-015/126_AN_KDTM.pdf"
+}

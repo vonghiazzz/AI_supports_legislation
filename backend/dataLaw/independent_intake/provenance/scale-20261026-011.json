@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-011",
+  "anchor_fingerprint": "d459ec55446ab0884e43395d386df2fd689d1ca80389231284874d2361df4d58",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:28.648415+07:00",
+  "offline_provenance": null,
+  "original_filename": "banan_27_ds_1712025_lt_pt_vtnd_mhoang_mahoa.pdf",
+  "pdf_sha256": "0ae11b8062682ac0eccb756a077bd78290f6b539c568fa058dfd1b4a51c6f2b2",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-011",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1718467t1cvn/banan_27_ds_1712025_lt_pt_vtnd_mhoang_mahoa.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-011/banan_27_ds_1712025_lt_pt_vtnd_mhoang_mahoa.pdf"
+}

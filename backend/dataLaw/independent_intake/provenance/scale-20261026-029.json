@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-029",
+  "anchor_fingerprint": "3ca2c5a1212a7c07c24fffad45095f01e08967b89ff4ad146aa20cfc3aabd7b8",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:35.666279+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ba_Hoang_Thi_V_tranh_chap_hop_dong_dat_coc_voi_ba_Nguyen_Thi_Thanh_Ng.pdf",
+  "pdf_sha256": "5bfe3894e87bbd5bf1dacb0feff2ad824713ce5611636c565ff2d3aa078a65ad",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-029",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1590186t1cvn/Ba_Hoang_Thi_V_tranh_chap_hop_dong_dat_coc_voi_ba_Nguyen_Thi_Thanh_Ng.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-029/Ba_Hoang_Thi_V_tranh_chap_hop_dong_dat_coc_voi_ba_Nguyen_Thi_Thanh_Ng.pdf"
+}

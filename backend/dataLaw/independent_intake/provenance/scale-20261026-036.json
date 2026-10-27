@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-036",
+  "anchor_fingerprint": "31f860c5e0ce633e5865ec00336452beb4e5e7281a90fb2af2c2c4ee3f9cfc30",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:38.374603+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_HNGDST_Ma_Thi_L__Vo_Van_T.pdf",
+  "pdf_sha256": "d9231d5b56bde0d6583d15ed548b88b96922a24d54261e09249239b3101f8193",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-036",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta877729t1cvn/Ban_an_HNGDST_Ma_Thi_L__Vo_Van_T.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-036/Ban_an_HNGDST_Ma_Thi_L__Vo_Van_T.pdf"
+}

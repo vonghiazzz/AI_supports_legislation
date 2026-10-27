@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-040",
+  "anchor_fingerprint": "129db27c2cc3c1344ef31b39e0863ef5a66ca7882169b553b0ecdbd81416b422",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:40.018981+07:00",
+  "offline_provenance": null,
+  "original_filename": "TUYEN_BO_VBCC_VO_HIEU.pdf",
+  "pdf_sha256": "de9a00acc8a14fc67faddb9193ea447cd447c140be21b5268e9a8b2fa14872d4",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-040",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1692089t1cvn/TUYEN_BO_VBCC_VO_HIEU.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-040/TUYEN_BO_VBCC_VO_HIEU.pdf"
+}

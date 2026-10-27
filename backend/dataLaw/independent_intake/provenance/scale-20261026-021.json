@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-021",
+  "anchor_fingerprint": "2a0e5d558bd8d7cf7fe68aaa4ed95bcd709d8fdca2b19236827451803f389238",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:32.509490+07:00",
+  "offline_provenance": null,
+  "original_filename": "sample__20260119T134823304.pdf",
+  "pdf_sha256": "83844a49092b3d2abbce777f13f4680d4e24945b768a545c32a667394e4a3900",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-021",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2025728t1cvn/sample__20260119T134823304.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-021/sample__20260119T134823304.pdf"
+}

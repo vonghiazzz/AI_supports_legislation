@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-013",
+  "anchor_fingerprint": "4c15cd056c9ca364abf64fed013ac1f1e57a7b17fba42ff5c863247c70fc6bc4",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:29.455017+07:00",
+  "offline_provenance": null,
+  "original_filename": "BAPTDS71.pdf",
+  "pdf_sha256": "999b501b3e843155a46f28c7f113bb32499467aca3acf23acfcae6ca2063b7a0",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-013",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1895272t1cvn/BAPTDS71.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-013/BAPTDS71.pdf"
+}

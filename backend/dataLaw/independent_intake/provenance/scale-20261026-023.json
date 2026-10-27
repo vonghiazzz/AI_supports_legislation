@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-023",
+  "anchor_fingerprint": "3ac71194a6473d21134d5c25de0c4e0c8709cb11368e78580d6085da29ee2f16",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:33.332452+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_DSST_ThuyXoa_ma_hoa.pdf",
+  "pdf_sha256": "56d5b8714f097aaa9e75e2a2da47bcc18e8dcc34e4b732dfc0b8d4ad8e448dd8",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-023",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1201398t1cvn/Ban_an_DSST_ThuyXoa_ma_hoa.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-023/Ban_an_DSST_ThuyXoa_ma_hoa.pdf"
+}

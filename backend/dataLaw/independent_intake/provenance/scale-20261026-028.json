@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-028",
+  "anchor_fingerprint": "2682d6aab7694f9022600fc32b50b32aa2187a15a1814f1c66cac25d2d7acf39",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:35.295551+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ma_hoa_Ban_an_DS_done.pdf",
+  "pdf_sha256": "94e82e2a66c75d872560febfd0da9cdd3ad0616ad9fae34ef63574a1b618825a",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-028",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta815847t1cvn/Ma_hoa_Ban_an_DS_done.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-028/Ma_hoa_Ban_an_DS_done.pdf"
+}

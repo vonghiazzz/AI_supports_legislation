@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-017",
+  "anchor_fingerprint": "2d248d62d75b3b646a31c4aa909552bfc65a4bc1e0a1504b6fd4c2be72dfc537",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:31.008551+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_DSPT_Ngan_hang_V___Phan_C_2.pdf",
+  "pdf_sha256": "f40e088a6c1b31f1f5f9d2ba8d89b1d37a65a3f24f6f20f471bc73653ca24736",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-017",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta218574t1cvn/Ban_an_DSPT_Ngan_hang_V___Phan_C_2.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-017/Ban_an_DSPT_Ngan_hang_V___Phan_C_2.pdf"
+}

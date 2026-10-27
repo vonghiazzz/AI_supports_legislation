@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-004",
+  "anchor_fingerprint": "096408b4d045759daa2561a3f007daeeb85846b9cb0ad9f081c9a11a483b5090",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:26.030771+07:00",
+  "offline_provenance": null,
+  "original_filename": "BAN_AN_VU__PHUONG____XE_RANH.pdf",
+  "pdf_sha256": "08c6fb814336921f25ad6e6014cfd43a2dd78e6ff385a47b160cfddbe37adbe1",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-004",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1047t1cvn/BAN_AN_VU__PHUONG____XE_RANH.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-004/BAN_AN_VU__PHUONG____XE_RANH.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-048",
+  "anchor_fingerprint": "ea88858746cce94824c0db839489cc54c84f3ecc8b238ac263d6302b1869111d",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:43.149437+07:00",
+  "offline_provenance": null,
+  "original_filename": "AN_SA_HOA.pdf",
+  "pdf_sha256": "cc133cf04866db844a0c9c6e92008aa50c2b7ae45c3303baff6c0929374f7570",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-048",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta178854t1cvn/AN_SA_HOA.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-048/AN_SA_HOA.pdf"
+}

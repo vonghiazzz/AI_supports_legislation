@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-025",
+  "anchor_fingerprint": "4a6348dbf7f8d8a97d7d30a919aa32f5d3ae9e9110c58f2d609bd72ec90bc710",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:34.150750+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_thua_ke_ong_D__ong_N.pdf",
+  "pdf_sha256": "abe66ddd9ea9df116bbb40a65a7b2b047cc117e3ff603a9af094c3e953a87009",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-025",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta831055t1cvn/Ban_an_thua_ke_ong_D__ong_N.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-025/Ban_an_thua_ke_ong_D__ong_N.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-007",
+  "anchor_fingerprint": "b40aefbf3cb7d2bc1ebeb25955539df2c5f29aa3cab4a26eac806e071e419425",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:27.133601+07:00",
+  "offline_provenance": null,
+  "original_filename": "459_BAPT_Hai__Nga.pdf",
+  "pdf_sha256": "e828ddfb7ee642595777fd1ae714a4ff536d0b3d29ba742908bbb49731348845",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-007",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1437860t1cvn/459_BAPT_Hai__Nga.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-007/459_BAPT_Hai__Nga.pdf"
+}

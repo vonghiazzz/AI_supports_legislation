@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-037",
+  "anchor_fingerprint": "9b4017826c093a2ff918fc8a3e59e5dd69015724ec029b8d6d824da09c02048c",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:38.733914+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_Xac_nhan_cha_con.pdf",
+  "pdf_sha256": "5b5dec34683c510526dedf56df62960bf426af676f6c07cd020da0668095fe6c",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-037",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1988788t1cvn/Ban_an_Xac_nhan_cha_con.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-037/Ban_an_Xac_nhan_cha_con.pdf"
+}

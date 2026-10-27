@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-043",
+  "anchor_fingerprint": "ad04a6d7ff4cda451e465cabc858f2e7b1c9df85d1d8853723d1c36b332b77a9",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:41.229504+07:00",
+  "offline_provenance": null,
+  "original_filename": "07_BAHNGDPT_Tuc__DAN_phat_hanh.pdf",
+  "pdf_sha256": "a8223470a316453092f88ae39df5a4cbd359238593d2a9c192c9e11e38bf46e4",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-043",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1533214t1cvn/07_BAHNGDPT_Tuc__DAN_phat_hanh.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-043/07_BAHNGDPT_Tuc__DAN_phat_hanh.pdf"
+}

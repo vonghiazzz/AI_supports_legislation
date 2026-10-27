@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-010",
+  "anchor_fingerprint": "cc0347d21443d9e8118cea707ebe11a371ef5a5d37519ff98261a858f6e13feb",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:28.318571+07:00",
+  "offline_provenance": null,
+  "original_filename": "ma_hó_bapt_phat_hanh.pdf",
+  "pdf_sha256": "f3054b6c74d5bf6f4887202745e0252d7fc1dc860991a5f70566f6789a6990b3",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-010",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1684964t1cvn/ma_hó_bapt_phat_hanh.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-010/ma_hó_bapt_phat_hanh.pdf"
+}

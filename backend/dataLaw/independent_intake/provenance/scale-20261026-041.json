@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-041",
+  "anchor_fingerprint": "966b365e5c64a95315bc3a844a2199d7d82ba6b9c5939115bf338e19835fbf8d",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:40.440029+07:00",
+  "offline_provenance": null,
+  "original_filename": "QD_GQVDS_tuyen_huy_VBCC_vo_hieu.pdf",
+  "pdf_sha256": "9e1397a0ad0906708b29d30834a92a4f58da774888b1e0442f2a367e3961975e",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-041",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta48081t1cvn/QD_GQVDS_tuyen_huy_VBCC_vo_hieu.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-041/QD_GQVDS_tuyen_huy_VBCC_vo_hieu.pdf"
+}

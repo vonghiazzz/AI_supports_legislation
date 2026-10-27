@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-033",
+  "anchor_fingerprint": "4e350f22ae55d34d16066cbbc947b321d3e6f1bfa8d1c5514a4cf2a38a360e03",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:37.176136+07:00",
+  "offline_provenance": null,
+  "original_filename": "Tranh_chap_hop_dong_vay_tai_san_G_T.pdf",
+  "pdf_sha256": "4f1b0ba4fcdc9909a3291fe13d1340373ed14100305438aeee0553041cd0873a",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-033",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta425695t1cvn/Tranh_chap_hop_dong_vay_tai_san_G_T.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-033/Tranh_chap_hop_dong_vay_tai_san_G_T.pdf"
+}

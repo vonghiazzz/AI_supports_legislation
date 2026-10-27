@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-009",
+  "anchor_fingerprint": "cf5acf0fbc6aebafc3a1264922f9db4930e3720312b80a8ab1cc513579745433",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:27.962905+07:00",
+  "offline_provenance": null,
+  "original_filename": "BAN_AN_PHUC_THAM_VU_S__V.pdf",
+  "pdf_sha256": "65a51a9e299f77089bff52a2832336e9c84c7840d937d820939c95ed0cba56bf",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-009",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1549965t1cvn/BAN_AN_PHUC_THAM_VU_S__V.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-009/BAN_AN_PHUC_THAM_VU_S__V.pdf"
+}

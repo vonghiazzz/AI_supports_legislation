@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-022",
+  "anchor_fingerprint": "417de46a399d1054549c726763429a094493433fccdb8c37181cde7af605e07e",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:32.934102+07:00",
+  "offline_provenance": null,
+  "original_filename": "Hòa__UBTPTN.pdf",
+  "pdf_sha256": "5f192bc9de2c4095d5427ec6fbacc4fd6cb7ce50666e7a25e9198e38e461ce1d",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-022",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1268676t1cvn/Ho%CC%80a__UBTPTN.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-022/Hòa__UBTPTN.pdf"
+}

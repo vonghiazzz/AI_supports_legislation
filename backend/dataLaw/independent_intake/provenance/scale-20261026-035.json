@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-035",
+  "anchor_fingerprint": "4ea350048e2a198387545e42d44ad769a3a4e0b638f4279977529d9ecc493db2",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:37.949769+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_so_06_2023_HNGD.pdf",
+  "pdf_sha256": "f42c070531949d620af80f1a24e2937bc1de3b8ef097ce03b47c453bb4bc5818",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-035",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1208959t1cvn/Ban_an_so_06_2023_HNGD.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-035/Ban_an_so_06_2023_HNGD.pdf"
+}

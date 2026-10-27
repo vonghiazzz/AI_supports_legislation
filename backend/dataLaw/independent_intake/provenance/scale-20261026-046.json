@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-046",
+  "anchor_fingerprint": "7c70755b561db8f387a37fa4110cc6df49d354d5562697f6e5bc920378fd55c3",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:42.358668+07:00",
+  "offline_provenance": null,
+  "original_filename": "BADSPT_L__H_.pdf",
+  "pdf_sha256": "7a28c00f1b646cffd821db17e54b3cb12aa560de19d12723b1c68e6220d76a81",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-046",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2018434t1cvn/BADSPT_L__H_.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-046/BADSPT_L__H_.pdf"
+}

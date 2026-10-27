@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-039",
+  "anchor_fingerprint": "7ccd0cfe91b27cd0d66c2d71b9af0bbe3e2be048006a941f41d95651a0e6fb9a",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:39.630785+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_DSPT_2022_tranh_chap_HDCNQDS_dat_doi_lai_tai_san_va_BTTH_ngoai_.pdf",
+  "pdf_sha256": "b891323465de96ac60ec39209c30683681c69a75c88a56cb667306763ae1bb36",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-039",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta941262t1cvn/Ban_an_DSPT_2022_tranh_chap_HDCNQDS_dat_doi_lai_tai_san_va_BTTH_ngoai_.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-039/Ban_an_DSPT_2022_tranh_chap_HDCNQDS_dat_doi_lai_tai_san_va_BTTH_ngoai_.pdf"
+}

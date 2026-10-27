@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-034",
+  "anchor_fingerprint": "9305e8609d324e8bd45e6ca1fd1fa497e2b57a04f7c6b4234be5643adee32dd0",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:37.593388+07:00",
+  "offline_provenance": null,
+  "original_filename": "Viec_DS_xac_dinh_cha_cho_con.pdf",
+  "pdf_sha256": "eac488d2715c41f9a0d409dd9feef01a2e1447388a8531bf02fab945648dd465",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-034",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta623691t1cvn/Viec_DS_xac_dinh_cha_cho_con.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-034/Viec_DS_xac_dinh_cha_cho_con.pdf"
+}

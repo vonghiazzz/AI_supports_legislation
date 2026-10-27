@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-032",
+  "anchor_fingerprint": "14cf05cc7d2f241ee83518c0bb2bef8add0932736e2bb795cdf88c30106241d8",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:36.786677+07:00",
+  "offline_provenance": null,
+  "original_filename": "BAPT_L__H.pdf",
+  "pdf_sha256": "3e81378d6ab142148b941e6c240738874095cd6c3339f2f573212855b5f74768",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-032",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1382791t1cvn/BAPT_L__H.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-032/BAPT_L__H.pdf"
+}

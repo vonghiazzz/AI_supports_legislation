@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-024",
+  "anchor_fingerprint": "c73fe6ad9054d65faf245a401f376afc7c687a75891c3c8cc4c690984aa0f85a",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:33.805138+07:00",
+  "offline_provenance": null,
+  "original_filename": "DSPT_Tran_Thi_Phiem___Tran_Van_Be_Nam_TC_chia_thua_ke.pdf",
+  "pdf_sha256": "a37d5a10f141219a98ac494de53e1faef218c61a27cc377a74b56a82392f3c19",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-024",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta61550t1cvn/DSPT_Tran_Thi_Phiem___Tran_Van_Be_Nam_TC_chia_thua_ke.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-024/DSPT_Tran_Thi_Phiem___Tran_Van_Be_Nam_TC_chia_thua_ke.pdf"
+}

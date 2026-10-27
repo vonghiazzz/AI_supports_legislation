@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-045",
+  "anchor_fingerprint": "4d719cbdd28ed930b2bb96c568cadbac0c38d6760f18b1c38559dd305e1d06ae",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:41.991640+07:00",
+  "offline_provenance": null,
+  "original_filename": "23_Pham_Van_L__Nguyen_Van_D.pdf",
+  "pdf_sha256": "400d8680974fba167530814923156bd17f3c1a849bb0fe88b3dbb047456ac12e",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-045",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta648705t1cvn/23_Pham_Van_L__Nguyen_Van_D.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-045/23_Pham_Van_L__Nguyen_Van_D.pdf"
+}

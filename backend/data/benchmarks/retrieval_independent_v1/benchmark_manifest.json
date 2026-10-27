@@ -6,8 +6,8 @@
   "state": "DRAFT",
   "benchmark_role": "independent_confirmatory_evaluation",
   "development_benchmark_role": "development_exploratory_only",
-  "git_commit": "c7190edaa9dd279dcdddfb359b9e48d0e4126258",
-  "generation_timestamp": "2026-10-24T00:00:00+07:00",
+  "git_commit": "f61c325e85a93476de827f7f4dd38c53430c7635",
+  "generation_timestamp": "2026-10-27T15:09:01+07:00",
   "corpus_fingerprint": "66fb0b20e0505993ed616f864ece99ecfad801de98b4ba3a37d20a3a7bf55e58",
   "sampling_seed": null,
   "deterministic_ordering": "case_id ASC, then source_id ASC",
@@ -20,9 +20,9 @@
     "silent_quota_reduction_permitted": false
   },
   "current_counts": {
-    "available_sources": 132,
+    "available_sources": 170,
     "development_sources_consumed": 107,
-    "eligible_sources": 25,
+    "eligible_sources": 63,
     "selected_cases": 0,
     "query_records": 0,
     "ground_truth_records": 0
@@ -38,7 +38,7 @@
     },
     {
       "path": "backend/dataLaw/independent_intake/acquisition_manifest.json",
-      "sha256": "9a5aa079b231fe2b4fed63cd5911ed800ccd47ebfa884e0c48ccf6b59f948b90"
+      "sha256": "2ec7f2fe8b3088889e2bad79dcb01765859aa6f83389fe713273bd2d4363d783"
     },
     {
       "path": "backend/dataLaw/independent_intake/acquisition_manifest.schema.json",
@@ -54,7 +54,7 @@
     },
     {
       "path": "backend/scripts/Evaluation/benchmarking/source_intake.py",
-      "sha256": "9a8ce7d3351dbe2e1949c3750189114af6b2beb923b2791e03b992d6b7be733f"
+      "sha256": "f0c093378723e916006d19887facbea44b0df0798ec0be87c8685288cf76c8c9"
     },
     {
       "path": "backend/scripts/ocrFullBanAn.py",
@@ -62,11 +62,11 @@
     },
     {
       "path": "backend/scripts/Tests/test_independent_benchmark_protocol.py",
-      "sha256": "6433ca02b6f94687d379e2712c3801bcea5fde121951e1e3d02c6bd20e934086"
+      "sha256": "8e861a4692f9153766596d55a80513c4ec8b95daf36131aec978dcd78c624069"
     },
     {
       "path": "backend/scripts/Tests/test_independent_source_intake.py",
-      "sha256": "f56d7c80360380daefff5fa4138c05b085b65355de2afdeca466d4484115b8ba"
+      "sha256": "e0b69c3197d57f8cc98b83bd2636d638cb759a0b39f89dce604469feeffe0cc6"
     },
     {
       "path": "backend/scripts/Tests/test_independent_source_registration.py",
@@ -74,7 +74,7 @@
     },
     {
       "path": "backend/scripts/Tests/test_independent_source_review.py",
-      "sha256": "58ae518f3ddb849cea0cf71a63d79d218f1cd3ac0806720efb94462dd277dc6d"
+      "sha256": "7d617df9a5a73f0934a4ab1a3e735f31bd4c607d5f24115e5e059093e139eac9"
     },
     {
       "path": "backend/scripts/Tests/test_ocr_full_ban_an_import.py",
@@ -88,11 +88,11 @@
   "phase1_artifacts": [
     {
       "path": "backend/data/benchmarks/retrieval_independent_v1/sampling_manifest.json",
-      "sha256": "b4e7cef7e2aa88c1d1188501bc58927d5a02dd5258a3fa11e960e46b8d639bb3"
+      "sha256": "61b57261858ba7e874e39a398d02415f132fb71cebdaf32b4f259f90bcdff983"
     },
     {
       "path": "backend/data/benchmarks/retrieval_independent_v1/source_dedup_report.json",
-      "sha256": "dac2c24a3e67785dc25fec7014e00659794a8353cfe1b301ab52505de99b215e"
+      "sha256": "62e4912ce3dd4a1bf856ba96335289d548f8b6192c3fa59a8c10b565311d146b"
     },
     {
       "path": "backend/data/benchmarks/retrieval_independent_v1/gt_schema_v2.snapshot.json",
@@ -167,7 +167,7 @@
     "DRAFT -> SAMPLING_FROZEN"
   ],
   "blockers": [
-    "eligible source count 25 is below minimum total 180",
+    "eligible source count 63 is below minimum total 180",
     "BLDS_core_substantive preliminary availability 0 is below minimum 55",
     "BLTTDS_primary_procedural preliminary availability 0 is below minimum 30",
     "LAND_2013 preliminary availability 0 is below minimum 35",

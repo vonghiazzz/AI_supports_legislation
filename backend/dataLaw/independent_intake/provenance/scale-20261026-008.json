@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-008",
+  "anchor_fingerprint": "27ebe6e2ff90cc1a9928da23da2b38f3125ff11ab4fa7cb41ee492d47b34fcd0",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:27.592127+07:00",
+  "offline_provenance": null,
+  "original_filename": "Duong_Thi_Thanh.pdf",
+  "pdf_sha256": "1b534528894b84051d0f49da90601f399d202ea147d29b8f4ed8bfacae54ba4b",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-008",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1444164t1cvn/Duong_Thi_Thanh.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-008/Duong_Thi_Thanh.pdf"
+}

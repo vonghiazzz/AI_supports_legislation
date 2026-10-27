@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261026-042",
+  "anchor_fingerprint": "9a5dd7f27e962d71667ef6b697a509c3951f48232b754b52e33e24f733c99cc3",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T08:37:40.813540+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_DSPT_VanHoa_dat_dai_2732023_ban_chinh.pdf",
+  "pdf_sha256": "3741bdd83c49d61fdb3f4e49370879df437db7861440106e9816486ee7871fc2",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261026-042",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1202132t1cvn/Ban_an_DSPT_VanHoa_dat_dai_2732023_ban_chinh.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261026-042/Ban_an_DSPT_VanHoa_dat_dai_2732023_ban_chinh.pdf"
+}
