@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pytest
 
+from backend.scripts.Evaluation.benchmarking import independent_benchmark
 from backend.scripts.Evaluation.benchmarking.independent_benchmark import (
     BENCHMARK_ID,
     CORPUS_FINGERPRINT,
@@ -25,6 +26,9 @@ from backend.scripts.Evaluation.benchmarking.independent_benchmark import (
     validate_selection_guardrails,
     validate_unique_selected_cases,
     verify_sealed_artifacts,
+)
+from backend.scripts.Evaluation.benchmarking.source_intake import (
+    inventory_independent_sources,
 )
 from backend.scripts.Evaluation.core.normalization import canonical_retrieval_id
 
@@ -176,25 +180,99 @@ def test_phase1_inventory_combines_development_and_eligible_independent_sources(
     sampling, report = phase1_payloads(
         PROJECT_ROOT, generation_timestamp="2026-10-24T00:00:00+00:00"
     )
-    assert len(sampling["available_source_inventory"]) == 170
-    assert report["development_sources_matched"] == 107
+    development = inventory_judgment_sources(PROJECT_ROOT)
+    independent, _, _ = inventory_independent_sources(PROJECT_ROOT)
+    assert len(sampling["available_source_inventory"]) == (
+        len(development) + len(independent)
+    )
+    assert report["development_sources_matched"] == len(development)
     assert report["development_sources_unmatched"] == 0
     eligible_ids = [record["source_id"] for record in sampling["eligible_sources"]]
-    assert len(eligible_ids) == 63
-    blocked_numbers = {3, 8, 9, 12, 20, 22, 23, 42, 46, 47, 50}
-    assert set(eligible_ids) == {
+    protected_batch_one_ids = {
         f"independent:pilot-20261025-{index:03d}" for index in range(1, 25)
     } | {
         f"independent:scale-20261026-{index:03d}"
         for index in range(1, 51)
-        if index not in blocked_numbers
+        if index not in {3, 8, 9, 12, 20, 22, 23, 42, 46, 47, 50}
     }
-    assert report["eligible_source_count"] == 63
+    assert protected_batch_one_ids <= set(eligible_ids)
+    assert set(eligible_ids) == {record["source_id"] for record in independent}
+    assert report["eligible_source_count"] == len(independent)
     assert not [
         exclusion
         for exclusion in report["exclusions"]
         if exclusion["source_id"].startswith("independent:")
     ]
+
+
+@pytest.mark.parametrize("independent_count", [2, 5])
+def test_phase1_inventory_counts_scale_with_authoritative_pool(
+    monkeypatch, tmp_path, independent_count
+):
+    development = [
+        _sampling_record(
+            source_id=f"judgment:development-{index}.pdf",
+            case_id=f"DEV-{index}",
+        )
+        for index in range(2)
+    ]
+    for index, record in enumerate(development):
+        record["source_name"] = f"development-{index}.pdf"
+        record["source_path"] = f"development-{index}.pdf"
+        record["source_sha256"] = hashlib.sha256(
+            f"development-{index}".encode()
+        ).hexdigest()
+    independent = [
+        _sampling_record(
+            source_id=f"independent:growth-{index}",
+            case_id=f"NEW-{index}",
+        )
+        for index in range(independent_count)
+    ]
+    for index, record in enumerate(independent):
+        record["source_name"] = f"growth-{index}.pdf"
+        record["source_path"] = f"growth-{index}.pdf"
+        record["source_sha256"] = hashlib.sha256(
+            f"growth-{index}".encode()
+        ).hexdigest()
+
+    development_path = tmp_path / "backend/data/judgments_evaluation.json"
+    development_path.parent.mkdir(parents=True)
+    development_path.write_text(
+        json.dumps([
+            {"id": index, "judgment_name": record["source_name"]}
+            for index, record in enumerate(development)
+        ]),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(
+        independent_benchmark,
+        "inventory_judgment_sources",
+        lambda *_args, **_kwargs: copy.deepcopy(development),
+    )
+    monkeypatch.setattr(
+        independent_benchmark,
+        "inventory_independent_sources",
+        lambda *_args, **_kwargs: (
+            copy.deepcopy(independent),
+            {"source_count": independent_count},
+            [],
+        ),
+    )
+    monkeypatch.setattr(independent_benchmark, "git_commit", lambda _root: "a" * 40)
+
+    sampling, report = independent_benchmark.phase1_payloads(
+        tmp_path, generation_timestamp="2026-10-24T00:00:00+00:00"
+    )
+    assert sampling["state"] == "DRAFT"
+    assert sampling["selection_status"] == "NOT_STARTED"
+    assert sampling["sampling_seed"] is None
+    assert len(sampling["available_source_inventory"]) == 2 + independent_count
+    assert len(sampling["eligible_sources"]) == independent_count
+    assert report["development_sources_matched"] == 2
+    assert "selected_cases" not in sampling
+    assert "queries" not in sampling
+    assert "ground_truth" not in sampling
 
 
 def test_known_duplicate_and_paraphrase_detection_is_deterministic():
@@ -332,10 +410,18 @@ def test_canonical_mapping_preserves_raw_subarticle_annotation_at_article_level(
 def test_quota_guardrails_fail_closed_for_insufficient_eligible_frame():
     sampling = json.loads((BENCHMARK_DIR / "sampling_manifest.json").read_text(encoding="utf-8"))
     feasibility = sampling["quota_feasibility"]
-    assert feasibility["status"] == "INFEASIBLE"
-    assert feasibility["eligible_count"] == 63
+    eligible_count = len(sampling["eligible_sources"])
+    assert feasibility["eligible_count"] == eligible_count
     assert feasibility["minimum_total"] == 180
-    assert "eligible source count 63 is below minimum total 180" in feasibility["blockers"]
+    total_count_blocker = (
+        f"eligible source count {eligible_count} is below minimum total "
+        f"{feasibility['minimum_total']}"
+    )
+    if eligible_count < feasibility["minimum_total"]:
+        assert feasibility["status"] == "INFEASIBLE"
+        assert total_count_blocker in feasibility["blockers"]
+    else:
+        assert total_count_blocker not in feasibility["blockers"]
     assert feasibility["main_guardrails"]["BLTTDS_only_procedural_max_ratio"] == 0.20
     assert feasibility["main_guardrails"]["substantive_core_min_ratio"] == 0.65
 
@@ -555,10 +641,26 @@ def test_draft_manifest_hashes_all_phase1_artifacts():
     assert checked["state"] == "DRAFT"
     assert checked["corpus_fingerprint"] == CORPUS_FINGERPRINT
     assert checked["phase1_artifacts"] == manifest["phase1_artifacts"]
-    assert checked["source_files"] == manifest["source_files"]
-    assert checked["current_counts"]["available_sources"] == 170
-    assert checked["current_counts"]["development_sources_consumed"] == 107
-    assert checked["current_counts"]["eligible_sources"] == 63
+    assert [entry["path"] for entry in checked["source_files"]] == [
+        entry["path"] for entry in manifest["source_files"]
+    ]
+    assert all(
+        len(entry["sha256"]) == 64
+        and all(character in "0123456789abcdef" for character in entry["sha256"])
+        for entry in checked["source_files"]
+    )
+    sampling, report = phase1_payloads(
+        PROJECT_ROOT, generation_timestamp="2026-10-24T00:00:00+00:00"
+    )
+    assert checked["current_counts"]["available_sources"] == len(
+        sampling["available_source_inventory"]
+    )
+    assert checked["current_counts"]["development_sources_consumed"] == report[
+        "development_sources_matched"
+    ]
+    assert checked["current_counts"]["eligible_sources"] == len(
+        sampling["eligible_sources"]
+    )
     assert checked["current_counts"]["selected_cases"] == 0
     assert checked["current_counts"]["query_records"] == 0
     assert checked["current_counts"]["ground_truth_records"] == 0
@@ -568,6 +670,9 @@ def test_no_final_benchmark_or_gt_records_exist():
     assert not (BENCHMARK_DIR / "judgments_evaluation_independent_v1.json").exists()
     sampling = json.loads((BENCHMARK_DIR / "sampling_manifest.json").read_text(encoding="utf-8"))
     assert sampling["selection_status"] == "NOT_STARTED"
-    assert len(sampling["eligible_sources"]) == 63
+    independent, _, _ = inventory_independent_sources(PROJECT_ROOT)
+    assert {record["source_id"] for record in sampling["eligible_sources"]} == {
+        record["source_id"] for record in independent
+    }
     assert "selected_cases" not in sampling
 

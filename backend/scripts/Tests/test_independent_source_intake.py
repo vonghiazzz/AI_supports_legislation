@@ -41,6 +41,18 @@ from backend.scripts.Evaluation.benchmarking.source_intake import (
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 BENCHMARK_DIR = PROJECT_ROOT / "backend/data/benchmarks/retrieval_independent_v1"
 FIXED_TIME = "2026-10-25T00:00:00+07:00"
+BATCH_ONE_PILOT_IDS = frozenset(
+    f"pilot-20261025-{index:03d}" for index in range(1, 25)
+)
+BATCH_ONE_SCALE_IDS = frozenset(
+    f"scale-20261026-{index:03d}" for index in range(1, 51)
+)
+BATCH_ONE_BLOCKED_IDS = frozenset(
+    f"scale-20261026-{index:03d}"
+    for index in (3, 8, 9, 12, 20, 22, 23, 42, 46, 47, 50)
+)
+BATCH_ONE_SOURCE_IDS = BATCH_ONE_PILOT_IDS | BATCH_ONE_SCALE_IDS
+BATCH_ONE_ELIGIBLE_IDS = BATCH_ONE_SOURCE_IDS - BATCH_ONE_BLOCKED_IDS
 
 
 def _sha(data: bytes) -> str:
@@ -300,40 +312,32 @@ def _assert_failed_extraction_is_clean(
 
 def test_valid_acquisition_manifest_and_current_production_intake_state():
     checked = load_acquisition_manifest(PROJECT_ROOT)
-    pilot_ids = {
-        f"pilot-20261025-{index:03d}" for index in range(1, 25)
-    }
     scale_id = "scale-20261026-001"
-    batch_ids = {
-        f"scale-20261026-{index:03d}" for index in range(2, 51)
+    sources_by_id = {
+        source["acquisition_id"]: source for source in checked["sources"]
     }
-    blocked_ids = {
-        f"scale-20261026-{index:03d}"
-        for index in (3, 8, 9, 12, 20, 22, 23, 42, 46, 47, 50)
-    }
-    eligible_ids = pilot_ids | {scale_id} | (batch_ids - blocked_ids)
-    expected_ids = eligible_ids | batch_ids
-    assert {source["acquisition_id"] for source in checked["sources"]} == expected_ids
+    assert len(sources_by_id) == len(checked["sources"])
+    assert BATCH_ONE_SOURCE_IDS <= set(sources_by_id)
     assert {
         source["acquisition_id"]
         for source in checked["sources"]
         if source["acquisition_status"] == "extracted"
-    } == blocked_ids
-    assert {
-        source["acquisition_id"]
-        for source in checked["sources"]
-        if source["acquisition_status"] == "hash_verified"
-    } == set()
-    assert {
+    } >= BATCH_ONE_BLOCKED_IDS
+    assert BATCH_ONE_ELIGIBLE_IDS <= {
         source["acquisition_id"]
         for source in checked["sources"]
         if source["acquisition_status"] == "eligible"
-    } == eligible_ids
+    }
     assert all(source["structured_sha256"] is not None for source in checked["sources"])
+    expected_structured_ids = {
+        source["acquisition_id"]
+        for source in checked["sources"]
+        if source["acquisition_status"] in {"extracted", "eligible"}
+    }
     assert {
         path.parent.name
         for path in (PROJECT_ROOT / INTAKE_ROOT_RELATIVE / "structured").rglob("*.json")
-    } == expected_ids
+    } == expected_structured_ids
     pilot_023 = next(
         source
         for source in checked["sources"]
@@ -1740,22 +1744,30 @@ def test_historical_inventory_and_fingerprint_remain_unchanged():
     )
 
 
-def test_current_independent_pool_has_63_eligible_sources_and_benchmark_is_draft():
+def test_current_independent_pool_matches_authoritative_live_state_and_benchmark_is_draft():
     inventory, report, links = inventory_independent_sources(PROJECT_ROOT)
+    manifest = load_acquisition_manifest(PROJECT_ROOT)
     benchmark_manifest = json.loads(
         (BENCHMARK_DIR / "benchmark_manifest.json").read_text(encoding="utf-8")
     )
-    blocked_numbers = {3, 8, 9, 12, 20, 22, 23, 42, 46, 47, 50}
-    assert [record["source_id"] for record in inventory] == [
-        f"independent:pilot-20261025-{index:03d}" for index in range(1, 25)
-    ] + [
-        f"independent:scale-20261026-{index:03d}"
-        for index in range(1, 51)
-        if index not in blocked_numbers
-    ]
-    assert report["eligible_source_count"] == 63
+    inventory_ids = {record["source_id"] for record in inventory}
+    authoritative_eligible_ids = {
+        source["source_id"]
+        for source in manifest["sources"]
+        if source["acquisition_status"] == "eligible"
+    }
+    assert {
+        f"independent:{acquisition_id}"
+        for acquisition_id in BATCH_ONE_ELIGIBLE_IDS
+    } <= inventory_ids
+    assert inventory_ids == authoritative_eligible_ids
+    assert report["eligible_source_count"] == len(authoritative_eligible_ids)
     assert links == []
     assert benchmark_manifest["state"] == "DRAFT"
+    assert benchmark_manifest["current_counts"]["eligible_sources"] == len(inventory)
+    assert benchmark_manifest["current_counts"]["available_sources"] == (
+        len(inventory_judgment_sources(PROJECT_ROOT)) + len(inventory)
+    )
     assert benchmark_manifest["current_counts"]["selected_cases"] == 0
     assert benchmark_manifest["current_counts"]["query_records"] == 0
     assert benchmark_manifest["current_counts"]["ground_truth_records"] == 0

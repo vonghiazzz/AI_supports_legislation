@@ -31,6 +31,9 @@ from backend.scripts.Evaluation.benchmarking.source_intake import (
     register_source,
 )
 from backend.scripts.Tests.test_independent_source_intake import (
+    BATCH_ONE_BLOCKED_IDS,
+    BATCH_ONE_ELIGIBLE_IDS,
+    BATCH_ONE_SOURCE_IDS,
     FIXED_TIME,
     PROJECT_ROOT,
     _eligible_fixture,
@@ -46,8 +49,8 @@ from backend.scripts.Tests.test_independent_source_intake import (
 )
 
 
-PRODUCTION_MANIFEST_SHA256 = (
-    "2ec7f2fe8b3088889e2bad79dcb01765859aa6f83389fe713273bd2d4363d783"
+BATCH_ONE_SOURCE_RECORDS_FINGERPRINT = (
+    "a48eb95ce9117637bcd18cf0e270e9704055dd0ef64f36173b53177301349fe8"
 )
 DEVELOPMENT_FINGERPRINT = (
     "fd6a6f05e4b71a2c499584fc0296cf25cedf5eac958aea6d079bf449c864f754"
@@ -974,19 +977,20 @@ def test_temporary_three_source_batch_register_extract_identify_review_promote(
 
 
 def test_real_batch_one_production_state_is_preserved():
-    path = PROJECT_ROOT / ACQUISITION_MANIFEST_RELATIVE
-    payload = path.read_bytes()
-    assert _sha(payload) == PRODUCTION_MANIFEST_SHA256
-    manifest = json.loads(payload.decode("utf-8"))
-    assert len(manifest["sources"]) == 74
-    assert sum(
-        source["acquisition_status"] == "eligible"
+    manifest = load_acquisition_manifest(PROJECT_ROOT)
+    sources_by_id = {
+        source["acquisition_id"]: source for source in manifest["sources"]
+    }
+    assert BATCH_ONE_SOURCE_IDS <= set(sources_by_id)
+    batch_one_sources = [
+        source
         for source in manifest["sources"]
-    ) == 63
-    assert sum(
-        source["acquisition_status"] == "extracted"
-        for source in manifest["sources"]
-    ) == 11
+        if source["acquisition_id"] in BATCH_ONE_SOURCE_IDS
+    ]
+    assert len(batch_one_sources) == len(BATCH_ONE_SOURCE_IDS)
+    assert canonical_json_fingerprint(batch_one_sources) == (
+        BATCH_ONE_SOURCE_RECORDS_FINGERPRINT
+    )
     scale = next(source for source in manifest["sources"] if source["acquisition_id"] == "scale-20261026-001")
     assert scale["acquisition_status"] == "eligible"
     assert {field: scale[field] for field in REVIEW_METADATA_FIELDS} == {
@@ -1017,8 +1021,14 @@ def test_real_batch_one_production_state_is_preserved():
         "scale-20261026-047",
         "scale-20261026-050",
     }
+    assert blocked_ids == BATCH_ONE_BLOCKED_IDS
     blocked = [source for source in batch if source["acquisition_id"] in blocked_ids]
     promoted = [source for source in batch if source["acquisition_id"] not in blocked_ids]
+    assert {source["acquisition_id"] for source in promoted} == (
+        BATCH_ONE_ELIGIBLE_IDS
+        - {f"pilot-20261025-{index:03d}" for index in range(1, 25)}
+        - {"scale-20261026-001"}
+    )
     assert len(blocked) == 11
     assert len(promoted) == 38
     assert all(source["acquisition_status"] == "extracted" for source in blocked)
@@ -1052,11 +1062,21 @@ def test_historical_and_benchmark_state_remain_sealed():
     benchmark_dir = PROJECT_ROOT / "backend/data/benchmarks/retrieval_independent_v1"
     benchmark = json.loads((benchmark_dir / "benchmark_manifest.json").read_text(encoding="utf-8"))
     sampling = json.loads((benchmark_dir / "sampling_manifest.json").read_text(encoding="utf-8"))
+    independent, _, _ = inventory_independent_sources(PROJECT_ROOT)
+    independent_ids = {record["source_id"] for record in independent}
     assert benchmark["state"] == "DRAFT"
     assert sampling["state"] == "DRAFT"
     assert sampling["selection_status"] == "NOT_STARTED"
-    assert len(sampling["eligible_sources"]) == 63
-    assert len(sampling["available_source_inventory"]) == 170
+    assert {record["source_id"] for record in sampling["eligible_sources"]} == (
+        independent_ids
+    )
+    assert len(sampling["available_source_inventory"]) == (
+        len(inventory) + len(independent)
+    )
+    assert benchmark["current_counts"]["eligible_sources"] == len(independent)
+    assert benchmark["current_counts"]["available_sources"] == (
+        len(inventory) + len(independent)
+    )
     assert not (benchmark_dir / "selected_sources.json").exists()
     for name in ("queries.json", "ground_truth.json", "selected_sources.json"):
         candidate = benchmark_dir / name
