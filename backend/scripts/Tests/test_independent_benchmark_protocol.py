@@ -37,6 +37,120 @@ PROJECT_ROOT = Path(__file__).resolve().parents[3]
 BENCHMARK_DIR = PROJECT_ROOT / "backend/data/benchmarks/retrieval_independent_v1"
 
 
+def _refresh_snapshot_fingerprints(sampling, dedup):
+    sampling["inventory_fingerprint"] = canonical_json_fingerprint(
+        sampling["available_source_inventory"]
+    )
+    sampling["eligible_fingerprint"] = canonical_json_fingerprint(
+        sampling["eligible_sources"]
+    )
+    dedup["inventory_fingerprint"] = sampling["inventory_fingerprint"]
+    dedup["eligible_fingerprint"] = sampling["eligible_fingerprint"]
+
+
+def _assert_draft_snapshot_self_consistent(
+    benchmark,
+    sampling,
+    dedup,
+    *,
+    live_development,
+    live_independent,
+):
+    """Validate a checkpoint snapshot without requiring it to equal live intake."""
+
+    assert benchmark["state"] == "DRAFT"
+    assert sampling["state"] == "DRAFT"
+    assert sampling["selection_status"] == "NOT_STARTED"
+    assert sampling["sampling_seed"] is None
+    counts = benchmark["current_counts"]
+    assert counts["selected_cases"] == 0
+    assert counts["query_records"] == 0
+    assert counts["ground_truth_records"] == 0
+    assert "selected_cases" not in sampling
+    assert "queries" not in sampling
+    assert "ground_truth" not in sampling
+
+    available = sampling["available_source_inventory"]
+    eligible = sampling["eligible_sources"]
+    available_ids = [record["source_id"] for record in available]
+    eligible_ids = [record["source_id"] for record in eligible]
+    assert len(available_ids) == len(set(available_ids))
+    assert len(eligible_ids) == len(set(eligible_ids))
+    assert counts["available_sources"] == len(available)
+    assert counts["eligible_sources"] == len(eligible)
+    assert counts["available_sources"] == (
+        counts["development_sources_consumed"] + counts["eligible_sources"]
+    )
+    assert dedup["inventory_count"] == len(available)
+    assert dedup["eligible_source_count"] == len(eligible)
+    assert dedup["development_sources_matched"] == counts[
+        "development_sources_consumed"
+    ]
+    assert dedup["development_sources_unmatched"] == 0
+
+    assert sampling["inventory_fingerprint"] == canonical_json_fingerprint(
+        available
+    )
+    assert sampling["eligible_fingerprint"] == canonical_json_fingerprint(eligible)
+    assert dedup["inventory_fingerprint"] == sampling["inventory_fingerprint"]
+    assert dedup["eligible_fingerprint"] == sampling["eligible_fingerprint"]
+    assert sampling["available_breakdown"] == independent_benchmark.sampling_breakdown(
+        available
+    )
+    assert sampling["eligible_breakdown"] == independent_benchmark.sampling_breakdown(
+        eligible
+    )
+    assert sampling["quota_feasibility"] == independent_benchmark.assess_quota_feasibility(
+        eligible
+    )
+
+    live_development_by_id = {
+        record["source_id"]: record for record in live_development
+    }
+    live_independent_by_id = {
+        record["source_id"]: record for record in live_independent
+    }
+    snapshot_development = {
+        record["source_id"]: record
+        for record in available
+        if record["source_id"].startswith("judgment:")
+    }
+    snapshot_independent = {
+        record["source_id"]: record
+        for record in available
+        if record["source_id"].startswith("independent:")
+    }
+    assert snapshot_development == live_development_by_id
+    assert set(snapshot_independent) == set(eligible_ids)
+    assert set(eligible_ids) <= set(live_independent_by_id)
+    assert {
+        source_id: live_independent_by_id[source_id]
+        for source_id in eligible_ids
+    } == {record["source_id"]: record for record in eligible}
+    assert snapshot_independent == {
+        record["source_id"]: record for record in eligible
+    }
+    assert {
+        row["source_id"] for row in dedup["development_source_mapping"]
+    } == set(live_development_by_id)
+
+
+@pytest.fixture(scope="module")
+def checked_draft_snapshot_context():
+    benchmark = json.loads(
+        (BENCHMARK_DIR / "benchmark_manifest.json").read_text(encoding="utf-8")
+    )
+    sampling = json.loads(
+        (BENCHMARK_DIR / "sampling_manifest.json").read_text(encoding="utf-8")
+    )
+    dedup = json.loads(
+        (BENCHMARK_DIR / "source_dedup_report.json").read_text(encoding="utf-8")
+    )
+    development = inventory_judgment_sources(PROJECT_ROOT)
+    independent, _, _ = inventory_independent_sources(PROJECT_ROOT)
+    return benchmark, sampling, dedup, development, independent
+
+
 def _sampling_record(source_id="judgment:new.pdf", case_id="NEW/2025/DS-GDT"):
     return {
         "source_id": source_id,
@@ -604,33 +718,19 @@ def test_sampling_records_reject_retrieval_output_fields(forbidden_key):
         validate_sampling_records([record])
 
 
-def test_checked_in_phase1_artifacts_match_live_inventory():
-    generated_sampling, generated_dedup = phase1_payloads(
-        PROJECT_ROOT, generation_timestamp="2026-10-24T00:00:00+00:00"
+def test_checked_in_phase1_snapshot_is_self_consistent_and_monotonically_safe(
+    checked_draft_snapshot_context,
+):
+    benchmark, sampling, dedup, development, independent = (
+        checked_draft_snapshot_context
     )
-    checked_sampling = json.loads((BENCHMARK_DIR / "sampling_manifest.json").read_text(encoding="utf-8"))
-    checked_dedup = json.loads((BENCHMARK_DIR / "source_dedup_report.json").read_text(encoding="utf-8"))
-    for key in (
-        "inventory_fingerprint",
-        "eligible_fingerprint",
-        "available_source_inventory",
-        "eligible_sources",
-        "available_breakdown",
-        "eligible_breakdown",
-        "quota_feasibility",
-    ):
-        assert checked_sampling[key] == generated_sampling[key]
-    for key in (
-        "algorithm",
-        "inventory_fingerprint",
-        "eligible_fingerprint",
-        "development_source_mapping",
-        "exclusions",
-        "internal_duplicate_clusters",
-        "ordering_rule",
-        "reason_counts",
-    ):
-        assert checked_dedup[key] == generated_dedup[key]
+    _assert_draft_snapshot_self_consistent(
+        benchmark,
+        sampling,
+        dedup,
+        live_development=development,
+        live_independent=independent,
+    )
 
 
 def test_draft_manifest_hashes_all_phase1_artifacts():
@@ -649,8 +749,11 @@ def test_draft_manifest_hashes_all_phase1_artifacts():
         and all(character in "0123456789abcdef" for character in entry["sha256"])
         for entry in checked["source_files"]
     )
-    sampling, report = phase1_payloads(
-        PROJECT_ROOT, generation_timestamp="2026-10-24T00:00:00+00:00"
+    sampling = json.loads(
+        (BENCHMARK_DIR / "sampling_manifest.json").read_text(encoding="utf-8")
+    )
+    report = json.loads(
+        (BENCHMARK_DIR / "source_dedup_report.json").read_text(encoding="utf-8")
     )
     assert checked["current_counts"]["available_sources"] == len(
         sampling["available_source_inventory"]
@@ -666,13 +769,205 @@ def test_draft_manifest_hashes_all_phase1_artifacts():
     assert checked["current_counts"]["ground_truth_records"] == 0
 
 
-def test_no_final_benchmark_or_gt_records_exist():
+def test_no_final_benchmark_or_gt_records_exist(checked_draft_snapshot_context):
     assert not (BENCHMARK_DIR / "judgments_evaluation_independent_v1.json").exists()
-    sampling = json.loads((BENCHMARK_DIR / "sampling_manifest.json").read_text(encoding="utf-8"))
+    benchmark, sampling, dedup, development, independent = (
+        checked_draft_snapshot_context
+    )
     assert sampling["selection_status"] == "NOT_STARTED"
-    independent, _, _ = inventory_independent_sources(PROJECT_ROOT)
-    assert {record["source_id"] for record in sampling["eligible_sources"]} == {
-        record["source_id"] for record in independent
-    }
+    _assert_draft_snapshot_self_consistent(
+        benchmark,
+        sampling,
+        dedup,
+        live_development=development,
+        live_independent=independent,
+    )
     assert "selected_cases" not in sampling
+
+
+def test_active_intake_growth_preserves_stale_snapshot_then_reconciles(
+    monkeypatch, tmp_path
+):
+    development = [
+        _sampling_record(f"judgment:development-{index}.pdf", f"DEV-{index}")
+        for index in range(2)
+    ]
+    checkpoint_independent = [
+        _sampling_record(f"independent:checkpoint-{index}", f"OLD-{index}")
+        for index in range(2)
+    ]
+    growth = [
+        _sampling_record(f"independent:growth-{index}", f"NEW-{index}")
+        for index in range(3)
+    ]
+    for index, record in enumerate(development):
+        record["source_name"] = f"development-{index}.pdf"
+        record["source_path"] = f"development-{index}.pdf"
+        record["source_sha256"] = hashlib.sha256(
+            f"development-{index}".encode()
+        ).hexdigest()
+    for index, record in enumerate(checkpoint_independent + growth):
+        record["source_name"] = f"independent-{index}.pdf"
+        record["source_path"] = f"independent-{index}.pdf"
+        record["source_sha256"] = hashlib.sha256(
+            f"independent-{index}".encode()
+        ).hexdigest()
+
+    checkpoint_available = copy.deepcopy(development + checkpoint_independent)
+    checkpoint_eligible = copy.deepcopy(checkpoint_independent)
+    sampling = {
+        "state": "DRAFT",
+        "selection_status": "NOT_STARTED",
+        "sampling_seed": None,
+        "available_source_inventory": checkpoint_available,
+        "eligible_sources": checkpoint_eligible,
+        "available_breakdown": independent_benchmark.sampling_breakdown(
+            checkpoint_available
+        ),
+        "eligible_breakdown": independent_benchmark.sampling_breakdown(
+            checkpoint_eligible
+        ),
+        "quota_feasibility": independent_benchmark.assess_quota_feasibility(
+            checkpoint_eligible
+        ),
+    }
+    dedup = {
+        "inventory_count": len(checkpoint_available),
+        "eligible_source_count": len(checkpoint_eligible),
+        "development_sources_matched": len(development),
+        "development_sources_unmatched": 0,
+        "development_source_mapping": [
+            {"source_id": record["source_id"]} for record in development
+        ],
+    }
+    benchmark = {
+        "state": "DRAFT",
+        "current_counts": {
+            "available_sources": len(checkpoint_available),
+            "development_sources_consumed": len(development),
+            "eligible_sources": len(checkpoint_eligible),
+            "selected_cases": 0,
+            "query_records": 0,
+            "ground_truth_records": 0,
+        },
+    }
+    _refresh_snapshot_fingerprints(sampling, dedup)
+    live_independent = checkpoint_independent + growth
+    _assert_draft_snapshot_self_consistent(
+        benchmark,
+        sampling,
+        dedup,
+        live_development=development,
+        live_independent=live_independent,
+    )
+
+    development_path = tmp_path / "backend/data/judgments_evaluation.json"
+    development_path.parent.mkdir(parents=True)
+    development_path.write_text(
+        json.dumps([
+            {"id": index, "judgment_name": record["source_name"]}
+            for index, record in enumerate(development)
+        ]),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(
+        independent_benchmark,
+        "inventory_judgment_sources",
+        lambda *_args, **_kwargs: copy.deepcopy(development),
+    )
+    monkeypatch.setattr(
+        independent_benchmark,
+        "inventory_independent_sources",
+        lambda *_args, **_kwargs: (
+            copy.deepcopy(live_independent),
+            {"source_count": len(live_independent)},
+            [],
+        ),
+    )
+    monkeypatch.setattr(independent_benchmark, "git_commit", lambda _root: "a" * 40)
+    reconciled, reconciled_report = phase1_payloads(
+        tmp_path, generation_timestamp="2026-10-24T00:00:00+00:00"
+    )
+    assert {
+        record["source_id"] for record in reconciled["eligible_sources"]
+    } == {record["source_id"] for record in live_independent}
+    assert len(reconciled["available_source_inventory"]) == (
+        len(development) + len(live_independent)
+    )
+    assert reconciled_report["development_sources_matched"] == len(development)
+    assert reconciled["state"] == "DRAFT"
+    assert reconciled["selection_status"] == "NOT_STARTED"
+    assert reconciled["sampling_seed"] is None
+    assert "selected_cases" not in reconciled
+    assert "queries" not in reconciled
+    assert "ground_truth" not in reconciled
+
+
+@pytest.mark.parametrize(
+    "corruption",
+    [
+        "nonexistent_independent",
+        "blocked_independent",
+        "duplicate_eligible",
+        "eligible_count_mismatch",
+        "available_formula_mismatch",
+        "historical_reference_changed",
+        "unexpected_selected_record",
+        "non_draft_state",
+        "fingerprint_mismatch",
+    ],
+)
+def test_stale_snapshot_corruption_is_rejected(
+    checked_draft_snapshot_context, corruption
+):
+    benchmark, sampling, dedup, development, independent = copy.deepcopy(
+        checked_draft_snapshot_context
+    )
+    if corruption in {"nonexistent_independent", "blocked_independent"}:
+        replacement = (
+            "independent:does-not-exist"
+            if corruption == "nonexistent_independent"
+            else "independent:scale-20261026-003"
+        )
+        original = sampling["eligible_sources"][0]["source_id"]
+        sampling["eligible_sources"][0]["source_id"] = replacement
+        next(
+            record
+            for record in sampling["available_source_inventory"]
+            if record["source_id"] == original
+        )["source_id"] = replacement
+        _refresh_snapshot_fingerprints(sampling, dedup)
+    elif corruption == "duplicate_eligible":
+        sampling["eligible_sources"].append(
+            copy.deepcopy(sampling["eligible_sources"][0])
+        )
+        benchmark["current_counts"]["eligible_sources"] += 1
+        _refresh_snapshot_fingerprints(sampling, dedup)
+        dedup["eligible_source_count"] += 1
+    elif corruption == "eligible_count_mismatch":
+        benchmark["current_counts"]["eligible_sources"] += 1
+    elif corruption == "available_formula_mismatch":
+        benchmark["current_counts"]["development_sources_consumed"] -= 1
+    elif corruption == "historical_reference_changed":
+        development_record = next(
+            record
+            for record in sampling["available_source_inventory"]
+            if record["source_id"].startswith("judgment:")
+        )
+        development_record["source_id"] = "judgment:changed.pdf"
+        _refresh_snapshot_fingerprints(sampling, dedup)
+    elif corruption == "unexpected_selected_record":
+        benchmark["current_counts"]["selected_cases"] = 1
+    elif corruption == "non_draft_state":
+        sampling["state"] = "SEALED"
+    elif corruption == "fingerprint_mismatch":
+        sampling["eligible_fingerprint"] = "0" * 64
+    with pytest.raises(AssertionError):
+        _assert_draft_snapshot_self_consistent(
+            benchmark,
+            sampling,
+            dedup,
+            live_development=development,
+            live_independent=independent,
+        )
 

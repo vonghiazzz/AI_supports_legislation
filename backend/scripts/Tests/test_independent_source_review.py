@@ -55,6 +55,7 @@ BATCH_ONE_SOURCE_RECORDS_FINGERPRINT = (
 DEVELOPMENT_FINGERPRINT = (
     "fd6a6f05e4b71a2c499584fc0296cf25cedf5eac958aea6d079bf449c864f754"
 )
+BENCHMARK_DIR = PROJECT_ROOT / "backend/data/benchmarks/retrieval_independent_v1"
 
 
 def _sha(payload: bytes) -> str:
@@ -174,6 +175,15 @@ def _payload_with_authoritative_findings(
 def test_valid_review_persists_only_existing_contract_and_does_not_promote(tmp_path):
     source, _ = _review_fixture(tmp_path)
     history = copy.deepcopy(source["status_history"])
+    snapshot_paths = tuple(
+        BENCHMARK_DIR / name
+        for name in (
+            "benchmark_manifest.json",
+            "sampling_manifest.json",
+            "source_dedup_report.json",
+        )
+    )
+    snapshot_bytes = {path: path.read_bytes() for path in snapshot_paths}
 
     result = record_source_review(tmp_path, source["acquisition_id"], _payload())
 
@@ -190,6 +200,7 @@ def test_valid_review_persists_only_existing_contract_and_does_not_promote(tmp_p
     inventory, report, _ = inventory_independent_sources(tmp_path)
     assert inventory == []
     assert report["eligible_source_count"] == 0
+    assert {path: path.read_bytes() for path in snapshot_paths} == snapshot_bytes
 
 
 def test_review_missing_source_is_rejected_without_manifest_change(tmp_path):
@@ -1055,29 +1066,39 @@ def test_real_batch_one_production_state_is_preserved():
     assert all(source["rejection_reasons"] == [] for source in promoted)
 
 
-def test_historical_and_benchmark_state_remain_sealed():
+def test_historical_and_stale_draft_snapshot_remain_monotonically_safe():
     inventory = inventory_judgment_sources(PROJECT_ROOT)
     assert len(inventory) == 107
     assert canonical_json_fingerprint(inventory) == DEVELOPMENT_FINGERPRINT
-    benchmark_dir = PROJECT_ROOT / "backend/data/benchmarks/retrieval_independent_v1"
-    benchmark = json.loads((benchmark_dir / "benchmark_manifest.json").read_text(encoding="utf-8"))
-    sampling = json.loads((benchmark_dir / "sampling_manifest.json").read_text(encoding="utf-8"))
+    benchmark = json.loads((BENCHMARK_DIR / "benchmark_manifest.json").read_text(encoding="utf-8"))
+    sampling = json.loads((BENCHMARK_DIR / "sampling_manifest.json").read_text(encoding="utf-8"))
     independent, _, _ = inventory_independent_sources(PROJECT_ROOT)
     independent_ids = {record["source_id"] for record in independent}
+    independent_by_id = {record["source_id"]: record for record in independent}
+    snapshot_eligible = sampling["eligible_sources"]
+    snapshot_eligible_ids = {
+        record["source_id"] for record in snapshot_eligible
+    }
     assert benchmark["state"] == "DRAFT"
     assert sampling["state"] == "DRAFT"
     assert sampling["selection_status"] == "NOT_STARTED"
-    assert {record["source_id"] for record in sampling["eligible_sources"]} == (
-        independent_ids
-    )
+    assert sampling["sampling_seed"] is None
+    assert snapshot_eligible_ids <= independent_ids
+    assert len(snapshot_eligible_ids) == len(snapshot_eligible)
+    assert {
+        source_id: independent_by_id[source_id]
+        for source_id in snapshot_eligible_ids
+    } == {record["source_id"]: record for record in snapshot_eligible}
     assert len(sampling["available_source_inventory"]) == (
-        len(inventory) + len(independent)
+        len(inventory) + len(snapshot_eligible)
     )
-    assert benchmark["current_counts"]["eligible_sources"] == len(independent)
+    assert benchmark["current_counts"]["eligible_sources"] == len(
+        snapshot_eligible
+    )
     assert benchmark["current_counts"]["available_sources"] == (
-        len(inventory) + len(independent)
+        len(inventory) + len(snapshot_eligible)
     )
-    assert not (benchmark_dir / "selected_sources.json").exists()
+    assert not (BENCHMARK_DIR / "selected_sources.json").exists()
     for name in ("queries.json", "ground_truth.json", "selected_sources.json"):
-        candidate = benchmark_dir / name
+        candidate = BENCHMARK_DIR / name
         assert not candidate.exists() or json.loads(candidate.read_text(encoding="utf-8")) == []

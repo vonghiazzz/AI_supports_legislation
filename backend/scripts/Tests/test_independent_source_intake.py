@@ -1744,17 +1744,30 @@ def test_historical_inventory_and_fingerprint_remain_unchanged():
     )
 
 
-def test_current_independent_pool_matches_authoritative_live_state_and_benchmark_is_draft():
+def test_current_independent_pool_allows_valid_stale_draft_snapshot():
     inventory, report, links = inventory_independent_sources(PROJECT_ROOT)
     manifest = load_acquisition_manifest(PROJECT_ROOT)
     benchmark_manifest = json.loads(
         (BENCHMARK_DIR / "benchmark_manifest.json").read_text(encoding="utf-8")
     )
+    sampling_manifest = json.loads(
+        (BENCHMARK_DIR / "sampling_manifest.json").read_text(encoding="utf-8")
+    )
     inventory_ids = {record["source_id"] for record in inventory}
+    inventory_by_id = {record["source_id"]: record for record in inventory}
     authoritative_eligible_ids = {
         source["source_id"]
         for source in manifest["sources"]
         if source["acquisition_status"] == "eligible"
+    }
+    authoritative_blocked_ids = {
+        source["source_id"]
+        for source in manifest["sources"]
+        if source["acquisition_status"] != "eligible"
+    }
+    snapshot_eligible = sampling_manifest["eligible_sources"]
+    snapshot_eligible_ids = {
+        record["source_id"] for record in snapshot_eligible
     }
     assert {
         f"independent:{acquisition_id}"
@@ -1764,9 +1777,25 @@ def test_current_independent_pool_matches_authoritative_live_state_and_benchmark
     assert report["eligible_source_count"] == len(authoritative_eligible_ids)
     assert links == []
     assert benchmark_manifest["state"] == "DRAFT"
-    assert benchmark_manifest["current_counts"]["eligible_sources"] == len(inventory)
+    assert sampling_manifest["state"] == "DRAFT"
+    assert sampling_manifest["selection_status"] == "NOT_STARTED"
+    assert sampling_manifest["sampling_seed"] is None
+    assert snapshot_eligible_ids <= authoritative_eligible_ids
+    assert not snapshot_eligible_ids & authoritative_blocked_ids
+    assert len(snapshot_eligible_ids) == len(snapshot_eligible)
+    assert {
+        source_id: inventory_by_id[source_id]
+        for source_id in snapshot_eligible_ids
+    } == {record["source_id"]: record for record in snapshot_eligible}
+    assert benchmark_manifest["current_counts"]["eligible_sources"] == len(
+        snapshot_eligible
+    )
+    assert benchmark_manifest["current_counts"]["available_sources"] == len(
+        sampling_manifest["available_source_inventory"]
+    )
     assert benchmark_manifest["current_counts"]["available_sources"] == (
-        len(inventory_judgment_sources(PROJECT_ROOT)) + len(inventory)
+        benchmark_manifest["current_counts"]["development_sources_consumed"]
+        + benchmark_manifest["current_counts"]["eligible_sources"]
     )
     assert benchmark_manifest["current_counts"]["selected_cases"] == 0
     assert benchmark_manifest["current_counts"]["query_records"] == 0
