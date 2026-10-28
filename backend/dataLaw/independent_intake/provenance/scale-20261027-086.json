@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-086",
+  "anchor_fingerprint": "55fab3b6e2b780ef450d6522375209525a8b50d09269b788516118a8c5947b08",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:47.457586+07:00",
+  "offline_provenance": null,
+  "original_filename": "QD MÃ HOÁ 26-10-2026 09-29-44.pdf",
+  "pdf_sha256": "fd79495a26aada99e56cc21559e5fe4a1774efe254d1d56b287d39b9fd18161b",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-086",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285635t1cvn/QD%20MÃ%20HOÁ%2026-10-2026%2009-29-44.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-086/QD MÃ HOÁ 26-10-2026 09-29-44.pdf"
+}

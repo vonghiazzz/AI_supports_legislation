@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-093",
+  "anchor_fingerprint": "072f321cefcf61147d4cbe3a7ea813c114fb0ac899eca43a72a132880371aaa3",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:51.065437+07:00",
+  "offline_provenance": null,
+  "original_filename": "Hùng - Mỷ 26-10-2026 09-13-23.pdf",
+  "pdf_sha256": "67fff22175ca452003490d0976240521d8b7af61edc408d696cc54bda6aada94",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-093",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285615t1cvn/Hùng%20-%20Mỷ%2026-10-2026%2009-13-23.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-093/Hùng - Mỷ 26-10-2026 09-13-23.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-063",
+  "anchor_fingerprint": "27c354e696d09b949f65ee5adf952a7cb12ac75489ff6a55e2478ffd817d8ce0",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:35.379737+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban an Lan Du ma hoa 27-10-2026 16-44-41.pdf",
+  "pdf_sha256": "75dcea9d2389f96767c267e2c150dbf3b3d6653435290dafddf638df5c42ebaf",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-063",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2286196t1cvn/Ban%20an%20Lan%20Du%20ma%20hoa%2027-10-2026%2016-44-41.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-063/Ban an Lan Du ma hoa 27-10-2026 16-44-41.pdf"
+}

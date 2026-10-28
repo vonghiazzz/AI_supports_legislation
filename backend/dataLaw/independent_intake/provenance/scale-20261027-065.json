@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-065",
+  "anchor_fingerprint": "31793ab890ec989429654d535b8f279e9cda57f668ae086dea532a546e992637",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:36.332673+07:00",
+  "offline_provenance": null,
+  "original_filename": "Yên - Anh (HN) 26-10-2026 15-09-50.pdf",
+  "pdf_sha256": "25fd01807334a23bf86a17933c33ea0c5ec57bbe94c2bc25f059de2bfa63d986",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-065",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285797t1cvn/Yên%20-%20Anh%20(HN)%2026-10-2026%2015-09-50.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-065/Yên - Anh (HN) 26-10-2026 15-09-50.pdf"
+}

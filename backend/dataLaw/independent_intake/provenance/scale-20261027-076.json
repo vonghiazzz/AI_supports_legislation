@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-076",
+  "anchor_fingerprint": "16fb9509b87dbcd7e0a169da36ece3a727730e7597c2bb857ebd2a4545f8b67c",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:42.163094+07:00",
+  "offline_provenance": null,
+  "original_filename": "QĐ sơ thẩm giải quyết dân sự Sân Bình Sáng 26-10-2026 19-45-44.pdf",
+  "pdf_sha256": "f6829c743a4009a5151b3860a0fbaf37b23611e414cb025d8884af3bba9067b5",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-076",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285920t1cvn/QĐ%20sơ%20thẩm%20giải%20quyết%20dân%20sự%20Sân%20Bình%20Sáng%2026-10-2026%2019-45-44.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-076/QĐ sơ thẩm giải quyết dân sự Sân Bình Sáng 26-10-2026 19-45-44.pdf"
+}

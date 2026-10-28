@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-098",
+  "anchor_fingerprint": "08a96c687806beb847fb5e31e271bfe849dfba4f58c270a9c297194adcc8ac31",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:53.780303+07:00",
+  "offline_provenance": null,
+  "original_filename": "BA 377 Nguyen Thi Hai - Nguyen Tự Dệ 26-10-2026 11-08-42.pdf",
+  "pdf_sha256": "4e389d682cd3fdb6bc8d93f7bd0b7e4d6faf2374f1f87497b0f368db14665321",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-098",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285705t1cvn/BA%20377%20Nguyen%20Thi%20Hai%20-%20Nguyen%20Tự%20Dệ%2026-10-2026%2011-08-42.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-098/BA 377 Nguyen Thi Hai - Nguyen Tự Dệ 26-10-2026 11-08-42.pdf"
+}

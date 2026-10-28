@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-057",
+  "anchor_fingerprint": "ec2749a38888f64449adb3b3a786d03e09181a27655fe06bd31672f16195529c",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:31.965941+07:00",
+  "offline_provenance": null,
+  "original_filename": "Tranh chấp yêu cầu thực hiện nghĩa vụ hợp đồng Nguyễn Hữu T - Công ty LTP 27-10-2026 09-11-51.pdf",
+  "pdf_sha256": "21b904a13a94e4f5896360d3d84a854f46bbb340695d4144fa853a50cde3b88a",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-057",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2286021t1cvn/Tranh%20chấp%20yêu%20cầu%20thực%20hiện%20nghĩa%20vụ%20hợp%20đồng%20Nguyễn%20Hữu%20T%20-%20Công%20ty%20LTP%2027-10-2026%2009-11-51.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-057/Tranh chấp yêu cầu thực hiện nghĩa vụ hợp đồng Nguyễn Hữu T - Công ty LTP 27-10-2026 09-11-51.pdf"
+}

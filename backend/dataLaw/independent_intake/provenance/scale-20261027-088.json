@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-088",
+  "anchor_fingerprint": "e1f43082961da5c0163d35c350d10b56559761a5340f3269f44cc0cb1cd38185",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:48.439022+07:00",
+  "offline_provenance": null,
+  "original_filename": "327-2026 PHẠM THỊ V-NGUYỄN TẤN L 24-10-2026 16-42-09.pdf",
+  "pdf_sha256": "cac860b48254b74066c8b4b7aa85eb203b7d2312069ed862ddd84615eb4c046e",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-088",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285425t1cvn/327-2026%20PHẠM%20THỊ%20V-NGUYỄN%20TẤN%20L%2024-10-2026%2016-42-09.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-088/327-2026 PHẠM THỊ V-NGUYỄN TẤN L 24-10-2026 16-42-09.pdf"
+}

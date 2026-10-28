@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-074",
+  "anchor_fingerprint": "516de307826a6b2a9fcd76aaef074db037f4735356a396eb315f1c8064feaf1c",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:40.877958+07:00",
+  "offline_provenance": null,
+  "original_filename": "Hồ Văn Den 26-10-2026 13-59-09.pdf",
+  "pdf_sha256": "6495f0c3ca6ebfb31766001128b133f7758fc2ef96c07a6bc664e17ec970cfdb",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-074",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285759t1cvn/Hồ%20Văn%20Den%2026-10-2026%2013-59-09.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-074/Hồ Văn Den 26-10-2026 13-59-09.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-097",
+  "anchor_fingerprint": "e90beb2ef0c99075a0913baedc49f2680f00e2f989d03094a82fbdd3a4514097",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:53.221361+07:00",
+  "offline_provenance": null,
+  "original_filename": "Thưa - Kim 25-10-2026 08-59-08.pdf",
+  "pdf_sha256": "17c2ff78cd75da552d8307c274456b9eb67b82343a84b1a223f8c7599b68bd84",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-097",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285465t1cvn/Thưa%20-%20Kim%2025-10-2026%2008-59-08.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-097/Thưa - Kim 25-10-2026 08-59-08.pdf"
+}

@@ -6,8 +6,8 @@
   "state": "DRAFT",
   "benchmark_role": "independent_confirmatory_evaluation",
   "development_benchmark_role": "development_exploratory_only",
-  "git_commit": "f61c325e85a93476de827f7f4dd38c53430c7635",
-  "generation_timestamp": "2026-10-27T15:09:01+07:00",
+  "git_commit": "ecf5f8134e4b7678eb45fc2caf2f50a261be666e",
+  "generation_timestamp": "2026-10-28T14:07:41.141836+07:00",
   "corpus_fingerprint": "66fb0b20e0505993ed616f864ece99ecfad801de98b4ba3a37d20a3a7bf55e58",
   "sampling_seed": null,
   "deterministic_ordering": "case_id ASC, then source_id ASC",
@@ -20,9 +20,9 @@
     "silent_quota_reduction_permitted": false
   },
   "current_counts": {
-    "available_sources": 170,
+    "available_sources": 211,
     "development_sources_consumed": 107,
-    "eligible_sources": 63,
+    "eligible_sources": 104,
     "selected_cases": 0,
     "query_records": 0,
     "ground_truth_records": 0
@@ -38,7 +38,7 @@
     },
     {
       "path": "backend/dataLaw/independent_intake/acquisition_manifest.json",
-      "sha256": "2ec7f2fe8b3088889e2bad79dcb01765859aa6f83389fe713273bd2d4363d783"
+      "sha256": "5ce2c155c918e8bdba0b25f4f0b488b4ad0f7d48789e816a1c7269a4af84fc19"
     },
     {
       "path": "backend/dataLaw/independent_intake/acquisition_manifest.schema.json",
@@ -88,11 +88,11 @@
   "phase1_artifacts": [
     {
       "path": "backend/data/benchmarks/retrieval_independent_v1/sampling_manifest.json",
-      "sha256": "61b57261858ba7e874e39a398d02415f132fb71cebdaf32b4f259f90bcdff983"
+      "sha256": "c3704229463e1cb341638ef7a4f96bebecc5979d5afcdb0d6273f792f21fcd78"
     },
     {
       "path": "backend/data/benchmarks/retrieval_independent_v1/source_dedup_report.json",
-      "sha256": "62e4912ce3dd4a1bf856ba96335289d548f8b6192c3fa59a8c10b565311d146b"
+      "sha256": "c2ded6ba66837f50aa385ccbb7b9be605a5152ed3054287143209b1c27d09d41"
     },
     {
       "path": "backend/data/benchmarks/retrieval_independent_v1/gt_schema_v2.snapshot.json",
@@ -167,7 +167,7 @@
     "DRAFT -> SAMPLING_FROZEN"
   ],
   "blockers": [
-    "eligible source count 63 is below minimum total 180",
+    "eligible source count 104 is below minimum total 180",
     "BLDS_core_substantive preliminary availability 0 is below minimum 55",
     "BLTTDS_primary_procedural preliminary availability 0 is below minimum 30",
     "LAND_2013 preliminary availability 0 is below minimum 35",

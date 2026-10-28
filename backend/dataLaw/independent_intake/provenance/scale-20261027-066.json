@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-066",
+  "anchor_fingerprint": "d1896facbcf887330a3a7ea11930c46de1998e0659caedd81b7de77e4144f8a2",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:37.037169+07:00",
+  "offline_provenance": null,
+  "original_filename": "bùi đức t nguyên văn n 26-10-2026 08-36-21.pdf",
+  "pdf_sha256": "9e1d7ca2386f576dda878b0520ef05631f25ec2288d7a90f87570cd4fdc585d6",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-066",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285582t1cvn/bùi%20đức%20t%20nguyên%20văn%20n%2026-10-2026%2008-36-21.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-066/bùi đức t nguyên văn n 26-10-2026 08-36-21.pdf"
+}

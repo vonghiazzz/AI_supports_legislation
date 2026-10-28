@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-100",
+  "anchor_fingerprint": "a5fee08adc349aabd25e4ef504c239d30ca5ae8f2362501027cb20afcbef065d",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:54.934462+07:00",
+  "offline_provenance": null,
+  "original_filename": "41 Gặp Đạt Tp Khanh 26-10-2026 09-46-38.pdf",
+  "pdf_sha256": "590dbb36a143e820c63f6ad502edc291097a7892064aeb29d274204015205ec3",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-100",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285642t1cvn/41%20Gặp%20Đạt%20Tp%20Khanh%2026-10-2026%2009-46-38.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-100/41 Gặp Đạt Tp Khanh 26-10-2026 09-46-38.pdf"
+}

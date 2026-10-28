@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-061",
+  "anchor_fingerprint": "0652fbd098c9544d8baff9d3ecdba486bd3e8d1df9970513e1d86be84864c47e",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:34.083647+07:00",
+  "offline_provenance": null,
+  "original_filename": "Bản án 476.DSPT ngày 29.9.2026 23-10-2026 15-18-49.pdf",
+  "pdf_sha256": "1f6ca13028e4cdda38d6f5c772b86ae2b4eb312ac99f342903461bc5ae362167",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-061",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285794t1cvn/Bản%20án%20476.DSPT%20ngày%2029.9.2026%2023-10-2026%2015-18-49.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-061/Bản án 476.DSPT ngày 29.9.2026 23-10-2026 15-18-49.pdf"
+}

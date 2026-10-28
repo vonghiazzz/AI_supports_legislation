@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-090",
+  "anchor_fingerprint": "9f74768bc9f4c3a8b640230e6ae598de384ee0dd5467a5562f25a8777fd3cb8d",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:49.625157+07:00",
+  "offline_provenance": null,
+  "original_filename": "BA DS 2026 LÊ MINH T - NGUYỄN VĂN N 25-10-2026 10-57-13.pdf",
+  "pdf_sha256": "d7b89a5db8878ac5b57583f8ddbaaa38f2037aaddcc3a8c616e881aef6a209e4",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-090",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285475t1cvn/BA%20DS%202026%20LÊ%20MINH%20T%20-%20NGUYỄN%20VĂN%20N%2025-10-2026%2010-57-13.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-090/BA DS 2026 LÊ MINH T - NGUYỄN VĂN N 25-10-2026 10-57-13.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-071",
+  "anchor_fingerprint": "87ad07aa29c95e94c4133f1f424d13ea6db643f9e3d7d4121caef12413635540",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:39.480003+07:00",
+  "offline_provenance": null,
+  "original_filename": "Diễm - Dương 27-10-2026 09-54-16.pdf",
+  "pdf_sha256": "54a469876e5b530442a98b101574adfc671c322e6555e234e96c24335664ad13",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-071",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2286051t1cvn/Diễm%20-%20Dương%2027-10-2026%2009-54-16.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-071/Diễm - Dương 27-10-2026 09-54-16.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-085",
+  "anchor_fingerprint": "450613b99a3d07f1a6cd2b5e0cc0d6c520fee7fac36a7e9c7fc4493d44d378a2",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:46.990387+07:00",
+  "offline_provenance": null,
+  "original_filename": "Nguyễn Văn B - Lê Văn K 25-10-2026 11-01-19.pdf",
+  "pdf_sha256": "629095a41f78344ff7f65f6892ef5525ef7e3676660f318179d1ee20f5833724",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-085",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285476t1cvn/Nguyễn%20Văn%20B%20-%20Lê%20Văn%20K%2025-10-2026%2011-01-19.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-085/Nguyễn Văn B - Lê Văn K 25-10-2026 11-01-19.pdf"
+}

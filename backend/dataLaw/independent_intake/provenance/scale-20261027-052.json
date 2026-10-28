@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-052",
+  "anchor_fingerprint": "2cbab5ba8892845e53ea35b2ff6572b99a64d24edcf782513f61ac440eeb012c",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:28.805897+07:00",
+  "offline_provenance": null,
+  "original_filename": "12 Nguyễn Văn T - Nguyễn Văn P 27-10-2026 08-36-43.pdf",
+  "pdf_sha256": "07387a199ba198d3965aef720388085c1f9d66d3665d97b580ab3d1ff84c323d",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-052",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285999t1cvn/12%20Nguyễn%20Văn%20T%20-%20Nguyễn%20Văn%20P%2027-10-2026%2008-36-43.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-052/12 Nguyễn Văn T - Nguyễn Văn P 27-10-2026 08-36-43.pdf"
+}

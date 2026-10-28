@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-084",
+  "anchor_fingerprint": "5d7c360c2b316df7b34a9cf99fad6c65cacde9f87a1046a5e4cc8f45b554a861",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:46.482512+07:00",
+  "offline_provenance": null,
+  "original_filename": "Bản án 152 (Nhuận- Đức) 26-10-2026 16-58-43.pdf",
+  "pdf_sha256": "5072573d31e9db3e3d742fc7c15adfeecafe90e8a3a6e97597e10e3ea706a994",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-084",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285885t1cvn/Bản%20án%20152%20(Nhuận-%20Đức)%2026-10-2026%2016-58-43.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-084/Bản án 152 (Nhuận- Đức) 26-10-2026 16-58-43.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-089",
+  "anchor_fingerprint": "83aa645ec7cb40207bbab275b830e2dac03a7d7529643d3d483401a80b20b2be",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:49.150545+07:00",
+  "offline_provenance": null,
+  "original_filename": "Bản án Thanh - Hiệp ma hóa 26-10-2026 13-21-48.pdf",
+  "pdf_sha256": "e5e20bf9b220301d688ac9d484d61d87c5833c2e0386db513c383cfa05c1f53e",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-089",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285746t1cvn/Bản%20án%20Thanh%20-%20Hiệp%20ma%20hóa%2026-10-2026%2013-21-48.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-089/Bản án Thanh - Hiệp ma hóa 26-10-2026 13-21-48.pdf"
+}

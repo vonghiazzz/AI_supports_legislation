@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-070",
+  "anchor_fingerprint": "df8d23827cd985817643a3bc3e85782319f9eae6a0b09faa8fc4eb5c9fd671b7",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:38.977198+07:00",
+  "offline_provenance": null,
+  "original_filename": "Bản án số 527 - 25.9.2026 DS (Ý - Lễ) 26-10-2026 09-01-24.pdf",
+  "pdf_sha256": "9bf15afbba27e98b69674e7a4b2b5ccdc8e54bc0a01bb89e30ea121025e83b9e",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-070",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285603t1cvn/Bản%20án%20số%20527%20-%2025.9.2026%20DS%20(Ý%20-%20Lễ)%2026-10-2026%2009-01-24.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-070/Bản án số 527 - 25.9.2026 DS (Ý - Lễ) 26-10-2026 09-01-24.pdf"
+}

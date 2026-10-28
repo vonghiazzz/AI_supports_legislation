@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-055",
+  "anchor_fingerprint": "282104dc35eb635610a03240e05f447f7868e7e67dc26162b2e4f9fd93a61ea3",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:30.798689+07:00",
+  "offline_provenance": null,
+  "original_filename": "Mai Thanh P 27-10-2026 09-50-23.pdf",
+  "pdf_sha256": "f36fda5f750b6c3c47ee4f6a81a7226e195f18717ab0185461beae3444f87d70",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-055",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2286044t1cvn/Mai%20Thanh%20P%2027-10-2026%2009-50-23.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-055/Mai Thanh P 27-10-2026 09-50-23.pdf"
+}

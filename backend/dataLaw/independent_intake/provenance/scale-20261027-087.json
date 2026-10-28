@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-087",
+  "anchor_fingerprint": "efcd7457ddf35e2b4761d4825782102217042cd9cd40ef7df225c781aa0bcc5b",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:47.939071+07:00",
+  "offline_provenance": null,
+  "original_filename": "Bản án ly hôn Lan Hương và QUINGYUN_143 26-10-2026 09-56-09.pdf",
+  "pdf_sha256": "1b50a402ba565baffe5f52680d56e9c0196f91f93c54be10492cdb05641c6ed4",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-087",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285648t1cvn/Bản%20án%20ly%20hôn%20Lan%20Hương%20và%20QUINGYUN_143%2026-10-2026%2009-56-09.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-087/Bản án ly hôn Lan Hương và QUINGYUN_143 26-10-2026 09-56-09.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-095",
+  "anchor_fingerprint": "da61c5536f760ff23fd9b652484ede3aa7b02723b5a9608fb8dfa05b0c9a2e80",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:52.254848+07:00",
+  "offline_provenance": null,
+  "original_filename": "Chiến Lợi PDF 27-10-2026 13-42-57.pdf",
+  "pdf_sha256": "138d5393f5f998de0541ac9213886074b2cf8cf6da9eb8c56f3e7ee386fdfe8d",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-095",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2286126t1cvn/Chiến%20Lợi%20PDF%2027-10-2026%2013-42-57.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-095/Chiến Lợi PDF 27-10-2026 13-42-57.pdf"
+}

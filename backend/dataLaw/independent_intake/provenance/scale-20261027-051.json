@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-051",
+  "anchor_fingerprint": "27a71a1b29d02303718414bb37909c95866cd619b64aec3e786dedc5f78d0dfe",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:28.136215+07:00",
+  "offline_provenance": null,
+  "original_filename": "Bản án DSPT Võ Văn T 25-10-2026 16-39-12.pdf",
+  "pdf_sha256": "c499a51bfd207c6fd572dd2667f1d1c177b4c206f50c02e8b075b519ba992d48",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-051",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285504t1cvn/Bản%20án%20DSPT%20Võ%20Văn%20T%2025-10-2026%2016-39-12.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-051/Bản án DSPT Võ Văn T 25-10-2026 16-39-12.pdf"
+}

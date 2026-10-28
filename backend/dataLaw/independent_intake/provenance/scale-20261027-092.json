@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-092",
+  "anchor_fingerprint": "a58c439deeb506cd8dd6ca7ff4ebbaa4b83819eee4349a27b64d719aed945c2e",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:50.589642+07:00",
+  "offline_provenance": null,
+  "original_filename": "NGA - HÙNG ( XÁC NHẬN CHA CON) 27-10-2026 09-58-09.pdf",
+  "pdf_sha256": "3c5d9e254d092fb8cd21580c93a1a2ee8437b8949e0622cbb2346a5a8f7571eb",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-092",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2286058t1cvn/NGA%20-%20HÙNG%20(%20XÁC%20NHẬN%20CHA%20CON)%2027-10-2026%2009-58-09.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-092/NGA - HÙNG ( XÁC NHẬN CHA CON) 27-10-2026 09-58-09.pdf"
+}

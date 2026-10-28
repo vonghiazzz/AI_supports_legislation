@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-080",
+  "anchor_fingerprint": "6a9ad46f8b62129df031f8965990bfb30c3545697a46445e3dd72dc4e089240f",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:44.172546+07:00",
+  "offline_provenance": null,
+  "original_filename": "QĐ ĐÌnh chỉ - Mã hoá 26-10-2026 10-21-00.pdf",
+  "pdf_sha256": "c81abe83d68ca3f598070fa160c2cd9f43d912296a2d8ce0ec7d65604c01f1b1",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-080",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285670t1cvn/QĐ%20ĐÌnh%20chỉ%20-%20Mã%20hoá%2026-10-2026%2010-21-00.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-080/QĐ ĐÌnh chỉ - Mã hoá 26-10-2026 10-21-00.pdf"
+}

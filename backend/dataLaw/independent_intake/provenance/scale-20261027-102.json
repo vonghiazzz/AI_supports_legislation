@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-102",
+  "anchor_fingerprint": "20aef66c2d5662503a25e412f9823ad18280f057fe8d712e1ab80530ff00b18e",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:56.150968+07:00",
+  "offline_provenance": null,
+  "original_filename": "BA Đại Bằng mã pdf 26-10-2026 15-36-22.pdf",
+  "pdf_sha256": "381876d4ee98516a9614605ed7f965c12bb75b4787561f11d11f2bcd85921db2",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-102",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285816t1cvn/BA%20Đại%20Bằng%20mã%20pdf%2026-10-2026%2015-36-22.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-102/BA Đại Bằng mã pdf 26-10-2026 15-36-22.pdf"
+}

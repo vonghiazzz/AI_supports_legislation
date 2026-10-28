@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-101",
+  "anchor_fingerprint": "4480a0609f6785f9f7658f62f1208a44a7a1cac24a3ed9a9ba051cc3b74d54e9",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:55.465061+07:00",
+  "offline_provenance": null,
+  "original_filename": "Linh - Lương 27-10-2026 18-22-50.pdf",
+  "pdf_sha256": "07d076200c5aea828445f656b2a8378eb8a6de842cb8ddcc4ddf12a9faa8e366",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-101",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2286220t1cvn/Linh%20-%20Lương%2027-10-2026%2018-22-50.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-101/Linh - Lương 27-10-2026 18-22-50.pdf"
+}

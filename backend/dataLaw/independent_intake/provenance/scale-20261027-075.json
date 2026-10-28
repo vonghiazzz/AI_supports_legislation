@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261027-075",
+  "anchor_fingerprint": "0e246e9e48c6bf32a5d0951cb6f21a48e2a4551b8f70d99c9e8846b62e633d14",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-27T20:24:41.340394+07:00",
+  "offline_provenance": null,
+  "original_filename": "Bản án 26-10-2026 09-18-18.pdf",
+  "pdf_sha256": "fdc3a157408cd85ba5a090cef78f8838355eaa62488c94e58d936d2622d56dd8",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261027-075",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285619t1cvn/Bản%20án%2026-10-2026%2009-18-18.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-075/Bản án 26-10-2026 09-18-18.pdf"
+}
