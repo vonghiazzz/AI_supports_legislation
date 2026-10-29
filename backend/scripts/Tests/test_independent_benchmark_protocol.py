@@ -21,6 +21,7 @@ from backend.scripts.Evaluation.benchmarking.independent_benchmark import (
     transition_manifest,
     validate_benchmark_records,
     validate_manifest_state,
+    validate_one_case_one_query_contract,
     validate_sampling_records,
     validate_schema_v2,
     validate_selection_guardrails,
@@ -513,6 +514,128 @@ def test_core_support_and_legal_function_dimensions_cannot_be_conflated():
     core = schema["items"]["properties"]["ground_truth"]["properties"]["core"]["items"]
     assert core["properties"]["importance"]["const"] == "decisive"
     assert core["properties"]["domain"]["enum"] == ["substantive", "procedural"]
+
+
+def _final_benchmark_record(selected, record_id=1):
+    return {
+        "id": record_id,
+        "source_id": selected["source_id"],
+        "case_id": selected["case_id"],
+        "judgment_name": selected["source_name"],
+        "query": f"A final human-written query for {selected['case_id']}",
+        "ground_truth": {"core": [], "supporting": []},
+    }
+
+
+def test_one_selected_case_maps_to_exactly_one_final_query_and_gt_set():
+    selected = _selection_records(2)
+    benchmark = [
+        _final_benchmark_record(record, index)
+        for index, record in enumerate(selected, start=1)
+    ]
+    validate_one_case_one_query_contract(selected, benchmark)
+
+
+def test_one_case_one_query_rejects_duplicate_case_records():
+    selected = _selection_records(2)
+    benchmark = [
+        _final_benchmark_record(selected[0], 1),
+        _final_benchmark_record(selected[0], 2),
+    ]
+    with pytest.raises(BenchmarkProtocolError, match="same selected case"):
+        validate_one_case_one_query_contract(selected, benchmark)
+
+
+def test_one_case_one_query_rejects_unselected_query_record():
+    selected = _selection_records(1)
+    unselected = copy.deepcopy(selected[0])
+    unselected["source_id"] = "judgment:unselected.pdf"
+    unselected["case_id"] = "UNSELECTED/2026/DS-ST"
+    unselected["source_name"] = "unselected.pdf"
+    with pytest.raises(BenchmarkProtocolError, match="unselected source"):
+        validate_one_case_one_query_contract(
+            selected,
+            [_final_benchmark_record(unselected)],
+        )
+
+
+def test_one_case_one_query_rejects_selected_case_without_final_query():
+    selected = _selection_records(2)
+    with pytest.raises(BenchmarkProtocolError, match="exactly one benchmark"):
+        validate_one_case_one_query_contract(
+            selected,
+            [_final_benchmark_record(selected[0])],
+        )
+
+
+def test_one_case_one_query_rejects_missing_selected_case_identity():
+    selected = _selection_records(1)
+    benchmark = _final_benchmark_record(selected[0])
+    benchmark.pop("source_id")
+    with pytest.raises(BenchmarkProtocolError, match="source_id is required"):
+        validate_one_case_one_query_contract(selected, [benchmark])
+
+
+def test_one_case_one_query_gate_activates_at_annotation_freeze(tmp_path):
+    selected = _selection_records(2)
+    benchmark_records = [
+        _final_benchmark_record(record, index)
+        for index, record in enumerate(selected, start=1)
+    ]
+    benchmark = _write_artifact(
+        tmp_path,
+        "benchmark.json",
+        json.dumps(benchmark_records),
+    )
+    schema = _write_artifact(
+        tmp_path,
+        "schema.json",
+        (BENCHMARK_DIR / "gt_schema_v2.snapshot.json").read_text(encoding="utf-8"),
+    )
+    guidelines = _write_artifact(tmp_path, "guidelines.md", "guidelines")
+    agreement = _write_artifact(tmp_path, "agreement.json", "{}")
+    sampling = _write_artifact(tmp_path, "sampling.json", "{}")
+    dedup = _write_artifact(tmp_path, "dedup.json", "{}")
+    manifest = {
+        **_draft_manifest(),
+        "state": "ANNOTATION_IN_PROGRESS",
+        "sampling_seed": 42,
+        "selection_mode": "target",
+        "selected_case_count": len(selected),
+        "selected_case_fingerprint": selected_records_fingerprint(selected),
+        "sampling_manifest_sha256": sampling["sha256"],
+        "source_dedup_report_sha256": dedup["sha256"],
+        "phase1_artifacts": [sampling, dedup, guidelines],
+        "annotation_started_at": "2026-10-29T00:00:00+00:00",
+        "annotation_guidelines_path": guidelines["path"],
+        "annotation_guidelines_sha256": guidelines["sha256"],
+        "annotator_role_assignments_fingerprint": "a" * 64,
+    }
+    updates = {
+        "annotation_frozen_at": "2026-10-29T01:00:00+00:00",
+        "benchmark_path": benchmark["path"],
+        "benchmark_sha256": benchmark["sha256"],
+        "gt_schema_path": schema["path"],
+        "gt_schema_sha256": schema["sha256"],
+        "annotation_agreement_path": agreement["path"],
+        "annotation_agreement_sha256": agreement["sha256"],
+    }
+    transitioned = transition_manifest(
+        manifest,
+        "ANNOTATION_FROZEN",
+        updates,
+        selected_records=selected,
+        project_root=tmp_path,
+    )
+    assert transitioned["state"] == "ANNOTATION_FROZEN"
+
+    with pytest.raises(BenchmarkProtocolError, match="selected-case records"):
+        transition_manifest(
+            manifest,
+            "ANNOTATION_FROZEN",
+            updates,
+            project_root=tmp_path,
+        )
 
 
 def test_canonical_mapping_preserves_raw_subarticle_annotation_at_article_level():

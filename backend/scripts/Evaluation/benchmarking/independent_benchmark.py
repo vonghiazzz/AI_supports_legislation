@@ -645,6 +645,107 @@ def validate_benchmark_records(records: list[dict], schema: dict) -> None:
         ) from exc
 
 
+def validate_one_case_one_query_contract(
+    selected_records: list[dict],
+    benchmark_records: list[dict],
+) -> None:
+    """Require one final query/GT record for every frozen selected case.
+
+    This gate is intentionally separate from the DRAFT inventory scaffold.  It
+    applies when annotation is frozen, after selected cases already exist and
+    final benchmark records are expected to be complete.
+    """
+
+    validate_sampling_records(selected_records)
+    if not isinstance(benchmark_records, list):
+        raise BenchmarkProtocolError("Final benchmark records must be a list")
+
+    selected_by_source = {}
+    selected_case_ids = set()
+    for index, selected in enumerate(selected_records):
+        source_id = selected.get("source_id")
+        case_id = selected.get("case_id")
+        if source_id in selected_by_source:
+            raise BenchmarkProtocolError(
+                f"Selected cases contain duplicate source_id: {source_id}"
+            )
+        if case_id in selected_case_ids:
+            raise BenchmarkProtocolError(
+                f"Selected cases contain duplicate case_id: {case_id}"
+            )
+        if not isinstance(source_id, str) or not source_id:
+            raise BenchmarkProtocolError(
+                f"selected_records[{index}].source_id is required"
+            )
+        if not isinstance(case_id, str) or not case_id:
+            raise BenchmarkProtocolError(
+                f"selected_records[{index}].case_id is required"
+            )
+        selected_by_source[source_id] = selected
+        selected_case_ids.add(case_id)
+
+    if len(benchmark_records) != len(selected_records):
+        raise BenchmarkProtocolError(
+            "Annotation freeze requires exactly one benchmark record/query per "
+            "selected case"
+        )
+
+    seen_sources = set()
+    seen_cases = set()
+    for index, record in enumerate(benchmark_records):
+        if not isinstance(record, dict):
+            raise BenchmarkProtocolError(
+                f"benchmark_records[{index}] must be an object"
+            )
+        source_id = record.get("source_id")
+        case_id = record.get("case_id")
+        query = record.get("query")
+        if not isinstance(source_id, str) or not source_id:
+            raise BenchmarkProtocolError(
+                f"benchmark_records[{index}].source_id is required"
+            )
+        if not isinstance(case_id, str) or not case_id:
+            raise BenchmarkProtocolError(
+                f"benchmark_records[{index}].case_id is required"
+            )
+        if not isinstance(query, str) or not query.strip():
+            raise BenchmarkProtocolError(
+                f"benchmark_records[{index}] requires exactly one non-empty query"
+            )
+        if not isinstance(record.get("ground_truth"), dict):
+            raise BenchmarkProtocolError(
+                f"benchmark_records[{index}] requires exactly one ground_truth set"
+            )
+        selected = selected_by_source.get(source_id)
+        if selected is None:
+            raise BenchmarkProtocolError(
+                f"Final query references an unselected source: {source_id}"
+            )
+        if selected["case_id"] != case_id:
+            raise BenchmarkProtocolError(
+                f"Final query case_id does not match selected source: {source_id}"
+            )
+        if canonical_source_name(record.get("judgment_name", "")) != (
+            canonical_source_name(selected.get("source_name", ""))
+        ):
+            raise BenchmarkProtocolError(
+                f"Final query judgment_name does not match selected source: {source_id}"
+            )
+        if source_id in seen_sources or case_id in seen_cases:
+            raise BenchmarkProtocolError(
+                "Multiple final benchmark records/queries reference the same "
+                f"selected case: {case_id}"
+            )
+        seen_sources.add(source_id)
+        seen_cases.add(case_id)
+
+    if seen_sources != set(selected_by_source):
+        missing = sorted(set(selected_by_source) - seen_sources)
+        raise BenchmarkProtocolError(
+            f"Selected cases are missing final benchmark records/queries: {missing}"
+        )
+
+
 def validate_unique_selected_cases(records: list[dict], development_case_ids: set[str]) -> None:
     validate_sampling_records(records)
     selected_case_ids = [record["case_id"] for record in records]
@@ -808,6 +909,34 @@ def _verify_manifest_artifact_pairs(
         _require_sha256(digest, digest_field)
         artifacts[path] = digest
     _verify_artifact_map(artifacts, project_root)
+
+
+def _load_repository_json_artifact(
+    project_root: Path,
+    relative_path: str,
+    artifact_name: str,
+):
+    project_root = Path(project_root).resolve()
+    relative = Path(relative_path)
+    if relative.is_absolute():
+        raise BenchmarkProtocolError(
+            f"{artifact_name} path must be repository-relative"
+        )
+    path = (project_root / relative).resolve()
+    try:
+        path.relative_to(project_root)
+    except ValueError as exc:
+        raise BenchmarkProtocolError(
+            f"{artifact_name} path escapes project root"
+        ) from exc
+    if path.is_symlink() or not path.is_file():
+        raise BenchmarkProtocolError(f"{artifact_name} artifact is missing")
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise BenchmarkProtocolError(
+            f"{artifact_name} artifact must be valid UTF-8 JSON"
+        ) from exc
 
 
 def _validate_sampling_freeze(
@@ -1021,6 +1150,31 @@ def transition_manifest(
             ),
             project_root,
             new_state,
+        )
+        if selected_records is None:
+            raise BenchmarkProtocolError(
+                "Annotation freeze requires the frozen selected-case records"
+            )
+        if transitioned.get("selected_case_fingerprint") != (
+            selected_records_fingerprint(selected_records)
+        ):
+            raise BenchmarkProtocolError(
+                "Annotation freeze selected-case fingerprint mismatch"
+            )
+        benchmark_records = _load_repository_json_artifact(
+            project_root,
+            transitioned["benchmark_path"],
+            "benchmark",
+        )
+        gt_schema = _load_repository_json_artifact(
+            project_root,
+            transitioned["gt_schema_path"],
+            "GT schema",
+        )
+        validate_benchmark_records(benchmark_records, gt_schema)
+        validate_one_case_one_query_contract(
+            selected_records,
+            benchmark_records,
         )
     if new_state in {"SEALED", "OPENED_FOR_CONFIRMATORY_EVALUATION"}:
         if project_root is None:
