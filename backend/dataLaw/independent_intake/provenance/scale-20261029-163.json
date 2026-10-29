@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-163",
+  "anchor_fingerprint": "bbc0b53ad7f24b7430ca546dc4202b28d3ea7bc2d444519c5aef55d29017cb5a",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:39.531965+07:00",
+  "offline_provenance": null,
+  "original_filename": "QD_Minh__Diep.pdf",
+  "pdf_sha256": "ff69cb6d531b577e7688b9acce3026f599450ea82bb2db335a97012b7a0ffa65",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-163",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1000000t1cvn/QD_Minh__Diep.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-163/QD_Minh__Diep.pdf"
+}

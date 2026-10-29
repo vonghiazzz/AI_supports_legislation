@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-159",
+  "anchor_fingerprint": "4e02ce3c8d1c7b311525aee02bd903ea08d1a9d8e321d495be28bf72d4182ecc",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:37.278537+07:00",
+  "offline_provenance": null,
+  "original_filename": "Dinh_chinh_Quyet_dinh_Minh___Ly.pdf",
+  "pdf_sha256": "2272302be9a9cbfe60a7091d62e664fd2e082bc87f4fd073b5ab65f533cf4e05",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-159",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta399950t1cvn/Dinh_chinh_Quyet_dinh_Minh___Ly.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-159/Dinh_chinh_Quyet_dinh_Minh___Ly.pdf"
+}

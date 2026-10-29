@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-188",
+  "anchor_fingerprint": "443da2eafdaad4c8e5b764b032ca808faac36cc3595aa7a98d7194afb5c78fc1",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:55.088111+07:00",
+  "offline_provenance": null,
+  "original_filename": "BAN_ANNH_NONG_NGHIEPLINH.pdf",
+  "pdf_sha256": "44d0cc6160762e648664ee9d6461c60cf65b8fbfa4f411cd425b29037951fe08",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-188",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1800100t1cvn/BAN_ANNH_NONG_NGHIEPLINH.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-188/BAN_ANNH_NONG_NGHIEPLINH.pdf"
+}

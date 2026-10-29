@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-167",
+  "anchor_fingerprint": "16c031eae45022a310044407cb0937643fede7e756666101d64b56fd3dee9482",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:41.939113+07:00",
+  "offline_provenance": null,
+  "original_filename": "An_LHST_Huong_Bowen.pdf",
+  "pdf_sha256": "4b50ecedec6b6cf25ea2591b8e95e6e1ad3a62515973a9e05a1ed66a7c797784",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-167",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1199916t1cvn/An_LHST_Huong_Bowen.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-167/An_LHST_Huong_Bowen.pdf"
+}

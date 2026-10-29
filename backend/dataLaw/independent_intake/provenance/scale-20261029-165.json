@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-165",
+  "anchor_fingerprint": "e2f8c127366025076deb9647f02cf24f2333e02772ec4177e6c624e460f74508",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:40.710957+07:00",
+  "offline_provenance": null,
+  "original_filename": "QUYET_DINH_CONG_NHAN_SU_THOA_THUAN_KIM_THI_C.pdf",
+  "pdf_sha256": "adc7a904405a4b339ea2bcfaf806ec7ad7cba8c4527be465b7c499aecaa1a6b0",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-165",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta999898t1cvn/QUYET_DINH_CONG_NHAN_SU_THOA_THUAN_KIM_THI_C.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-165/QUYET_DINH_CONG_NHAN_SU_THOA_THUAN_KIM_THI_C.pdf"
+}

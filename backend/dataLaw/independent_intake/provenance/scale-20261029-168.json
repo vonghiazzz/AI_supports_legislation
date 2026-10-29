@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-168",
+  "anchor_fingerprint": "b46366dc72ac44f374d450aa09729a08182bcf21327a23add89bb1d93fd48f7f",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:42.499753+07:00",
+  "offline_provenance": null,
+  "original_filename": "Loan_hiep.pdf",
+  "pdf_sha256": "0c4fd094418a4f49463107aa354bdc7a362d7eae43d7a257590443512a12b7a5",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-168",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1200082t1cvn/Loan_hiep.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-168/Loan_hiep.pdf"
+}

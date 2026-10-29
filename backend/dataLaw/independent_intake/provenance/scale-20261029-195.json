@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-195",
+  "anchor_fingerprint": "24b43d76b6d7b620372e3bb81f2c31aba8d5610a10b0d746c2526b394a67811a",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:59.592664+07:00",
+  "offline_provenance": null,
+  "original_filename": "Vượng- Bình 19-10-2026 10-55-41.pdf",
+  "pdf_sha256": "5edc3ee4c72a254b169e8786be1fc6f200f10f81679f4566c12414976186a460",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-195",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2283701t1cvn/Vượng- Bình 19-10-2026 10-55-41.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-195/Vượng- Bình 19-10-2026 10-55-41.pdf"
+}

@@ -6,8 +6,8 @@
   "state": "DRAFT",
   "benchmark_role": "independent_confirmatory_evaluation",
   "development_benchmark_role": "development_exploratory_only",
-  "git_commit": "2e4a69583f3f51ca296f10b312fe56337e02c921",
-  "generation_timestamp": "2026-10-28T20:31:20.598420+07:00",
+  "git_commit": "3393504fec59550a3eb3bde112e3888d9c3a46de",
+  "generation_timestamp": "2026-10-29T18:49:31.745850+07:00",
   "corpus_fingerprint": "66fb0b20e0505993ed616f864ece99ecfad801de98b4ba3a37d20a3a7bf55e58",
   "sampling_seed": null,
   "deterministic_ordering": "case_id ASC, then source_id ASC",
@@ -20,9 +20,9 @@
     "silent_quota_reduction_permitted": false
   },
   "current_counts": {
-    "available_sources": 258,
+    "available_sources": 293,
     "development_sources_consumed": 107,
-    "eligible_sources": 151,
+    "eligible_sources": 186,
     "selected_cases": 0,
     "query_records": 0,
     "ground_truth_records": 0
@@ -38,7 +38,7 @@
     },
     {
       "path": "backend/dataLaw/independent_intake/acquisition_manifest.json",
-      "sha256": "fb317b1b86ec88dad93bcefe761b6e55f0f3b797632fbb847a446dc7bf59a46c"
+      "sha256": "6a8df983576dfc10b209d14441a88522d35446c5e5546efcd05afc107ac6818b"
     },
     {
       "path": "backend/dataLaw/independent_intake/acquisition_manifest.schema.json",
@@ -66,7 +66,7 @@
     },
     {
       "path": "backend/scripts/Tests/test_independent_source_intake.py",
-      "sha256": "804b2028f403eb9227af7c1aa5f458d5a76b79705eead8b66d19cae35b3c04ee"
+      "sha256": "3bcc5a2c217ab2535d32f0e72e2ac68d13eaab9400bde9ca6aa5874cb89daba5"
     },
     {
       "path": "backend/scripts/Tests/test_independent_source_registration.py",
@@ -88,11 +88,11 @@
   "phase1_artifacts": [
     {
       "path": "backend/data/benchmarks/retrieval_independent_v1/sampling_manifest.json",
-      "sha256": "ba8613f6feebd2611d9ac86d328de4965bf79785786248bcab5e899a3496ffaf"
+      "sha256": "5d04ccc6ca2c47b1f8f2a46b315de6f10e09ee47c73903863e1838c9b2b44c82"
     },
     {
       "path": "backend/data/benchmarks/retrieval_independent_v1/source_dedup_report.json",
-      "sha256": "82a0cc92269089a40d14d4242565c3bf543a270a9466f62cbd5fecda8e9ac917"
+      "sha256": "d514cdce77605e62df6e0dfa2dce042b174c01a86674bd0fb8fd43707d64ab71"
     },
     {
       "path": "backend/data/benchmarks/retrieval_independent_v1/gt_schema_v2.snapshot.json",
@@ -167,7 +167,6 @@
     "DRAFT -> SAMPLING_FROZEN"
   ],
   "blockers": [
-    "eligible source count 151 is below minimum total 180",
     "BLDS_core_substantive preliminary availability 0 is below minimum 55",
     "BLTTDS_primary_procedural preliminary availability 0 is below minimum 30",
     "LAND_2013 preliminary availability 0 is below minimum 35",

@@ -1,12 +1,12 @@
 {
   "algorithm": "source_name_sha_case_id_text_shingle_v2",
   "near_duplicate_threshold": 0.72,
-  "inventory_count": 258,
+  "inventory_count": 293,
   "development_record_count": 107,
   "development_sources_matched": 107,
   "development_sources_unmatched": 0,
   "excluded_source_count": 107,
-  "eligible_source_count": 151,
+  "eligible_source_count": 186,
   "reason_counts": {
     "development_benchmark_exact_sha256": 107,
     "development_benchmark_exact_source": 107,
@@ -1839,17 +1839,17 @@
   "known_duplicate_links": {},
   "ordering_rule": "case_id ASC, source_id ASC, source_sha256 ASC; first duplicate-cluster member is canonical",
   "benchmark_id": "retrieval_independent_v1",
-  "generated_at": "2026-10-28T20:31:20.598420+07:00",
-  "git_commit": "2e4a69583f3f51ca296f10b312fe56337e02c921",
+  "generated_at": "2026-10-29T18:49:31.745850+07:00",
+  "git_commit": "3393504fec59550a3eb3bde112e3888d9c3a46de",
   "development_benchmark_path": "backend/data/judgments_evaluation.json",
   "development_benchmark_sha256": "e0ff50ae78406430fc56815af7fbd3e125ddce0919e4ab93e5bcc44aefb61b16",
-  "inventory_fingerprint": "b8c310b5bc8a4dbdce68011353363ef972bca4c5df0dd59599c261908e163882",
-  "eligible_fingerprint": "20412a2bdb327f45cd3c735d80f1dd0b3b7eff7e653cfe3be60008f2babcf084",
+  "inventory_fingerprint": "1f67bdd91036699141897c6f66378a50c340cba8f4a2632977f5a1353f849608",
+  "eligible_fingerprint": "c249fadc6667f3821a331c13367d786856bea1d91db5968773276789078c762e",
   "independent_intake_validation": {
     "report_version": "independent_source_intake_validation_v1",
     "manifest_path": "backend/dataLaw/independent_intake/acquisition_manifest.json",
-    "source_count": 180,
-    "eligible_source_count": 151,
+    "source_count": 221,
+    "eligible_source_count": 186,
     "sources": [
       {
         "acquisition_id": "pilot-20261025-001",
@@ -3414,6 +3414,379 @@
       {
         "acquisition_id": "scale-20261028-156",
         "source_id": "independent:scale-20261028-156",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-157",
+        "source_id": "independent:scale-20261029-157",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-158",
+        "source_id": "independent:scale-20261029-158",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": [
+          6,
+          8
+        ]
+      },
+      {
+        "acquisition_id": "scale-20261029-159",
+        "source_id": "independent:scale-20261029-159",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-160",
+        "source_id": "independent:scale-20261029-160",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": [
+          3,
+          4
+        ]
+      },
+      {
+        "acquisition_id": "scale-20261029-161",
+        "source_id": "independent:scale-20261029-161",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-162",
+        "source_id": "independent:scale-20261029-162",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-163",
+        "source_id": "independent:scale-20261029-163",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": [
+          5
+        ]
+      },
+      {
+        "acquisition_id": "scale-20261029-164",
+        "source_id": "independent:scale-20261029-164",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-165",
+        "source_id": "independent:scale-20261029-165",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-166",
+        "source_id": "independent:scale-20261029-166",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": [
+          2
+        ]
+      },
+      {
+        "acquisition_id": "scale-20261029-167",
+        "source_id": "independent:scale-20261029-167",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-168",
+        "source_id": "independent:scale-20261029-168",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": [
+          7,
+          8
+        ]
+      },
+      {
+        "acquisition_id": "scale-20261029-169",
+        "source_id": "independent:scale-20261029-169",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-170",
+        "source_id": "independent:scale-20261029-170",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-171",
+        "source_id": "independent:scale-20261029-171",
+        "claimed_status": "extracted",
+        "eligible": false,
+        "gate_failures": [
+          "unresolved_rejection_reasons"
+        ],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-172",
+        "source_id": "independent:scale-20261029-172",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-173",
+        "source_id": "independent:scale-20261029-173",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-174",
+        "source_id": "independent:scale-20261029-174",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-175",
+        "source_id": "independent:scale-20261029-175",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-176",
+        "source_id": "independent:scale-20261029-176",
+        "claimed_status": "extracted",
+        "eligible": false,
+        "gate_failures": [
+          "unresolved_rejection_reasons"
+        ],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-177",
+        "source_id": "independent:scale-20261029-177",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-178",
+        "source_id": "independent:scale-20261029-178",
+        "claimed_status": "hash_verified",
+        "eligible": false,
+        "gate_failures": [
+          "incomplete_development_overlap_check",
+          "incomplete_internal_dedup_check",
+          "incomplete_underlying_dispute_review",
+          "invalid_structured_path:structured_path must be an existing regular non-symlink file",
+          "missing_case_id",
+          "missing_court",
+          "missing_decision_date",
+          "missing_judgment_number",
+          "missing_procedure_stage",
+          "unverified_case_id",
+          "unverified_court",
+          "unverified_decision_date",
+          "unverified_judgment_number",
+          "unverified_procedure_stage"
+        ],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-179",
+        "source_id": "independent:scale-20261029-179",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-180",
+        "source_id": "independent:scale-20261029-180",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-181",
+        "source_id": "independent:scale-20261029-181",
+        "claimed_status": "extracted",
+        "eligible": false,
+        "gate_failures": [
+          "unresolved_rejection_reasons"
+        ],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-182",
+        "source_id": "independent:scale-20261029-182",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-183",
+        "source_id": "independent:scale-20261029-183",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-184",
+        "source_id": "independent:scale-20261029-184",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": [
+          5
+        ]
+      },
+      {
+        "acquisition_id": "scale-20261029-185",
+        "source_id": "independent:scale-20261029-185",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-186",
+        "source_id": "independent:scale-20261029-186",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-187",
+        "source_id": "independent:scale-20261029-187",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-188",
+        "source_id": "independent:scale-20261029-188",
+        "claimed_status": "extracted",
+        "eligible": false,
+        "gate_failures": [
+          "unresolved_rejection_reasons"
+        ],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-189",
+        "source_id": "independent:scale-20261029-189",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-190",
+        "source_id": "independent:scale-20261029-190",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": [
+          6,
+          7
+        ]
+      },
+      {
+        "acquisition_id": "scale-20261029-191",
+        "source_id": "independent:scale-20261029-191",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": [
+          6
+        ]
+      },
+      {
+        "acquisition_id": "scale-20261029-192",
+        "source_id": "independent:scale-20261029-192",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-193",
+        "source_id": "independent:scale-20261029-193",
+        "claimed_status": "extracted",
+        "eligible": false,
+        "gate_failures": [
+          "unresolved_rejection_reasons"
+        ],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-194",
+        "source_id": "independent:scale-20261029-194",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-195",
+        "source_id": "independent:scale-20261029-195",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-196",
+        "source_id": "independent:scale-20261029-196",
+        "claimed_status": "eligible",
+        "eligible": true,
+        "gate_failures": [],
+        "blank_page_numbers": []
+      },
+      {
+        "acquisition_id": "scale-20261029-197",
+        "source_id": "independent:scale-20261029-197",
         "claimed_status": "eligible",
         "eligible": true,
         "gate_failures": [],

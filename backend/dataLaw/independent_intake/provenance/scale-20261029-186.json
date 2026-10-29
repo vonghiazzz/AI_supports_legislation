@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-186",
+  "anchor_fingerprint": "13c35086c110a9e8eba277ff9185586f17b896b0e99341ce53a6a9fcf7a592e6",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:53.794730+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_ma_hoa_TaPhuoc.pdf",
+  "pdf_sha256": "44275231b962467779757330fae6f2bdbcd02a3f50cded2b4cffa02b5635f46f",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-186",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1800000t1cvn/Ban_an_ma_hoa_TaPhuoc.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-186/Ban_an_ma_hoa_TaPhuoc.pdf"
+}

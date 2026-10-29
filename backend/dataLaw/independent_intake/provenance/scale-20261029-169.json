@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-169",
+  "anchor_fingerprint": "0d053cef2a6fc6638cd69b9303938013fdd530e2d0f30caae1e0cb675c7b1aaa",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:43.076456+07:00",
+  "offline_provenance": null,
+  "original_filename": "Hung_Son_ma_hoa.pdf",
+  "pdf_sha256": "c6436d596bbf3e874be483946e0934d6facde3882ceac21b942b98a630013dbd",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-169",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1000101t1cvn/Hung_Son_ma_hoa.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-169/Hung_Son_ma_hoa.pdf"
+}

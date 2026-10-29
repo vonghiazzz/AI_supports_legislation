@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-185",
+  "anchor_fingerprint": "dae26114e8aafbfdd45c380b4cecb3088cde450ec56f8c378077fbbcc6dc4cbc",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:53.058526+07:00",
+  "offline_provenance": null,
+  "original_filename": "BAn_an_ma_hoa_TamLoc.pdf",
+  "pdf_sha256": "da406b1d6e2dc4b84f66c79726215c6f137b745bea0ec19fc215a678af3f5fd5",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-185",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1800044t1cvn/BAn_an_ma_hoa_TamLoc.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-185/BAn_an_ma_hoa_TamLoc.pdf"
+}

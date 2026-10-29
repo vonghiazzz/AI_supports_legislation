@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-170",
+  "anchor_fingerprint": "beab010ca8dbf7f2fdecff5d64bbafee20abf9c9f398df3b5445f0f349140fdf",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:43.650605+07:00",
+  "offline_provenance": null,
+  "original_filename": "BAPT_Thanh__Phuong_phat_hanh.pdf",
+  "pdf_sha256": "3c7fa1c507e36a6c0ae266a7c410ed1c4df5471309aa336271ca3af76bb5cc98",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-170",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1199987t1cvn/BAPT_Thanh__Phuong_phat_hanh.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-170/BAPT_Thanh__Phuong_phat_hanh.pdf"
+}

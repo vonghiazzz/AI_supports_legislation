@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-184",
+  "anchor_fingerprint": "a89e69b2b5f007dbada13a66a6d856599682be4cec3c125dcc8e4a2a4655bb79",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:52.456880+07:00",
+  "offline_provenance": null,
+  "original_filename": "H__L_Doi_lai_tai_san.pdf",
+  "pdf_sha256": "71eeff73c5a274cf31420fc41d7f6aba8ce097dba24740177f395b76336c3066",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-184",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1799876t1cvn/H__L_Doi_lai_tai_san.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-184/H__L_Doi_lai_tai_san.pdf"
+}

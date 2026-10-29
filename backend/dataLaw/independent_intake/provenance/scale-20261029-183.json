@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-183",
+  "anchor_fingerprint": "af75b55deb3de7e2ebe8cfcb10e9755e81c898c9d16820b49103455a91635148",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:51.886813+07:00",
+  "offline_provenance": null,
+  "original_filename": "Thach_Thi_Tuyet_mLe_Duy_T.pdf",
+  "pdf_sha256": "d8d254dbc37bb40f13a6f7c56dc72b5c3301d253485bad4f52b753c7cef76878",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-183",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1800120t1cvn/Thach_Thi_Tuyet_mLe_Duy_T.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-183/Thach_Thi_Tuyet_mLe_Duy_T.pdf"
+}

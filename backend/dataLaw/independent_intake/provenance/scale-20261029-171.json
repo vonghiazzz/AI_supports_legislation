@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-171",
+  "anchor_fingerprint": "34f84b7ffa965f901a8e4999e50e2fe69d35d7d74090297f1e3b4a617824cd72",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:44.252002+07:00",
+  "offline_provenance": null,
+  "original_filename": "QD_07_Trang__Lien.pdf",
+  "pdf_sha256": "e446f95d138af06ac2f72b395f6d4cc5beeb963510b87e86ed1190bc7c30fcb3",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-171",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1600086t1cvn/QD_07_Trang__Lien.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-171/QD_07_Trang__Lien.pdf"
+}

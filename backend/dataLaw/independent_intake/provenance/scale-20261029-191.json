@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-191",
+  "anchor_fingerprint": "bdd1c18b85d5925e3cefd896d0b2c425e922a3f02b438fc6953d8e42ca5f58ae",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:56.986054+07:00",
+  "offline_provenance": null,
+  "original_filename": "772 NGUYEN VAN B - TRAN QUOC K 28-09-2026 19-10-2026 11-07-49.pdf",
+  "pdf_sha256": "6fc039bd68daf24837fc093bdd839ddcc5817e5ae02552e476b927f468e07f33",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-191",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2283720t1cvn/772 NGUYEN VAN B - TRAN QUOC K 28-09-2026 19-10-2026 11-07-49.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-191/772 NGUYEN VAN B - TRAN QUOC K 28-09-2026 19-10-2026 11-07-49.pdf"
+}

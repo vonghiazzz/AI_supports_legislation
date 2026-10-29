@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-178",
+  "anchor_fingerprint": "1cdbcd577ba9e79b92e0e0b7dd0cd7c25981656c755b328792fcbc99603f1fa7",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:48.631940+07:00",
+  "offline_provenance": null,
+  "original_filename": "Cong_ty_ngoc_phu.pdf",
+  "pdf_sha256": "2832f40d87308069d997204cbeb043074313baeb50eb4ad1a31e32ef5bcf8de2",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-178",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1800111t1cvn/Cong_ty_ngoc_phu.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-178/Cong_ty_ngoc_phu.pdf"
+}

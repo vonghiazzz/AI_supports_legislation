@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-182",
+  "anchor_fingerprint": "9f553e9cb3de1a65afa33a5199789bc9cddb572b3b0e7068016d2fb3ca751db1",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:51.229062+07:00",
+  "offline_provenance": null,
+  "original_filename": "ban_an_thua_ke_va_chia_tai_san_chung.pdf",
+  "pdf_sha256": "12319a198ffd17124f951c3dd3c93c49c1e25dd0c5adc096851488c3fe9a508f",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-182",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1600035t1cvn/ban_an_thua_ke_va_chia_tai_san_chung.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-182/ban_an_thua_ke_va_chia_tai_san_chung.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-193",
+  "anchor_fingerprint": "efac5e69dd22fc0c4093c0e55a46d68dc15cd6739e58736001cbac31f25995dd",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:58.256371+07:00",
+  "offline_provenance": null,
+  "original_filename": "Công ty AP - Cty N 19-10-2026 13-41-43.pdf",
+  "pdf_sha256": "9f6b37d09eb315c8d79bf855e45f9c7cabc2cb3a59c4617ea7dfbe39f2f56b18",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-193",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2283772t1cvn/Công ty AP - Cty N 19-10-2026 13-41-43.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-193/Công ty AP - Cty N 19-10-2026 13-41-43.pdf"
+}

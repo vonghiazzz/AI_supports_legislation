@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-190",
+  "anchor_fingerprint": "9b9477471bcf80042ffde5d700a947a39e9207552ad10bcd6749729756058973",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:56.268545+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_dang.pdf",
+  "pdf_sha256": "8a226c086698b842341447576533b02693181ccea7e699f88e2471a508233b93",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-190",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1799990t1cvn/Ban_an_dang.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-190/Ban_an_dang.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-173",
+  "anchor_fingerprint": "058125ddf1e0442c0f459665e2e4e36cb20d830a19d282d0b0bb9fae6f258496",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:45.510013+07:00",
+  "offline_provenance": null,
+  "original_filename": "QDDC_vu_Nghia__Thuan_21_19523.pdf",
+  "pdf_sha256": "c4a2d6833820d10951a267d8f6be6760aa11d7ca36fd942de0a6bec743155273",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-173",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1200096t1cvn/QDDC_vu_Nghia__Thuan_21_19523.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-173/QDDC_vu_Nghia__Thuan_21_19523.pdf"
+}

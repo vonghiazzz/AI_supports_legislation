@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-197",
+  "anchor_fingerprint": "f47cbb251df3894385c0c3fdea127af44e3644436251cfc2701e2a24031d5ce8",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:44:01.042802+07:00",
+  "offline_provenance": null,
+  "original_filename": "1053 Ngân hàng Eximbank 19-10-2026 15-04-54.pdf",
+  "pdf_sha256": "1c492f05fd4834b17a11c6bd6512eb72043177586ed13d5688e8470b1d43dc74",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-197",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2283818t1cvn/1053 Ngân hàng Eximbank 19-10-2026 15-04-54.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-197/1053 Ngân hàng Eximbank 19-10-2026 15-04-54.pdf"
+}

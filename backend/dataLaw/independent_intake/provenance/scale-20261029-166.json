@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-166",
+  "anchor_fingerprint": "bff2ede4e173e0c99de73f8a6964eca6161af959226a2d0bbef0a0d94a52507e",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:41.324935+07:00",
+  "offline_provenance": null,
+  "original_filename": "Nhiem__Tu.pdf",
+  "pdf_sha256": "10cc5eb2e19d6d538f7afe6456a744c4027167869a04e697feea8963a4efd661",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-166",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1200059t1cvn/Nhiem__Tu.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-166/Nhiem__Tu.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-158",
+  "anchor_fingerprint": "9675f75c7d612461c8b3bcdaec0e42a182ccffbc00be817f3b6c0a213fa74fe9",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:36.664614+07:00",
+  "offline_provenance": null,
+  "original_filename": "quyet_dinh_dinh_chi_vu_ong_Hay.pdf",
+  "pdf_sha256": "12e3cf3c8031cec0f79f3a3035e37f737547d282b83be7bede5e96ac8f5988aa",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-158",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta400081t1cvn/quyet_dinh_dinh_chi_vu_ong_Hay.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-158/quyet_dinh_dinh_chi_vu_ong_Hay.pdf"
+}

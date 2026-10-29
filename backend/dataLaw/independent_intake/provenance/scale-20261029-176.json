@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261029-176",
+  "anchor_fingerprint": "8c9aa4e4191d638492957633002a1857e81b3199df1615d7bc51a9887604d89e",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-29T08:43:47.276732+07:00",
+  "offline_provenance": null,
+  "original_filename": "QD_DINH_CHI_Ma_Hoa.pdf",
+  "pdf_sha256": "218223d70f267657e8dba1bec97e1a775f309bc03e520ad467df359cf7f5e418",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261029-176",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1200065t1cvn/QD_DINH_CHI_Ma_Hoa.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261029-176/QD_DINH_CHI_Ma_Hoa.pdf"
+}
