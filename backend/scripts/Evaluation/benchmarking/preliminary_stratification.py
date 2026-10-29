@@ -19,6 +19,7 @@ from .independent_benchmark import (
     BENCHMARK_ID,
     canonical_json_fingerprint,
     inventory_independent_sources,
+    validate_sampling_records,
 )
 from .source_intake import load_acquisition_manifest
 
@@ -491,11 +492,139 @@ def _quota_observability(records: list[dict]) -> dict:
     }
 
 
-def validate_preliminary_stratification(artifact: dict) -> None:
+def _status_distribution(records: list[dict]) -> dict:
+    return {
+        status: sum(record["classification_status"] == status for record in records)
+        for status in ("CLASSIFIED", "MULTI_FAMILY", "UNKNOWN")
+    }
+
+
+def _family_distribution(records: list[dict]) -> dict:
+    return {
+        family: sum(record["primary_family_preliminary"] == family for record in records)
+        for family in PRELIMINARY_FAMILIES
+    }
+
+
+def validate_checkpoint_frame_against_live(
+    checkpoint_records: list[dict],
+    live_eligible_records: list[dict],
+) -> None:
+    """Require an exact, unchanged checkpoint subset of the live eligible pool."""
+
+    validate_sampling_records(checkpoint_records)
+    validate_sampling_records(live_eligible_records)
+    if any(
+        not record["source_id"].startswith("independent:")
+        for record in checkpoint_records
+    ):
+        raise PreliminaryStratificationError(
+            "Development source contaminated the independent checkpoint frame"
+        )
+    live_by_source = {
+        record["source_id"]: record for record in live_eligible_records
+    }
+    for checkpoint in checkpoint_records:
+        source_id = checkpoint["source_id"]
+        live = live_by_source.get(source_id)
+        if live is None:
+            raise PreliminaryStratificationError(
+                f"Checkpoint source is no longer live eligible: {source_id}"
+            )
+        if live != checkpoint:
+            raise PreliminaryStratificationError(
+                f"Checkpoint source changed in live production: {source_id}"
+            )
+
+
+def classify_preliminary_records(
+    source_records: list[dict],
+    structured_by_source_id: dict[str, dict],
+) -> list[dict]:
+    """Classify an explicit eligible collection without loading any inventory."""
+
+    if not isinstance(source_records, list):
+        raise PreliminaryStratificationError("Explicit source records must be a list")
+    source_ids = [record.get("source_id") for record in source_records]
+    if any(not isinstance(source_id, str) or not source_id for source_id in source_ids):
+        raise PreliminaryStratificationError("Explicit source_id is required")
+    if len(source_ids) != len(set(source_ids)):
+        raise PreliminaryStratificationError("Duplicate explicit source_id")
+    if any(not source_id.startswith("independent:") for source_id in source_ids):
+        raise PreliminaryStratificationError(
+            "Development source cannot enter preliminary stratification"
+        )
+    if any(record.get("acquisition_status") != "eligible" for record in source_records):
+        raise PreliminaryStratificationError(
+            "Explicit preliminary classification requires eligible sources"
+        )
+    if set(structured_by_source_id) != set(source_ids):
+        raise PreliminaryStratificationError(
+            "Explicit structured-source mapping does not match source records"
+        )
+    records = [
+        classify_preliminary_source(
+            source,
+            structured_by_source_id[source["source_id"]],
+        )
+        for source in source_records
+    ]
+    records.sort(key=lambda item: (item["case_id"], item["source_id"]))
+    return records
+
+
+def assemble_preliminary_stratification(
+    checkpoint_frame: list[dict],
+    classified_records: list[dict],
+) -> dict:
+    """Assemble one deterministic artifact for an explicitly supplied frame."""
+
+    validate_sampling_records(checkpoint_frame)
+    status_distribution = _status_distribution(classified_records)
+    artifact = {
+        "artifact_version": ARTIFACT_VERSION,
+        "derivation_version": DERIVATION_VERSION,
+        "benchmark_id": BENCHMARK_ID,
+        "artifact_role": "PRELIMINARY_STRATIFICATION_METADATA_NOT_GROUND_TRUTH",
+        "source_inventory_fingerprint": canonical_json_fingerprint(checkpoint_frame),
+        "source_count": len(classified_records),
+        "scope": {
+            "eligible_independent_only": True,
+            "development_sources_included": False,
+            "blocked_sources_included": False,
+            "hash_verified_sources_included": False,
+        },
+        "rules": list(RULE_DEFINITIONS),
+        "family_distribution": _family_distribution(classified_records),
+        "classification_status_distribution": status_distribution,
+        "classification_coverage": (
+            (status_distribution["CLASSIFIED"] + status_distribution["MULTI_FAMILY"])
+            / len(classified_records)
+            if classified_records
+            else 0.0
+        ),
+        "quota_observability": _quota_observability(classified_records),
+        "records_fingerprint": canonical_json_fingerprint(classified_records),
+        "records": classified_records,
+    }
+    validate_preliminary_stratification(artifact, checkpoint_frame)
+    return artifact
+
+
+def validate_preliminary_stratification(
+    artifact: dict,
+    checkpoint_frame: list[dict] | None = None,
+) -> None:
     if artifact.get("artifact_version") != ARTIFACT_VERSION:
         raise PreliminaryStratificationError("Unknown stratification artifact version")
     if artifact.get("derivation_version") != DERIVATION_VERSION:
         raise PreliminaryStratificationError("Unknown stratification derivation version")
+    if artifact.get("benchmark_id") != BENCHMARK_ID:
+        raise PreliminaryStratificationError("Wrong stratification benchmark")
+    if artifact.get("artifact_role") != (
+        "PRELIMINARY_STRATIFICATION_METADATA_NOT_GROUND_TRUTH"
+    ):
+        raise PreliminaryStratificationError("Wrong stratification artifact role")
     records = artifact.get("records")
     if not isinstance(records, list) or len(records) != artifact.get("source_count"):
         raise PreliminaryStratificationError("Stratification source count mismatch")
@@ -514,88 +643,132 @@ def validate_preliminary_stratification(artifact: dict) -> None:
             "UNKNOWN",
         }:
             raise PreliminaryStratificationError("Unknown classification status")
+        source_id = record.get("source_id")
+        if not isinstance(source_id, str) or not source_id.startswith("independent:"):
+            raise PreliminaryStratificationError(
+                "Development source contaminated preliminary stratification"
+            )
     expected = canonical_json_fingerprint(records)
     if artifact.get("records_fingerprint") != expected:
         raise PreliminaryStratificationError("Stratification fingerprint mismatch")
 
+    expected_status = _status_distribution(records)
+    if artifact.get("classification_status_distribution") != expected_status:
+        raise PreliminaryStratificationError(
+            "Stratification classification summary mismatch"
+        )
+    if sum(expected_status.values()) != len(records):
+        raise PreliminaryStratificationError(
+            "Stratification classification statuses do not cover the frame"
+        )
+    expected_coverage = (
+        (expected_status["CLASSIFIED"] + expected_status["MULTI_FAMILY"])
+        / len(records)
+        if records
+        else 0.0
+    )
+    if artifact.get("classification_coverage") != expected_coverage:
+        raise PreliminaryStratificationError("Stratification coverage mismatch")
+    if artifact.get("family_distribution") != _family_distribution(records):
+        raise PreliminaryStratificationError("Stratification family summary mismatch")
+    if artifact.get("quota_observability") != _quota_observability(records):
+        raise PreliminaryStratificationError("Stratification quota summary mismatch")
 
-def build_preliminary_stratification(project_root: Path) -> dict:
-    project_root = Path(project_root).resolve()
+    if checkpoint_frame is not None:
+        validate_sampling_records(checkpoint_frame)
+        expected_frame_fingerprint = canonical_json_fingerprint(checkpoint_frame)
+        if artifact.get("source_inventory_fingerprint") != expected_frame_fingerprint:
+            raise PreliminaryStratificationError(
+                "Stratification source inventory fingerprint mismatch"
+            )
+        frame_by_source = {
+            record["source_id"]: record for record in checkpoint_frame
+        }
+        record_by_source = {record["source_id"]: record for record in records}
+        if set(record_by_source) != set(frame_by_source):
+            raise PreliminaryStratificationError(
+                "Stratification source IDs do not match checkpoint frame"
+            )
+        for source_id, record in record_by_source.items():
+            frame = frame_by_source[source_id]
+            expected_identity = {
+                "acquisition_id": frame.get("acquisition_id"),
+                "case_id": frame.get("case_id"),
+                "judgment_number": frame.get("judgment_number"),
+                "procedure_stage": frame.get("procedure_stage"),
+                "decision_year": frame.get("year"),
+            }
+            if any(record.get(key) != value for key, value in expected_identity.items()):
+                raise PreliminaryStratificationError(
+                    f"Stratification identity differs from checkpoint frame: {source_id}"
+                )
+
+
+def _load_sampling_checkpoint(project_root: Path) -> tuple[list[dict], str]:
     benchmark_dir = project_root / DEFAULT_ARTIFACT_RELATIVE.parent
     sampling = json.loads(
         (benchmark_dir / "sampling_manifest.json").read_text(encoding="utf-8")
     )
-    live_independent, _, _ = inventory_independent_sources(
-        project_root, include_private_text=False
-    )
-    snapshot_independent = sampling.get("eligible_sources")
-    if not isinstance(snapshot_independent, list) or (
-        {record["source_id"]: record for record in snapshot_independent}
-        != {record["source_id"]: record for record in live_independent}
-    ):
-        raise PreliminaryStratificationError(
-            "Live eligible inventory does not match the reconciled sampling frame"
-        )
-    if canonical_json_fingerprint(snapshot_independent) != sampling.get(
-        "eligible_fingerprint"
+    checkpoint = sampling.get("eligible_sources")
+    fingerprint = sampling.get("eligible_fingerprint")
+    if not isinstance(checkpoint, list) or (
+        canonical_json_fingerprint(checkpoint) != fingerprint
     ):
         raise PreliminaryStratificationError(
             "Reconciled sampling-frame fingerprint is invalid"
         )
+    return checkpoint, fingerprint
 
+
+def classify_live_preliminary_sources(
+    project_root: Path,
+    source_records: list[dict],
+) -> list[dict]:
+    """Classify an explicit live-eligible subset without changing checkpoints."""
+
+    project_root = Path(project_root).resolve()
+    live_eligible, _, _ = inventory_independent_sources(
+        project_root, include_private_text=False
+    )
+    validate_checkpoint_frame_against_live(source_records, live_eligible)
     manifest = load_acquisition_manifest(project_root)
-    by_source = {source["source_id"]: source for source in manifest["sources"]}
-    records = []
-    for inventory_record in snapshot_independent:
-        source = by_source.get(inventory_record["source_id"])
+    manifest_by_source = {
+        source["source_id"]: source for source in manifest["sources"]
+    }
+    sources = []
+    structured_by_source = {}
+    for frame_record in source_records:
+        source_id = frame_record["source_id"]
+        source = manifest_by_source.get(source_id)
         if source is None or source["acquisition_status"] != "eligible":
             raise PreliminaryStratificationError(
-                f"Non-eligible source entered stratification: {inventory_record['source_id']}"
+                f"Non-eligible source entered stratification: {source_id}"
             )
-        structured = json.loads(
+        sources.append(source)
+        structured_by_source[source_id] = json.loads(
             (project_root / source["structured_path"]).read_text(encoding="utf-8")
         )
-        records.append(classify_preliminary_source(source, structured))
-    records.sort(key=lambda item: (item["case_id"], item["source_id"]))
+    return classify_preliminary_records(sources, structured_by_source)
 
-    family_distribution = {
-        family: sum(
-            record["primary_family_preliminary"] == family for record in records
-        )
-        for family in PRELIMINARY_FAMILIES
-    }
-    status_distribution = {
-        status: sum(record["classification_status"] == status for record in records)
-        for status in ("CLASSIFIED", "MULTI_FAMILY", "UNKNOWN")
-    }
-    artifact = {
-        "artifact_version": ARTIFACT_VERSION,
-        "derivation_version": DERIVATION_VERSION,
-        "benchmark_id": BENCHMARK_ID,
-        "artifact_role": "PRELIMINARY_STRATIFICATION_METADATA_NOT_GROUND_TRUTH",
-        "source_inventory_fingerprint": sampling["eligible_fingerprint"],
-        "source_count": len(records),
-        "scope": {
-            "eligible_independent_only": True,
-            "development_sources_included": False,
-            "blocked_sources_included": False,
-            "hash_verified_sources_included": False,
-        },
-        "rules": list(RULE_DEFINITIONS),
-        "family_distribution": family_distribution,
-        "classification_status_distribution": status_distribution,
-        "classification_coverage": (
-            (status_distribution["CLASSIFIED"] + status_distribution["MULTI_FAMILY"])
-            / len(records)
-            if records
-            else 0.0
-        ),
-        "quota_observability": _quota_observability(records),
-        "records_fingerprint": canonical_json_fingerprint(records),
-        "records": records,
-    }
-    validate_preliminary_stratification(artifact)
-    return artifact
+
+def build_preliminary_stratification_for_frame(
+    project_root: Path,
+    checkpoint_frame: list[dict],
+) -> dict:
+    """Build from one explicit checkpoint frame; live eligible may be a superset."""
+
+    project_root = Path(project_root).resolve()
+    classified = classify_live_preliminary_sources(project_root, checkpoint_frame)
+    return assemble_preliminary_stratification(checkpoint_frame, classified)
+
+
+def build_preliminary_stratification(project_root: Path) -> dict:
+    project_root = Path(project_root).resolve()
+    checkpoint_frame, _ = _load_sampling_checkpoint(project_root)
+    return build_preliminary_stratification_for_frame(
+        project_root,
+        checkpoint_frame,
+    )
 
 
 def _atomic_write_json(path: Path, payload: dict) -> None:
