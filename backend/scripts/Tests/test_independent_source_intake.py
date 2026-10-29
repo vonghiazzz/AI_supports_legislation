@@ -31,6 +31,7 @@ from backend.scripts.Evaluation.benchmarking.source_intake import (
     inventory_independent_sources,
     load_acquisition_manifest,
     promote_source_to_eligible,
+    register_source,
     stable_source_id,
     validate_acquisition_manifest,
     validate_pdf_source,
@@ -328,7 +329,11 @@ def test_valid_acquisition_manifest_and_current_production_intake_state():
         for source in checked["sources"]
         if source["acquisition_status"] == "eligible"
     }
-    assert all(source["structured_sha256"] is not None for source in checked["sources"])
+    assert all(
+        source["structured_sha256"] is not None
+        for source in checked["sources"]
+        if source["acquisition_status"] in {"extracted", "eligible"}
+    )
     expected_structured_ids = {
         source["acquisition_id"]
         for source in checked["sources"]
@@ -949,6 +954,126 @@ def test_extractor_failure_is_transactional_and_retryable(tmp_path, monkeypatch)
     result = extract_intake_source(tmp_path, source["acquisition_id"])
     assert result["acquisition_status"] == "extracted"
     assert output_path.is_file()
+
+
+def test_registered_source_with_no_usable_text_remains_valid_hash_verified(
+    tmp_path, monkeypatch
+):
+    _write_manifest(tmp_path, _manifest([]))
+    for relative in (
+        INTAKE_ROOT_RELATIVE / "raw",
+        INTAKE_ROOT_RELATIVE / "structured",
+    ):
+        (tmp_path / relative).mkdir(parents=True, exist_ok=True)
+    input_pdf = tmp_path / "incoming.pdf"
+    input_pdf.write_bytes(_minimal_pdf_bytes("no-usable-text"))
+    registered = register_source(
+        tmp_path,
+        "src-no-text",
+        input_pdf,
+        "https://example.test/judgments/no-usable-text.pdf",
+        "example.test",
+        FIXED_TIME,
+        "no-usable-text.pdf",
+    )
+    assert registered["acquisition_status"] == "hash_verified"
+
+    def writes_only_blank_page(
+        raw_fd, output_dir_fd, original_filename, force_ocr
+    ):
+        payload = {
+            "judgment_name": original_filename,
+            "page_count": 1,
+            "pages": [{
+                "page": 1,
+                "text": "",
+                "extraction_status": "empty_after_native_and_ocr",
+            }],
+            "sections": {"header": "", "facts": "", "reasoning": "", "decision": ""},
+        }
+        descriptor = os.open(
+            "no-usable-text_structured.json",
+            os.O_WRONLY | os.O_CREAT | os.O_EXCL,
+            0o600,
+            dir_fd=output_dir_fd,
+        )
+        with os.fdopen(descriptor, "w", encoding="utf-8") as handle:
+            json.dump(payload, handle, ensure_ascii=False)
+        return True
+
+    monkeypatch.setattr(
+        source_intake, "_run_local_extractor", writes_only_blank_page
+    )
+    with pytest.raises(
+        SourceIntakeError, match="Structured judgment must contain usable document text"
+    ):
+        extract_intake_source(tmp_path, "src-no-text")
+
+    checked = load_acquisition_manifest(tmp_path)
+    source = checked["sources"][0]
+    raw_path = tmp_path / source["stored_pdf_path"]
+    structured_path = tmp_path / source["structured_path"]
+    anchor_path = (
+        tmp_path / PROVENANCE_ROOT_RELATIVE / "src-no-text.json"
+    )
+    assert source["acquisition_status"] == "hash_verified"
+    assert [entry["status"] for entry in source["status_history"]] == [
+        "downloaded", "hash_verified"
+    ]
+    assert source["structured_sha256"] is None
+    assert raw_path.is_file() and not raw_path.is_symlink()
+    assert _sha(raw_path.read_bytes()) == source["sha256"]
+    assert anchor_path.is_file() and not anchor_path.is_symlink()
+    assert not structured_path.exists()
+    assert list((tmp_path / TRANSACTION_ROOT_RELATIVE).glob("*.json")) == []
+    assert not list(structured_path.parent.glob(".extract-partial-*"))
+    inventory, report, _ = inventory_independent_sources(tmp_path)
+    assert inventory == []
+    result = report["sources"][0]
+    assert result["claimed_status"] == "hash_verified"
+    assert result["eligible"] is False
+
+
+@pytest.mark.parametrize("status", ["extracted", "eligible"])
+def test_structured_sha_is_required_from_extracted_status_onward(status):
+    source = _source(status=status)
+    source["structured_sha256"] = None
+    with pytest.raises(
+        SourceIntakeError,
+        match="structured_sha256 is required from extracted status onward",
+    ):
+        validate_acquisition_manifest(_manifest([source]))
+
+
+@pytest.mark.parametrize(
+    ("status", "tamper", "expected"),
+    [
+        ("extracted", "missing", "Structured artifact (?:missing|invalid)"),
+        ("extracted", "hash_mismatch", "Structured artifact SHA256 mismatch"),
+        ("eligible", "invalid", "Structured judgment"),
+    ],
+)
+def test_structured_artifact_remains_mandatory_and_valid_after_extraction(
+    tmp_path, status, tamper, expected
+):
+    source = _source(status=status)
+    _materialize(tmp_path, source)
+    structured_path = tmp_path / source["structured_path"]
+    if tamper == "missing":
+        structured_path.unlink()
+    elif tamper == "hash_mismatch":
+        payload = json.loads(structured_path.read_text(encoding="utf-8"))
+        payload["sections"]["header"] += " tampered"
+        structured_path.write_text(
+            json.dumps(payload, ensure_ascii=False, sort_keys=True),
+            encoding="utf-8",
+        )
+    else:
+        structured_path.write_text("{}", encoding="utf-8")
+        source["structured_sha256"] = _sha(structured_path.read_bytes())
+    _write_manifest(tmp_path, _manifest([source]))
+    with pytest.raises(SourceIntakeError, match=expected):
+        load_acquisition_manifest(tmp_path)
 
 
 def test_structured_validation_failure_rolls_back(tmp_path, monkeypatch):
