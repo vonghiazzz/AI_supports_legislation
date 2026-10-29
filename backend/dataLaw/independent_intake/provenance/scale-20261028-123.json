@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-123",
+  "anchor_fingerprint": "25a66507938d9eed610c6d8db94f9884c413e8064ba98a0fdf1fdf83fdfdcff5",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:08:58.960306+07:00",
+  "offline_provenance": null,
+  "original_filename": "An__Hoa_Hue_PH.pdf",
+  "pdf_sha256": "d51d22eae00b2d6470c21b9d825b5d636b621ae835971538ffb4bc6e2e8a8fa5",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-123",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1200125t1cvn/An__Hoa_Hue_PH.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-123/An__Hoa_Hue_PH.pdf"
+}

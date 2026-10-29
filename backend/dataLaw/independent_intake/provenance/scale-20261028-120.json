@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-120",
+  "anchor_fingerprint": "e067e7e3381a3dbd8fe567afeb1096dfb41ded52c037f06b2ace7d58591c9a24",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:08:57.234993+07:00",
+  "offline_provenance": null,
+  "original_filename": "Duyen_phong.pdf",
+  "pdf_sha256": "e7af8975debfff3e463452622634c5a9db762f50056261a664dfee5853ea55bc",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-120",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1200086t1cvn/Duyen_phong.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-120/Duyen_phong.pdf"
+}

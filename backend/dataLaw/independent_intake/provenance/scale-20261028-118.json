@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-118",
+  "anchor_fingerprint": "3c3119aca7ce60e8104edf81281cd1e91a104849ea21df0dbdf0bef2fcf13bae",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:08:56.140824+07:00",
+  "offline_provenance": null,
+  "original_filename": "Quyet_dinh_dinh_chi_ma_hoa_HungToan_82022.pdf",
+  "pdf_sha256": "0625d1d8d2103bc4f429f0832a779291f0feee833c80e7f9b463ad04314d461f",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-118",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1000032t1cvn/Quyet_dinh_dinh_chi_ma_hoa_HungToan_82022.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-118/Quyet_dinh_dinh_chi_ma_hoa_HungToan_82022.pdf"
+}

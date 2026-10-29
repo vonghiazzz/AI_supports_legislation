@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-139",
+  "anchor_fingerprint": "771d6bfb4e04f32e4aaa4d0cc7f227088a76aa63f80ab687357c69d15b1f748b",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:09:08.206351+07:00",
+  "offline_provenance": null,
+  "original_filename": "BAN_ANTHONGSANG.pdf",
+  "pdf_sha256": "5fba8b3241b4530da55ad4718c2d1c13db8ef9b13c82f46e0dbd5d6cad0b6158",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-139",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1800121t1cvn/BAN_ANTHONGSANG.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-139/BAN_ANTHONGSANG.pdf"
+}

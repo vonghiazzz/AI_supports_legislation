@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-124",
+  "anchor_fingerprint": "9de4d1903bac2007f47b75ba702ee879ec422ae00c8f0798b12027ac862c6984",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:08:59.501516+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_so_312023DSPT_ngay_2352023_Tranh_chap_quyen_su_dung_dat.pdf",
+  "pdf_sha256": "d5e4c0e354f9a9ed069232173e17c4d35545abff51d4d0411d7ad05c3cf61e9e",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-124",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1199931t1cvn/Ban_an_so_312023DSPT_ngay_2352023_Tranh_chap_quyen_su_dung_dat.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-124/Ban_an_so_312023DSPT_ngay_2352023_Tranh_chap_quyen_su_dung_dat.pdf"
+}

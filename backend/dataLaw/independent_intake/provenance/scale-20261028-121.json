@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-121",
+  "anchor_fingerprint": "1ab3b9f6085056388ec914f2da3ffa89f245500d3c9fe22a6cecc4ff01964656",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:08:57.853878+07:00",
+  "offline_provenance": null,
+  "original_filename": "BA_DS_PT__Bao__Cau_phat_hanh.pdf",
+  "pdf_sha256": "7a16ebd1e3573833cb44a63e01de749f974a47f5d1af52bd471aa9339783ee46",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-121",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1199947t1cvn/BA_DS_PT__Bao__Cau_phat_hanh.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-121/BA_DS_PT__Bao__Cau_phat_hanh.pdf"
+}

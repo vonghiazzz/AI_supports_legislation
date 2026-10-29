@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-129",
+  "anchor_fingerprint": "661e8b3d6b1299cea17ed2664e363e5561f571a3993680baa479e58305010f09",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:09:02.542240+07:00",
+  "offline_provenance": null,
+  "original_filename": "16_Le_Anh_N_Le_Van_T.pdf",
+  "pdf_sha256": "fbae02178f6340d4d1433a43ba23b8d92abe2f8807dcc913bf608d7233c200ad",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-129",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1199959t1cvn/16_Le_Anh_N_Le_Van_T.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-129/16_Le_Anh_N_Le_Van_T.pdf"
+}

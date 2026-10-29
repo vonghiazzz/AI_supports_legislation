@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-140",
+  "anchor_fingerprint": "9e5c46a54e92e4f8b3abfdd1308e7d21ed59e770e3121eebdcae5502fcec5093",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:09:08.761090+07:00",
+  "offline_provenance": null,
+  "original_filename": "Quyet_dinh_khong_chap_nhan_khang_cao_qua_han_DucPhuong.pdf",
+  "pdf_sha256": "33f356020976ed137a75d727819b03323d306c95bb10f2de4b615379bcc601e0",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-140",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1800076t1cvn/Quyet_dinh_khong_chap_nhan_khang_cao_qua_han_DucPhuong.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-140/Quyet_dinh_khong_chap_nhan_khang_cao_qua_han_DucPhuong.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-137",
+  "anchor_fingerprint": "a955dcd662436f955e0528bd7af63c6a007238daa38f1cbaffb75849cad2779b",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:09:07.115058+07:00",
+  "offline_provenance": null,
+  "original_filename": "Trien_thuy_.pdf",
+  "pdf_sha256": "cf8e8e0c079d6bd5ad4a4db206e567e4e56f701c21c14810128b7becbc7a1787",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-137",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1600123t1cvn/Trien_thuy_.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-137/Trien_thuy_.pdf"
+}

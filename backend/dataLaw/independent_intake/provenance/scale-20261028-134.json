@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-134",
+  "anchor_fingerprint": "d71f79e20b656ea7f7e777dae8da193fc4c271b0cc1aaa3208ebae5e154c3eb6",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:09:05.371350+07:00",
+  "offline_provenance": null,
+  "original_filename": "BA_DSPT__Dung__Khang.pdf",
+  "pdf_sha256": "4bcb97b8294da175d5c0686aa613da67231e26a4a02fb457d301ac0bc8562e9b",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-134",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1799986t1cvn/BA_DSPT__Dung__Khang.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-134/BA_DSPT__Dung__Khang.pdf"
+}

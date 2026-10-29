@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-112",
+  "anchor_fingerprint": "3af2dc5c3dd6808de13b8aecac58fda38779f241e9905ae9d2ab58094d1d4ea6",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:08:52.914234+07:00",
+  "offline_provenance": null,
+  "original_filename": "BAN_AN_DSPT_NGUYEN_THI_D.pdf",
+  "pdf_sha256": "5a8a8d1856c0975fd71c649e1945d287e1537dbb630d2c76b79bdb51c20175fd",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-112",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1000048t1cvn/BAN_AN_DSPT_NGUYEN_THI_D.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-112/BAN_AN_DSPT_NGUYEN_THI_D.pdf"
+}

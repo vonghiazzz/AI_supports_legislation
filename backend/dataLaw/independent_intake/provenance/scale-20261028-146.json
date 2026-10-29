@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-146",
+  "anchor_fingerprint": "f9906722b17debd80e3c401884eb9d15a14a3db2e991bb6c06a9c4327c1862d2",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:09:12.078125+07:00",
+  "offline_provenance": null,
+  "original_filename": "BA_Cong_ty_NVK__Phuong_ma_hoa.pdf",
+  "pdf_sha256": "60aa2af13a2d9f302a6356f5348d381447fa8dc8793dc8d705eb56cce0846f37",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-146",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1800041t1cvn/BA_Cong_ty_NVK__Phuong_ma_hoa.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-146/BA_Cong_ty_NVK__Phuong_ma_hoa.pdf"
+}

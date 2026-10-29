@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-141",
+  "anchor_fingerprint": "d8c64dc6d7a5ba90cf2d75fdde4cad73d606c0af70c262af9b06dbc2f5c489ac",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:09:09.333806+07:00",
+  "offline_provenance": null,
+  "original_filename": "VDS_ma_hoa_Xuong.pdf",
+  "pdf_sha256": "a40bcc7039dda7e03a3c05491b14b5cb111c0331188031abb1fa399d1c780be1",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-141",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1799989t1cvn/VDS_ma_hoa_Xuong.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-141/VDS_ma_hoa_Xuong.pdf"
+}

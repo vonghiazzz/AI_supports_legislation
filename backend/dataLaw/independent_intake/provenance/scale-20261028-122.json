@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-122",
+  "anchor_fingerprint": "18e16ed45eff9e5540d03a1f041900cc32d130bb3a4e6a617cbac4068bae387f",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:08:58.413945+07:00",
+  "offline_provenance": null,
+  "original_filename": "QD_dinh_chuyen_ho_so_vu_Huy__Nham__0118423.pdf",
+  "pdf_sha256": "06722d09a52399e490607e75f4709168ecf3b8738f219e77d92ec4d1b088b974",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-122",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1200103t1cvn/QD_dinh_chuyen_ho_so_vu_Huy__Nham__0118423.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-122/QD_dinh_chuyen_ho_so_vu_Huy__Nham__0118423.pdf"
+}

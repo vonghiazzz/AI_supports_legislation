@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-110",
+  "anchor_fingerprint": "7762e3208b080c5a3d5b76d8c32d26b43f7d718133eddb2d654442b1d9a73ad7",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:08:51.885336+07:00",
+  "offline_provenance": null,
+  "original_filename": "tuyet___minh.pdf",
+  "pdf_sha256": "49ddabbffc9f2c3d19d7268637424363bc8544343d5d71eaa2b79c7bcecf5b5a",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-110",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta400080t1cvn/tuyet___minh.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-110/tuyet___minh.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-152",
+  "anchor_fingerprint": "c137aa2e10fc7e24dddcb09c7d67d202607217f341dfd6d7392742613885acd4",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:09:15.432448+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ngân hàng TMCP P - Lê Văn T 23-10-2026 16-57-15.pdf",
+  "pdf_sha256": "cabf82513f22a390b872ca742e57377ad93d0303e33b87ebebf34d4bcbb0b6c1",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-152",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285291t1cvn/Ngân hàng TMCP P - Lê Văn T 23-10-2026 16-57-15.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-152/Ngân hàng TMCP P - Lê Văn T 23-10-2026 16-57-15.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-135",
+  "anchor_fingerprint": "618927c7f76a3d4d25654317b55519f04b0f212a20c42ddf532e2258d1d2c1c8",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:09:06.015479+07:00",
+  "offline_provenance": null,
+  "original_filename": "Le_Thi_TNguyen_Minh_D.pdf",
+  "pdf_sha256": "207690f5e8f0b68a3eff7d8e6eff657c4ad22e496a075f6f9bae976eb9b01ac1",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-135",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1800124t1cvn/Le_Thi_TNguyen_Minh_D.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-135/Le_Thi_TNguyen_Minh_D.pdf"
+}

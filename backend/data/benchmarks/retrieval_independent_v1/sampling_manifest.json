@@ -2,8 +2,8 @@
   "benchmark_id": "retrieval_independent_v1",
   "phase": 1,
   "state": "DRAFT",
-  "generated_at": "2026-10-28T14:07:41.141836+07:00",
-  "git_commit": "ecf5f8134e4b7678eb45fc2caf2f50a261be666e",
+  "generated_at": "2026-10-28T20:31:20.598420+07:00",
+  "git_commit": "2e4a69583f3f51ca296f10b312fe56337e02c921",
   "corpus_fingerprint": "66fb0b20e0505993ed616f864ece99ecfad801de98b4ba3a37d20a3a7bf55e58",
   "targets": {
     "total": 250,
@@ -15,8 +15,8 @@
   "sampling_seed": null,
   "selection_status": "NOT_STARTED",
   "ordering_rule": "case_id ASC, then source_id ASC",
-  "inventory_fingerprint": "82192b1d24c05e298e3e27a19fb6268cf603b4b6b8c9179310e0b6ed193e53f5",
-  "eligible_fingerprint": "e286c3279fbb55f3d23b4d90405990a10ae53ab89c5065d61fe4e6504bfceeff",
+  "inventory_fingerprint": "b8c310b5bc8a4dbdce68011353363ef972bca4c5df0dd59599c261908e163882",
+  "eligible_fingerprint": "20412a2bdb327f45cd3c735d80f1dd0b3b7eff7e653cfe3be60008f2babcf084",
   "available_source_inventory": [
     {
       "source_id": "judgment:08:2024.pdf",
@@ -5027,9 +5027,1294 @@
         2
       ],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-104",
+      "acquisition_id": "scale-20261028-104",
+      "case_id": "310/2019/DS-PT",
+      "judgment_number": "310/2019/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "24/2019/DS-ST",
+        "269/2019/TLPT",
+        "355/2019/QĐ-PT"
+      ],
+      "source_name": "BA_Chau___Huongmh.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-104/BA_Chau___Huongmh.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-104/BA_Chau___Huongmh_structured.json",
+      "court": "TAND tỉnh Tiền Giang",
+      "procedure_stage": "phuc_tham",
+      "year": 2019,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "4a8cdbf6ac1a4189e6e6ea1abdfd2cc9335324439f0cb8979e2fd712b966d11a",
+      "structured_sha256": "5e40693416b2a59faaa6b15f7d520a005d8f2e1c8cd4c413ace486dd06925b40",
+      "blank_page_numbers": [
+        7
+      ],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-106",
+      "acquisition_id": "scale-20261028-106",
+      "case_id": "12/2019/HNGĐ-PT",
+      "judgment_number": "12/2019/HNGĐ-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "03/2019/HNGĐ-ST",
+        "07/2019/TLPT-HNGĐ",
+        "17/2019/QĐXX-PT"
+      ],
+      "source_name": "Th_ly_hon_T.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-106/Th_ly_hon_T.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-106/Th_ly_hon_T_structured.json",
+      "court": "TAND tỉnh Thái Nguyên",
+      "procedure_stage": "phuc_tham",
+      "year": 2019,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "757d4d4a36778a3200abb227acbf9a99e962311229cfb9032d16f719fc328135",
+      "structured_sha256": "d88873a1a37e6f509fafc2572cc9831f1490996145427269313b15ca6823f3ee",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-107",
+      "acquisition_id": "scale-20261028-107",
+      "case_id": "02/2019/DS-PT",
+      "judgment_number": "02/2019/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "10/2018/DS-ST",
+        "1160/2004/QĐ-NHNN",
+        "20/2013/HSST",
+        "29/2018/TLPT-DSPT",
+        "47/2006/QĐ-NHNN",
+        "68/2018/QĐPT-DS"
+      ],
+      "source_name": "Ban_an_P___Quy_TD_NH.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-107/Ban_an_P___Quy_TD_NH.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-107/Ban_an_P___Quy_TD_NH_structured.json",
+      "court": "TAND tỉnh Thái Bình",
+      "procedure_stage": "phuc_tham",
+      "year": 2019,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "db7e2fa7d34595edd5ba7cc5f0a15550b7ed7261d70517c204d67b18cc140f8f",
+      "structured_sha256": "230c418829eda8a50254a4ebc75faf7a4a951c1cbc375b3f9008ca49f8b819db",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-108",
+      "acquisition_id": "scale-20261028-108",
+      "case_id": "01/2019/QĐST-DS",
+      "judgment_number": "01/2019/QĐST-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "47/2019/DS-ST"
+      ],
+      "source_name": "QDD_chuyen_vu_anma_hoa_1.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-108/QDD_chuyen_vu_anma_hoa_1.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-108/QDD_chuyen_vu_anma_hoa_1_structured.json",
+      "court": "TAND huyện Lâm Thao, tỉnh Phú Thọ",
+      "procedure_stage": "so_tham",
+      "year": 2019,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "bda8acb5249e19c3c255737e490e51ec45f2f2f871842223fa101da7bf19aa8a",
+      "structured_sha256": "952bbe5fdaa76b4c0dbb671cb22458a31bae65e152df61409a855eefce0d218f",
+      "blank_page_numbers": [
+        3
+      ],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-109",
+      "acquisition_id": "scale-20261028-109",
+      "case_id": "03/2019/KDTM-PT",
+      "judgment_number": "03/2019/KDTM-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "01/2018/QĐ-PT",
+        "15/2017/TLPT-KDTM"
+      ],
+      "source_name": "B_an_PT_CTy_VAMC__Cty_Thuy_Linh.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-109/B_an_PT_CTy_VAMC__Cty_Thuy_Linh.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-109/B_an_PT_CTy_VAMC__Cty_Thuy_Linh_structured.json",
+      "court": "Tòa án nhân dân tỉnh Quảng Ninh",
+      "procedure_stage": "phuc_tham",
+      "year": 2019,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "8e2f497466bcdfa517ec71e837769fdb1cfcc465fc82993ba8ea85031ccb2d7a",
+      "structured_sha256": "dac2ab8eaa2ec386ff6bd1a9c0c7de21717c41df90442f35d7eb843acf7bf12a",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-110",
+      "acquisition_id": "scale-20261028-110",
+      "case_id": "13/2019/QĐST-DS",
+      "judgment_number": "13/2019/QĐST-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "38/2019/TLST-DS"
+      ],
+      "source_name": "tuyet___minh.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-110/tuyet___minh.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-110/tuyet___minh_structured.json",
+      "court": "TAND Q. Ngô Quyền, TP. Hải Phòng",
+      "procedure_stage": "so_tham",
+      "year": 2019,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "49ddabbffc9f2c3d19d7268637424363bc8544343d5d71eaa2b79c7bcecf5b5a",
+      "structured_sha256": "7d97400e7ed0e0d14a3158619d531cea7fd612ff98f7e9abb522eccbe5df3b6e",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-111",
+      "acquisition_id": "scale-20261028-111",
+      "case_id": "17/2019/KDTM-ST",
+      "judgment_number": "17/2019/KDTM-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "01/2018/QĐST-KDTM",
+        "41/2019/TLST-KDTM",
+        "96/2019/QĐXX-ST"
+      ],
+      "source_name": "An.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-111/An.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-111/An_structured.json",
+      "court": "TAND Q. Bắc Từ Liêm, TP. Hà Nội",
+      "procedure_stage": "so_tham",
+      "year": 2019,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "2c6dd3baf2b1410be5e312639aaae440ec3c235a61502ecac1bb82c99a30c6e7",
+      "structured_sha256": "da681067874cb7afde02330728628881e0b0127780af197b63e0186f301115cb",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-112",
+      "acquisition_id": "scale-20261028-112",
+      "case_id": "81/2022/DS-PT",
+      "judgment_number": "81/2022/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "05/2022/DS-ST",
+        "249/2022/QĐ-PT",
+        "28/2018/DS-ST",
+        "28/2018/DSST",
+        "48/2022/TLPT-DS",
+        "62/2020/DS-PT",
+        "62/2020/DSPT"
+      ],
+      "source_name": "BAN_AN_DSPT_NGUYEN_THI_D.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-112/BAN_AN_DSPT_NGUYEN_THI_D.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-112/BAN_AN_DSPT_NGUYEN_THI_D_structured.json",
+      "court": "TAND tỉnh Trà Vinh",
+      "procedure_stage": "phuc_tham",
+      "year": 2022,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "5a8a8d1856c0975fd71c649e1945d287e1537dbb630d2c76b79bdb51c20175fd",
+      "structured_sha256": "bf36927f77811a44b00f30b5d89f9532d4682e971a86b45dd27224f66d863708",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-113",
+      "acquisition_id": "scale-20261028-113",
+      "case_id": "04/2022/QĐST-VDS",
+      "judgment_number": "04/2022/QĐST-VDS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "06/2022/TLST-VDS"
+      ],
+      "source_name": "QD_tuyen_bo_mat_tich_Tinh__May.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-113/QD_tuyen_bo_mat_tich_Tinh__May.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-113/QD_tuyen_bo_mat_tich_Tinh__May_structured.json",
+      "court": "TAND huyện Vị Xuyên, tỉnh Hà Giang",
+      "procedure_stage": "so_tham",
+      "year": 2022,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "2df666e3b45fc5a3a7e9cfc3fc709587023938886a771c39ea1107488f57ba5c",
+      "structured_sha256": "e31e36b214dbcd33a624e3f13fe721d0ee3599ddf9266851cee47efed00098de",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-114",
+      "acquisition_id": "scale-20261028-114",
+      "case_id": "153/2022/DS-PT",
+      "judgment_number": "153/2022/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "151/2022/QĐ-PT",
+        "160/2022/TLPT-DS",
+        "60/2022/DS-ST",
+        "60/2022/DSST"
+      ],
+      "source_name": "Dong_Vinh_P.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-114/Dong_Vinh_P.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-114/Dong_Vinh_P_structured.json",
+      "court": "TAND tỉnh Đắk Lắk",
+      "procedure_stage": "phuc_tham",
+      "year": 2022,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "c47d1e7d3ed76c1f51f6ab9c245211849759ef464b912f2718f9c8b5e2308cd3",
+      "structured_sha256": "02aa85cd17c1761e241ec82e0367502f8d4d309180987195852b6bce7fda9fa2",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-115",
+      "acquisition_id": "scale-20261028-115",
+      "case_id": "286/2022/HNGĐ-PT",
+      "judgment_number": "286/2022/HNGĐ-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "1594/2021/HNGĐ-ST",
+        "16/2006/QĐ-BGDĐT",
+        "1858/2022/QĐ-PT",
+        "512/2016/QĐST-HNGĐ",
+        "54/2021/TLPT-HNGĐ"
+      ],
+      "source_name": "286HNPT2552022KHONG_1.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-115/286HNPT2552022KHONG_1.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-115/286HNPT2552022KHONG_1_structured.json",
+      "court": "TAND TP. Hồ Chí Minh",
+      "procedure_stage": "phuc_tham",
+      "year": 2022,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "d83b0e61499f19d17069a2f3381204f0d643c4111faff6ff051d831d1a271be7",
+      "structured_sha256": "c35e8b8bffdf7f771efd5259e9d132d88980d505ca2ec055d94b66b70252848e",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-116",
+      "acquisition_id": "scale-20261028-116",
+      "case_id": "65/2022/DS-PT",
+      "judgment_number": "65/2022/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "59/2021/DS-ST",
+        "997/2022/QĐ-PT"
+      ],
+      "source_name": "Ban_an_so_652022DSPT_ngay_10032022_Nguyen_Thi_Hong_T__CT_NGUYEN_TAN_LO.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-116/Ban_an_so_652022DSPT_ngay_10032022_Nguyen_Thi_Hong_T__CT_NGUYEN_TAN_LO.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-116/Ban_an_so_652022DSPT_ngay_10032022_Nguyen_Thi_Hong_T__CT_NGUYEN_TAN_LO_structured.json",
+      "court": "TAND cấp cao tại Đà Nẵng",
+      "procedure_stage": "phuc_tham",
+      "year": 2022,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "cff272ae177607ffff1460b5c758dbd489e522d6cdd1889751d4178e6e4e797c",
+      "structured_sha256": "7afb4bd21313777c2428ff85c6b43152a1f58e8aaa6e7566d63a392a4d9dfc8c",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-117",
+      "acquisition_id": "scale-20261028-117",
+      "case_id": "49/2022/QĐDS-ST",
+      "judgment_number": "49/2022/QĐDS-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "31/2022/QĐPH-DS",
+        "86/2021/TLST-DS"
+      ],
+      "source_name": "QD_GQVDS_Van_Ha.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-117/QD_GQVDS_Van_Ha.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-117/QD_GQVDS_Van_Ha_structured.json",
+      "court": "TAND Q. Hà Đông, TP. Hà Nội",
+      "procedure_stage": "so_tham",
+      "year": 2022,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "74bc1c51f6d01d1bb2c450a4a64a8743546c69c3cee369e16669c2c5f5275918",
+      "structured_sha256": "b0e3e0286e7f129226dbfa3d1919ac8b5a91f82ae141836215e03cad39ed79f8",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-118",
+      "acquisition_id": "scale-20261028-118",
+      "case_id": "38/2022/QĐST-DS",
+      "judgment_number": "38/2022/QĐST-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "64/2022/TLST-DS"
+      ],
+      "source_name": "Quyet_dinh_dinh_chi_ma_hoa_HungToan_82022.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-118/Quyet_dinh_dinh_chi_ma_hoa_HungToan_82022.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-118/Quyet_dinh_dinh_chi_ma_hoa_HungToan_82022_structured.json",
+      "court": "TAND huyện Quảng Xương, tỉnh Thanh Hóa",
+      "procedure_stage": "so_tham",
+      "year": 2022,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "0625d1d8d2103bc4f429f0832a779291f0feee833c80e7f9b463ad04314d461f",
+      "structured_sha256": "f5a7aa65af18bbaf54d832a83c2a48615e5eaca01379a2749966b766e19a4dd1",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-119",
+      "acquisition_id": "scale-20261028-119",
+      "case_id": "277/2022/DS-ST",
+      "judgment_number": "277/2022/DS-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "164/2022/TLST-DS",
+        "53/2022/QĐST-DS",
+        "88/2022/QĐXXST-DS"
+      ],
+      "source_name": "Tuyen_Tan_Diem_ma_hoa.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-119/Tuyen_Tan_Diem_ma_hoa.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-119/Tuyen_Tan_Diem_ma_hoa_structured.json",
+      "court": "TAND huyện Châu Thành, tỉnh Tiền Giang",
+      "procedure_stage": "so_tham",
+      "year": 2022,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "ccfa7b8dec4a23f7087c933c3eb9fb3a8cf814abb7b1963af4fa9e8fa0408e8e",
+      "structured_sha256": "cffd8cb38a7bc811a9e24bc2cd8b76eef5803e4ceec4876d45ff4df0f630a3ec",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-120",
+      "acquisition_id": "scale-20261028-120",
+      "case_id": "138/2022/HNGĐ-ST",
+      "judgment_number": "138/2022/HNGĐ-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "352/2022/TLST",
+        "66/2022/QĐST-HNGĐ"
+      ],
+      "source_name": "Duyen_phong.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-120/Duyen_phong.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-120/Duyen_phong_structured.json",
+      "court": "TAND huyện Bình Đại, tỉnh Bến Tre",
+      "procedure_stage": "so_tham",
+      "year": 2022,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "e7af8975debfff3e463452622634c5a9db762f50056261a664dfee5853ea55bc",
+      "structured_sha256": "b589becda97ae5f12077ebd4f993ee70513b9d751f854fb6cdf8ce9175b7f79b",
+      "blank_page_numbers": [
+        7,
+        8,
+        9,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-121",
+      "acquisition_id": "scale-20261028-121",
+      "case_id": "28/2023/DS-PT",
+      "judgment_number": "28/2023/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "01/2022/DS-ST",
+        "14/2023/DSPT",
+        "27/2023/QĐXXPT-DS"
+      ],
+      "source_name": "BA_DS_PT__Bao__Cau_phat_hanh.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-121/BA_DS_PT__Bao__Cau_phat_hanh.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-121/BA_DS_PT__Bao__Cau_phat_hanh_structured.json",
+      "court": "TAND tỉnh Phú Thọ",
+      "procedure_stage": "phuc_tham",
+      "year": 2023,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "7a16ebd1e3573833cb44a63e01de749f974a47f5d1af52bd471aa9339783ee46",
+      "structured_sha256": "a51e2d3458f77ea66e36bb0f68c9bdaaa5843ef502131e10f005059830281b9c",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-122",
+      "acquisition_id": "scale-20261028-122",
+      "case_id": "01/2023/QĐST-CVA",
+      "judgment_number": "01/2023/QĐST-CVA",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "04/2019/QĐ-CVA",
+        "10/2021/QĐ-CVA",
+        "39/2021/TLST-DS"
+      ],
+      "source_name": "QD_dinh_chuyen_ho_so_vu_Huy__Nham__0118423.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-122/QD_dinh_chuyen_ho_so_vu_Huy__Nham__0118423.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-122/QD_dinh_chuyen_ho_so_vu_Huy__Nham__0118423_structured.json",
+      "court": "TAND huyện Đạ Huoai, tỉnh Lâm Đồng",
+      "procedure_stage": "so_tham",
+      "year": 2023,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "06722d09a52399e490607e75f4709168ecf3b8738f219e77d92ec4d1b088b974",
+      "structured_sha256": "e6c4f3a4fa11cea176604110681b9d7158b39fa3999d8f0e845e8a071fab858e",
+      "blank_page_numbers": [
+        6
+      ],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-123",
+      "acquisition_id": "scale-20261028-123",
+      "case_id": "20/2023/HNGĐ-PT",
+      "judgment_number": "20/2023/HNGĐ-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "11/2023/TLPT-HNGĐ",
+        "12/2023/HNGĐ-ST",
+        "14/2023/QĐ-PT"
+      ],
+      "source_name": "An__Hoa_Hue_PH.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-123/An__Hoa_Hue_PH.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-123/An__Hoa_Hue_PH_structured.json",
+      "court": "TAND tỉnh Bắc Giang",
+      "procedure_stage": "phuc_tham",
+      "year": 2023,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "d51d22eae00b2d6470c21b9d825b5d636b621ae835971538ffb4bc6e2e8a8fa5",
+      "structured_sha256": "79b4e45051acad48743d5e313909bd77b3a3a16aa83abc9169819c05f6c65cd0",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-124",
+      "acquisition_id": "scale-20261028-124",
+      "case_id": "31/2023/DS-PT",
+      "judgment_number": "31/2023/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "56/2023/QĐ-PT",
+        "64/2022/TLPT-DS",
+        "68/2022/DS-ST"
+      ],
+      "source_name": "Ban_an_so_312023DSPT_ngay_2352023_Tranh_chap_quyen_su_dung_dat.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-124/Ban_an_so_312023DSPT_ngay_2352023_Tranh_chap_quyen_su_dung_dat.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-124/Ban_an_so_312023DSPT_ngay_2352023_Tranh_chap_quyen_su_dung_dat_structured.json",
+      "court": "TAND tỉnh Cao Bằng",
+      "procedure_stage": "phuc_tham",
+      "year": 2023,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "d5e4c0e354f9a9ed069232173e17c4d35545abff51d4d0411d7ad05c3cf61e9e",
+      "structured_sha256": "21032904a9d12b98d82645ece84aae4b140a6211271c3a287e5e0adb2124f9c5",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-126",
+      "acquisition_id": "scale-20261028-126",
+      "case_id": "201/2023/DS-PT",
+      "judgment_number": "201/2023/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "02/2023/DS-ST",
+        "54/2023/TLPT-DS",
+        "724/2023/QĐPT-DS"
+      ],
+      "source_name": "ban_an_mh_.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-126/ban_an_mh_.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-126/ban_an_mh__structured.json",
+      "court": "TAND tỉnh Bến Tre",
+      "procedure_stage": "phuc_tham",
+      "year": 2023,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "c830176e9ab82b655c7e8bc1fd3b737b73ba6aa5e6667e80ca68eb8f452e6d7a",
+      "structured_sha256": "d35d2340720f59479af2afd65aad09e3a8d2ac98b4672d1654ca7d5dbed5c30c",
+      "blank_page_numbers": [
+        11
+      ],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-127",
+      "acquisition_id": "scale-20261028-127",
+      "case_id": "04/2023/QĐCNHGT-DS",
+      "judgment_number": "04/2023/QĐCNHGT-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [],
+      "source_name": "04_H_Tr.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-127/04_H_Tr.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-127/04_H_Tr_structured.json",
+      "court": "TAND huyện Đồng Hỷ, tỉnh Thái Nguyên",
+      "procedure_stage": "so_tham",
+      "year": 2023,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "0c5656ecb5e71c7f182fa8c499ce9e69d7d2ebb0369e432d25d76acaa83277c5",
+      "structured_sha256": "2d3818a191699b311de125fec1782ea2a61bd3ee59ddb8864b230b67fe5b85da",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-128",
+      "acquisition_id": "scale-20261028-128",
+      "case_id": "27/2023/QĐST-DS",
+      "judgment_number": "27/2023/QĐST-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "46/2023/TLST-DS"
+      ],
+      "source_name": "QD_CNSTTCCDS_1_1.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-128/QD_CNSTTCCDS_1_1.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-128/QD_CNSTTCCDS_1_1_structured.json",
+      "court": "TAND TP. Cao Lãnh, tỉnh Đồng Tháp",
+      "procedure_stage": "so_tham",
+      "year": 2023,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "53998dc4e4a9a4b6743a6ca8bc7fa5c4306a5371167cf8536c56670688b19d36",
+      "structured_sha256": "749de5cb33aaa294ca6d7d42660d17900e2484c58a7dfa5d285e6fcaebea6089",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-129",
+      "acquisition_id": "scale-20261028-129",
+      "case_id": "16/2023/QĐST-DS",
+      "judgment_number": "16/2023/QĐST-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "20/2023/TLST-DS"
+      ],
+      "source_name": "16_Le_Anh_N_Le_Van_T.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-129/16_Le_Anh_N_Le_Van_T.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-129/16_Le_Anh_N_Le_Van_T_structured.json",
+      "court": "TAND TP. Đồng Hới, tỉnh Quảng Bình",
+      "procedure_stage": "so_tham",
+      "year": 2023,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "fbae02178f6340d4d1433a43ba23b8d92abe2f8807dcc913bf608d7233c200ad",
+      "structured_sha256": "a1cb309830ac143c72473bbd3351d3f1aeba94eaad90b507ddf6e9316e910e96",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-131",
+      "acquisition_id": "scale-20261028-131",
+      "case_id": "109/2024/DS-ST",
+      "judgment_number": "109/2024/DS-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "204/2024/TLST-DS",
+        "373/2024/QĐXX"
+      ],
+      "source_name": "TU__HOA.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-131/TU__HOA.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-131/TU__HOA_structured.json",
+      "court": "TAND huyện Mỏ Cày Nam, tỉnh Bến Tre",
+      "procedure_stage": "so_tham",
+      "year": 2024,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "cb32f054675e6fa2869059032e999faf5bff896aafbf37f8f790eaab087079a3",
+      "structured_sha256": "9b89a004b707a5cba41366f3aed759f0eaf4ad4344169d4d14ccb4157681a60f",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-133",
+      "acquisition_id": "scale-20261028-133",
+      "case_id": "29/2024/QĐST-DS",
+      "judgment_number": "29/2024/QĐST-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "59/2024/TLST-DS"
+      ],
+      "source_name": "29_ngay_2182024_QDCN_dan_su_Cong__Ly.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-133/29_ngay_2182024_QDCN_dan_su_Cong__Ly.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-133/29_ngay_2182024_QDCN_dan_su_Cong__Ly_structured.json",
+      "court": "TAND TX. Sầm Sơn, tỉnh Thanh Hóa",
+      "procedure_stage": "so_tham",
+      "year": 2024,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "56809eee3676e1dd656736c2fc7fba3d4480b5c786f1aae051db08c9617b4373",
+      "structured_sha256": "b1157ea774d92cb7cc29a8414493d97a69346f4d246e2602ea91be0d0c5a1a6f",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-134",
+      "acquisition_id": "scale-20261028-134",
+      "case_id": "318/2024/DS-PT",
+      "judgment_number": "318/2024/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "1/2024/QĐ-PT",
+        "239/2024/DS-ST",
+        "306/2024/TLPT-DS"
+      ],
+      "source_name": "BA_DSPT__Dung__Khang.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-134/BA_DSPT__Dung__Khang.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-134/BA_DSPT__Dung__Khang_structured.json",
+      "court": "TAND tỉnh An Giang",
+      "procedure_stage": "phuc_tham",
+      "year": 2024,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "4bcb97b8294da175d5c0686aa613da67231e26a4a02fb457d301ac0bc8562e9b",
+      "structured_sha256": "78de863e0db18527c8088b9a86b7ef918a4494ff60e7c44983a655291559d88a",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-135",
+      "acquisition_id": "scale-20261028-135",
+      "case_id": "185/2024/QĐST-HNGĐ",
+      "judgment_number": "185/2024/QĐST-HNGĐ",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "323/2024/TLST-HNGĐ"
+      ],
+      "source_name": "Le_Thi_TNguyen_Minh_D.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-135/Le_Thi_TNguyen_Minh_D.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-135/Le_Thi_TNguyen_Minh_D_structured.json",
+      "court": "TAND huyện Hoằng Hóa, tỉnh Thanh Hóa",
+      "procedure_stage": "so_tham",
+      "year": 2024,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "207690f5e8f0b68a3eff7d8e6eff657c4ad22e496a075f6f9bae976eb9b01ac1",
+      "structured_sha256": "522d2aca05b55dc53eed1de0739b46401688d2835b77339f9ee678e26c8cf3ce",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-136",
+      "acquisition_id": "scale-20261028-136",
+      "case_id": "420/2024/DS-ST",
+      "judgment_number": "420/2024/DS-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "11/2021/TT-NHNN",
+        "124/2024/TLST-DS",
+        "227/2024/QĐST-DS",
+        "287/2024/QĐXXST-DS",
+        "822/2016/QĐST-HNGĐ"
+      ],
+      "source_name": "Bản_án_mã_hóa_VIB_Tràn_Thiéu_Quan.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-136/Bản_án_mã_hóa_VIB_Tràn_Thiéu_Quan.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-136/Bản_án_mã_hóa_VIB_Tràn_Thiéu_Quan_structured.json",
+      "court": "TAND Quận 8, TP. Hồ Chí Minh",
+      "procedure_stage": "so_tham",
+      "year": 2024,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "416acad43bc09f4a98482de3437fcfc3d691ca896bc84b48d9cf62cf097d03fc",
+      "structured_sha256": "7b91386a06f96e5a12f5b066ed3ca22a9e8f67377da8cb06084a27cde6bd58ce",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-137",
+      "acquisition_id": "scale-20261028-137",
+      "case_id": "57/2024/DS-ST",
+      "judgment_number": "57/2024/DS-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "107/2024/QĐXXST",
+        "13/2024/TLST-DS"
+      ],
+      "source_name": "Trien_thuy_.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-137/Trien_thuy_.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-137/Trien_thuy__structured.json",
+      "court": "TAND huyện Long Phú, tỉnh Sóc Trăng",
+      "procedure_stage": "so_tham",
+      "year": 2024,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "cf8e8e0c079d6bd5ad4a4db206e567e4e56f701c21c14810128b7becbc7a1787",
+      "structured_sha256": "e3d69071067d50355bdab36ef06c32734fd72a378cf3bb5cf906a7ce8af21726",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-138",
+      "acquisition_id": "scale-20261028-138",
+      "case_id": "19/2025/QĐST-DS",
+      "judgment_number": "19/2025/QĐST-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "37/2025/TLST-DS"
+      ],
+      "source_name": "TANTUAN_135.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-138/TANTUAN_135.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-138/TANTUAN_135_structured.json",
+      "court": "TAND Q. An Dương, TP. Hải Phòng",
+      "procedure_stage": "so_tham",
+      "year": 2025,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "1cc8c8c6252dd081647f1ec84da2d50ae7f4edff8411b1c50db15bd0e2eb9b91",
+      "structured_sha256": "fdd3bebeab275f2a46237267ffe45f0c25a78ebf5b7034207b884bf9abad00d5",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-139",
+      "acquisition_id": "scale-20261028-139",
+      "case_id": "43/2025/DS-ST",
+      "judgment_number": "43/2025/DS-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "114/2025/QĐXXST-DS",
+        "269/2024/TLST-DS"
+      ],
+      "source_name": "BAN_ANTHONGSANG.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-139/BAN_ANTHONGSANG.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-139/BAN_ANTHONGSANG_structured.json",
+      "court": "TAND huyện Thới Lai, TP. Cần Thơ",
+      "procedure_stage": "so_tham",
+      "year": 2025,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "5fba8b3241b4530da55ad4718c2d1c13db8ef9b13c82f46e0dbd5d6cad0b6158",
+      "structured_sha256": "b2daf83448fa6ca1dea684525e8e22b9a7c3a9facf5c99256fa1e9e0eadde759",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-140",
+      "acquisition_id": "scale-20261028-140",
+      "case_id": "06/2025/QĐ-PT",
+      "judgment_number": "06/2025/QĐ-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "79/2023/DS",
+        "79/2023/DS-ST"
+      ],
+      "source_name": "Quyet_dinh_khong_chap_nhan_khang_cao_qua_han_DucPhuong.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-140/Quyet_dinh_khong_chap_nhan_khang_cao_qua_han_DucPhuong.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-140/Quyet_dinh_khong_chap_nhan_khang_cao_qua_han_DucPhuong_structured.json",
+      "court": "TAND tỉnh Vĩnh Long",
+      "procedure_stage": "phuc_tham",
+      "year": 2025,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "33f356020976ed137a75d727819b03323d306c95bb10f2de4b615379bcc601e0",
+      "structured_sha256": "c1be30d5ff9f7b711fcff2931126343cc4c4627a5cd7713420cf42720dde8365",
+      "blank_page_numbers": [
+        4
+      ],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-141",
+      "acquisition_id": "scale-20261028-141",
+      "case_id": "02/2025/QĐST-VDS",
+      "judgment_number": "02/2025/QĐST-VDS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "01/2025/QĐTA",
+        "01/2025/TLST"
+      ],
+      "source_name": "VDS_ma_hoa_Xuong.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-141/VDS_ma_hoa_Xuong.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-141/VDS_ma_hoa_Xuong_structured.json",
+      "court": "TAND huyện Buôn Đôn, tỉnh Đắk Lắk",
+      "procedure_stage": "so_tham",
+      "year": 2025,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "a40bcc7039dda7e03a3c05491b14b5cb111c0331188031abb1fa399d1c780be1",
+      "structured_sha256": "4865d832c911f5d4a466b4ec72dede7608ae9e48c90943e91c2cb6a134dacb74",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-142",
+      "acquisition_id": "scale-20261028-142",
+      "case_id": "30/2025/QĐST-HNGĐ",
+      "judgment_number": "30/2025/QĐST-HNGĐ",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "49/2025/TLST-HNGĐ"
+      ],
+      "source_name": "30. QUYẾT ĐỊNH CÔNG NHẬN THUẬN TÌNH LY HÔN DIỆN - KHẢI (1) 24-10-2026 14-57-11.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-142/30. QUYẾT ĐỊNH CÔNG NHẬN THUẬN TÌNH LY HÔN DIỆN - KHẢI (1) 24-10-2026 14-57-11.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-142/30. QUYẾT ĐỊNH CÔNG NHẬN THUẬN TÌNH LY HÔN DIỆN - KHẢI (1) 24-10-2026 14-57-11_structured.json",
+      "court": "Tòa án nhân dân khu vực 1 - Lai Châu, tỉnh Lai Châu",
+      "procedure_stage": "so_tham",
+      "year": 2025,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "2d4a3a9be93729b2cf473039869c13c4dc7a275bea708bb5b8af33026c0f06d9",
+      "structured_sha256": "9500387559ee585ddddc513da8a3d4ef925bfe1465cd7f79c051ba67aec7c680",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-144",
+      "acquisition_id": "scale-20261028-144",
+      "case_id": "28/2025/QĐST-DS",
+      "judgment_number": "28/2025/QĐST-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "309/2024/TLST-DS"
+      ],
+      "source_name": "QDCNSTT__V__N.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-144/QDCNSTT__V__N.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-144/QDCNSTT__V__N_structured.json",
+      "court": "TAND huyện Mỏ Cày Bắc, tỉnh Bến Tre",
+      "procedure_stage": "so_tham",
+      "year": 2025,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "916b9f3c47f777b84440d19d307e1e32f00a63927174517ba3c5ab82f11d8b07",
+      "structured_sha256": "d067182d52b782af19a9a773b34e7b2e1b3b6b66cf34cca4296499964c4d8dd8",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-145",
+      "acquisition_id": "scale-20261028-145",
+      "case_id": "120/2025/QĐST-HNGĐ",
+      "judgment_number": "120/2025/QĐST-HNGĐ",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "459/2024/TLST-HNGĐ"
+      ],
+      "source_name": "PA_LY__NGUYEN_120_cb.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-145/PA_LY__NGUYEN_120_cb.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-145/PA_LY__NGUYEN_120_cb_structured.json",
+      "court": "TAND huyện Càng Long, tỉnh Trà Vinh",
+      "procedure_stage": "so_tham",
+      "year": 2025,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "051abd3f535eb8b925c15256f1f6c4e984e6d8a4560540386a18c048493fb7bc",
+      "structured_sha256": "d1ca17f279e540af816bf49cf590bdcf7cd42b90c87d755a0b30ba6bf4c2f718",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-146",
+      "acquisition_id": "scale-20261028-146",
+      "case_id": "20/2025/DS-ST",
+      "judgment_number": "20/2025/DS-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "264/2024/TLST-DS",
+        "32/2025/QĐST-DS",
+        "33/2025/QĐXXST-DS"
+      ],
+      "source_name": "BA_Cong_ty_NVK__Phuong_ma_hoa.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-146/BA_Cong_ty_NVK__Phuong_ma_hoa.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-146/BA_Cong_ty_NVK__Phuong_ma_hoa_structured.json",
+      "court": "TAND huyện Cờ Đỏ, TP. Cần Thơ",
+      "procedure_stage": "so_tham",
+      "year": 2025,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "60aa2af13a2d9f302a6356f5348d381447fa8dc8793dc8d705eb56cce0846f37",
+      "structured_sha256": "b86af76a59f45bb5cefa52d44c0eb4b826aaff8c548cb106dc08c656aeee27ca",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-148",
+      "acquisition_id": "scale-20261028-148",
+      "case_id": "1443/2026/DS-PT",
+      "judgment_number": "1443/2026/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "1584/2026/TLPT-DS",
+        "1797/2026/QĐ-PT",
+        "427/2026/DS-ST"
+      ],
+      "source_name": "1443 DSPT Nguyen Van T-Cong ty P 23-10-2026 15-11-41.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-148/1443 DSPT Nguyen Van T-Cong ty P 23-10-2026 15-11-41.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-148/1443 DSPT Nguyen Van T-Cong ty P 23-10-2026 15-11-41_structured.json",
+      "court": "TAND TP. Cần Thơ",
+      "procedure_stage": "phuc_tham",
+      "year": 2026,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "cfda30b9933802e25ed35c5fd333d11d44fabf49ed215808c6529b8167264075",
+      "structured_sha256": "64520e62cf8cab41b3a05448fb382f8f11fff41ed826ab9906550e3f37a187a2",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-149",
+      "acquisition_id": "scale-20261028-149",
+      "case_id": "33/2026/QĐST-DS",
+      "judgment_number": "33/2026/QĐST-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [],
+      "source_name": "QĐ-đình chỉ vụ Lệ - Thắm - Mã hoá 23-10-2026 10-24-49.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-149/QĐ-đình chỉ vụ Lệ - Thắm - Mã hoá 23-10-2026 10-24-49.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-149/QĐ-đình chỉ vụ Lệ - Thắm - Mã hoá 23-10-2026 10-24-49_structured.json",
+      "court": "Tòa án nhân dân khu vực 6 - Thái Nguyên, tỉnh Thái Nguyên",
+      "procedure_stage": "so_tham",
+      "year": 2026,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "0b7b13392e191127d489e3a4d187c9355d91a66bfc1763f43962a04a18df1a52",
+      "structured_sha256": "762cc285d0550e1f6541bacdf7807799b6ba430ea95cc557a78fcadb5680ccc8",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-150",
+      "acquisition_id": "scale-20261028-150",
+      "case_id": "98/2026/DS-ST",
+      "judgment_number": "98/2026/DS-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "111/2026/QĐST-DS",
+        "118/2026/QĐXXST-DS",
+        "144/2026/DS-ST"
+      ],
+      "source_name": "Bản án 98 23-10-2026 18-42-05.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-150/Bản án 98 23-10-2026 18-42-05.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-150/Bản án 98 23-10-2026 18-42-05_structured.json",
+      "court": "Tòa án nhân dân khu vực 4 - Đắk Lắk, tỉnh Đắk Lắk",
+      "procedure_stage": "so_tham",
+      "year": 2026,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "d3d07d6297bda945bfa3f933e606057c640104b9ec89ef3ed3d320e7b9e78fcf",
+      "structured_sha256": "4aebb88df023556e736a4b3ae1f90f777653956b2c9f92660e155dba513b37c5",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-151",
+      "acquisition_id": "scale-20261028-151",
+      "case_id": "581/2026/QĐST-DS",
+      "judgment_number": "581/2026/QĐST-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "423/2026/TLST-DS"
+      ],
+      "source_name": "sample (40) 24-10-2026 10-12-29.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-151/sample (40) 24-10-2026 10-12-29.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-151/sample (40) 24-10-2026 10-12-29_structured.json",
+      "court": "Tòa án nhân dân khu vực 5 - Hà Nội, TP. Hà Nội",
+      "procedure_stage": "so_tham",
+      "year": 2026,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "c6952c2a114c25393d963838cfa6b5f7294cbdaab7e0be3050a2f189b0588194",
+      "structured_sha256": "9586a7a5b49ab5ab1f0ffe63b2ea4f73c5ee15be785bf40cb3d219e4099252f4",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-152",
+      "acquisition_id": "scale-20261028-152",
+      "case_id": "04/2026/KDTM-ST",
+      "judgment_number": "04/2026/KDTM-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "125/2026/QĐST-DS",
+        "270/2026/TLST-KDTM",
+        "71/2026/QĐXXST-DS"
+      ],
+      "source_name": "Ngân hàng TMCP P - Lê Văn T 23-10-2026 16-57-15.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-152/Ngân hàng TMCP P - Lê Văn T 23-10-2026 16-57-15.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-152/Ngân hàng TMCP P - Lê Văn T 23-10-2026 16-57-15_structured.json",
+      "court": "Tòa án nhân dân khu vực 7 - Lâm Đồng, tỉnh Lâm Đồng",
+      "procedure_stage": "so_tham",
+      "year": 2026,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "cabf82513f22a390b872ca742e57377ad93d0303e33b87ebebf34d4bcbb0b6c1",
+      "structured_sha256": "52857514854aae081dd1488f815cf6e9c0943f404fd75b80481d40d52e9caf8d",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-153",
+      "acquisition_id": "scale-20261028-153",
+      "case_id": "13/2026/QĐST-VDS",
+      "judgment_number": "13/2026/QĐST-VDS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "106/2026/QĐST-VDS",
+        "223/2026/TLST-VDS"
+      ],
+      "source_name": "sample 23-10-2026 14-03-02.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-153/sample 23-10-2026 14-03-02.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-153/sample 23-10-2026 14-03-02_structured.json",
+      "court": "Tòa án nhân dân khu vực 5 - Đắk Lắk , tỉnh Đắk Lắk",
+      "procedure_stage": "so_tham",
+      "year": 2026,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "b2846328b69acc3e1083e9dc53a96982c3f4e25a8f4ce65908f30b7b42c12696",
+      "structured_sha256": "290e2aec1d80d1fcae7f6fe1e174b92292d3e0c9b0b9b9838950fcd373975919",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-154",
+      "acquisition_id": "scale-20261028-154",
+      "case_id": "57/2026/DS-PT",
+      "judgment_number": "57/2026/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "202/2026/DS-ST",
+        "26/2026/TLPT-DS",
+        "38/2026/QĐ-PT",
+        "61/2026/QĐ-PT"
+      ],
+      "source_name": "sample (4) 23-10-2026 09-27-51.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-154/sample (4) 23-10-2026 09-27-51.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-154/sample (4) 23-10-2026 09-27-51_structured.json",
+      "court": "TAND tỉnh Tuyên Quang",
+      "procedure_stage": "phuc_tham",
+      "year": 2026,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "3208ed2193d786cff3967da4700b98e157e107cec8d5f90aefb8140c10510321",
+      "structured_sha256": "6817e588f57abce3cd9addcd34fd5aedddd87d217f64689e937dd917a7bfa70e",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-155",
+      "acquisition_id": "scale-20261028-155",
+      "case_id": "307/2026/HNGĐ-ST",
+      "judgment_number": "307/2026/HNGĐ-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "1211/2026/TLST-HNGĐ",
+        "314/2026/QĐ"
+      ],
+      "source_name": "307-2026 NGUYỄN THANH L-NGUYỄN THỊ THU T1 24-10-2026 16-38-33.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-155/307-2026 NGUYỄN THANH L-NGUYỄN THỊ THU T1 24-10-2026 16-38-33.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-155/307-2026 NGUYỄN THANH L-NGUYỄN THỊ THU T1 24-10-2026 16-38-33_structured.json",
+      "court": "Tòa án nhân dân khu vực 10 - Tây Ninh, tỉnh Tây Ninh",
+      "procedure_stage": "so_tham",
+      "year": 2026,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "db8a010c9d2ca543199aea4f2a69b4a5f0776326f4872045755ccbb0cc927868",
+      "structured_sha256": "18fa7399dd6cd58bcd0153bd35162f9ecfe7a7102b78f36a8f572fac22386d73",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-156",
+      "acquisition_id": "scale-20261028-156",
+      "case_id": "806/2026/DS-PT",
+      "judgment_number": "806/2026/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "196/2026/TLPT-DS",
+        "339/2026/QĐPT-DS",
+        "78/2026/DS-ST"
+      ],
+      "source_name": "Bản án phúc thẩm vụ Ánh - Dũng (mã hóa) 24-10-2026 12-28-15.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-156/Bản án phúc thẩm vụ Ánh - Dũng (mã hóa) 24-10-2026 12-28-15.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-156/Bản án phúc thẩm vụ Ánh - Dũng (mã hóa) 24-10-2026 12-28-15_structured.json",
+      "court": "TAND tỉnh Cà Mau",
+      "procedure_stage": "phuc_tham",
+      "year": 2026,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "2439dc2649035a92abdfa160af41032d1f2a7bea2d8d43329763b1ff7d3bdc79",
+      "structured_sha256": "5bd4a5858c00d0b58858bb0e0ec43f595e20454367dda321369b723fd5dbf19e",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
     }
   ],
   "eligible_sources": [
+    {
+      "source_id": "independent:scale-20261028-108",
+      "acquisition_id": "scale-20261028-108",
+      "case_id": "01/2019/QĐST-DS",
+      "judgment_number": "01/2019/QĐST-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "47/2019/DS-ST"
+      ],
+      "source_name": "QDD_chuyen_vu_anma_hoa_1.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-108/QDD_chuyen_vu_anma_hoa_1.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-108/QDD_chuyen_vu_anma_hoa_1_structured.json",
+      "court": "TAND huyện Lâm Thao, tỉnh Phú Thọ",
+      "procedure_stage": "so_tham",
+      "year": 2019,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "bda8acb5249e19c3c255737e490e51ec45f2f2f871842223fa101da7bf19aa8a",
+      "structured_sha256": "952bbe5fdaa76b4c0dbb671cb22458a31bae65e152df61409a855eefce0d218f",
+      "blank_page_numbers": [
+        3
+      ],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
     {
       "source_id": "independent:scale-20261026-036",
       "acquisition_id": "scale-20261026-036",
@@ -5054,6 +6339,35 @@
       "source_sha256": "d9231d5b56bde0d6583d15ed548b88b96922a24d54261e09249239b3101f8193",
       "structured_sha256": "3ba2d30241e962836ab1cd6a5495a702e84548381e7f1a21f286a7cd14137eaf",
       "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-122",
+      "acquisition_id": "scale-20261028-122",
+      "case_id": "01/2023/QĐST-CVA",
+      "judgment_number": "01/2023/QĐST-CVA",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "04/2019/QĐ-CVA",
+        "10/2021/QĐ-CVA",
+        "39/2021/TLST-DS"
+      ],
+      "source_name": "QD_dinh_chuyen_ho_so_vu_Huy__Nham__0118423.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-122/QD_dinh_chuyen_ho_so_vu_Huy__Nham__0118423.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-122/QD_dinh_chuyen_ho_so_vu_Huy__Nham__0118423_structured.json",
+      "court": "TAND huyện Đạ Huoai, tỉnh Lâm Đồng",
+      "procedure_stage": "so_tham",
+      "year": 2023,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "06722d09a52399e490607e75f4709168ecf3b8738f219e77d92ec4d1b088b974",
+      "structured_sha256": "e6c4f3a4fa11cea176604110681b9d7158b39fa3999d8f0e845e8a071fab858e",
+      "blank_page_numbers": [
+        6
+      ],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
@@ -5136,6 +6450,36 @@
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
+      "source_id": "independent:scale-20261028-107",
+      "acquisition_id": "scale-20261028-107",
+      "case_id": "02/2019/DS-PT",
+      "judgment_number": "02/2019/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "10/2018/DS-ST",
+        "1160/2004/QĐ-NHNN",
+        "20/2013/HSST",
+        "29/2018/TLPT-DSPT",
+        "47/2006/QĐ-NHNN",
+        "68/2018/QĐPT-DS"
+      ],
+      "source_name": "Ban_an_P___Quy_TD_NH.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-107/Ban_an_P___Quy_TD_NH.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-107/Ban_an_P___Quy_TD_NH_structured.json",
+      "court": "TAND tỉnh Thái Bình",
+      "procedure_stage": "phuc_tham",
+      "year": 2019,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "db7e2fa7d34595edd5ba7cc5f0a15550b7ed7261d70517c204d67b18cc140f8f",
+      "structured_sha256": "230c418829eda8a50254a4ebc75faf7a4a951c1cbc375b3f9008ca49f8b819db",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
       "source_id": "independent:pilot-20261025-016",
       "acquisition_id": "pilot-20261025-016",
       "case_id": "02/2023/QĐST-TCDS",
@@ -5155,6 +6499,32 @@
       ],
       "source_sha256": "dde1dc4c5347c633e35c5047fe3145434adc0b388e223f12b0804c085ad471ac",
       "structured_sha256": "c81920cec54e4f58e693fec6c5bcbf288161075716693e08ba39754c5d2c8e08",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-141",
+      "acquisition_id": "scale-20261028-141",
+      "case_id": "02/2025/QĐST-VDS",
+      "judgment_number": "02/2025/QĐST-VDS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "01/2025/QĐTA",
+        "01/2025/TLST"
+      ],
+      "source_name": "VDS_ma_hoa_Xuong.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-141/VDS_ma_hoa_Xuong.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-141/VDS_ma_hoa_Xuong_structured.json",
+      "court": "TAND huyện Buôn Đôn, tỉnh Đắk Lắk",
+      "procedure_stage": "so_tham",
+      "year": 2025,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "a40bcc7039dda7e03a3c05491b14b5cb111c0331188031abb1fa399d1c780be1",
+      "structured_sha256": "4865d832c911f5d4a466b4ec72dede7608ae9e48c90943e91c2cb6a134dacb74",
       "blank_page_numbers": [],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
@@ -5214,6 +6584,32 @@
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
+      "source_id": "independent:scale-20261028-109",
+      "acquisition_id": "scale-20261028-109",
+      "case_id": "03/2019/KDTM-PT",
+      "judgment_number": "03/2019/KDTM-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "01/2018/QĐ-PT",
+        "15/2017/TLPT-KDTM"
+      ],
+      "source_name": "B_an_PT_CTy_VAMC__Cty_Thuy_Linh.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-109/B_an_PT_CTy_VAMC__Cty_Thuy_Linh.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-109/B_an_PT_CTy_VAMC__Cty_Thuy_Linh_structured.json",
+      "court": "Tòa án nhân dân tỉnh Quảng Ninh",
+      "procedure_stage": "phuc_tham",
+      "year": 2019,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "8e2f497466bcdfa517ec71e837769fdb1cfcc465fc82993ba8ea85031ccb2d7a",
+      "structured_sha256": "dac2ab8eaa2ec386ff6bd1a9c0c7de21717c41df90442f35d7eb843acf7bf12a",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
       "source_id": "independent:scale-20261026-005",
       "acquisition_id": "scale-20261026-005",
       "case_id": "03/2023/QĐST-DS",
@@ -5265,6 +6661,54 @@
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
+      "source_id": "independent:scale-20261028-113",
+      "acquisition_id": "scale-20261028-113",
+      "case_id": "04/2022/QĐST-VDS",
+      "judgment_number": "04/2022/QĐST-VDS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "06/2022/TLST-VDS"
+      ],
+      "source_name": "QD_tuyen_bo_mat_tich_Tinh__May.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-113/QD_tuyen_bo_mat_tich_Tinh__May.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-113/QD_tuyen_bo_mat_tich_Tinh__May_structured.json",
+      "court": "TAND huyện Vị Xuyên, tỉnh Hà Giang",
+      "procedure_stage": "so_tham",
+      "year": 2022,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "2df666e3b45fc5a3a7e9cfc3fc709587023938886a771c39ea1107488f57ba5c",
+      "structured_sha256": "e31e36b214dbcd33a624e3f13fe721d0ee3599ddf9266851cee47efed00098de",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-127",
+      "acquisition_id": "scale-20261028-127",
+      "case_id": "04/2023/QĐCNHGT-DS",
+      "judgment_number": "04/2023/QĐCNHGT-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [],
+      "source_name": "04_H_Tr.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-127/04_H_Tr.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-127/04_H_Tr_structured.json",
+      "court": "TAND huyện Đồng Hỷ, tỉnh Thái Nguyên",
+      "procedure_stage": "so_tham",
+      "year": 2023,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "0c5656ecb5e71c7f182fa8c499ce9e69d7d2ebb0369e432d25d76acaa83277c5",
+      "structured_sha256": "2d3818a191699b311de125fec1782ea2a61bd3ee59ddb8864b230b67fe5b85da",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
       "source_id": "independent:scale-20261026-040",
       "acquisition_id": "scale-20261026-040",
       "case_id": "04/2024/QĐST-VDS",
@@ -5287,6 +6731,33 @@
       ],
       "source_sha256": "de9a00acc8a14fc67faddb9193ea447cd447c140be21b5268e9a8b2fa14872d4",
       "structured_sha256": "92b24172a774fe7e8883f605053b99956e923a31d549fa03406242eb8ce2baf9",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-152",
+      "acquisition_id": "scale-20261028-152",
+      "case_id": "04/2026/KDTM-ST",
+      "judgment_number": "04/2026/KDTM-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "125/2026/QĐST-DS",
+        "270/2026/TLST-KDTM",
+        "71/2026/QĐXXST-DS"
+      ],
+      "source_name": "Ngân hàng TMCP P - Lê Văn T 23-10-2026 16-57-15.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-152/Ngân hàng TMCP P - Lê Văn T 23-10-2026 16-57-15.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-152/Ngân hàng TMCP P - Lê Văn T 23-10-2026 16-57-15_structured.json",
+      "court": "Tòa án nhân dân khu vực 7 - Lâm Đồng, tỉnh Lâm Đồng",
+      "procedure_stage": "so_tham",
+      "year": 2026,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "cabf82513f22a390b872ca742e57377ad93d0303e33b87ebebf34d4bcbb0b6c1",
+      "structured_sha256": "52857514854aae081dd1488f815cf6e9c0943f404fd75b80481d40d52e9caf8d",
       "blank_page_numbers": [],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
@@ -5368,6 +6839,34 @@
       "source_sha256": "2b2b2d240483e0788376bb9d2a930da3176a06ee8f451d44d2744085fefad7d0",
       "structured_sha256": "7266a34069d6853585e3f30d324f53b7130c6673d6ddac0d6625a0923c3201d3",
       "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-140",
+      "acquisition_id": "scale-20261028-140",
+      "case_id": "06/2025/QĐ-PT",
+      "judgment_number": "06/2025/QĐ-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "79/2023/DS",
+        "79/2023/DS-ST"
+      ],
+      "source_name": "Quyet_dinh_khong_chap_nhan_khang_cao_qua_han_DucPhuong.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-140/Quyet_dinh_khong_chap_nhan_khang_cao_qua_han_DucPhuong.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-140/Quyet_dinh_khong_chap_nhan_khang_cao_qua_han_DucPhuong_structured.json",
+      "court": "TAND tỉnh Vĩnh Long",
+      "procedure_stage": "phuc_tham",
+      "year": 2025,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "33f356020976ed137a75d727819b03323d306c95bb10f2de4b615379bcc601e0",
+      "structured_sha256": "c1be30d5ff9f7b711fcff2931126343cc4c4627a5cd7713420cf42720dde8365",
+      "blank_page_numbers": [
+        4
+      ],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
@@ -5587,6 +7086,32 @@
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
+      "source_id": "independent:scale-20261028-131",
+      "acquisition_id": "scale-20261028-131",
+      "case_id": "109/2024/DS-ST",
+      "judgment_number": "109/2024/DS-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "204/2024/TLST-DS",
+        "373/2024/QĐXX"
+      ],
+      "source_name": "TU__HOA.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-131/TU__HOA.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-131/TU__HOA_structured.json",
+      "court": "TAND huyện Mỏ Cày Nam, tỉnh Bến Tre",
+      "procedure_stage": "so_tham",
+      "year": 2024,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "cb32f054675e6fa2869059032e999faf5bff896aafbf37f8f790eaab087079a3",
+      "structured_sha256": "9b89a004b707a5cba41366f3aed759f0eaf4ad4344169d4d14ccb4157681a60f",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
       "source_id": "independent:pilot-20261025-015",
       "acquisition_id": "pilot-20261025-015",
       "case_id": "109/2026/DS-PT",
@@ -5608,6 +7133,33 @@
       ],
       "source_sha256": "0250bd90f5c8fcdbc06fcf528aa5d8dee5b789748a999b78473cd21edf66be47",
       "structured_sha256": "e7e7c96cbb9e4f596a59ba05f2f18284841cbde6dfc0933f5019072d9d275edb",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-106",
+      "acquisition_id": "scale-20261028-106",
+      "case_id": "12/2019/HNGĐ-PT",
+      "judgment_number": "12/2019/HNGĐ-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "03/2019/HNGĐ-ST",
+        "07/2019/TLPT-HNGĐ",
+        "17/2019/QĐXX-PT"
+      ],
+      "source_name": "Th_ly_hon_T.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-106/Th_ly_hon_T.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-106/Th_ly_hon_T_structured.json",
+      "court": "TAND tỉnh Thái Nguyên",
+      "procedure_stage": "phuc_tham",
+      "year": 2019,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "757d4d4a36778a3200abb227acbf9a99e962311229cfb9032d16f719fc328135",
+      "structured_sha256": "d88873a1a37e6f509fafc2572cc9831f1490996145427269313b15ca6823f3ee",
       "blank_page_numbers": [],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
@@ -5640,6 +7192,31 @@
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
+      "source_id": "independent:scale-20261028-145",
+      "acquisition_id": "scale-20261028-145",
+      "case_id": "120/2025/QĐST-HNGĐ",
+      "judgment_number": "120/2025/QĐST-HNGĐ",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "459/2024/TLST-HNGĐ"
+      ],
+      "source_name": "PA_LY__NGUYEN_120_cb.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-145/PA_LY__NGUYEN_120_cb.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-145/PA_LY__NGUYEN_120_cb_structured.json",
+      "court": "TAND huyện Càng Long, tỉnh Trà Vinh",
+      "procedure_stage": "so_tham",
+      "year": 2025,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "051abd3f535eb8b925c15256f1f6c4e984e6d8a4560540386a18c048493fb7bc",
+      "structured_sha256": "d1ca17f279e540af816bf49cf590bdcf7cd42b90c87d755a0b30ba6bf4c2f718",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
       "source_id": "independent:scale-20261026-015",
       "acquisition_id": "scale-20261026-015",
       "case_id": "126/2025/KDTM-ST",
@@ -5667,6 +7244,57 @@
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
+      "source_id": "independent:scale-20261028-110",
+      "acquisition_id": "scale-20261028-110",
+      "case_id": "13/2019/QĐST-DS",
+      "judgment_number": "13/2019/QĐST-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "38/2019/TLST-DS"
+      ],
+      "source_name": "tuyet___minh.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-110/tuyet___minh.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-110/tuyet___minh_structured.json",
+      "court": "TAND Q. Ngô Quyền, TP. Hải Phòng",
+      "procedure_stage": "so_tham",
+      "year": 2019,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "49ddabbffc9f2c3d19d7268637424363bc8544343d5d71eaa2b79c7bcecf5b5a",
+      "structured_sha256": "7d97400e7ed0e0d14a3158619d531cea7fd612ff98f7e9abb522eccbe5df3b6e",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-153",
+      "acquisition_id": "scale-20261028-153",
+      "case_id": "13/2026/QĐST-VDS",
+      "judgment_number": "13/2026/QĐST-VDS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "106/2026/QĐST-VDS",
+        "223/2026/TLST-VDS"
+      ],
+      "source_name": "sample 23-10-2026 14-03-02.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-153/sample 23-10-2026 14-03-02.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-153/sample 23-10-2026 14-03-02_structured.json",
+      "court": "Tòa án nhân dân khu vực 5 - Đắk Lắk , tỉnh Đắk Lắk",
+      "procedure_stage": "so_tham",
+      "year": 2026,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "b2846328b69acc3e1083e9dc53a96982c3f4e25a8f4ce65908f30b7b42c12696",
+      "structured_sha256": "290e2aec1d80d1fcae7f6fe1e174b92292d3e0c9b0b9b9838950fcd373975919",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
       "source_id": "independent:pilot-20261025-005",
       "acquisition_id": "pilot-20261025-005",
       "case_id": "1372/2025/DS-ST",
@@ -5687,6 +7315,43 @@
       "source_sha256": "02a0c2a3ffe54754fee43f4c7fabe350ee8d2b54268081532924e373fd672dd7",
       "structured_sha256": "c9ec9045ca701aa2c30d523e34cd653188229fbeb1d36e38174fadb5e31bab1a",
       "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-120",
+      "acquisition_id": "scale-20261028-120",
+      "case_id": "138/2022/HNGĐ-ST",
+      "judgment_number": "138/2022/HNGĐ-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "352/2022/TLST",
+        "66/2022/QĐST-HNGĐ"
+      ],
+      "source_name": "Duyen_phong.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-120/Duyen_phong.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-120/Duyen_phong_structured.json",
+      "court": "TAND huyện Bình Đại, tỉnh Bến Tre",
+      "procedure_stage": "so_tham",
+      "year": 2022,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "e7af8975debfff3e463452622634c5a9db762f50056261a664dfee5853ea55bc",
+      "structured_sha256": "b589becda97ae5f12077ebd4f993ee70513b9d751f854fb6cdf8ce9175b7f79b",
+      "blank_page_numbers": [
+        7,
+        8,
+        9,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
@@ -5716,6 +7381,33 @@
       "blank_page_numbers": [
         6
       ],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-148",
+      "acquisition_id": "scale-20261028-148",
+      "case_id": "1443/2026/DS-PT",
+      "judgment_number": "1443/2026/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "1584/2026/TLPT-DS",
+        "1797/2026/QĐ-PT",
+        "427/2026/DS-ST"
+      ],
+      "source_name": "1443 DSPT Nguyen Van T-Cong ty P 23-10-2026 15-11-41.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-148/1443 DSPT Nguyen Van T-Cong ty P 23-10-2026 15-11-41.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-148/1443 DSPT Nguyen Van T-Cong ty P 23-10-2026 15-11-41_structured.json",
+      "court": "TAND TP. Cần Thơ",
+      "procedure_stage": "phuc_tham",
+      "year": 2026,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "cfda30b9933802e25ed35c5fd333d11d44fabf49ed215808c6529b8167264075",
+      "structured_sha256": "64520e62cf8cab41b3a05448fb382f8f11fff41ed826ab9906550e3f37a187a2",
+      "blank_page_numbers": [],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
@@ -5773,6 +7465,34 @@
       "blank_page_numbers": [
         6
       ],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-114",
+      "acquisition_id": "scale-20261028-114",
+      "case_id": "153/2022/DS-PT",
+      "judgment_number": "153/2022/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "151/2022/QĐ-PT",
+        "160/2022/TLPT-DS",
+        "60/2022/DS-ST",
+        "60/2022/DSST"
+      ],
+      "source_name": "Dong_Vinh_P.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-114/Dong_Vinh_P.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-114/Dong_Vinh_P_structured.json",
+      "court": "TAND tỉnh Đắk Lắk",
+      "procedure_stage": "phuc_tham",
+      "year": 2022,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "c47d1e7d3ed76c1f51f6ab9c245211849759ef464b912f2718f9c8b5e2308cd3",
+      "structured_sha256": "02aa85cd17c1761e241ec82e0367502f8d4d309180987195852b6bce7fda9fa2",
+      "blank_page_numbers": [],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
@@ -5879,6 +7599,31 @@
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
+      "source_id": "independent:scale-20261028-129",
+      "acquisition_id": "scale-20261028-129",
+      "case_id": "16/2023/QĐST-DS",
+      "judgment_number": "16/2023/QĐST-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "20/2023/TLST-DS"
+      ],
+      "source_name": "16_Le_Anh_N_Le_Van_T.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-129/16_Le_Anh_N_Le_Van_T.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-129/16_Le_Anh_N_Le_Van_T_structured.json",
+      "court": "TAND TP. Đồng Hới, tỉnh Quảng Bình",
+      "procedure_stage": "so_tham",
+      "year": 2023,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "fbae02178f6340d4d1433a43ba23b8d92abe2f8807dcc913bf608d7233c200ad",
+      "structured_sha256": "a1cb309830ac143c72473bbd3351d3f1aeba94eaad90b507ddf6e9316e910e96",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
       "source_id": "independent:scale-20261026-038",
       "acquisition_id": "scale-20261026-038",
       "case_id": "17/2018/HNGĐ-ST",
@@ -5906,6 +7651,33 @@
       "blank_page_numbers": [
         7
       ],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-111",
+      "acquisition_id": "scale-20261028-111",
+      "case_id": "17/2019/KDTM-ST",
+      "judgment_number": "17/2019/KDTM-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "01/2018/QĐST-KDTM",
+        "41/2019/TLST-KDTM",
+        "96/2019/QĐXX-ST"
+      ],
+      "source_name": "An.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-111/An.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-111/An_structured.json",
+      "court": "TAND Q. Bắc Từ Liêm, TP. Hà Nội",
+      "procedure_stage": "so_tham",
+      "year": 2019,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "2c6dd3baf2b1410be5e312639aaae440ec3c235a61502ecac1bb82c99a30c6e7",
+      "structured_sha256": "da681067874cb7afde02330728628881e0b0127780af197b63e0186f301115cb",
+      "blank_page_numbers": [],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
@@ -5990,6 +7762,31 @@
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
+      "source_id": "independent:scale-20261028-135",
+      "acquisition_id": "scale-20261028-135",
+      "case_id": "185/2024/QĐST-HNGĐ",
+      "judgment_number": "185/2024/QĐST-HNGĐ",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "323/2024/TLST-HNGĐ"
+      ],
+      "source_name": "Le_Thi_TNguyen_Minh_D.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-135/Le_Thi_TNguyen_Minh_D.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-135/Le_Thi_TNguyen_Minh_D_structured.json",
+      "court": "TAND huyện Hoằng Hóa, tỉnh Thanh Hóa",
+      "procedure_stage": "so_tham",
+      "year": 2024,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "207690f5e8f0b68a3eff7d8e6eff657c4ad22e496a075f6f9bae976eb9b01ac1",
+      "structured_sha256": "522d2aca05b55dc53eed1de0739b46401688d2835b77339f9ee678e26c8cf3ce",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
       "source_id": "independent:scale-20261027-094",
       "acquisition_id": "scale-20261027-094",
       "case_id": "187/2026/DS-ST",
@@ -6039,6 +7836,31 @@
       ],
       "source_sha256": "08c6fb814336921f25ad6e6014cfd43a2dd78e6ff385a47b160cfddbe37adbe1",
       "structured_sha256": "2965c3148bd7d40e81630f244814166979bed36d8e05336ec76d469146e44879",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-138",
+      "acquisition_id": "scale-20261028-138",
+      "case_id": "19/2025/QĐST-DS",
+      "judgment_number": "19/2025/QĐST-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "37/2025/TLST-DS"
+      ],
+      "source_name": "TANTUAN_135.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-138/TANTUAN_135.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-138/TANTUAN_135_structured.json",
+      "court": "TAND Q. An Dương, TP. Hải Phòng",
+      "procedure_stage": "so_tham",
+      "year": 2025,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "1cc8c8c6252dd081647f1ec84da2d50ae7f4edff8411b1c50db15bd0e2eb9b91",
+      "structured_sha256": "fdd3bebeab275f2a46237267ffe45f0c25a78ebf5b7034207b884bf9abad00d5",
       "blank_page_numbers": [],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
@@ -6122,6 +7944,60 @@
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
+      "source_id": "independent:scale-20261028-123",
+      "acquisition_id": "scale-20261028-123",
+      "case_id": "20/2023/HNGĐ-PT",
+      "judgment_number": "20/2023/HNGĐ-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "11/2023/TLPT-HNGĐ",
+        "12/2023/HNGĐ-ST",
+        "14/2023/QĐ-PT"
+      ],
+      "source_name": "An__Hoa_Hue_PH.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-123/An__Hoa_Hue_PH.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-123/An__Hoa_Hue_PH_structured.json",
+      "court": "TAND tỉnh Bắc Giang",
+      "procedure_stage": "phuc_tham",
+      "year": 2023,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "d51d22eae00b2d6470c21b9d825b5d636b621ae835971538ffb4bc6e2e8a8fa5",
+      "structured_sha256": "79b4e45051acad48743d5e313909bd77b3a3a16aa83abc9169819c05f6c65cd0",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-146",
+      "acquisition_id": "scale-20261028-146",
+      "case_id": "20/2025/DS-ST",
+      "judgment_number": "20/2025/DS-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "264/2024/TLST-DS",
+        "32/2025/QĐST-DS",
+        "33/2025/QĐXXST-DS"
+      ],
+      "source_name": "BA_Cong_ty_NVK__Phuong_ma_hoa.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-146/BA_Cong_ty_NVK__Phuong_ma_hoa.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-146/BA_Cong_ty_NVK__Phuong_ma_hoa_structured.json",
+      "court": "TAND huyện Cờ Đỏ, TP. Cần Thơ",
+      "procedure_stage": "so_tham",
+      "year": 2025,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "60aa2af13a2d9f302a6356f5348d381447fa8dc8793dc8d705eb56cce0846f37",
+      "structured_sha256": "b86af76a59f45bb5cefa52d44c0eb4b826aaff8c548cb106dc08c656aeee27ca",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
       "source_id": "independent:pilot-20261025-021",
       "acquisition_id": "pilot-20261025-021",
       "case_id": "20/2025/HNGĐ-PT",
@@ -6145,6 +8021,35 @@
       "structured_sha256": "14a79bffa64d1b56b03c754ecb91d2c20a0cf4ea043df282b62106c503007d53",
       "blank_page_numbers": [
         8
+      ],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-126",
+      "acquisition_id": "scale-20261028-126",
+      "case_id": "201/2023/DS-PT",
+      "judgment_number": "201/2023/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "02/2023/DS-ST",
+        "54/2023/TLPT-DS",
+        "724/2023/QĐPT-DS"
+      ],
+      "source_name": "ban_an_mh_.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-126/ban_an_mh_.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-126/ban_an_mh__structured.json",
+      "court": "TAND tỉnh Bến Tre",
+      "procedure_stage": "phuc_tham",
+      "year": 2023,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "c830176e9ab82b655c7e8bc1fd3b737b73ba6aa5e6667e80ca68eb8f452e6d7a",
+      "structured_sha256": "d35d2340720f59479af2afd65aad09e3a8d2ac98b4672d1654ca7d5dbed5c30c",
+      "blank_page_numbers": [
+        11
       ],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
@@ -6411,6 +8316,31 @@
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
+      "source_id": "independent:scale-20261028-128",
+      "acquisition_id": "scale-20261028-128",
+      "case_id": "27/2023/QĐST-DS",
+      "judgment_number": "27/2023/QĐST-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "46/2023/TLST-DS"
+      ],
+      "source_name": "QD_CNSTTCCDS_1_1.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-128/QD_CNSTTCCDS_1_1.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-128/QD_CNSTTCCDS_1_1_structured.json",
+      "court": "TAND TP. Cao Lãnh, tỉnh Đồng Tháp",
+      "procedure_stage": "so_tham",
+      "year": 2023,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "53998dc4e4a9a4b6743a6ca8bc7fa5c4306a5371167cf8536c56670688b19d36",
+      "structured_sha256": "749de5cb33aaa294ca6d7d42660d17900e2484c58a7dfa5d285e6fcaebea6089",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
       "source_id": "independent:scale-20261026-011",
       "acquisition_id": "scale-20261026-011",
       "case_id": "27/2025/DS-PT",
@@ -6464,6 +8394,33 @@
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
+      "source_id": "independent:scale-20261028-119",
+      "acquisition_id": "scale-20261028-119",
+      "case_id": "277/2022/DS-ST",
+      "judgment_number": "277/2022/DS-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "164/2022/TLST-DS",
+        "53/2022/QĐST-DS",
+        "88/2022/QĐXXST-DS"
+      ],
+      "source_name": "Tuyen_Tan_Diem_ma_hoa.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-119/Tuyen_Tan_Diem_ma_hoa.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-119/Tuyen_Tan_Diem_ma_hoa_structured.json",
+      "court": "TAND huyện Châu Thành, tỉnh Tiền Giang",
+      "procedure_stage": "so_tham",
+      "year": 2022,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "ccfa7b8dec4a23f7087c933c3eb9fb3a8cf814abb7b1963af4fa9e8fa0408e8e",
+      "structured_sha256": "cffd8cb38a7bc811a9e24bc2cd8b76eef5803e4ceec4876d45ff4df0f630a3ec",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
       "source_id": "independent:scale-20261027-085",
       "acquisition_id": "scale-20261027-085",
       "case_id": "278/2026/DS-ST",
@@ -6486,6 +8443,112 @@
       ],
       "source_sha256": "629095a41f78344ff7f65f6892ef5525ef7e3676660f318179d1ee20f5833724",
       "structured_sha256": "8d8dc7ef88da15d07b4e04ca263ed19aa0501f05c9303c3b9458b5543df5423e",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-121",
+      "acquisition_id": "scale-20261028-121",
+      "case_id": "28/2023/DS-PT",
+      "judgment_number": "28/2023/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "01/2022/DS-ST",
+        "14/2023/DSPT",
+        "27/2023/QĐXXPT-DS"
+      ],
+      "source_name": "BA_DS_PT__Bao__Cau_phat_hanh.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-121/BA_DS_PT__Bao__Cau_phat_hanh.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-121/BA_DS_PT__Bao__Cau_phat_hanh_structured.json",
+      "court": "TAND tỉnh Phú Thọ",
+      "procedure_stage": "phuc_tham",
+      "year": 2023,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "7a16ebd1e3573833cb44a63e01de749f974a47f5d1af52bd471aa9339783ee46",
+      "structured_sha256": "a51e2d3458f77ea66e36bb0f68c9bdaaa5843ef502131e10f005059830281b9c",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-144",
+      "acquisition_id": "scale-20261028-144",
+      "case_id": "28/2025/QĐST-DS",
+      "judgment_number": "28/2025/QĐST-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "309/2024/TLST-DS"
+      ],
+      "source_name": "QDCNSTT__V__N.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-144/QDCNSTT__V__N.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-144/QDCNSTT__V__N_structured.json",
+      "court": "TAND huyện Mỏ Cày Bắc, tỉnh Bến Tre",
+      "procedure_stage": "so_tham",
+      "year": 2025,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "916b9f3c47f777b84440d19d307e1e32f00a63927174517ba3c5ab82f11d8b07",
+      "structured_sha256": "d067182d52b782af19a9a773b34e7b2e1b3b6b66cf34cca4296499964c4d8dd8",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-115",
+      "acquisition_id": "scale-20261028-115",
+      "case_id": "286/2022/HNGĐ-PT",
+      "judgment_number": "286/2022/HNGĐ-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "1594/2021/HNGĐ-ST",
+        "16/2006/QĐ-BGDĐT",
+        "1858/2022/QĐ-PT",
+        "512/2016/QĐST-HNGĐ",
+        "54/2021/TLPT-HNGĐ"
+      ],
+      "source_name": "286HNPT2552022KHONG_1.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-115/286HNPT2552022KHONG_1.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-115/286HNPT2552022KHONG_1_structured.json",
+      "court": "TAND TP. Hồ Chí Minh",
+      "procedure_stage": "phuc_tham",
+      "year": 2022,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "d83b0e61499f19d17069a2f3381204f0d643c4111faff6ff051d831d1a271be7",
+      "structured_sha256": "c35e8b8bffdf7f771efd5259e9d132d88980d505ca2ec055d94b66b70252848e",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-133",
+      "acquisition_id": "scale-20261028-133",
+      "case_id": "29/2024/QĐST-DS",
+      "judgment_number": "29/2024/QĐST-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "59/2024/TLST-DS"
+      ],
+      "source_name": "29_ngay_2182024_QDCN_dan_su_Cong__Ly.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-133/29_ngay_2182024_QDCN_dan_su_Cong__Ly.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-133/29_ngay_2182024_QDCN_dan_su_Cong__Ly_structured.json",
+      "court": "TAND TX. Sầm Sơn, tỉnh Thanh Hóa",
+      "procedure_stage": "so_tham",
+      "year": 2024,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "56809eee3676e1dd656736c2fc7fba3d4480b5c786f1aae051db08c9617b4373",
+      "structured_sha256": "b1157ea774d92cb7cc29a8414493d97a69346f4d246e2602ea91be0d0c5a1a6f",
       "blank_page_numbers": [],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
@@ -6540,6 +8603,140 @@
       ],
       "source_sha256": "cc133cf04866db844a0c9c6e92008aa50c2b7ae45c3303baff6c0929374f7570",
       "structured_sha256": "f864eefc0bf16a226a98b16459749cecacc9dacb67c01ee9b8c23f75f4d3194f",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-142",
+      "acquisition_id": "scale-20261028-142",
+      "case_id": "30/2025/QĐST-HNGĐ",
+      "judgment_number": "30/2025/QĐST-HNGĐ",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "49/2025/TLST-HNGĐ"
+      ],
+      "source_name": "30. QUYẾT ĐỊNH CÔNG NHẬN THUẬN TÌNH LY HÔN DIỆN - KHẢI (1) 24-10-2026 14-57-11.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-142/30. QUYẾT ĐỊNH CÔNG NHẬN THUẬN TÌNH LY HÔN DIỆN - KHẢI (1) 24-10-2026 14-57-11.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-142/30. QUYẾT ĐỊNH CÔNG NHẬN THUẬN TÌNH LY HÔN DIỆN - KHẢI (1) 24-10-2026 14-57-11_structured.json",
+      "court": "Tòa án nhân dân khu vực 1 - Lai Châu, tỉnh Lai Châu",
+      "procedure_stage": "so_tham",
+      "year": 2025,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "2d4a3a9be93729b2cf473039869c13c4dc7a275bea708bb5b8af33026c0f06d9",
+      "structured_sha256": "9500387559ee585ddddc513da8a3d4ef925bfe1465cd7f79c051ba67aec7c680",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-155",
+      "acquisition_id": "scale-20261028-155",
+      "case_id": "307/2026/HNGĐ-ST",
+      "judgment_number": "307/2026/HNGĐ-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "1211/2026/TLST-HNGĐ",
+        "314/2026/QĐ"
+      ],
+      "source_name": "307-2026 NGUYỄN THANH L-NGUYỄN THỊ THU T1 24-10-2026 16-38-33.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-155/307-2026 NGUYỄN THANH L-NGUYỄN THỊ THU T1 24-10-2026 16-38-33.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-155/307-2026 NGUYỄN THANH L-NGUYỄN THỊ THU T1 24-10-2026 16-38-33_structured.json",
+      "court": "Tòa án nhân dân khu vực 10 - Tây Ninh, tỉnh Tây Ninh",
+      "procedure_stage": "so_tham",
+      "year": 2026,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "db8a010c9d2ca543199aea4f2a69b4a5f0776326f4872045755ccbb0cc927868",
+      "structured_sha256": "18fa7399dd6cd58bcd0153bd35162f9ecfe7a7102b78f36a8f572fac22386d73",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-124",
+      "acquisition_id": "scale-20261028-124",
+      "case_id": "31/2023/DS-PT",
+      "judgment_number": "31/2023/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "56/2023/QĐ-PT",
+        "64/2022/TLPT-DS",
+        "68/2022/DS-ST"
+      ],
+      "source_name": "Ban_an_so_312023DSPT_ngay_2352023_Tranh_chap_quyen_su_dung_dat.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-124/Ban_an_so_312023DSPT_ngay_2352023_Tranh_chap_quyen_su_dung_dat.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-124/Ban_an_so_312023DSPT_ngay_2352023_Tranh_chap_quyen_su_dung_dat_structured.json",
+      "court": "TAND tỉnh Cao Bằng",
+      "procedure_stage": "phuc_tham",
+      "year": 2023,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "d5e4c0e354f9a9ed069232173e17c4d35545abff51d4d0411d7ad05c3cf61e9e",
+      "structured_sha256": "21032904a9d12b98d82645ece84aae4b140a6211271c3a287e5e0adb2124f9c5",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-104",
+      "acquisition_id": "scale-20261028-104",
+      "case_id": "310/2019/DS-PT",
+      "judgment_number": "310/2019/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "24/2019/DS-ST",
+        "269/2019/TLPT",
+        "355/2019/QĐ-PT"
+      ],
+      "source_name": "BA_Chau___Huongmh.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-104/BA_Chau___Huongmh.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-104/BA_Chau___Huongmh_structured.json",
+      "court": "TAND tỉnh Tiền Giang",
+      "procedure_stage": "phuc_tham",
+      "year": 2019,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "4a8cdbf6ac1a4189e6e6ea1abdfd2cc9335324439f0cb8979e2fd712b966d11a",
+      "structured_sha256": "5e40693416b2a59faaa6b15f7d520a005d8f2e1c8cd4c413ace486dd06925b40",
+      "blank_page_numbers": [
+        7
+      ],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-134",
+      "acquisition_id": "scale-20261028-134",
+      "case_id": "318/2024/DS-PT",
+      "judgment_number": "318/2024/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "1/2024/QĐ-PT",
+        "239/2024/DS-ST",
+        "306/2024/TLPT-DS"
+      ],
+      "source_name": "BA_DSPT__Dung__Khang.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-134/BA_DSPT__Dung__Khang.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-134/BA_DSPT__Dung__Khang_structured.json",
+      "court": "TAND tỉnh An Giang",
+      "procedure_stage": "phuc_tham",
+      "year": 2024,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "4bcb97b8294da175d5c0686aa613da67231e26a4a02fb457d301ac0bc8562e9b",
+      "structured_sha256": "78de863e0db18527c8088b9a86b7ef918a4494ff60e7c44983a655291559d88a",
       "blank_page_numbers": [],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
@@ -6617,6 +8814,29 @@
       ],
       "source_sha256": "33c146c392d1493c434e58f0cca73d80a8bbe1b477863a14456386367b11b76a",
       "structured_sha256": "874fc3cfa3efbddb27962a2c627506252dd036de8755c82a122499226edea473",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-149",
+      "acquisition_id": "scale-20261028-149",
+      "case_id": "33/2026/QĐST-DS",
+      "judgment_number": "33/2026/QĐST-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [],
+      "source_name": "QĐ-đình chỉ vụ Lệ - Thắm - Mã hoá 23-10-2026 10-24-49.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-149/QĐ-đình chỉ vụ Lệ - Thắm - Mã hoá 23-10-2026 10-24-49.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-149/QĐ-đình chỉ vụ Lệ - Thắm - Mã hoá 23-10-2026 10-24-49_structured.json",
+      "court": "Tòa án nhân dân khu vực 6 - Thái Nguyên, tỉnh Thái Nguyên",
+      "procedure_stage": "so_tham",
+      "year": 2026,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "0b7b13392e191127d489e3a4d187c9355d91a66bfc1763f43962a04a18df1a52",
+      "structured_sha256": "762cc285d0550e1f6541bacdf7807799b6ba430ea95cc557a78fcadb5680ccc8",
       "blank_page_numbers": [],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
@@ -6790,6 +9010,31 @@
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
+      "source_id": "independent:scale-20261028-118",
+      "acquisition_id": "scale-20261028-118",
+      "case_id": "38/2022/QĐST-DS",
+      "judgment_number": "38/2022/QĐST-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "64/2022/TLST-DS"
+      ],
+      "source_name": "Quyet_dinh_dinh_chi_ma_hoa_HungToan_82022.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-118/Quyet_dinh_dinh_chi_ma_hoa_HungToan_82022.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-118/Quyet_dinh_dinh_chi_ma_hoa_HungToan_82022_structured.json",
+      "court": "TAND huyện Quảng Xương, tỉnh Thanh Hóa",
+      "procedure_stage": "so_tham",
+      "year": 2022,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "0625d1d8d2103bc4f429f0832a779291f0feee833c80e7f9b463ad04314d461f",
+      "structured_sha256": "f5a7aa65af18bbaf54d832a83c2a48615e5eaca01379a2749966b766e19a4dd1",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
       "source_id": "independent:scale-20261027-102",
       "acquisition_id": "scale-20261027-102",
       "case_id": "38/2026/DS-ST",
@@ -6893,6 +9138,35 @@
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
+      "source_id": "independent:scale-20261028-136",
+      "acquisition_id": "scale-20261028-136",
+      "case_id": "420/2024/DS-ST",
+      "judgment_number": "420/2024/DS-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "11/2021/TT-NHNN",
+        "124/2024/TLST-DS",
+        "227/2024/QĐST-DS",
+        "287/2024/QĐXXST-DS",
+        "822/2016/QĐST-HNGĐ"
+      ],
+      "source_name": "Bản_án_mã_hóa_VIB_Tràn_Thiéu_Quan.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-136/Bản_án_mã_hóa_VIB_Tràn_Thiéu_Quan.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-136/Bản_án_mã_hóa_VIB_Tràn_Thiéu_Quan_structured.json",
+      "court": "TAND Quận 8, TP. Hồ Chí Minh",
+      "procedure_stage": "so_tham",
+      "year": 2024,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "416acad43bc09f4a98482de3437fcfc3d691ca896bc84b48d9cf62cf097d03fc",
+      "structured_sha256": "7b91386a06f96e5a12f5b066ed3ca22a9e8f67377da8cb06084a27cde6bd58ce",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
       "source_id": "independent:scale-20261026-031",
       "acquisition_id": "scale-20261026-031",
       "case_id": "424/2024/DS-PT",
@@ -6916,6 +9190,32 @@
       ],
       "source_sha256": "fc8a9ba3d9c24426a049c94095d59226bc80244fb03dcf98c808eea1200b72e1",
       "structured_sha256": "b0907619bccde3124d97f5052fff0a842467796e4a5d13c63f3e78d534ca9f36",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-139",
+      "acquisition_id": "scale-20261028-139",
+      "case_id": "43/2025/DS-ST",
+      "judgment_number": "43/2025/DS-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "114/2025/QĐXXST-DS",
+        "269/2024/TLST-DS"
+      ],
+      "source_name": "BAN_ANTHONGSANG.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-139/BAN_ANTHONGSANG.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-139/BAN_ANTHONGSANG_structured.json",
+      "court": "TAND huyện Thới Lai, TP. Cần Thơ",
+      "procedure_stage": "so_tham",
+      "year": 2025,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "5fba8b3241b4530da55ad4718c2d1c13db8ef9b13c82f46e0dbd5d6cad0b6158",
+      "structured_sha256": "b2daf83448fa6ca1dea684525e8e22b9a7c3a9facf5c99256fa1e9e0eadde759",
       "blank_page_numbers": [],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
@@ -6995,6 +9295,32 @@
       ],
       "source_sha256": "3e81378d6ab142148b941e6c240738874095cd6c3339f2f573212855b5f74768",
       "structured_sha256": "89ad837557c267c77edd72adba99b0d966e4012a950b87a1b5477c65ffd4eee1",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-117",
+      "acquisition_id": "scale-20261028-117",
+      "case_id": "49/2022/QĐDS-ST",
+      "judgment_number": "49/2022/QĐDS-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "31/2022/QĐPH-DS",
+        "86/2021/TLST-DS"
+      ],
+      "source_name": "QD_GQVDS_Van_Ha.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-117/QD_GQVDS_Van_Ha.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-117/QD_GQVDS_Van_Ha_structured.json",
+      "court": "TAND Q. Hà Đông, TP. Hà Nội",
+      "procedure_stage": "so_tham",
+      "year": 2022,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "74bc1c51f6d01d1bb2c450a4a64a8743546c69c3cee369e16669c2c5f5275918",
+      "structured_sha256": "b0e3e0286e7f129226dbfa3d1919ac8b5a91f82ae141836215e03cad39ed79f8",
       "blank_page_numbers": [],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
@@ -7211,6 +9537,85 @@
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
+      "source_id": "independent:scale-20261028-137",
+      "acquisition_id": "scale-20261028-137",
+      "case_id": "57/2024/DS-ST",
+      "judgment_number": "57/2024/DS-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "107/2024/QĐXXST",
+        "13/2024/TLST-DS"
+      ],
+      "source_name": "Trien_thuy_.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-137/Trien_thuy_.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-137/Trien_thuy__structured.json",
+      "court": "TAND huyện Long Phú, tỉnh Sóc Trăng",
+      "procedure_stage": "so_tham",
+      "year": 2024,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "cf8e8e0c079d6bd5ad4a4db206e567e4e56f701c21c14810128b7becbc7a1787",
+      "structured_sha256": "e3d69071067d50355bdab36ef06c32734fd72a378cf3bb5cf906a7ce8af21726",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-154",
+      "acquisition_id": "scale-20261028-154",
+      "case_id": "57/2026/DS-PT",
+      "judgment_number": "57/2026/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "202/2026/DS-ST",
+        "26/2026/TLPT-DS",
+        "38/2026/QĐ-PT",
+        "61/2026/QĐ-PT"
+      ],
+      "source_name": "sample (4) 23-10-2026 09-27-51.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-154/sample (4) 23-10-2026 09-27-51.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-154/sample (4) 23-10-2026 09-27-51_structured.json",
+      "court": "TAND tỉnh Tuyên Quang",
+      "procedure_stage": "phuc_tham",
+      "year": 2026,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "3208ed2193d786cff3967da4700b98e157e107cec8d5f90aefb8140c10510321",
+      "structured_sha256": "6817e588f57abce3cd9addcd34fd5aedddd87d217f64689e937dd917a7bfa70e",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-151",
+      "acquisition_id": "scale-20261028-151",
+      "case_id": "581/2026/QĐST-DS",
+      "judgment_number": "581/2026/QĐST-DS",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "423/2026/TLST-DS"
+      ],
+      "source_name": "sample (40) 24-10-2026 10-12-29.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-151/sample (40) 24-10-2026 10-12-29.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-151/sample (40) 24-10-2026 10-12-29_structured.json",
+      "court": "Tòa án nhân dân khu vực 5 - Hà Nội, TP. Hà Nội",
+      "procedure_stage": "so_tham",
+      "year": 2026,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "c6952c2a114c25393d963838cfa6b5f7294cbdaab7e0be3050a2f189b0588194",
+      "structured_sha256": "9586a7a5b49ab5ab1f0ffe63b2ea4f73c5ee15be785bf40cb3d219e4099252f4",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
       "source_id": "independent:scale-20261026-044",
       "acquisition_id": "scale-20261026-044",
       "case_id": "59/2020/QĐST-DS",
@@ -7285,6 +9690,32 @@
       ],
       "source_sha256": "195ad773c5a082df8f2d3f58c7364e45daa01fced11ab22ca6835f630a0cfd6b",
       "structured_sha256": "76d4e4885d017f803d0c486ce5b83c02d3f3034be764c1c0c2c2dd295ae18279",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-116",
+      "acquisition_id": "scale-20261028-116",
+      "case_id": "65/2022/DS-PT",
+      "judgment_number": "65/2022/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "59/2021/DS-ST",
+        "997/2022/QĐ-PT"
+      ],
+      "source_name": "Ban_an_so_652022DSPT_ngay_10032022_Nguyen_Thi_Hong_T__CT_NGUYEN_TAN_LO.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-116/Ban_an_so_652022DSPT_ngay_10032022_Nguyen_Thi_Hong_T__CT_NGUYEN_TAN_LO.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-116/Ban_an_so_652022DSPT_ngay_10032022_Nguyen_Thi_Hong_T__CT_NGUYEN_TAN_LO_structured.json",
+      "court": "TAND cấp cao tại Đà Nẵng",
+      "procedure_stage": "phuc_tham",
+      "year": 2022,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "cff272ae177607ffff1460b5c758dbd489e522d6cdd1889751d4178e6e4e797c",
+      "structured_sha256": "7afb4bd21313777c2428ff85c6b43152a1f58e8aaa6e7566d63a392a4d9dfc8c",
       "blank_page_numbers": [],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
@@ -7575,6 +10006,33 @@
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
     {
+      "source_id": "independent:scale-20261028-156",
+      "acquisition_id": "scale-20261028-156",
+      "case_id": "806/2026/DS-PT",
+      "judgment_number": "806/2026/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "196/2026/TLPT-DS",
+        "339/2026/QĐPT-DS",
+        "78/2026/DS-ST"
+      ],
+      "source_name": "Bản án phúc thẩm vụ Ánh - Dũng (mã hóa) 24-10-2026 12-28-15.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-156/Bản án phúc thẩm vụ Ánh - Dũng (mã hóa) 24-10-2026 12-28-15.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-156/Bản án phúc thẩm vụ Ánh - Dũng (mã hóa) 24-10-2026 12-28-15_structured.json",
+      "court": "TAND tỉnh Cà Mau",
+      "procedure_stage": "phuc_tham",
+      "year": 2026,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "2439dc2649035a92abdfa160af41032d1f2a7bea2d8d43329763b1ff7d3bdc79",
+      "structured_sha256": "5bd4a5858c00d0b58858bb0e0ec43f595e20454367dda321369b723fd5dbf19e",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
       "source_id": "independent:pilot-20261025-001",
       "acquisition_id": "pilot-20261025-001",
       "case_id": "807/2025/DS-PT",
@@ -7596,6 +10054,37 @@
       ],
       "source_sha256": "dcd6edf906440a30160db6bb47e8c1a6e65a70256c5b9b215266cab613365dc6",
       "structured_sha256": "2b5134a30531b2c7b6077de1b0089c96db0dc06ca4268f46959162bd998e7ecd",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-112",
+      "acquisition_id": "scale-20261028-112",
+      "case_id": "81/2022/DS-PT",
+      "judgment_number": "81/2022/DS-PT",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "05/2022/DS-ST",
+        "249/2022/QĐ-PT",
+        "28/2018/DS-ST",
+        "28/2018/DSST",
+        "48/2022/TLPT-DS",
+        "62/2020/DS-PT",
+        "62/2020/DSPT"
+      ],
+      "source_name": "BAN_AN_DSPT_NGUYEN_THI_D.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-112/BAN_AN_DSPT_NGUYEN_THI_D.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-112/BAN_AN_DSPT_NGUYEN_THI_D_structured.json",
+      "court": "TAND tỉnh Trà Vinh",
+      "procedure_stage": "phuc_tham",
+      "year": 2022,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "5a8a8d1856c0975fd71c649e1945d287e1537dbb630d2c76b79bdb51c20175fd",
+      "structured_sha256": "bf36927f77811a44b00f30b5d89f9532d4682e971a86b45dd27224f66d863708",
       "blank_page_numbers": [],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
     },
@@ -7783,10 +10272,37 @@
       "structured_sha256": "7fd16b4da3ab96720117fd44fecc4ff68f80e89c8b66b5b600d0eb341d239c7c",
       "blank_page_numbers": [],
       "metadata_source": "verified_independent_acquisition_manifest_v1"
+    },
+    {
+      "source_id": "independent:scale-20261028-150",
+      "acquisition_id": "scale-20261028-150",
+      "case_id": "98/2026/DS-ST",
+      "judgment_number": "98/2026/DS-ST",
+      "underlying_dispute_id": null,
+      "related_decision_ids": [
+        "111/2026/QĐST-DS",
+        "118/2026/QĐXXST-DS",
+        "144/2026/DS-ST"
+      ],
+      "source_name": "Bản án 98 23-10-2026 18-42-05.pdf",
+      "source_path": "backend/dataLaw/independent_intake/raw/scale-20261028-150/Bản án 98 23-10-2026 18-42-05.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-150/Bản án 98 23-10-2026 18-42-05_structured.json",
+      "court": "Tòa án nhân dân khu vực 4 - Đắk Lắk, tỉnh Đắk Lắk",
+      "procedure_stage": "so_tham",
+      "year": 2026,
+      "case_type": null,
+      "preliminary_law_families": [],
+      "preliminary_legal_functions": [
+        "unknown"
+      ],
+      "source_sha256": "d3d07d6297bda945bfa3f933e606057c640104b9ec89ef3ed3d320e7b9e78fcf",
+      "structured_sha256": "4aebb88df023556e736a4b3ae1f90f777653956b2c9f92660e155dba513b37c5",
+      "blank_page_numbers": [],
+      "metadata_source": "verified_independent_acquisition_manifest_v1"
     }
   ],
   "available_breakdown": {
-    "total": 211,
+    "total": 258,
     "by_law_family_preliminary": {
       "BLDS": 46,
       "BLTTDS": 104,
@@ -7797,7 +10313,7 @@
     "by_legal_function_preliminary": {
       "procedural": 104,
       "substantive": 54,
-      "unknown": 105
+      "unknown": 152
     },
     "by_case_type": {
       "Hủy kết quả bán đấu giá tài sản": 1,
@@ -7843,7 +10359,7 @@
       "Tranh chấpQSDĐ;yêucầuhủy GCNQSDĐ;yêucầuhủy hợpđồng thế chấpQSDĐ": 1,
       "Tranh chấphợpđồngvay tài sảnvà nợhụi": 1,
       "Tranhchấpyêucầuchấmdứt hànhvi cảntrởquyềnsửdụngđất": 1,
-      "UNKNOWN": 108,
+      "UNKNOWN": 155,
       "tranh châp quyên sử dụng đât": 1,
       "tranh chấp Hợp đồng đặt cọc": 1,
       "tranh chấp chia di sản thừa kế": 1,
@@ -7868,6 +10384,45 @@
       "tranh chấp đòi tài sản, hủy giấy chứng nhận quyền sử dụng đất": 1
     },
     "by_court": {
+      "TAND Q. An Dương, TP. Hải Phòng": 1,
+      "TAND Q. Bắc Từ Liêm, TP. Hà Nội": 1,
+      "TAND Q. Hà Đông, TP. Hà Nội": 1,
+      "TAND Q. Ngô Quyền, TP. Hải Phòng": 1,
+      "TAND Quận 8, TP. Hồ Chí Minh": 1,
+      "TAND TP. Cao Lãnh, tỉnh Đồng Tháp": 1,
+      "TAND TP. Cần Thơ": 1,
+      "TAND TP. Hồ Chí Minh": 1,
+      "TAND TP. Đồng Hới, tỉnh Quảng Bình": 1,
+      "TAND TX. Sầm Sơn, tỉnh Thanh Hóa": 1,
+      "TAND cấp cao tại Đà Nẵng": 1,
+      "TAND huyện Buôn Đôn, tỉnh Đắk Lắk": 1,
+      "TAND huyện Bình Đại, tỉnh Bến Tre": 1,
+      "TAND huyện Châu Thành, tỉnh Tiền Giang": 1,
+      "TAND huyện Càng Long, tỉnh Trà Vinh": 1,
+      "TAND huyện Cờ Đỏ, TP. Cần Thơ": 1,
+      "TAND huyện Hoằng Hóa, tỉnh Thanh Hóa": 1,
+      "TAND huyện Long Phú, tỉnh Sóc Trăng": 1,
+      "TAND huyện Lâm Thao, tỉnh Phú Thọ": 1,
+      "TAND huyện Mỏ Cày Bắc, tỉnh Bến Tre": 1,
+      "TAND huyện Mỏ Cày Nam, tỉnh Bến Tre": 1,
+      "TAND huyện Quảng Xương, tỉnh Thanh Hóa": 1,
+      "TAND huyện Thới Lai, TP. Cần Thơ": 1,
+      "TAND huyện Vị Xuyên, tỉnh Hà Giang": 1,
+      "TAND huyện Đạ Huoai, tỉnh Lâm Đồng": 1,
+      "TAND huyện Đồng Hỷ, tỉnh Thái Nguyên": 1,
+      "TAND tỉnh An Giang": 1,
+      "TAND tỉnh Bắc Giang": 1,
+      "TAND tỉnh Bến Tre": 1,
+      "TAND tỉnh Cao Bằng": 1,
+      "TAND tỉnh Cà Mau": 1,
+      "TAND tỉnh Phú Thọ": 1,
+      "TAND tỉnh Thái Bình": 1,
+      "TAND tỉnh Thái Nguyên": 1,
+      "TAND tỉnh Tiền Giang": 1,
+      "TAND tỉnh Trà Vinh": 1,
+      "TAND tỉnh Tuyên Quang": 1,
+      "TAND tỉnh Vĩnh Long": 1,
+      "TAND tỉnh Đắk Lắk": 1,
       "Tòa Phúc thẩm Tòa án nhân dân tối cao tại Hà Nội": 1,
       "Tòa án nhân dân Thành phố Hồ Chí Minh": 2,
       "Tòa án nhân dân cấp cao tại Đà Nẵng": 2,
@@ -7878,11 +10433,12 @@
       "Tòa án nhân dân khu vực 1 - Cao Bằng, tỉnh Cao Bằng": 1,
       "Tòa án nhân dân khu vực 1 - Hà Nội": 1,
       "Tòa án nhân dân khu vực 1 - Hà Tĩnh, tỉnh Hà Tĩnh": 1,
+      "Tòa án nhân dân khu vực 1 - Lai Châu, tỉnh Lai Châu": 1,
       "Tòa án nhân dân khu vực 1 - Sơn La, tỉnh Sơn La": 1,
       "Tòa án nhân dân khu vực 1 - Thanh Hóa, tỉnh Thanh Hóa": 1,
       "Tòa án nhân dân khu vực 1 - Tuyên Quang, tỉnh Tuyên Quang": 1,
       "Tòa án nhân dân khu vực 10 - Thanh Hóa, tỉnh Thanh Hóa": 1,
-      "Tòa án nhân dân khu vực 10 - Tây Ninh, tỉnh Tây Ninh": 1,
+      "Tòa án nhân dân khu vực 10 - Tây Ninh, tỉnh Tây Ninh": 2,
       "Tòa án nhân dân khu vực 11 - Phú Thọ, tỉnh Phú Thọ": 1,
       "Tòa án nhân dân khu vực 12 - Hải Phòng, TP. Hải Phòng": 1,
       "Tòa án nhân dân khu vực 12 - Thanh Hóa, tỉnh Thanh Hóa": 1,
@@ -7899,11 +10455,15 @@
       "Tòa án nhân dân khu vực 4 - Thành phố Hồ Chí Minh": 1,
       "Tòa án nhân dân khu vực 4 - Thái Nguyên, tỉnh Thái Nguyên": 1,
       "Tòa án nhân dân khu vực 4 - Đà Nẵng, TP Đà Nẵng": 1,
+      "Tòa án nhân dân khu vực 4 - Đắk Lắk, tỉnh Đắk Lắk": 1,
       "Tòa án nhân dân khu vực 5 - Cà Mau, tỉnh Cà Mau": 1,
+      "Tòa án nhân dân khu vực 5 - Hà Nội, TP. Hà Nội": 1,
       "Tòa án nhân dân khu vực 5 - Nghệ An, tỉnh Nghệ An": 1,
       "Tòa án nhân dân khu vực 5 - Quảng Ninh": 1,
+      "Tòa án nhân dân khu vực 5 - Đắk Lắk , tỉnh Đắk Lắk": 1,
       "Tòa án nhân dân khu vực 6 - Nghệ An, tỉnh Nghệ An": 1,
-      "Tòa án nhân dân khu vực 6 - Thái Nguyên, tỉnh Thái Nguyên": 1,
+      "Tòa án nhân dân khu vực 6 - Thái Nguyên, tỉnh Thái Nguyên": 2,
+      "Tòa án nhân dân khu vực 7 - Lâm Đồng, tỉnh Lâm Đồng": 1,
       "Tòa án nhân dân khu vực 7 - Phú Thọ, tỉnh Phú Thọ": 1,
       "Tòa án nhân dân khu vực 7 - Quảng Trị, tỉnh Quảng Trị": 1,
       "Tòa án nhân dân khu vực 7 - Thành phố Hồ Chí Minh": 1,
@@ -7942,6 +10502,7 @@
       "Tòa án nhân dân tỉnh Ninh Thuận": 1,
       "Tòa án nhân dân tỉnh Quảng Bình": 2,
       "Tòa án nhân dân tỉnh Quảng Ngãi": 1,
+      "Tòa án nhân dân tỉnh Quảng Ninh": 1,
       "Tòa án nhân dân tỉnh Sơn La": 1,
       "Tòa án nhân dân tỉnh Thừa Thiên Huế": 1,
       "Tòa án nhân dân tỉnh Tiền Giang": 3,
@@ -7957,34 +10518,73 @@
     },
     "by_procedure_stage": {
       "giam_doc_tham": 106,
-      "phuc_tham": 46,
-      "so_tham": 57,
+      "phuc_tham": 63,
+      "so_tham": 87,
       "tai_tham": 2
     },
     "by_year": {
       "2016": 1,
       "2017": 3,
       "2018": 4,
-      "2019": 2,
+      "2019": 9,
       "2020": 4,
       "2021": 2,
-      "2022": 10,
-      "2023": 51,
-      "2024": 64,
-      "2025": 24,
-      "2026": 46
+      "2022": 19,
+      "2023": 59,
+      "2024": 70,
+      "2025": 32,
+      "2026": 55
     }
   },
   "eligible_breakdown": {
-    "total": 104,
+    "total": 151,
     "by_law_family_preliminary": {},
     "by_legal_function_preliminary": {
-      "unknown": 104
+      "unknown": 151
     },
     "by_case_type": {
-      "UNKNOWN": 104
+      "UNKNOWN": 151
     },
     "by_court": {
+      "TAND Q. An Dương, TP. Hải Phòng": 1,
+      "TAND Q. Bắc Từ Liêm, TP. Hà Nội": 1,
+      "TAND Q. Hà Đông, TP. Hà Nội": 1,
+      "TAND Q. Ngô Quyền, TP. Hải Phòng": 1,
+      "TAND Quận 8, TP. Hồ Chí Minh": 1,
+      "TAND TP. Cao Lãnh, tỉnh Đồng Tháp": 1,
+      "TAND TP. Cần Thơ": 1,
+      "TAND TP. Hồ Chí Minh": 1,
+      "TAND TP. Đồng Hới, tỉnh Quảng Bình": 1,
+      "TAND TX. Sầm Sơn, tỉnh Thanh Hóa": 1,
+      "TAND cấp cao tại Đà Nẵng": 1,
+      "TAND huyện Buôn Đôn, tỉnh Đắk Lắk": 1,
+      "TAND huyện Bình Đại, tỉnh Bến Tre": 1,
+      "TAND huyện Châu Thành, tỉnh Tiền Giang": 1,
+      "TAND huyện Càng Long, tỉnh Trà Vinh": 1,
+      "TAND huyện Cờ Đỏ, TP. Cần Thơ": 1,
+      "TAND huyện Hoằng Hóa, tỉnh Thanh Hóa": 1,
+      "TAND huyện Long Phú, tỉnh Sóc Trăng": 1,
+      "TAND huyện Lâm Thao, tỉnh Phú Thọ": 1,
+      "TAND huyện Mỏ Cày Bắc, tỉnh Bến Tre": 1,
+      "TAND huyện Mỏ Cày Nam, tỉnh Bến Tre": 1,
+      "TAND huyện Quảng Xương, tỉnh Thanh Hóa": 1,
+      "TAND huyện Thới Lai, TP. Cần Thơ": 1,
+      "TAND huyện Vị Xuyên, tỉnh Hà Giang": 1,
+      "TAND huyện Đạ Huoai, tỉnh Lâm Đồng": 1,
+      "TAND huyện Đồng Hỷ, tỉnh Thái Nguyên": 1,
+      "TAND tỉnh An Giang": 1,
+      "TAND tỉnh Bắc Giang": 1,
+      "TAND tỉnh Bến Tre": 1,
+      "TAND tỉnh Cao Bằng": 1,
+      "TAND tỉnh Cà Mau": 1,
+      "TAND tỉnh Phú Thọ": 1,
+      "TAND tỉnh Thái Bình": 1,
+      "TAND tỉnh Thái Nguyên": 1,
+      "TAND tỉnh Tiền Giang": 1,
+      "TAND tỉnh Trà Vinh": 1,
+      "TAND tỉnh Tuyên Quang": 1,
+      "TAND tỉnh Vĩnh Long": 1,
+      "TAND tỉnh Đắk Lắk": 1,
       "Tòa Phúc thẩm Tòa án nhân dân tối cao tại Hà Nội": 1,
       "Tòa án nhân dân Thành phố Hồ Chí Minh": 2,
       "Tòa án nhân dân cấp cao tại Đà Nẵng": 2,
@@ -7995,11 +10595,12 @@
       "Tòa án nhân dân khu vực 1 - Cao Bằng, tỉnh Cao Bằng": 1,
       "Tòa án nhân dân khu vực 1 - Hà Nội": 1,
       "Tòa án nhân dân khu vực 1 - Hà Tĩnh, tỉnh Hà Tĩnh": 1,
+      "Tòa án nhân dân khu vực 1 - Lai Châu, tỉnh Lai Châu": 1,
       "Tòa án nhân dân khu vực 1 - Sơn La, tỉnh Sơn La": 1,
       "Tòa án nhân dân khu vực 1 - Thanh Hóa, tỉnh Thanh Hóa": 1,
       "Tòa án nhân dân khu vực 1 - Tuyên Quang, tỉnh Tuyên Quang": 1,
       "Tòa án nhân dân khu vực 10 - Thanh Hóa, tỉnh Thanh Hóa": 1,
-      "Tòa án nhân dân khu vực 10 - Tây Ninh, tỉnh Tây Ninh": 1,
+      "Tòa án nhân dân khu vực 10 - Tây Ninh, tỉnh Tây Ninh": 2,
       "Tòa án nhân dân khu vực 11 - Phú Thọ, tỉnh Phú Thọ": 1,
       "Tòa án nhân dân khu vực 12 - Hải Phòng, TP. Hải Phòng": 1,
       "Tòa án nhân dân khu vực 12 - Thanh Hóa, tỉnh Thanh Hóa": 1,
@@ -8016,11 +10617,15 @@
       "Tòa án nhân dân khu vực 4 - Thành phố Hồ Chí Minh": 1,
       "Tòa án nhân dân khu vực 4 - Thái Nguyên, tỉnh Thái Nguyên": 1,
       "Tòa án nhân dân khu vực 4 - Đà Nẵng, TP Đà Nẵng": 1,
+      "Tòa án nhân dân khu vực 4 - Đắk Lắk, tỉnh Đắk Lắk": 1,
       "Tòa án nhân dân khu vực 5 - Cà Mau, tỉnh Cà Mau": 1,
+      "Tòa án nhân dân khu vực 5 - Hà Nội, TP. Hà Nội": 1,
       "Tòa án nhân dân khu vực 5 - Nghệ An, tỉnh Nghệ An": 1,
       "Tòa án nhân dân khu vực 5 - Quảng Ninh": 1,
+      "Tòa án nhân dân khu vực 5 - Đắk Lắk , tỉnh Đắk Lắk": 1,
       "Tòa án nhân dân khu vực 6 - Nghệ An, tỉnh Nghệ An": 1,
-      "Tòa án nhân dân khu vực 6 - Thái Nguyên, tỉnh Thái Nguyên": 1,
+      "Tòa án nhân dân khu vực 6 - Thái Nguyên, tỉnh Thái Nguyên": 2,
+      "Tòa án nhân dân khu vực 7 - Lâm Đồng, tỉnh Lâm Đồng": 1,
       "Tòa án nhân dân khu vực 7 - Phú Thọ, tỉnh Phú Thọ": 1,
       "Tòa án nhân dân khu vực 7 - Quảng Trị, tỉnh Quảng Trị": 1,
       "Tòa án nhân dân khu vực 7 - Thành phố Hồ Chí Minh": 1,
@@ -8059,6 +10664,7 @@
       "Tòa án nhân dân tỉnh Ninh Thuận": 1,
       "Tòa án nhân dân tỉnh Quảng Bình": 2,
       "Tòa án nhân dân tỉnh Quảng Ngãi": 1,
+      "Tòa án nhân dân tỉnh Quảng Ninh": 1,
       "Tòa án nhân dân tỉnh Sơn La": 1,
       "Tòa án nhân dân tỉnh Thừa Thiên Huế": 1,
       "Tòa án nhân dân tỉnh Tiền Giang": 3,
@@ -8073,26 +10679,26 @@
     },
     "by_procedure_stage": {
       "giam_doc_tham": 1,
-      "phuc_tham": 46,
-      "so_tham": 57
+      "phuc_tham": 63,
+      "so_tham": 87
     },
     "by_year": {
       "2016": 1,
       "2017": 3,
       "2018": 4,
-      "2019": 2,
+      "2019": 9,
       "2020": 4,
       "2021": 2,
-      "2022": 3,
-      "2023": 8,
-      "2024": 7,
-      "2025": 24,
-      "2026": 46
+      "2022": 12,
+      "2023": 16,
+      "2024": 13,
+      "2025": 32,
+      "2026": 55
     }
   },
   "quota_feasibility": {
     "status": "INFEASIBLE",
-    "eligible_count": 104,
+    "eligible_count": 151,
     "target_total": 250,
     "minimum_total": 180,
     "targets": {
@@ -8138,7 +10744,7 @@
       "status": "NOT_ASSESSABLE_BEFORE_ANNOTATION"
     },
     "blockers": [
-      "eligible source count 104 is below minimum total 180",
+      "eligible source count 151 is below minimum total 180",
       "BLDS_core_substantive preliminary availability 0 is below minimum 55",
       "BLTTDS_primary_procedural preliminary availability 0 is below minimum 30",
       "LAND_2013 preliminary availability 0 is below minimum 35",

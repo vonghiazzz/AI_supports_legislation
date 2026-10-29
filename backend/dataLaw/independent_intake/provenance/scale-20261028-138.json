@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-138",
+  "anchor_fingerprint": "27a238f0d4ed4116520989b6c1a3377be7d91ccfaa7eb784e0bd7fe316723017",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:09:07.686589+07:00",
+  "offline_provenance": null,
+  "original_filename": "TANTUAN_135.pdf",
+  "pdf_sha256": "1cc8c8c6252dd081647f1ec84da2d50ae7f4edff8411b1c50db15bd0e2eb9b91",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-138",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1800040t1cvn/TANTUAN_135.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-138/TANTUAN_135.pdf"
+}

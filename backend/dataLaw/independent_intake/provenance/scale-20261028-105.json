@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-105",
+  "anchor_fingerprint": "17a85746ac0494d8a1958b7b5061e9cd179d2ed4af760ef0270c6690ac3644bd",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:08:48.916637+07:00",
+  "offline_provenance": null,
+  "original_filename": "BA__DSPT__BAY___PHUNG_MA_HOA.pdf",
+  "pdf_sha256": "150cbefa92256c5777555b420353305827f4e302cac2e55f854bd09cfbb08146",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-105",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta400000t1cvn/BA__DSPT__BAY___PHUNG_MA_HOA.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-105/BA__DSPT__BAY___PHUNG_MA_HOA.pdf"
+}

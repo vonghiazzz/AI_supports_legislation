@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-109",
+  "anchor_fingerprint": "c3150b4e94bc9a4e8923506b625a4b0d77d747dee1a9fa4a348373577903f3db",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:08:51.219768+07:00",
+  "offline_provenance": null,
+  "original_filename": "B_an_PT_CTy_VAMC__Cty_Thuy_Linh.pdf",
+  "pdf_sha256": "8e2f497466bcdfa517ec71e837769fdb1cfcc465fc82993ba8ea85031ccb2d7a",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-109",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta399917t1cvn/B_an_PT_CTy_VAMC__Cty_Thuy_Linh.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-109/B_an_PT_CTy_VAMC__Cty_Thuy_Linh.pdf"
+}

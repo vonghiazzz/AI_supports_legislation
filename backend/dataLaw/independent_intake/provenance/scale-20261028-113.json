@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-113",
+  "anchor_fingerprint": "bdeb8b37ef2ee6865df080be9874bc2eb419afd9de8bb77f205b693ad43e38d3",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:08:53.497600+07:00",
+  "offline_provenance": null,
+  "original_filename": "QD_tuyen_bo_mat_tich_Tinh__May.pdf",
+  "pdf_sha256": "2df666e3b45fc5a3a7e9cfc3fc709587023938886a771c39ea1107488f57ba5c",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-113",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1000075t1cvn/QD_tuyen_bo_mat_tich_Tinh__May.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-113/QD_tuyen_bo_mat_tich_Tinh__May.pdf"
+}

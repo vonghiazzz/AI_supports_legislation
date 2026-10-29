@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-156",
+  "anchor_fingerprint": "0cb8c8d75d00b16d1c50e3383a2554b19e07e68652a37a9c86361be47f78eecf",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:09:17.864159+07:00",
+  "offline_provenance": null,
+  "original_filename": "Bản án phúc thẩm vụ Ánh - Dũng (mã hóa) 24-10-2026 12-28-15.pdf",
+  "pdf_sha256": "2439dc2649035a92abdfa160af41032d1f2a7bea2d8d43329763b1ff7d3bdc79",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-156",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285350t1cvn/Bản án phúc thẩm vụ Ánh - Dũng (mã hóa) 24-10-2026 12-28-15.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-156/Bản án phúc thẩm vụ Ánh - Dũng (mã hóa) 24-10-2026 12-28-15.pdf"
+}

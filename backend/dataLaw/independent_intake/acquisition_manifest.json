@@ -1524,6 +1524,642 @@
       "source_id": "independent:scale-20261027-103",
       "source_url": "https://congbobanan.toaan.gov.vn/5ta2285720t1cvn/sample%20(7)%2026-10-2026%2011-37-02.pdf",
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-103/sample (7) 26-10-2026 11-37-02.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-104",
+      "download_timestamp": "2026-10-28T15:08:48.332614+07:00",
+      "immutable_fingerprint": "0818934e23eb0a6e51d99a4abcce557c3904ac1f0e3be07b541990da19c62061",
+      "offline_provenance": null,
+      "original_filename": "BA_Chau___Huongmh.pdf",
+      "sha256": "4a8cdbf6ac1a4189e6e6ea1abdfd2cc9335324439f0cb8979e2fd712b966d11a",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-104",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta400028t1cvn/BA_Chau___Huongmh.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-104/BA_Chau___Huongmh.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-105",
+      "download_timestamp": "2026-10-28T15:08:48.916637+07:00",
+      "immutable_fingerprint": "3d33b991dba7782a73aa0bbf1e7544b2a22e82ad6c7440cb05cfe5fe126444f4",
+      "offline_provenance": null,
+      "original_filename": "BA__DSPT__BAY___PHUNG_MA_HOA.pdf",
+      "sha256": "150cbefa92256c5777555b420353305827f4e302cac2e55f854bd09cfbb08146",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-105",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta400000t1cvn/BA__DSPT__BAY___PHUNG_MA_HOA.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-105/BA__DSPT__BAY___PHUNG_MA_HOA.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-106",
+      "download_timestamp": "2026-10-28T15:08:49.491396+07:00",
+      "immutable_fingerprint": "cce15bccc6bcfde2f6cee5ff49cf3eeae0e898001c7b2695cd6b3ca13edba235",
+      "offline_provenance": null,
+      "original_filename": "Th_ly_hon_T.pdf",
+      "sha256": "757d4d4a36778a3200abb227acbf9a99e962311229cfb9032d16f719fc328135",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-106",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta399972t1cvn/Th_ly_hon_T.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-106/Th_ly_hon_T.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-107",
+      "download_timestamp": "2026-10-28T15:08:50.038173+07:00",
+      "immutable_fingerprint": "7e009e3a081b2404ef49cbd3b2e33dfdf8e0ccea00dd0b9d09f93da7663f7286",
+      "offline_provenance": null,
+      "original_filename": "Ban_an_P___Quy_TD_NH.pdf",
+      "sha256": "db7e2fa7d34595edd5ba7cc5f0a15550b7ed7261d70517c204d67b18cc140f8f",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-107",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta399918t1cvn/Ban_an_P___Quy_TD_NH.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-107/Ban_an_P___Quy_TD_NH.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-108",
+      "download_timestamp": "2026-10-28T15:08:50.600642+07:00",
+      "immutable_fingerprint": "82cf8686494231540bca2a25d085fed769b97e4cdcd376f870bb9ed6a21ae16f",
+      "offline_provenance": null,
+      "original_filename": "QDD_chuyen_vu_anma_hoa_1.pdf",
+      "sha256": "bda8acb5249e19c3c255737e490e51ec45f2f2f871842223fa101da7bf19aa8a",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-108",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta400098t1cvn/QDD_chuyen_vu_anma_hoa_1.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-108/QDD_chuyen_vu_anma_hoa_1.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-109",
+      "download_timestamp": "2026-10-28T15:08:51.219768+07:00",
+      "immutable_fingerprint": "b0eebc605485532fb5e5c75850aa89f0b24adcb92799fd9f92f9f89295449112",
+      "offline_provenance": null,
+      "original_filename": "B_an_PT_CTy_VAMC__Cty_Thuy_Linh.pdf",
+      "sha256": "8e2f497466bcdfa517ec71e837769fdb1cfcc465fc82993ba8ea85031ccb2d7a",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-109",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta399917t1cvn/B_an_PT_CTy_VAMC__Cty_Thuy_Linh.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-109/B_an_PT_CTy_VAMC__Cty_Thuy_Linh.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-110",
+      "download_timestamp": "2026-10-28T15:08:51.885336+07:00",
+      "immutable_fingerprint": "ce289ae0cf2d330b6023b9b46239e7203fe8adfa0139b38f004ca1e95f02c293",
+      "offline_provenance": null,
+      "original_filename": "tuyet___minh.pdf",
+      "sha256": "49ddabbffc9f2c3d19d7268637424363bc8544343d5d71eaa2b79c7bcecf5b5a",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-110",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta400080t1cvn/tuyet___minh.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-110/tuyet___minh.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-111",
+      "download_timestamp": "2026-10-28T15:08:52.418474+07:00",
+      "immutable_fingerprint": "0a200be0e844b12a96dd734d80eb5a05c3ec49574897244227e48262d8be326b",
+      "offline_provenance": null,
+      "original_filename": "An.pdf",
+      "sha256": "2c6dd3baf2b1410be5e312639aaae440ec3c235a61502ecac1bb82c99a30c6e7",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-111",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta400112t1cvn/An.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-111/An.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-112",
+      "download_timestamp": "2026-10-28T15:08:52.914234+07:00",
+      "immutable_fingerprint": "e736f96f6e4cc58025b950c03d0c02f8d5103a1a8d04d0880e6d979934cae7bc",
+      "offline_provenance": null,
+      "original_filename": "BAN_AN_DSPT_NGUYEN_THI_D.pdf",
+      "sha256": "5a8a8d1856c0975fd71c649e1945d287e1537dbb630d2c76b79bdb51c20175fd",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-112",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1000048t1cvn/BAN_AN_DSPT_NGUYEN_THI_D.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-112/BAN_AN_DSPT_NGUYEN_THI_D.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-113",
+      "download_timestamp": "2026-10-28T15:08:53.497600+07:00",
+      "immutable_fingerprint": "98d186e4e5e31de38b3928c621c4b78672a51711fe0c84039753d990fc01ba32",
+      "offline_provenance": null,
+      "original_filename": "QD_tuyen_bo_mat_tich_Tinh__May.pdf",
+      "sha256": "2df666e3b45fc5a3a7e9cfc3fc709587023938886a771c39ea1107488f57ba5c",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-113",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1000075t1cvn/QD_tuyen_bo_mat_tich_Tinh__May.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-113/QD_tuyen_bo_mat_tich_Tinh__May.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-114",
+      "download_timestamp": "2026-10-28T15:08:54.058200+07:00",
+      "immutable_fingerprint": "caaa35fba31fce383bf1a6f105ed48fca3fcc6502efa5911718ec2ee02e51ab6",
+      "offline_provenance": null,
+      "original_filename": "Dong_Vinh_P.pdf",
+      "sha256": "c47d1e7d3ed76c1f51f6ab9c245211849759ef464b912f2718f9c8b5e2308cd3",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-114",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta999933t1cvn/Dong_Vinh_P.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-114/Dong_Vinh_P.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-115",
+      "download_timestamp": "2026-10-28T15:08:54.572180+07:00",
+      "immutable_fingerprint": "374c4c25d89238025db2348b26b15d9ccd3966037a6f35eb11a090d0116b484e",
+      "offline_provenance": null,
+      "original_filename": "286HNPT2552022KHONG_1.pdf",
+      "sha256": "d83b0e61499f19d17069a2f3381204f0d643c4111faff6ff051d831d1a271be7",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-115",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta999995t1cvn/286HNPT2552022KHONG_1.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-115/286HNPT2552022KHONG_1.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-116",
+      "download_timestamp": "2026-10-28T15:08:55.075742+07:00",
+      "immutable_fingerprint": "4736ed47d690a652ef569ab1163eca74e8d2f32cdb5843fbbeed165fa798c62c",
+      "offline_provenance": null,
+      "original_filename": "Ban_an_so_652022DSPT_ngay_10032022_Nguyen_Thi_Hong_T__CT_NGUYEN_TAN_LO.pdf",
+      "sha256": "cff272ae177607ffff1460b5c758dbd489e522d6cdd1889751d4178e6e4e797c",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-116",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta999880t1cvn/Ban_an_so_652022DSPT_ngay_10032022_Nguyen_Thi_Hong_T__CT_NGUYEN_TAN_LO.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-116/Ban_an_so_652022DSPT_ngay_10032022_Nguyen_Thi_Hong_T__CT_NGUYEN_TAN_LO.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-117",
+      "download_timestamp": "2026-10-28T15:08:55.639980+07:00",
+      "immutable_fingerprint": "961924f28a6764a1443163f268abf897dc4e1776e985c53e3085f7866b46538f",
+      "offline_provenance": null,
+      "original_filename": "QD_GQVDS_Van_Ha.pdf",
+      "sha256": "74bc1c51f6d01d1bb2c450a4a64a8743546c69c3cee369e16669c2c5f5275918",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-117",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1000011t1cvn/QD_GQVDS_Van_Ha.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-117/QD_GQVDS_Van_Ha.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-118",
+      "download_timestamp": "2026-10-28T15:08:56.140824+07:00",
+      "immutable_fingerprint": "bb6d058b8240ba00428ab377310e95e8f752aec870a5846b3b3adf24a130ead6",
+      "offline_provenance": null,
+      "original_filename": "Quyet_dinh_dinh_chi_ma_hoa_HungToan_82022.pdf",
+      "sha256": "0625d1d8d2103bc4f429f0832a779291f0feee833c80e7f9b463ad04314d461f",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-118",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1000032t1cvn/Quyet_dinh_dinh_chi_ma_hoa_HungToan_82022.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-118/Quyet_dinh_dinh_chi_ma_hoa_HungToan_82022.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-119",
+      "download_timestamp": "2026-10-28T15:08:56.651004+07:00",
+      "immutable_fingerprint": "f743ecee2e947518cbf769c3b2619b276ecaef096a7ec585e407c0ed83437528",
+      "offline_provenance": null,
+      "original_filename": "Tuyen_Tan_Diem_ma_hoa.pdf",
+      "sha256": "ccfa7b8dec4a23f7087c933c3eb9fb3a8cf814abb7b1963af4fa9e8fa0408e8e",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-119",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1000104t1cvn/Tuyen_Tan_Diem_ma_hoa.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-119/Tuyen_Tan_Diem_ma_hoa.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-120",
+      "download_timestamp": "2026-10-28T15:08:57.234993+07:00",
+      "immutable_fingerprint": "0dde412af93d8799d2d1f7bafa09175c0456ab920312d6914f21197bb57f5883",
+      "offline_provenance": null,
+      "original_filename": "Duyen_phong.pdf",
+      "sha256": "e7af8975debfff3e463452622634c5a9db762f50056261a664dfee5853ea55bc",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-120",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1200086t1cvn/Duyen_phong.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-120/Duyen_phong.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-121",
+      "download_timestamp": "2026-10-28T15:08:57.853878+07:00",
+      "immutable_fingerprint": "01d83ab3d036878dac6360dcb6d0ca8785b695c1ada6dc2c1ad44ab9baec4956",
+      "offline_provenance": null,
+      "original_filename": "BA_DS_PT__Bao__Cau_phat_hanh.pdf",
+      "sha256": "7a16ebd1e3573833cb44a63e01de749f974a47f5d1af52bd471aa9339783ee46",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-121",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1199947t1cvn/BA_DS_PT__Bao__Cau_phat_hanh.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-121/BA_DS_PT__Bao__Cau_phat_hanh.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-122",
+      "download_timestamp": "2026-10-28T15:08:58.413945+07:00",
+      "immutable_fingerprint": "830bbc27757f05d9740e65efad03239e453faa01d6477e2ee60aaa3faf390d97",
+      "offline_provenance": null,
+      "original_filename": "QD_dinh_chuyen_ho_so_vu_Huy__Nham__0118423.pdf",
+      "sha256": "06722d09a52399e490607e75f4709168ecf3b8738f219e77d92ec4d1b088b974",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-122",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1200103t1cvn/QD_dinh_chuyen_ho_so_vu_Huy__Nham__0118423.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-122/QD_dinh_chuyen_ho_so_vu_Huy__Nham__0118423.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-123",
+      "download_timestamp": "2026-10-28T15:08:58.960306+07:00",
+      "immutable_fingerprint": "a781dbd2a8631c0fdaaefceaf592fa447d2fec4598091a5367ddd8b425cb6ab3",
+      "offline_provenance": null,
+      "original_filename": "An__Hoa_Hue_PH.pdf",
+      "sha256": "d51d22eae00b2d6470c21b9d825b5d636b621ae835971538ffb4bc6e2e8a8fa5",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-123",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1200125t1cvn/An__Hoa_Hue_PH.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-123/An__Hoa_Hue_PH.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-124",
+      "download_timestamp": "2026-10-28T15:08:59.501516+07:00",
+      "immutable_fingerprint": "6e035e3b93796b0886741d79dceae2f3929c2000f2b91c41274905578e99f3f8",
+      "offline_provenance": null,
+      "original_filename": "Ban_an_so_312023DSPT_ngay_2352023_Tranh_chap_quyen_su_dung_dat.pdf",
+      "sha256": "d5e4c0e354f9a9ed069232173e17c4d35545abff51d4d0411d7ad05c3cf61e9e",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-124",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1199931t1cvn/Ban_an_so_312023DSPT_ngay_2352023_Tranh_chap_quyen_su_dung_dat.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-124/Ban_an_so_312023DSPT_ngay_2352023_Tranh_chap_quyen_su_dung_dat.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-125",
+      "download_timestamp": "2026-10-28T15:09:00.131302+07:00",
+      "immutable_fingerprint": "fd27e25b4fbac7d870e9cf669efe12f4d020bc8e60bbd67161b7f6b9601e4ef0",
+      "offline_provenance": null,
+      "original_filename": "QD_03_Huong__Dac.pdf",
+      "sha256": "df497cf861c4227852111cdfc79593c031e15b65b258387996fd4a0fba42c94d",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-125",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1600094t1cvn/QD_03_Huong__Dac.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-125/QD_03_Huong__Dac.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-126",
+      "download_timestamp": "2026-10-28T15:09:00.769473+07:00",
+      "immutable_fingerprint": "041d524ab638163b787be7d558ec85333cb96283c11554432e056604cfd79f86",
+      "offline_provenance": null,
+      "original_filename": "ban_an_mh_.pdf",
+      "sha256": "c830176e9ab82b655c7e8bc1fd3b737b73ba6aa5e6667e80ca68eb8f452e6d7a",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-126",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1199930t1cvn/ban_an_mh_.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-126/ban_an_mh_.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-127",
+      "download_timestamp": "2026-10-28T15:09:01.370595+07:00",
+      "immutable_fingerprint": "faa17f1b61cc4ea6174afa4ffcc2bb7ff4d834c659c02018f701ebf04b756ec3",
+      "offline_provenance": null,
+      "original_filename": "04_H_Tr.pdf",
+      "sha256": "0c5656ecb5e71c7f182fa8c499ce9e69d7d2ebb0369e432d25d76acaa83277c5",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-127",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1199993t1cvn/04_H_Tr.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-127/04_H_Tr.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-128",
+      "download_timestamp": "2026-10-28T15:09:01.957341+07:00",
+      "immutable_fingerprint": "b9e50ae1077c4e98b2a42db280957ddbfabed9bf7a0fd44f8dcf76324a9349be",
+      "offline_provenance": null,
+      "original_filename": "QD_CNSTTCCDS_1_1.pdf",
+      "sha256": "53998dc4e4a9a4b6743a6ca8bc7fa5c4306a5371167cf8536c56670688b19d36",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-128",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1200120t1cvn/QD_CNSTTCCDS_1_1.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-128/QD_CNSTTCCDS_1_1.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-129",
+      "download_timestamp": "2026-10-28T15:09:02.542240+07:00",
+      "immutable_fingerprint": "0fcc5468ad12d08b710ba1d1ae393acdc54411745ce3c82feab6207e441ae13a",
+      "offline_provenance": null,
+      "original_filename": "16_Le_Anh_N_Le_Van_T.pdf",
+      "sha256": "fbae02178f6340d4d1433a43ba23b8d92abe2f8807dcc913bf608d7233c200ad",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-129",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1199959t1cvn/16_Le_Anh_N_Le_Van_T.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-129/16_Le_Anh_N_Le_Van_T.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-130",
+      "download_timestamp": "2026-10-28T15:09:03.095442+07:00",
+      "immutable_fingerprint": "ab8fd597fac154f884755be32fcf44bbe698202f49d9e20da2184a5aaba8afea",
+      "offline_provenance": null,
+      "original_filename": "QD_DC_so_18_DSPT_HDXX_CAT_DAN.pdf",
+      "sha256": "caccc5bddcb7f92ab49897b77e8b00ed506b3c7c11a88f9a97371c65f4a28ccd",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-130",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1799932t1cvn/QD_DC_so_18_DSPT_HDXX_CAT_DAN.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-130/QD_DC_so_18_DSPT_HDXX_CAT_DAN.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-131",
+      "download_timestamp": "2026-10-28T15:09:03.683965+07:00",
+      "immutable_fingerprint": "6b31cb13fcf0d44780e47489c603e0b9d81cc66a71d9f9d6857b19f2ac6f9b9f",
+      "offline_provenance": null,
+      "original_filename": "TU__HOA.pdf",
+      "sha256": "cb32f054675e6fa2869059032e999faf5bff896aafbf37f8f790eaab087079a3",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-131",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1600102t1cvn/TU__HOA.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-131/TU__HOA.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-132",
+      "download_timestamp": "2026-10-28T15:09:04.297579+07:00",
+      "immutable_fingerprint": "5194276ab46a06036efab2c7954b690135fc9901916558aba225acc47dbdbe33",
+      "offline_provenance": null,
+      "original_filename": "sample_9.pdf",
+      "sha256": "0822687ca332f1076050447bebc00ed0cf6981ee983f83b96da29eefc00c22dd",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-132",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1599988t1cvn/sample_9.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-132/sample_9.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-133",
+      "download_timestamp": "2026-10-28T15:09:04.830546+07:00",
+      "immutable_fingerprint": "2409fd614c4dddaab85de79006507795cedd2e142b9172cf1b180a271e1b9bf8",
+      "offline_provenance": null,
+      "original_filename": "29_ngay_2182024_QDCN_dan_su_Cong__Ly.pdf",
+      "sha256": "56809eee3676e1dd656736c2fc7fba3d4480b5c786f1aae051db08c9617b4373",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-133",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1600049t1cvn/29_ngay_2182024_QDCN_dan_su_Cong__Ly.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-133/29_ngay_2182024_QDCN_dan_su_Cong__Ly.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-134",
+      "download_timestamp": "2026-10-28T15:09:05.371350+07:00",
+      "immutable_fingerprint": "decc6744f6498fdd8d319c8b1d8fb1a168c03e0c10ed552384e50d883b31ece2",
+      "offline_provenance": null,
+      "original_filename": "BA_DSPT__Dung__Khang.pdf",
+      "sha256": "4bcb97b8294da175d5c0686aa613da67231e26a4a02fb457d301ac0bc8562e9b",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-134",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1799986t1cvn/BA_DSPT__Dung__Khang.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-134/BA_DSPT__Dung__Khang.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-135",
+      "download_timestamp": "2026-10-28T15:09:06.015479+07:00",
+      "immutable_fingerprint": "6159eb20f684577b348e0de0b2a01a2abbe82f32b7ebd8db637547c8e2a337e5",
+      "offline_provenance": null,
+      "original_filename": "Le_Thi_TNguyen_Minh_D.pdf",
+      "sha256": "207690f5e8f0b68a3eff7d8e6eff657c4ad22e496a075f6f9bae976eb9b01ac1",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-135",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1800124t1cvn/Le_Thi_TNguyen_Minh_D.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-135/Le_Thi_TNguyen_Minh_D.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-136",
+      "download_timestamp": "2026-10-28T15:09:06.549511+07:00",
+      "immutable_fingerprint": "5be67a424c8f1669ca873eac2ff6d220cfd09fe078c269c816e7b8bdd91f9d7d",
+      "offline_provenance": null,
+      "original_filename": "Bản_án_mã_hóa_VIB_Tràn_Thiéu_Quan.pdf",
+      "sha256": "416acad43bc09f4a98482de3437fcfc3d691ca896bc84b48d9cf62cf097d03fc",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-136",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1800119t1cvn/Bản_án_mã_hóa_VIB_Tràn_Thiéu_Quan.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-136/Bản_án_mã_hóa_VIB_Tràn_Thiéu_Quan.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-137",
+      "download_timestamp": "2026-10-28T15:09:07.115058+07:00",
+      "immutable_fingerprint": "3615ba2e7f53d0a1c851a638f900e5a46d56427f74b2ee1c18daaf1a9f50c87c",
+      "offline_provenance": null,
+      "original_filename": "Trien_thuy_.pdf",
+      "sha256": "cf8e8e0c079d6bd5ad4a4db206e567e4e56f701c21c14810128b7becbc7a1787",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-137",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1600123t1cvn/Trien_thuy_.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-137/Trien_thuy_.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-138",
+      "download_timestamp": "2026-10-28T15:09:07.686589+07:00",
+      "immutable_fingerprint": "d69c5a8170abd5634733e7d4b567858d8b90281ebf77b209baa54b00d14f8c62",
+      "offline_provenance": null,
+      "original_filename": "TANTUAN_135.pdf",
+      "sha256": "1cc8c8c6252dd081647f1ec84da2d50ae7f4edff8411b1c50db15bd0e2eb9b91",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-138",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1800040t1cvn/TANTUAN_135.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-138/TANTUAN_135.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-139",
+      "download_timestamp": "2026-10-28T15:09:08.206351+07:00",
+      "immutable_fingerprint": "418231454e14338e0098fcf9d22f7d81144e750b7cf94c14e24377c88e73b073",
+      "offline_provenance": null,
+      "original_filename": "BAN_ANTHONGSANG.pdf",
+      "sha256": "5fba8b3241b4530da55ad4718c2d1c13db8ef9b13c82f46e0dbd5d6cad0b6158",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-139",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1800121t1cvn/BAN_ANTHONGSANG.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-139/BAN_ANTHONGSANG.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-140",
+      "download_timestamp": "2026-10-28T15:09:08.761090+07:00",
+      "immutable_fingerprint": "97236b3fd5e3f38429b6f6fc691dab4012cce36871cfc8aae5baa6b0caadee00",
+      "offline_provenance": null,
+      "original_filename": "Quyet_dinh_khong_chap_nhan_khang_cao_qua_han_DucPhuong.pdf",
+      "sha256": "33f356020976ed137a75d727819b03323d306c95bb10f2de4b615379bcc601e0",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-140",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1800076t1cvn/Quyet_dinh_khong_chap_nhan_khang_cao_qua_han_DucPhuong.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-140/Quyet_dinh_khong_chap_nhan_khang_cao_qua_han_DucPhuong.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-141",
+      "download_timestamp": "2026-10-28T15:09:09.333806+07:00",
+      "immutable_fingerprint": "c00c1c0df11c7f8dd55821dda5c5c1ca999d5600d6e252ddc11c3f161a422c94",
+      "offline_provenance": null,
+      "original_filename": "VDS_ma_hoa_Xuong.pdf",
+      "sha256": "a40bcc7039dda7e03a3c05491b14b5cb111c0331188031abb1fa399d1c780be1",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-141",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1799989t1cvn/VDS_ma_hoa_Xuong.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-141/VDS_ma_hoa_Xuong.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-142",
+      "download_timestamp": "2026-10-28T15:09:09.914455+07:00",
+      "immutable_fingerprint": "eb34e4febd4125d69aea96161e58fe2f392f73cb9a79fe3e5993e771a7e0b1a6",
+      "offline_provenance": null,
+      "original_filename": "30. QUYẾT ĐỊNH CÔNG NHẬN THUẬN TÌNH LY HÔN DIỆN - KHẢI (1) 24-10-2026 14-57-11.pdf",
+      "sha256": "2d4a3a9be93729b2cf473039869c13c4dc7a275bea708bb5b8af33026c0f06d9",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-142",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2285390t1cvn/30. QUYẾT ĐỊNH CÔNG NHẬN THUẬN TÌNH LY HÔN DIỆN - KHẢI (1) 24-10-2026 14-57-11.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-142/30. QUYẾT ĐỊNH CÔNG NHẬN THUẬN TÌNH LY HÔN DIỆN - KHẢI (1) 24-10-2026 14-57-11.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-143",
+      "download_timestamp": "2026-10-28T15:09:10.446490+07:00",
+      "immutable_fingerprint": "ba58257504efadafdf017b3571ac74de3f7c4619850cf3c07ce53e1ebd636abc",
+      "offline_provenance": null,
+      "original_filename": "BADS_NG__CH.pdf",
+      "sha256": "12adbfa481be1d37fde77ea80c05ed64bfc42f9c79d714475e323c308260479a",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-143",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1800108t1cvn/BADS_NG__CH.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-143/BADS_NG__CH.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-144",
+      "download_timestamp": "2026-10-28T15:09:11.000209+07:00",
+      "immutable_fingerprint": "5c92afea7c63398d169d8c930a020bb7a636de9045ce465b2fb11795026a1898",
+      "offline_provenance": null,
+      "original_filename": "QDCNSTT__V__N.pdf",
+      "sha256": "916b9f3c47f777b84440d19d307e1e32f00a63927174517ba3c5ab82f11d8b07",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-144",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1799953t1cvn/QDCNSTT__V__N.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-144/QDCNSTT__V__N.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-145",
+      "download_timestamp": "2026-10-28T15:09:11.531375+07:00",
+      "immutable_fingerprint": "1719b0e16f22dd224f6c1de6cff47916c9b96e550ca6f3f9a1bb03a069585696",
+      "offline_provenance": null,
+      "original_filename": "PA_LY__NGUYEN_120_cb.pdf",
+      "sha256": "051abd3f535eb8b925c15256f1f6c4e984e6d8a4560540386a18c048493fb7bc",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-145",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1800123t1cvn/PA_LY__NGUYEN_120_cb.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-145/PA_LY__NGUYEN_120_cb.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-146",
+      "download_timestamp": "2026-10-28T15:09:12.078125+07:00",
+      "immutable_fingerprint": "12b0df05119c8cbdba36158b8bfd60c9b388a68cf78652207d7d19e416dcd9c4",
+      "offline_provenance": null,
+      "original_filename": "BA_Cong_ty_NVK__Phuong_ma_hoa.pdf",
+      "sha256": "60aa2af13a2d9f302a6356f5348d381447fa8dc8793dc8d705eb56cce0846f37",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-146",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1800041t1cvn/BA_Cong_ty_NVK__Phuong_ma_hoa.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-146/BA_Cong_ty_NVK__Phuong_ma_hoa.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-147",
+      "download_timestamp": "2026-10-28T15:09:12.589430+07:00",
+      "immutable_fingerprint": "c8f18e15f46ccc33a54b6a56cb509c5abeaf4c0a4bc1cb596a9387e2e1f9d5a3",
+      "offline_provenance": null,
+      "original_filename": "11_QDCVA_0310325_Nguyen_Thi_Bay.pdf",
+      "sha256": "cb60c83ad85c0295bf982503ee79198aeb451f47684dd9f53bc184008c0cfd45",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-147",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1799885t1cvn/11_QDCVA_0310325_Nguyen_Thi_Bay.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-147/11_QDCVA_0310325_Nguyen_Thi_Bay.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-148",
+      "download_timestamp": "2026-10-28T15:09:13.144502+07:00",
+      "immutable_fingerprint": "a03b523de4b1bb45aa11c9cc5fe65454e98f3ccd0af01d3f7770df508b0f2d6b",
+      "offline_provenance": null,
+      "original_filename": "1443 DSPT Nguyen Van T-Cong ty P 23-10-2026 15-11-41.pdf",
+      "sha256": "cfda30b9933802e25ed35c5fd333d11d44fabf49ed215808c6529b8167264075",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-148",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2285231t1cvn/1443 DSPT Nguyen Van T-Cong ty P 23-10-2026 15-11-41.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-148/1443 DSPT Nguyen Van T-Cong ty P 23-10-2026 15-11-41.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-149",
+      "download_timestamp": "2026-10-28T15:09:13.779744+07:00",
+      "immutable_fingerprint": "ecbd11fd37af5ab886e42b20b48c6c03d59577ad60e44c0a6ee460a42072b00e",
+      "offline_provenance": null,
+      "original_filename": "QĐ-đình chỉ vụ Lệ - Thắm - Mã hoá 23-10-2026 10-24-49.pdf",
+      "sha256": "0b7b13392e191127d489e3a4d187c9355d91a66bfc1763f43962a04a18df1a52",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-149",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2285110t1cvn/QĐ-đình chỉ vụ Lệ - Thắm - Mã hoá 23-10-2026 10-24-49.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-149/QĐ-đình chỉ vụ Lệ - Thắm - Mã hoá 23-10-2026 10-24-49.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-150",
+      "download_timestamp": "2026-10-28T15:09:14.314042+07:00",
+      "immutable_fingerprint": "8f621c651815c69950a8fbb6c0f58a5e9578749582339090654703850ac3e61a",
+      "offline_provenance": null,
+      "original_filename": "Bản án 98 23-10-2026 18-42-05.pdf",
+      "sha256": "d3d07d6297bda945bfa3f933e606057c640104b9ec89ef3ed3d320e7b9e78fcf",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-150",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2285334t1cvn/Bản án 98 23-10-2026 18-42-05.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-150/Bản án 98 23-10-2026 18-42-05.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-151",
+      "download_timestamp": "2026-10-28T15:09:14.887533+07:00",
+      "immutable_fingerprint": "7c51c21f942674fe4650674c5b582d6db20469b5257f3860ac6283977525035f",
+      "offline_provenance": null,
+      "original_filename": "sample (40) 24-10-2026 10-12-29.pdf",
+      "sha256": "c6952c2a114c25393d963838cfa6b5f7294cbdaab7e0be3050a2f189b0588194",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-151",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2285363t1cvn/sample (40) 24-10-2026 10-12-29.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-151/sample (40) 24-10-2026 10-12-29.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-152",
+      "download_timestamp": "2026-10-28T15:09:15.432448+07:00",
+      "immutable_fingerprint": "aa4e6f92a8a702c5496aa8e1ddee582bae4365a19d3d6267b494fb55d52e91dc",
+      "offline_provenance": null,
+      "original_filename": "Ngân hàng TMCP P - Lê Văn T 23-10-2026 16-57-15.pdf",
+      "sha256": "cabf82513f22a390b872ca742e57377ad93d0303e33b87ebebf34d4bcbb0b6c1",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-152",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2285291t1cvn/Ngân hàng TMCP P - Lê Văn T 23-10-2026 16-57-15.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-152/Ngân hàng TMCP P - Lê Văn T 23-10-2026 16-57-15.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-153",
+      "download_timestamp": "2026-10-28T15:09:15.959065+07:00",
+      "immutable_fingerprint": "e7f3bf62cba1b2375658513ec5eb91d22e17d0839134a275c2b173a1156dce32",
+      "offline_provenance": null,
+      "original_filename": "sample 23-10-2026 14-03-02.pdf",
+      "sha256": "b2846328b69acc3e1083e9dc53a96982c3f4e25a8f4ce65908f30b7b42c12696",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-153",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2285173t1cvn/sample 23-10-2026 14-03-02.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-153/sample 23-10-2026 14-03-02.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-154",
+      "download_timestamp": "2026-10-28T15:09:16.548309+07:00",
+      "immutable_fingerprint": "a33daede6f40bea777dc729060d059479977500fd047faac15c9ab623f28d1ad",
+      "offline_provenance": null,
+      "original_filename": "sample (4) 23-10-2026 09-27-51.pdf",
+      "sha256": "3208ed2193d786cff3967da4700b98e157e107cec8d5f90aefb8140c10510321",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-154",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2285277t1cvn/sample (4) 23-10-2026 09-27-51.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-154/sample (4) 23-10-2026 09-27-51.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-155",
+      "download_timestamp": "2026-10-28T15:09:17.259856+07:00",
+      "immutable_fingerprint": "9a825e3653cbd6ddaad676d934bb8e9ff67ef3882b2f75590b8209ea78faa5d9",
+      "offline_provenance": null,
+      "original_filename": "307-2026 NGUYỄN THANH L-NGUYỄN THỊ THU T1 24-10-2026 16-38-33.pdf",
+      "sha256": "db8a010c9d2ca543199aea4f2a69b4a5f0776326f4872045755ccbb0cc927868",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-155",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2285424t1cvn/307-2026 NGUYỄN THANH L-NGUYỄN THỊ THU T1 24-10-2026 16-38-33.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-155/307-2026 NGUYỄN THANH L-NGUYỄN THỊ THU T1 24-10-2026 16-38-33.pdf"
+    },
+    {
+      "acquisition_id": "scale-20261028-156",
+      "download_timestamp": "2026-10-28T15:09:17.864159+07:00",
+      "immutable_fingerprint": "59c83b7d829b430f3a77727fbaf31d9745b97b2b10e1c31408161083587c41bc",
+      "offline_provenance": null,
+      "original_filename": "Bản án phúc thẩm vụ Ánh - Dũng (mã hóa) 24-10-2026 12-28-15.pdf",
+      "sha256": "2439dc2649035a92abdfa160af41032d1f2a7bea2d8d43329763b1ff7d3bdc79",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-156",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2285350t1cvn/Bản án phúc thẩm vụ Ánh - Dũng (mã hóa) 24-10-2026 12-28-15.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-156/Bản án phúc thẩm vụ Ánh - Dũng (mã hóa) 24-10-2026 12-28-15.pdf"
     }
   ],
   "known_duplicate_links": [],
@@ -8853,6 +9489,3080 @@
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261027-103/sample (7) 26-10-2026 11-37-02.pdf",
       "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261027-103/sample (7) 26-10-2026 11-37-02_structured.json",
       "structured_sha256": "5e63a56d2732d64a516430b8ecd9289cfcf7e323ebbbf288ec32f7a9f487183f",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-104",
+      "acquisition_status": "eligible",
+      "case_id": "310/2019/DS-PT",
+      "court": "TAND tỉnh Tiền Giang",
+      "decision_date": "2019-11-04",
+      "download_timestamp": "2026-10-28T15:08:48.332614+07:00",
+      "judgment_number": "310/2019/DS-PT",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "BA_Chau___Huongmh.pdf",
+      "procedure_stage": "phuc_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "24/2019/DS-ST",
+        "269/2019/TLPT",
+        "355/2019/QĐ-PT"
+      ],
+      "sha256": "4a8cdbf6ac1a4189e6e6ea1abdfd2cc9335324439f0cb8979e2fd712b966d11a",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-104",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta400028t1cvn/BA_Chau___Huongmh.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:08:48.332614+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:08:48.570196+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:09:36.256619+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:45:02.783835+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-104/BA_Chau___Huongmh.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-104/BA_Chau___Huongmh_structured.json",
+      "structured_sha256": "5e40693416b2a59faaa6b15f7d520a005d8f2e1c8cd4c413ace486dd06925b40",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-105",
+      "acquisition_status": "extracted",
+      "case_id": "169/2019/DS-PT",
+      "court": "TAND tỉnh Đồng Nai",
+      "decision_date": "2019-11-07",
+      "download_timestamp": "2026-10-28T15:08:48.916637+07:00",
+      "judgment_number": "169/2019/DS-PT",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "BA__DSPT__BAY___PHUNG_MA_HOA.pdf",
+      "procedure_stage": "phuc_tham",
+      "rejection_reasons": [
+        "dedup_or_development_overlap:new_pool_related_decision_ids"
+      ],
+      "related_decision_ids": [
+        "04/2019/DS-ST",
+        "141/2019/TLPT-DS",
+        "192/2019/QĐ-PT",
+        "398/2019/QĐ-PT"
+      ],
+      "sha256": "150cbefa92256c5777555b420353305827f4e302cac2e55f854bd09cfbb08146",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-105",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta400000t1cvn/BA__DSPT__BAY___PHUNG_MA_HOA.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:08:48.916637+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:08:49.146033+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:09:38.999738+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-105/BA__DSPT__BAY___PHUNG_MA_HOA.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-105/BA__DSPT__BAY___PHUNG_MA_HOA_structured.json",
+      "structured_sha256": "9f6d147addbb1dc45e32c447d05b4fee53e46d2549a487b06e862ee5574457a6",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-106",
+      "acquisition_status": "eligible",
+      "case_id": "12/2019/HNGĐ-PT",
+      "court": "TAND tỉnh Thái Nguyên",
+      "decision_date": "2019-04-02",
+      "download_timestamp": "2026-10-28T15:08:49.491396+07:00",
+      "judgment_number": "12/2019/HNGĐ-PT",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "Th_ly_hon_T.pdf",
+      "procedure_stage": "phuc_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "03/2019/HNGĐ-ST",
+        "07/2019/TLPT-HNGĐ",
+        "17/2019/QĐXX-PT"
+      ],
+      "sha256": "757d4d4a36778a3200abb227acbf9a99e962311229cfb9032d16f719fc328135",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-106",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta399972t1cvn/Th_ly_hon_T.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:08:49.491396+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:08:49.714580+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:09:40.455056+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:45:07.103051+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-106/Th_ly_hon_T.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-106/Th_ly_hon_T_structured.json",
+      "structured_sha256": "d88873a1a37e6f509fafc2572cc9831f1490996145427269313b15ca6823f3ee",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-107",
+      "acquisition_status": "eligible",
+      "case_id": "02/2019/DS-PT",
+      "court": "TAND tỉnh Thái Bình",
+      "decision_date": "2019-01-11",
+      "download_timestamp": "2026-10-28T15:08:50.038173+07:00",
+      "judgment_number": "02/2019/DS-PT",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "Ban_an_P___Quy_TD_NH.pdf",
+      "procedure_stage": "phuc_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "10/2018/DS-ST",
+        "1160/2004/QĐ-NHNN",
+        "20/2013/HSST",
+        "29/2018/TLPT-DSPT",
+        "47/2006/QĐ-NHNN",
+        "68/2018/QĐPT-DS"
+      ],
+      "sha256": "db7e2fa7d34595edd5ba7cc5f0a15550b7ed7261d70517c204d67b18cc140f8f",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-107",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta399918t1cvn/Ban_an_P___Quy_TD_NH.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:08:50.038173+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:08:50.267368+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:09:43.125933+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:45:11.497407+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-107/Ban_an_P___Quy_TD_NH.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-107/Ban_an_P___Quy_TD_NH_structured.json",
+      "structured_sha256": "230c418829eda8a50254a4ebc75faf7a4a951c1cbc375b3f9008ca49f8b819db",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-108",
+      "acquisition_status": "eligible",
+      "case_id": "01/2019/QĐST-DS",
+      "court": "TAND huyện Lâm Thao, tỉnh Phú Thọ",
+      "decision_date": "2019-05-28",
+      "download_timestamp": "2026-10-28T15:08:50.600642+07:00",
+      "judgment_number": "01/2019/QĐST-DS",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "QDD_chuyen_vu_anma_hoa_1.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "47/2019/DS-ST"
+      ],
+      "sha256": "bda8acb5249e19c3c255737e490e51ec45f2f2f871842223fa101da7bf19aa8a",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-108",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta400098t1cvn/QDD_chuyen_vu_anma_hoa_1.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:08:50.600642+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:08:50.870694+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:09:46.222409+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:45:15.836537+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-108/QDD_chuyen_vu_anma_hoa_1.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-108/QDD_chuyen_vu_anma_hoa_1_structured.json",
+      "structured_sha256": "952bbe5fdaa76b4c0dbb671cb22458a31bae65e152df61409a855eefce0d218f",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-109",
+      "acquisition_status": "eligible",
+      "case_id": "03/2019/KDTM-PT",
+      "court": "Tòa án nhân dân tỉnh Quảng Ninh",
+      "decision_date": "2019-04-08",
+      "download_timestamp": "2026-10-28T15:08:51.219768+07:00",
+      "judgment_number": "03/2019/KDTM-PT",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "B_an_PT_CTy_VAMC__Cty_Thuy_Linh.pdf",
+      "procedure_stage": "phuc_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "01/2018/QĐ-PT",
+        "15/2017/TLPT-KDTM"
+      ],
+      "sha256": "8e2f497466bcdfa517ec71e837769fdb1cfcc465fc82993ba8ea85031ccb2d7a",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-109",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta399917t1cvn/B_an_PT_CTy_VAMC__Cty_Thuy_Linh.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:08:51.219768+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:08:51.447106+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:09:49.146359+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:45:20.222617+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-109/B_an_PT_CTy_VAMC__Cty_Thuy_Linh.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-109/B_an_PT_CTy_VAMC__Cty_Thuy_Linh_structured.json",
+      "structured_sha256": "dac2ab8eaa2ec386ff6bd1a9c0c7de21717c41df90442f35d7eb843acf7bf12a",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-110",
+      "acquisition_status": "eligible",
+      "case_id": "13/2019/QĐST-DS",
+      "court": "TAND Q. Ngô Quyền, TP. Hải Phòng",
+      "decision_date": "2019-08-29",
+      "download_timestamp": "2026-10-28T15:08:51.885336+07:00",
+      "judgment_number": "13/2019/QĐST-DS",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "tuyet___minh.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "38/2019/TLST-DS"
+      ],
+      "sha256": "49ddabbffc9f2c3d19d7268637424363bc8544343d5d71eaa2b79c7bcecf5b5a",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-110",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta400080t1cvn/tuyet___minh.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:08:51.885336+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:08:52.112995+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:09:49.995632+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:45:24.649673+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-110/tuyet___minh.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-110/tuyet___minh_structured.json",
+      "structured_sha256": "7d97400e7ed0e0d14a3158619d531cea7fd612ff98f7e9abb522eccbe5df3b6e",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-111",
+      "acquisition_status": "eligible",
+      "case_id": "17/2019/KDTM-ST",
+      "court": "TAND Q. Bắc Từ Liêm, TP. Hà Nội",
+      "decision_date": "2019-10-15",
+      "download_timestamp": "2026-10-28T15:08:52.418474+07:00",
+      "judgment_number": "17/2019/KDTM-ST",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "An.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "01/2018/QĐST-KDTM",
+        "41/2019/TLST-KDTM",
+        "96/2019/QĐXX-ST"
+      ],
+      "sha256": "2c6dd3baf2b1410be5e312639aaae440ec3c235a61502ecac1bb82c99a30c6e7",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-111",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta400112t1cvn/An.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:08:52.418474+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:08:52.624944+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:09:51.675971+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:45:29.071728+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-111/An.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-111/An_structured.json",
+      "structured_sha256": "da681067874cb7afde02330728628881e0b0127780af197b63e0186f301115cb",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-112",
+      "acquisition_status": "eligible",
+      "case_id": "81/2022/DS-PT",
+      "court": "TAND tỉnh Trà Vinh",
+      "decision_date": "2022-08-12",
+      "download_timestamp": "2026-10-28T15:08:52.914234+07:00",
+      "judgment_number": "81/2022/DS-PT",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "BAN_AN_DSPT_NGUYEN_THI_D.pdf",
+      "procedure_stage": "phuc_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "05/2022/DS-ST",
+        "249/2022/QĐ-PT",
+        "28/2018/DS-ST",
+        "28/2018/DSST",
+        "48/2022/TLPT-DS",
+        "62/2020/DS-PT",
+        "62/2020/DSPT"
+      ],
+      "sha256": "5a8a8d1856c0975fd71c649e1945d287e1537dbb630d2c76b79bdb51c20175fd",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-112",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1000048t1cvn/BAN_AN_DSPT_NGUYEN_THI_D.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:08:52.914234+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:08:53.148214+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:09:55.685205+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:45:33.489796+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-112/BAN_AN_DSPT_NGUYEN_THI_D.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-112/BAN_AN_DSPT_NGUYEN_THI_D_structured.json",
+      "structured_sha256": "bf36927f77811a44b00f30b5d89f9532d4682e971a86b45dd27224f66d863708",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-113",
+      "acquisition_status": "eligible",
+      "case_id": "04/2022/QĐST-VDS",
+      "court": "TAND huyện Vị Xuyên, tỉnh Hà Giang",
+      "decision_date": "2022-08-23",
+      "download_timestamp": "2026-10-28T15:08:53.497600+07:00",
+      "judgment_number": "04/2022/QĐST-VDS",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "QD_tuyen_bo_mat_tich_Tinh__May.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "06/2022/TLST-VDS"
+      ],
+      "sha256": "2df666e3b45fc5a3a7e9cfc3fc709587023938886a771c39ea1107488f57ba5c",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-113",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1000075t1cvn/QD_tuyen_bo_mat_tich_Tinh__May.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:08:53.497600+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:08:53.732910+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:09:57.161365+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:45:37.976728+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-113/QD_tuyen_bo_mat_tich_Tinh__May.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-113/QD_tuyen_bo_mat_tich_Tinh__May_structured.json",
+      "structured_sha256": "e31e36b214dbcd33a624e3f13fe721d0ee3599ddf9266851cee47efed00098de",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-114",
+      "acquisition_status": "eligible",
+      "case_id": "153/2022/DS-PT",
+      "court": "TAND tỉnh Đắk Lắk",
+      "decision_date": "2022-08-26",
+      "download_timestamp": "2026-10-28T15:08:54.058200+07:00",
+      "judgment_number": "153/2022/DS-PT",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "Dong_Vinh_P.pdf",
+      "procedure_stage": "phuc_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "151/2022/QĐ-PT",
+        "160/2022/TLPT-DS",
+        "60/2022/DS-ST",
+        "60/2022/DSST"
+      ],
+      "sha256": "c47d1e7d3ed76c1f51f6ab9c245211849759ef464b912f2718f9c8b5e2308cd3",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-114",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta999933t1cvn/Dong_Vinh_P.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:08:54.058200+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:08:54.275818+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:09:59.757399+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:45:42.497178+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-114/Dong_Vinh_P.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-114/Dong_Vinh_P_structured.json",
+      "structured_sha256": "02aa85cd17c1761e241ec82e0367502f8d4d309180987195852b6bce7fda9fa2",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-115",
+      "acquisition_status": "eligible",
+      "case_id": "286/2022/HNGĐ-PT",
+      "court": "TAND TP. Hồ Chí Minh",
+      "decision_date": "2022-05-25",
+      "download_timestamp": "2026-10-28T15:08:54.572180+07:00",
+      "judgment_number": "286/2022/HNGĐ-PT",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "286HNPT2552022KHONG_1.pdf",
+      "procedure_stage": "phuc_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "1594/2021/HNGĐ-ST",
+        "16/2006/QĐ-BGDĐT",
+        "1858/2022/QĐ-PT",
+        "512/2016/QĐST-HNGĐ",
+        "54/2021/TLPT-HNGĐ"
+      ],
+      "sha256": "d83b0e61499f19d17069a2f3381204f0d643c4111faff6ff051d831d1a271be7",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-115",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta999995t1cvn/286HNPT2552022KHONG_1.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:08:54.572180+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:08:54.767970+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:10:01.920228+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:45:47.803417+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-115/286HNPT2552022KHONG_1.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-115/286HNPT2552022KHONG_1_structured.json",
+      "structured_sha256": "c35e8b8bffdf7f771efd5259e9d132d88980d505ca2ec055d94b66b70252848e",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-116",
+      "acquisition_status": "eligible",
+      "case_id": "65/2022/DS-PT",
+      "court": "TAND cấp cao tại Đà Nẵng",
+      "decision_date": "2022-03-10",
+      "download_timestamp": "2026-10-28T15:08:55.075742+07:00",
+      "judgment_number": "65/2022/DS-PT",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "Ban_an_so_652022DSPT_ngay_10032022_Nguyen_Thi_Hong_T__CT_NGUYEN_TAN_LO.pdf",
+      "procedure_stage": "phuc_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "59/2021/DS-ST",
+        "997/2022/QĐ-PT"
+      ],
+      "sha256": "cff272ae177607ffff1460b5c758dbd489e522d6cdd1889751d4178e6e4e797c",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-116",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta999880t1cvn/Ban_an_so_652022DSPT_ngay_10032022_Nguyen_Thi_Hong_T__CT_NGUYEN_TAN_LO.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:08:55.075742+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:08:55.298410+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:10:04.073798+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:45:52.448784+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-116/Ban_an_so_652022DSPT_ngay_10032022_Nguyen_Thi_Hong_T__CT_NGUYEN_TAN_LO.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-116/Ban_an_so_652022DSPT_ngay_10032022_Nguyen_Thi_Hong_T__CT_NGUYEN_TAN_LO_structured.json",
+      "structured_sha256": "7afb4bd21313777c2428ff85c6b43152a1f58e8aaa6e7566d63a392a4d9dfc8c",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-117",
+      "acquisition_status": "eligible",
+      "case_id": "49/2022/QĐDS-ST",
+      "court": "TAND Q. Hà Đông, TP. Hà Nội",
+      "decision_date": "2022-06-28",
+      "download_timestamp": "2026-10-28T15:08:55.639980+07:00",
+      "judgment_number": "49/2022/QĐDS-ST",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "QD_GQVDS_Van_Ha.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "31/2022/QĐPH-DS",
+        "86/2021/TLST-DS"
+      ],
+      "sha256": "74bc1c51f6d01d1bb2c450a4a64a8743546c69c3cee369e16669c2c5f5275918",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-117",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1000011t1cvn/QD_GQVDS_Van_Ha.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:08:55.639980+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:08:55.845174+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:10:05.866869+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:45:57.536800+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-117/QD_GQVDS_Van_Ha.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-117/QD_GQVDS_Van_Ha_structured.json",
+      "structured_sha256": "b0e3e0286e7f129226dbfa3d1919ac8b5a91f82ae141836215e03cad39ed79f8",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-118",
+      "acquisition_status": "eligible",
+      "case_id": "38/2022/QĐST-DS",
+      "court": "TAND huyện Quảng Xương, tỉnh Thanh Hóa",
+      "decision_date": "2022-08-22",
+      "download_timestamp": "2026-10-28T15:08:56.140824+07:00",
+      "judgment_number": "38/2022/QĐST-DS",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "Quyet_dinh_dinh_chi_ma_hoa_HungToan_82022.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "64/2022/TLST-DS"
+      ],
+      "sha256": "0625d1d8d2103bc4f429f0832a779291f0feee833c80e7f9b463ad04314d461f",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-118",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1000032t1cvn/Quyet_dinh_dinh_chi_ma_hoa_HungToan_82022.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:08:56.140824+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:08:56.349930+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:10:06.788925+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:46:02.366951+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-118/Quyet_dinh_dinh_chi_ma_hoa_HungToan_82022.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-118/Quyet_dinh_dinh_chi_ma_hoa_HungToan_82022_structured.json",
+      "structured_sha256": "f5a7aa65af18bbaf54d832a83c2a48615e5eaca01379a2749966b766e19a4dd1",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-119",
+      "acquisition_status": "eligible",
+      "case_id": "277/2022/DS-ST",
+      "court": "TAND huyện Châu Thành, tỉnh Tiền Giang",
+      "decision_date": "2022-07-22",
+      "download_timestamp": "2026-10-28T15:08:56.651004+07:00",
+      "judgment_number": "277/2022/DS-ST",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "Tuyen_Tan_Diem_ma_hoa.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "164/2022/TLST-DS",
+        "53/2022/QĐST-DS",
+        "88/2022/QĐXXST-DS"
+      ],
+      "sha256": "ccfa7b8dec4a23f7087c933c3eb9fb3a8cf814abb7b1963af4fa9e8fa0408e8e",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-119",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1000104t1cvn/Tuyen_Tan_Diem_ma_hoa.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:08:56.651004+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:08:56.870810+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:10:08.461642+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:46:06.760134+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-119/Tuyen_Tan_Diem_ma_hoa.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-119/Tuyen_Tan_Diem_ma_hoa_structured.json",
+      "structured_sha256": "cffd8cb38a7bc811a9e24bc2cd8b76eef5803e4ceec4876d45ff4df0f630a3ec",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-120",
+      "acquisition_status": "eligible",
+      "case_id": "138/2022/HNGĐ-ST",
+      "court": "TAND huyện Bình Đại, tỉnh Bến Tre",
+      "decision_date": "2022-12-23",
+      "download_timestamp": "2026-10-28T15:08:57.234993+07:00",
+      "judgment_number": "138/2022/HNGĐ-ST",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "Duyen_phong.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "352/2022/TLST",
+        "66/2022/QĐST-HNGĐ"
+      ],
+      "sha256": "e7af8975debfff3e463452622634c5a9db762f50056261a664dfee5853ea55bc",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-120",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1200086t1cvn/Duyen_phong.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:08:57.234993+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:08:57.506108+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:10:13.691521+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:46:11.685404+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-120/Duyen_phong.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-120/Duyen_phong_structured.json",
+      "structured_sha256": "b589becda97ae5f12077ebd4f993ee70513b9d751f854fb6cdf8ce9175b7f79b",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-121",
+      "acquisition_status": "eligible",
+      "case_id": "28/2023/DS-PT",
+      "court": "TAND tỉnh Phú Thọ",
+      "decision_date": "2023-04-25",
+      "download_timestamp": "2026-10-28T15:08:57.853878+07:00",
+      "judgment_number": "28/2023/DS-PT",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "BA_DS_PT__Bao__Cau_phat_hanh.pdf",
+      "procedure_stage": "phuc_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "01/2022/DS-ST",
+        "14/2023/DSPT",
+        "27/2023/QĐXXPT-DS"
+      ],
+      "sha256": "7a16ebd1e3573833cb44a63e01de749f974a47f5d1af52bd471aa9339783ee46",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-121",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1199947t1cvn/BA_DS_PT__Bao__Cau_phat_hanh.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:08:57.853878+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:08:58.079662+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:10:18.036439+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:46:16.166487+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-121/BA_DS_PT__Bao__Cau_phat_hanh.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-121/BA_DS_PT__Bao__Cau_phat_hanh_structured.json",
+      "structured_sha256": "a51e2d3458f77ea66e36bb0f68c9bdaaa5843ef502131e10f005059830281b9c",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-122",
+      "acquisition_status": "eligible",
+      "case_id": "01/2023/QĐST-CVA",
+      "court": "TAND huyện Đạ Huoai, tỉnh Lâm Đồng",
+      "decision_date": "2023-04-18",
+      "download_timestamp": "2026-10-28T15:08:58.413945+07:00",
+      "judgment_number": "01/2023/QĐST-CVA",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "QD_dinh_chuyen_ho_so_vu_Huy__Nham__0118423.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "04/2019/QĐ-CVA",
+        "10/2021/QĐ-CVA",
+        "39/2021/TLST-DS"
+      ],
+      "sha256": "06722d09a52399e490607e75f4709168ecf3b8738f219e77d92ec4d1b088b974",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-122",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1200103t1cvn/QD_dinh_chuyen_ho_so_vu_Huy__Nham__0118423.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:08:58.413945+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:08:58.630964+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:10:20.297731+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:46:20.807059+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-122/QD_dinh_chuyen_ho_so_vu_Huy__Nham__0118423.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-122/QD_dinh_chuyen_ho_so_vu_Huy__Nham__0118423_structured.json",
+      "structured_sha256": "e6c4f3a4fa11cea176604110681b9d7158b39fa3999d8f0e845e8a071fab858e",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-123",
+      "acquisition_status": "eligible",
+      "case_id": "20/2023/HNGĐ-PT",
+      "court": "TAND tỉnh Bắc Giang",
+      "decision_date": "2023-05-24",
+      "download_timestamp": "2026-10-28T15:08:58.960306+07:00",
+      "judgment_number": "20/2023/HNGĐ-PT",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "An__Hoa_Hue_PH.pdf",
+      "procedure_stage": "phuc_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "11/2023/TLPT-HNGĐ",
+        "12/2023/HNGĐ-ST",
+        "14/2023/QĐ-PT"
+      ],
+      "sha256": "d51d22eae00b2d6470c21b9d825b5d636b621ae835971538ffb4bc6e2e8a8fa5",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-123",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1200125t1cvn/An__Hoa_Hue_PH.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:08:58.960306+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:08:59.169830+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:10:22.474042+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:46:25.709906+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-123/An__Hoa_Hue_PH.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-123/An__Hoa_Hue_PH_structured.json",
+      "structured_sha256": "79b4e45051acad48743d5e313909bd77b3a3a16aa83abc9169819c05f6c65cd0",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-124",
+      "acquisition_status": "eligible",
+      "case_id": "31/2023/DS-PT",
+      "court": "TAND tỉnh Cao Bằng",
+      "decision_date": "2023-05-23",
+      "download_timestamp": "2026-10-28T15:08:59.501516+07:00",
+      "judgment_number": "31/2023/DS-PT",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "Ban_an_so_312023DSPT_ngay_2352023_Tranh_chap_quyen_su_dung_dat.pdf",
+      "procedure_stage": "phuc_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "56/2023/QĐ-PT",
+        "64/2022/TLPT-DS",
+        "68/2022/DS-ST"
+      ],
+      "sha256": "d5e4c0e354f9a9ed069232173e17c4d35545abff51d4d0411d7ad05c3cf61e9e",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-124",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1199931t1cvn/Ban_an_so_312023DSPT_ngay_2352023_Tranh_chap_quyen_su_dung_dat.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:08:59.501516+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:08:59.748218+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:10:25.631414+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:46:31.060752+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-124/Ban_an_so_312023DSPT_ngay_2352023_Tranh_chap_quyen_su_dung_dat.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-124/Ban_an_so_312023DSPT_ngay_2352023_Tranh_chap_quyen_su_dung_dat_structured.json",
+      "structured_sha256": "21032904a9d12b98d82645ece84aae4b140a6211271c3a287e5e0adb2124f9c5",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-125",
+      "acquisition_status": "extracted",
+      "case_id": "03/2023/QĐST-DS",
+      "court": "TAND TP. Nam Định, tỉnh Nam Định",
+      "decision_date": "2023-06-07",
+      "download_timestamp": "2026-10-28T15:09:00.131302+07:00",
+      "judgment_number": "03/2023/QĐST-DS",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "QD_03_Huong__Dac.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [
+        "dedup_or_development_overlap:new_pool_duplicate_case_id",
+        "dedup_or_development_overlap:new_pool_duplicate_normalized_identity"
+      ],
+      "related_decision_ids": [
+        "04/2023/TLST-VDS"
+      ],
+      "sha256": "df497cf861c4227852111cdfc79593c031e15b65b258387996fd4a0fba42c94d",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-125",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1600094t1cvn/QD_03_Huong__Dac.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:00.131302+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:00.396790+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:10:29.426112+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-125/QD_03_Huong__Dac.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-125/QD_03_Huong__Dac_structured.json",
+      "structured_sha256": "9ae0865bbdcc075d1c1e238e14ed49be5507376c8a7d58c09b9ec4d3e747f3bc",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-126",
+      "acquisition_status": "eligible",
+      "case_id": "201/2023/DS-PT",
+      "court": "TAND tỉnh Bến Tre",
+      "decision_date": "2023-05-17",
+      "download_timestamp": "2026-10-28T15:09:00.769473+07:00",
+      "judgment_number": "201/2023/DS-PT",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "ban_an_mh_.pdf",
+      "procedure_stage": "phuc_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "02/2023/DS-ST",
+        "54/2023/TLPT-DS",
+        "724/2023/QĐPT-DS"
+      ],
+      "sha256": "c830176e9ab82b655c7e8bc1fd3b737b73ba6aa5e6667e80ca68eb8f452e6d7a",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-126",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1199930t1cvn/ban_an_mh_.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:00.769473+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:01.002185+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:10:33.077418+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:46:36.259788+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-126/ban_an_mh_.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-126/ban_an_mh__structured.json",
+      "structured_sha256": "d35d2340720f59479af2afd65aad09e3a8d2ac98b4672d1654ca7d5dbed5c30c",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-127",
+      "acquisition_status": "eligible",
+      "case_id": "04/2023/QĐCNHGT-DS",
+      "court": "TAND huyện Đồng Hỷ, tỉnh Thái Nguyên",
+      "decision_date": "2023-05-22",
+      "download_timestamp": "2026-10-28T15:09:01.370595+07:00",
+      "judgment_number": "04/2023/QĐCNHGT-DS",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "04_H_Tr.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "0c5656ecb5e71c7f182fa8c499ce9e69d7d2ebb0369e432d25d76acaa83277c5",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-127",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1199993t1cvn/04_H_Tr.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:01.370595+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:01.599400+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:10:34.390016+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:46:41.099135+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-127/04_H_Tr.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-127/04_H_Tr_structured.json",
+      "structured_sha256": "2d3818a191699b311de125fec1782ea2a61bd3ee59ddb8864b230b67fe5b85da",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-128",
+      "acquisition_status": "eligible",
+      "case_id": "27/2023/QĐST-DS",
+      "court": "TAND TP. Cao Lãnh, tỉnh Đồng Tháp",
+      "decision_date": "2023-05-05",
+      "download_timestamp": "2026-10-28T15:09:01.957341+07:00",
+      "judgment_number": "27/2023/QĐST-DS",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "QD_CNSTTCCDS_1_1.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "46/2023/TLST-DS"
+      ],
+      "sha256": "53998dc4e4a9a4b6743a6ca8bc7fa5c4306a5371167cf8536c56670688b19d36",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-128",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1200120t1cvn/QD_CNSTTCCDS_1_1.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:01.957341+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:02.202757+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:10:35.378274+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:46:45.549654+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-128/QD_CNSTTCCDS_1_1.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-128/QD_CNSTTCCDS_1_1_structured.json",
+      "structured_sha256": "749de5cb33aaa294ca6d7d42660d17900e2484c58a7dfa5d285e6fcaebea6089",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-129",
+      "acquisition_status": "eligible",
+      "case_id": "16/2023/QĐST-DS",
+      "court": "TAND TP. Đồng Hới, tỉnh Quảng Bình",
+      "decision_date": "2023-05-31",
+      "download_timestamp": "2026-10-28T15:09:02.542240+07:00",
+      "judgment_number": "16/2023/QĐST-DS",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "16_Le_Anh_N_Le_Van_T.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "20/2023/TLST-DS"
+      ],
+      "sha256": "fbae02178f6340d4d1433a43ba23b8d92abe2f8807dcc913bf608d7233c200ad",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-129",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1199959t1cvn/16_Le_Anh_N_Le_Van_T.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:02.542240+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:02.758435+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:10:36.269927+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:46:50.343753+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-129/16_Le_Anh_N_Le_Van_T.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-129/16_Le_Anh_N_Le_Van_T_structured.json",
+      "structured_sha256": "a1cb309830ac143c72473bbd3351d3f1aeba94eaad90b507ddf6e9316e910e96",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-130",
+      "acquisition_status": "extracted",
+      "case_id": "18/2024/QĐ-PT",
+      "court": "TAND tỉnh Nghệ An",
+      "decision_date": "2024-05-07",
+      "download_timestamp": "2026-10-28T15:09:03.095442+07:00",
+      "judgment_number": "18/2024/QĐ-PT",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "QD_DC_so_18_DSPT_HDXX_CAT_DAN.pdf",
+      "procedure_stage": "phuc_tham",
+      "rejection_reasons": [
+        "dedup_or_development_overlap:new_pool_related_decision_ids"
+      ],
+      "related_decision_ids": [
+        "118/2023/TLPT-DS",
+        "17/2023/DS-ST"
+      ],
+      "sha256": "caccc5bddcb7f92ab49897b77e8b00ed506b3c7c11a88f9a97371c65f4a28ccd",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-130",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1799932t1cvn/QD_DC_so_18_DSPT_HDXX_CAT_DAN.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:03.095442+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:03.334005+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:10:37.150552+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-130/QD_DC_so_18_DSPT_HDXX_CAT_DAN.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-130/QD_DC_so_18_DSPT_HDXX_CAT_DAN_structured.json",
+      "structured_sha256": "ac7dcc832eaa84a491db10660dae90ff04f3a26f09dc87faf2f7961d0afd609a",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-131",
+      "acquisition_status": "eligible",
+      "case_id": "109/2024/DS-ST",
+      "court": "TAND huyện Mỏ Cày Nam, tỉnh Bến Tre",
+      "decision_date": "2024-08-06",
+      "download_timestamp": "2026-10-28T15:09:03.683965+07:00",
+      "judgment_number": "109/2024/DS-ST",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "TU__HOA.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "204/2024/TLST-DS",
+        "373/2024/QĐXX"
+      ],
+      "sha256": "cb32f054675e6fa2869059032e999faf5bff896aafbf37f8f790eaab087079a3",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-131",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1600102t1cvn/TU__HOA.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:03.683965+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:03.905201+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:10:38.966335+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:46:54.787123+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-131/TU__HOA.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-131/TU__HOA_structured.json",
+      "structured_sha256": "9b89a004b707a5cba41366f3aed759f0eaf4ad4344169d4d14ccb4157681a60f",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-132",
+      "acquisition_status": "extracted",
+      "case_id": "06/2024/QĐST-DS",
+      "court": "TAND huyện Ninh Giang, tỉnh Hải Dương",
+      "decision_date": "2024-08-14",
+      "download_timestamp": "2026-10-28T15:09:04.297579+07:00",
+      "judgment_number": "06/2024/QĐST-DS",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "sample_9.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [
+        "dedup_or_development_overlap:new_pool_related_decision_ids"
+      ],
+      "related_decision_ids": [
+        "10/2024/TLST-DS",
+        "12/2024/QĐST-DS"
+      ],
+      "sha256": "0822687ca332f1076050447bebc00ed0cf6981ee983f83b96da29eefc00c22dd",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-132",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1599988t1cvn/sample_9.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:04.297579+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:04.511333+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:10:40.465352+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-132/sample_9.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-132/sample_9_structured.json",
+      "structured_sha256": "457a11fdc3047abeaeff5ef4d09978d439739ad9515aa5845e8ca042cd7f2d1e",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-133",
+      "acquisition_status": "eligible",
+      "case_id": "29/2024/QĐST-DS",
+      "court": "TAND TX. Sầm Sơn, tỉnh Thanh Hóa",
+      "decision_date": "2024-08-21",
+      "download_timestamp": "2026-10-28T15:09:04.830546+07:00",
+      "judgment_number": "29/2024/QĐST-DS",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "29_ngay_2182024_QDCN_dan_su_Cong__Ly.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "59/2024/TLST-DS"
+      ],
+      "sha256": "56809eee3676e1dd656736c2fc7fba3d4480b5c786f1aae051db08c9617b4373",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-133",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1600049t1cvn/29_ngay_2182024_QDCN_dan_su_Cong__Ly.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:04.830546+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:05.036379+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:10:41.349981+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:46:59.495887+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-133/29_ngay_2182024_QDCN_dan_su_Cong__Ly.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-133/29_ngay_2182024_QDCN_dan_su_Cong__Ly_structured.json",
+      "structured_sha256": "b1157ea774d92cb7cc29a8414493d97a69346f4d246e2602ea91be0d0c5a1a6f",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-134",
+      "acquisition_status": "eligible",
+      "case_id": "318/2024/DS-PT",
+      "court": "TAND tỉnh An Giang",
+      "decision_date": "2024-12-30",
+      "download_timestamp": "2026-10-28T15:09:05.371350+07:00",
+      "judgment_number": "318/2024/DS-PT",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "BA_DSPT__Dung__Khang.pdf",
+      "procedure_stage": "phuc_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "1/2024/QĐ-PT",
+        "239/2024/DS-ST",
+        "306/2024/TLPT-DS"
+      ],
+      "sha256": "4bcb97b8294da175d5c0686aa613da67231e26a4a02fb457d301ac0bc8562e9b",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-134",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1799986t1cvn/BA_DSPT__Dung__Khang.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:05.371350+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:05.626904+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:10:58.617370+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:47:04.539682+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-134/BA_DSPT__Dung__Khang.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-134/BA_DSPT__Dung__Khang_structured.json",
+      "structured_sha256": "78de863e0db18527c8088b9a86b7ef918a4494ff60e7c44983a655291559d88a",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-135",
+      "acquisition_status": "eligible",
+      "case_id": "185/2024/QĐST-HNGĐ",
+      "court": "TAND huyện Hoằng Hóa, tỉnh Thanh Hóa",
+      "decision_date": "2024-12-04",
+      "download_timestamp": "2026-10-28T15:09:06.015479+07:00",
+      "judgment_number": "185/2024/QĐST-HNGĐ",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "Le_Thi_TNguyen_Minh_D.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "323/2024/TLST-HNGĐ"
+      ],
+      "sha256": "207690f5e8f0b68a3eff7d8e6eff657c4ad22e496a075f6f9bae976eb9b01ac1",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-135",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1800124t1cvn/Le_Thi_TNguyen_Minh_D.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:06.015479+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:06.236244+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:10:59.795645+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:47:09.164279+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-135/Le_Thi_TNguyen_Minh_D.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-135/Le_Thi_TNguyen_Minh_D_structured.json",
+      "structured_sha256": "522d2aca05b55dc53eed1de0739b46401688d2835b77339f9ee678e26c8cf3ce",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-136",
+      "acquisition_status": "eligible",
+      "case_id": "420/2024/DS-ST",
+      "court": "TAND Quận 8, TP. Hồ Chí Minh",
+      "decision_date": "2024-09-26",
+      "download_timestamp": "2026-10-28T15:09:06.549511+07:00",
+      "judgment_number": "420/2024/DS-ST",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "Bản_án_mã_hóa_VIB_Tràn_Thiéu_Quan.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "11/2021/TT-NHNN",
+        "124/2024/TLST-DS",
+        "227/2024/QĐST-DS",
+        "287/2024/QĐXXST-DS",
+        "822/2016/QĐST-HNGĐ"
+      ],
+      "sha256": "416acad43bc09f4a98482de3437fcfc3d691ca896bc84b48d9cf62cf097d03fc",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-136",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1800119t1cvn/Bản_án_mã_hóa_VIB_Tràn_Thiéu_Quan.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:06.549511+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:06.780952+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:11:06.058055+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:47:13.879287+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-136/Bản_án_mã_hóa_VIB_Tràn_Thiéu_Quan.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-136/Bản_án_mã_hóa_VIB_Tràn_Thiéu_Quan_structured.json",
+      "structured_sha256": "7b91386a06f96e5a12f5b066ed3ca22a9e8f67377da8cb06084a27cde6bd58ce",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-137",
+      "acquisition_status": "eligible",
+      "case_id": "57/2024/DS-ST",
+      "court": "TAND huyện Long Phú, tỉnh Sóc Trăng",
+      "decision_date": "2024-08-21",
+      "download_timestamp": "2026-10-28T15:09:07.115058+07:00",
+      "judgment_number": "57/2024/DS-ST",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "Trien_thuy_.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "107/2024/QĐXXST",
+        "13/2024/TLST-DS"
+      ],
+      "sha256": "cf8e8e0c079d6bd5ad4a4db206e567e4e56f701c21c14810128b7becbc7a1787",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-137",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1600123t1cvn/Trien_thuy_.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:07.115058+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:07.352040+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:11:08.449828+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:47:18.320145+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-137/Trien_thuy_.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-137/Trien_thuy__structured.json",
+      "structured_sha256": "e3d69071067d50355bdab36ef06c32734fd72a378cf3bb5cf906a7ce8af21726",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-138",
+      "acquisition_status": "eligible",
+      "case_id": "19/2025/QĐST-DS",
+      "court": "TAND Q. An Dương, TP. Hải Phòng",
+      "decision_date": "2025-05-13",
+      "download_timestamp": "2026-10-28T15:09:07.686589+07:00",
+      "judgment_number": "19/2025/QĐST-DS",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "TANTUAN_135.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "37/2025/TLST-DS"
+      ],
+      "sha256": "1cc8c8c6252dd081647f1ec84da2d50ae7f4edff8411b1c50db15bd0e2eb9b91",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-138",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1800040t1cvn/TANTUAN_135.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:07.686589+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:07.889938+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:11:11.295016+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:47:23.044867+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-138/TANTUAN_135.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-138/TANTUAN_135_structured.json",
+      "structured_sha256": "fdd3bebeab275f2a46237267ffe45f0c25a78ebf5b7034207b884bf9abad00d5",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-139",
+      "acquisition_status": "eligible",
+      "case_id": "43/2025/DS-ST",
+      "court": "TAND huyện Thới Lai, TP. Cần Thơ",
+      "decision_date": "2025-04-10",
+      "download_timestamp": "2026-10-28T15:09:08.206351+07:00",
+      "judgment_number": "43/2025/DS-ST",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "BAN_ANTHONGSANG.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "114/2025/QĐXXST-DS",
+        "269/2024/TLST-DS"
+      ],
+      "sha256": "5fba8b3241b4530da55ad4718c2d1c13db8ef9b13c82f46e0dbd5d6cad0b6158",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-139",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1800121t1cvn/BAN_ANTHONGSANG.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:08.206351+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:08.425086+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:11:12.984944+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:47:27.450924+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-139/BAN_ANTHONGSANG.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-139/BAN_ANTHONGSANG_structured.json",
+      "structured_sha256": "b2daf83448fa6ca1dea684525e8e22b9a7c3a9facf5c99256fa1e9e0eadde759",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-140",
+      "acquisition_status": "eligible",
+      "case_id": "06/2025/QĐ-PT",
+      "court": "TAND tỉnh Vĩnh Long",
+      "decision_date": "2025-03-28",
+      "download_timestamp": "2026-10-28T15:09:08.761090+07:00",
+      "judgment_number": "06/2025/QĐ-PT",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "Quyet_dinh_khong_chap_nhan_khang_cao_qua_han_DucPhuong.pdf",
+      "procedure_stage": "phuc_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "79/2023/DS",
+        "79/2023/DS-ST"
+      ],
+      "sha256": "33f356020976ed137a75d727819b03323d306c95bb10f2de4b615379bcc601e0",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-140",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1800076t1cvn/Quyet_dinh_khong_chap_nhan_khang_cao_qua_han_DucPhuong.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:08.761090+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:08.973949+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:11:21.068097+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:47:32.282344+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-140/Quyet_dinh_khong_chap_nhan_khang_cao_qua_han_DucPhuong.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-140/Quyet_dinh_khong_chap_nhan_khang_cao_qua_han_DucPhuong_structured.json",
+      "structured_sha256": "c1be30d5ff9f7b711fcff2931126343cc4c4627a5cd7713420cf42720dde8365",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-141",
+      "acquisition_status": "eligible",
+      "case_id": "02/2025/QĐST-VDS",
+      "court": "TAND huyện Buôn Đôn, tỉnh Đắk Lắk",
+      "decision_date": "2025-05-07",
+      "download_timestamp": "2026-10-28T15:09:09.333806+07:00",
+      "judgment_number": "02/2025/QĐST-VDS",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "VDS_ma_hoa_Xuong.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "01/2025/QĐTA",
+        "01/2025/TLST"
+      ],
+      "sha256": "a40bcc7039dda7e03a3c05491b14b5cb111c0331188031abb1fa399d1c780be1",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-141",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1799989t1cvn/VDS_ma_hoa_Xuong.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:09.333806+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:09.560627+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:11:22.947170+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:47:36.915625+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-141/VDS_ma_hoa_Xuong.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-141/VDS_ma_hoa_Xuong_structured.json",
+      "structured_sha256": "4865d832c911f5d4a466b4ec72dede7608ae9e48c90943e91c2cb6a134dacb74",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-142",
+      "acquisition_status": "eligible",
+      "case_id": "30/2025/QĐST-HNGĐ",
+      "court": "Tòa án nhân dân khu vực 1 - Lai Châu, tỉnh Lai Châu",
+      "decision_date": "2025-12-17",
+      "download_timestamp": "2026-10-28T15:09:09.914455+07:00",
+      "judgment_number": "30/2025/QĐST-HNGĐ",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "30. QUYẾT ĐỊNH CÔNG NHẬN THUẬN TÌNH LY HÔN DIỆN - KHẢI (1) 24-10-2026 14-57-11.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "49/2025/TLST-HNGĐ"
+      ],
+      "sha256": "2d4a3a9be93729b2cf473039869c13c4dc7a275bea708bb5b8af33026c0f06d9",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-142",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2285390t1cvn/30. QUYẾT ĐỊNH CÔNG NHẬN THUẬN TÌNH LY HÔN DIỆN - KHẢI (1) 24-10-2026 14-57-11.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:09.914455+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:10.124655+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:11:24.020051+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:47:41.920681+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-142/30. QUYẾT ĐỊNH CÔNG NHẬN THUẬN TÌNH LY HÔN DIỆN - KHẢI (1) 24-10-2026 14-57-11.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-142/30. QUYẾT ĐỊNH CÔNG NHẬN THUẬN TÌNH LY HÔN DIỆN - KHẢI (1) 24-10-2026 14-57-11_structured.json",
+      "structured_sha256": "9500387559ee585ddddc513da8a3d4ef925bfe1465cd7f79c051ba67aec7c680",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-143",
+      "acquisition_status": "extracted",
+      "case_id": "03/2025/DS-ST",
+      "court": "TAND huyện Kông Chro, tỉnh Gia Lai",
+      "decision_date": "2025-04-15",
+      "download_timestamp": "2026-10-28T15:09:10.446490+07:00",
+      "judgment_number": "03/2025/DS-ST",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "BADS_NG__CH.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [
+        "dedup_or_development_overlap:new_pool_related_decision_ids"
+      ],
+      "related_decision_ids": [
+        "02/2023/QĐ-HPT",
+        "03/2025/QĐST-DS",
+        "10/2024/TLST-DS"
+      ],
+      "sha256": "12adbfa481be1d37fde77ea80c05ed64bfc42f9c79d714475e323c308260479a",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-143",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1800108t1cvn/BADS_NG__CH.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:10.446490+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:10.650332+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:11:25.630166+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-143/BADS_NG__CH.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-143/BADS_NG__CH_structured.json",
+      "structured_sha256": "348bf4ed58043e1139209b82dc0b4bdb5bd718b520c6484b09333ad24d4594ad",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-144",
+      "acquisition_status": "eligible",
+      "case_id": "28/2025/QĐST-DS",
+      "court": "TAND huyện Mỏ Cày Bắc, tỉnh Bến Tre",
+      "decision_date": "2025-04-24",
+      "download_timestamp": "2026-10-28T15:09:11.000209+07:00",
+      "judgment_number": "28/2025/QĐST-DS",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "QDCNSTT__V__N.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "309/2024/TLST-DS"
+      ],
+      "sha256": "916b9f3c47f777b84440d19d307e1e32f00a63927174517ba3c5ab82f11d8b07",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-144",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1799953t1cvn/QDCNSTT__V__N.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:11.000209+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:11.204417+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:11:27.417134+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:47:47.091503+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-144/QDCNSTT__V__N.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-144/QDCNSTT__V__N_structured.json",
+      "structured_sha256": "d067182d52b782af19a9a773b34e7b2e1b3b6b66cf34cca4296499964c4d8dd8",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-145",
+      "acquisition_status": "eligible",
+      "case_id": "120/2025/QĐST-HNGĐ",
+      "court": "TAND huyện Càng Long, tỉnh Trà Vinh",
+      "decision_date": "2025-04-25",
+      "download_timestamp": "2026-10-28T15:09:11.531375+07:00",
+      "judgment_number": "120/2025/QĐST-HNGĐ",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "PA_LY__NGUYEN_120_cb.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "459/2024/TLST-HNGĐ"
+      ],
+      "sha256": "051abd3f535eb8b925c15256f1f6c4e984e6d8a4560540386a18c048493fb7bc",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-145",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1800123t1cvn/PA_LY__NGUYEN_120_cb.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:11.531375+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:11.745576+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:11:28.418657+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:47:51.976599+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-145/PA_LY__NGUYEN_120_cb.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-145/PA_LY__NGUYEN_120_cb_structured.json",
+      "structured_sha256": "d1ca17f279e540af816bf49cf590bdcf7cd42b90c87d755a0b30ba6bf4c2f718",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-146",
+      "acquisition_status": "eligible",
+      "case_id": "20/2025/DS-ST",
+      "court": "TAND huyện Cờ Đỏ, TP. Cần Thơ",
+      "decision_date": "2025-04-21",
+      "download_timestamp": "2026-10-28T15:09:12.078125+07:00",
+      "judgment_number": "20/2025/DS-ST",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "BA_Cong_ty_NVK__Phuong_ma_hoa.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "264/2024/TLST-DS",
+        "32/2025/QĐST-DS",
+        "33/2025/QĐXXST-DS"
+      ],
+      "sha256": "60aa2af13a2d9f302a6356f5348d381447fa8dc8793dc8d705eb56cce0846f37",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-146",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1800041t1cvn/BA_Cong_ty_NVK__Phuong_ma_hoa.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:12.078125+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:12.272728+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:11:29.909317+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:47:56.926079+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-146/BA_Cong_ty_NVK__Phuong_ma_hoa.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-146/BA_Cong_ty_NVK__Phuong_ma_hoa_structured.json",
+      "structured_sha256": "b86af76a59f45bb5cefa52d44c0eb4b826aaff8c548cb106dc08c656aeee27ca",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-147",
+      "acquisition_status": "extracted",
+      "case_id": "03/2025/QĐST-DS",
+      "court": "TAND huyện Mỹ Đức, TP. Hà Nội",
+      "decision_date": "2025-03-10",
+      "download_timestamp": "2026-10-28T15:09:12.589430+07:00",
+      "judgment_number": "03/2025/QĐST-DS",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "11_QDCVA_0310325_Nguyen_Thi_Bay.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [
+        "dedup_or_development_overlap:new_pool_related_decision_ids"
+      ],
+      "related_decision_ids": [
+        "03/2025/QĐ",
+        "104/2020/TLST-DS"
+      ],
+      "sha256": "cb60c83ad85c0295bf982503ee79198aeb451f47684dd9f53bc184008c0cfd45",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-147",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta1799885t1cvn/11_QDCVA_0310325_Nguyen_Thi_Bay.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:12.589430+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:12.810589+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:11:35.585881+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-147/11_QDCVA_0310325_Nguyen_Thi_Bay.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-147/11_QDCVA_0310325_Nguyen_Thi_Bay_structured.json",
+      "structured_sha256": "d7bcb44ddb5a41a74ce10717d5c3a8731609ba0b1ae033fd6a6f35741a333e4b",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-148",
+      "acquisition_status": "eligible",
+      "case_id": "1443/2026/DS-PT",
+      "court": "TAND TP. Cần Thơ",
+      "decision_date": "2026-10-13",
+      "download_timestamp": "2026-10-28T15:09:13.144502+07:00",
+      "judgment_number": "1443/2026/DS-PT",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "1443 DSPT Nguyen Van T-Cong ty P 23-10-2026 15-11-41.pdf",
+      "procedure_stage": "phuc_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "1584/2026/TLPT-DS",
+        "1797/2026/QĐ-PT",
+        "427/2026/DS-ST"
+      ],
+      "sha256": "cfda30b9933802e25ed35c5fd333d11d44fabf49ed215808c6529b8167264075",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-148",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2285231t1cvn/1443 DSPT Nguyen Van T-Cong ty P 23-10-2026 15-11-41.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:13.144502+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:13.406027+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:11:38.324253+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:48:02.277180+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-148/1443 DSPT Nguyen Van T-Cong ty P 23-10-2026 15-11-41.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-148/1443 DSPT Nguyen Van T-Cong ty P 23-10-2026 15-11-41_structured.json",
+      "structured_sha256": "64520e62cf8cab41b3a05448fb382f8f11fff41ed826ab9906550e3f37a187a2",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-149",
+      "acquisition_status": "eligible",
+      "case_id": "33/2026/QĐST-DS",
+      "court": "Tòa án nhân dân khu vực 6 - Thái Nguyên, tỉnh Thái Nguyên",
+      "decision_date": "2026-09-23",
+      "download_timestamp": "2026-10-28T15:09:13.779744+07:00",
+      "judgment_number": "33/2026/QĐST-DS",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "QĐ-đình chỉ vụ Lệ - Thắm - Mã hoá 23-10-2026 10-24-49.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "0b7b13392e191127d489e3a4d187c9355d91a66bfc1763f43962a04a18df1a52",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-149",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2285110t1cvn/QĐ-đình chỉ vụ Lệ - Thắm - Mã hoá 23-10-2026 10-24-49.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:13.779744+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:13.986762+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:11:39.295324+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:48:07.212848+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-149/QĐ-đình chỉ vụ Lệ - Thắm - Mã hoá 23-10-2026 10-24-49.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-149/QĐ-đình chỉ vụ Lệ - Thắm - Mã hoá 23-10-2026 10-24-49_structured.json",
+      "structured_sha256": "762cc285d0550e1f6541bacdf7807799b6ba430ea95cc557a78fcadb5680ccc8",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-150",
+      "acquisition_status": "eligible",
+      "case_id": "98/2026/DS-ST",
+      "court": "Tòa án nhân dân khu vực 4 - Đắk Lắk, tỉnh Đắk Lắk",
+      "decision_date": "2026-09-15",
+      "download_timestamp": "2026-10-28T15:09:14.314042+07:00",
+      "judgment_number": "98/2026/DS-ST",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "Bản án 98 23-10-2026 18-42-05.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "111/2026/QĐST-DS",
+        "118/2026/QĐXXST-DS",
+        "144/2026/DS-ST"
+      ],
+      "sha256": "d3d07d6297bda945bfa3f933e606057c640104b9ec89ef3ed3d320e7b9e78fcf",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-150",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2285334t1cvn/Bản án 98 23-10-2026 18-42-05.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:14.314042+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:14.537248+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:11:42.447886+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:48:12.240886+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-150/Bản án 98 23-10-2026 18-42-05.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-150/Bản án 98 23-10-2026 18-42-05_structured.json",
+      "structured_sha256": "4aebb88df023556e736a4b3ae1f90f777653956b2c9f92660e155dba513b37c5",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-151",
+      "acquisition_status": "eligible",
+      "case_id": "581/2026/QĐST-DS",
+      "court": "Tòa án nhân dân khu vực 5 - Hà Nội, TP. Hà Nội",
+      "decision_date": "2026-09-26",
+      "download_timestamp": "2026-10-28T15:09:14.887533+07:00",
+      "judgment_number": "581/2026/QĐST-DS",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "sample (40) 24-10-2026 10-12-29.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "423/2026/TLST-DS"
+      ],
+      "sha256": "c6952c2a114c25393d963838cfa6b5f7294cbdaab7e0be3050a2f189b0588194",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-151",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2285363t1cvn/sample (40) 24-10-2026 10-12-29.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:14.887533+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:15.112082+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:11:44.293509+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:48:17.468745+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-151/sample (40) 24-10-2026 10-12-29.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-151/sample (40) 24-10-2026 10-12-29_structured.json",
+      "structured_sha256": "9586a7a5b49ab5ab1f0ffe63b2ea4f73c5ee15be785bf40cb3d219e4099252f4",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-152",
+      "acquisition_status": "eligible",
+      "case_id": "04/2026/KDTM-ST",
+      "court": "Tòa án nhân dân khu vực 7 - Lâm Đồng, tỉnh Lâm Đồng",
+      "decision_date": "2026-09-14",
+      "download_timestamp": "2026-10-28T15:09:15.432448+07:00",
+      "judgment_number": "04/2026/KDTM-ST",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "Ngân hàng TMCP P - Lê Văn T 23-10-2026 16-57-15.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "125/2026/QĐST-DS",
+        "270/2026/TLST-KDTM",
+        "71/2026/QĐXXST-DS"
+      ],
+      "sha256": "cabf82513f22a390b872ca742e57377ad93d0303e33b87ebebf34d4bcbb0b6c1",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-152",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2285291t1cvn/Ngân hàng TMCP P - Lê Văn T 23-10-2026 16-57-15.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:15.432448+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:15.633986+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:11:46.779890+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:48:22.033575+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-152/Ngân hàng TMCP P - Lê Văn T 23-10-2026 16-57-15.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-152/Ngân hàng TMCP P - Lê Văn T 23-10-2026 16-57-15_structured.json",
+      "structured_sha256": "52857514854aae081dd1488f815cf6e9c0943f404fd75b80481d40d52e9caf8d",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-153",
+      "acquisition_status": "eligible",
+      "case_id": "13/2026/QĐST-VDS",
+      "court": "Tòa án nhân dân khu vực 5 - Đắk Lắk , tỉnh Đắk Lắk",
+      "decision_date": "2026-09-18",
+      "download_timestamp": "2026-10-28T15:09:15.959065+07:00",
+      "judgment_number": "13/2026/QĐST-VDS",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "sample 23-10-2026 14-03-02.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "106/2026/QĐST-VDS",
+        "223/2026/TLST-VDS"
+      ],
+      "sha256": "b2846328b69acc3e1083e9dc53a96982c3f4e25a8f4ce65908f30b7b42c12696",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-153",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2285173t1cvn/sample 23-10-2026 14-03-02.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:15.959065+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:16.183317+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:11:56.181656+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:48:26.758683+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-153/sample 23-10-2026 14-03-02.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-153/sample 23-10-2026 14-03-02_structured.json",
+      "structured_sha256": "290e2aec1d80d1fcae7f6fe1e174b92292d3e0c9b0b9b9838950fcd373975919",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-154",
+      "acquisition_status": "eligible",
+      "case_id": "57/2026/DS-PT",
+      "court": "TAND tỉnh Tuyên Quang",
+      "decision_date": "2026-09-22",
+      "download_timestamp": "2026-10-28T15:09:16.548309+07:00",
+      "judgment_number": "57/2026/DS-PT",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "sample (4) 23-10-2026 09-27-51.pdf",
+      "procedure_stage": "phuc_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "202/2026/DS-ST",
+        "26/2026/TLPT-DS",
+        "38/2026/QĐ-PT",
+        "61/2026/QĐ-PT"
+      ],
+      "sha256": "3208ed2193d786cff3967da4700b98e157e107cec8d5f90aefb8140c10510321",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-154",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2285277t1cvn/sample (4) 23-10-2026 09-27-51.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:16.548309+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:16.805466+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:12:22.771625+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:48:31.520150+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-154/sample (4) 23-10-2026 09-27-51.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-154/sample (4) 23-10-2026 09-27-51_structured.json",
+      "structured_sha256": "6817e588f57abce3cd9addcd34fd5aedddd87d217f64689e937dd917a7bfa70e",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-155",
+      "acquisition_status": "eligible",
+      "case_id": "307/2026/HNGĐ-ST",
+      "court": "Tòa án nhân dân khu vực 10 - Tây Ninh, tỉnh Tây Ninh",
+      "decision_date": "2026-08-26",
+      "download_timestamp": "2026-10-28T15:09:17.259856+07:00",
+      "judgment_number": "307/2026/HNGĐ-ST",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "307-2026 NGUYỄN THANH L-NGUYỄN THỊ THU T1 24-10-2026 16-38-33.pdf",
+      "procedure_stage": "so_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "1211/2026/TLST-HNGĐ",
+        "314/2026/QĐ"
+      ],
+      "sha256": "db8a010c9d2ca543199aea4f2a69b4a5f0776326f4872045755ccbb0cc927868",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-155",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2285424t1cvn/307-2026 NGUYỄN THANH L-NGUYỄN THỊ THU T1 24-10-2026 16-38-33.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:17.259856+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:17.498591+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:12:34.215819+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:48:36.582565+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-155/307-2026 NGUYỄN THANH L-NGUYỄN THỊ THU T1 24-10-2026 16-38-33.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-155/307-2026 NGUYỄN THANH L-NGUYỄN THỊ THU T1 24-10-2026 16-38-33_structured.json",
+      "structured_sha256": "18fa7399dd6cd58bcd0153bd35162f9ecfe7a7102b78f36a8f572fac22386d73",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "scale-20261028-156",
+      "acquisition_status": "eligible",
+      "case_id": "806/2026/DS-PT",
+      "court": "TAND tỉnh Cà Mau",
+      "decision_date": "2026-09-30",
+      "download_timestamp": "2026-10-28T15:09:17.864159+07:00",
+      "judgment_number": "806/2026/DS-PT",
+      "metadata_verification": {
+        "case_id": true,
+        "court": true,
+        "decision_date": true,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
+        "judgment_number": true,
+        "procedure_stage": true,
+        "underlying_dispute_review": true
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "Bản án phúc thẩm vụ Ánh - Dũng (mã hóa) 24-10-2026 12-28-15.pdf",
+      "procedure_stage": "phuc_tham",
+      "rejection_reasons": [],
+      "related_decision_ids": [
+        "196/2026/TLPT-DS",
+        "339/2026/QĐPT-DS",
+        "78/2026/DS-ST"
+      ],
+      "sha256": "2439dc2649035a92abdfa160af41032d1f2a7bea2d8d43329763b1ff7d3bdc79",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:scale-20261028-156",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2285350t1cvn/Bản án phúc thẩm vụ Ánh - Dũng (mã hóa) 24-10-2026 12-28-15.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-10-28T15:09:17.864159+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-10-28T15:09:18.093638+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-10-28T15:12:47.419218+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-10-28T19:48:41.376827+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-156/Bản án phúc thẩm vụ Ánh - Dũng (mã hóa) 24-10-2026 12-28-15.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/scale-20261028-156/Bản án phúc thẩm vụ Ánh - Dũng (mã hóa) 24-10-2026 12-28-15_structured.json",
+      "structured_sha256": "5bd4a5858c00d0b58858bb0e0ec43f595e20454367dda321369b723fd5dbf19e",
       "underlying_dispute_id": null
     }
   ]

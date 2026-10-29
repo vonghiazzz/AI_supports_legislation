@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-148",
+  "anchor_fingerprint": "2a626ee3137a1cffc63c4527fea1e7647361af90539871e4d527a80685e57027",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:09:13.144502+07:00",
+  "offline_provenance": null,
+  "original_filename": "1443 DSPT Nguyen Van T-Cong ty P 23-10-2026 15-11-41.pdf",
+  "pdf_sha256": "cfda30b9933802e25ed35c5fd333d11d44fabf49ed215808c6529b8167264075",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-148",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285231t1cvn/1443 DSPT Nguyen Van T-Cong ty P 23-10-2026 15-11-41.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-148/1443 DSPT Nguyen Van T-Cong ty P 23-10-2026 15-11-41.pdf"
+}

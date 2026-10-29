@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-155",
+  "anchor_fingerprint": "a04065f3164d0c2c0da69495075612b892f65db98413de86267abdf6c905b0d1",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:09:17.259856+07:00",
+  "offline_provenance": null,
+  "original_filename": "307-2026 NGUYỄN THANH L-NGUYỄN THỊ THU T1 24-10-2026 16-38-33.pdf",
+  "pdf_sha256": "db8a010c9d2ca543199aea4f2a69b4a5f0776326f4872045755ccbb0cc927868",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-155",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285424t1cvn/307-2026 NGUYỄN THANH L-NGUYỄN THỊ THU T1 24-10-2026 16-38-33.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-155/307-2026 NGUYỄN THANH L-NGUYỄN THỊ THU T1 24-10-2026 16-38-33.pdf"
+}

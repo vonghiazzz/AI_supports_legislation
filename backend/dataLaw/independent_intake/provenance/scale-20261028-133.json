@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-133",
+  "anchor_fingerprint": "1418c5025774f5182f063e1177ff5bffbb8695cdb03bb2c1a10f0c3d04fb59b4",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:09:04.830546+07:00",
+  "offline_provenance": null,
+  "original_filename": "29_ngay_2182024_QDCN_dan_su_Cong__Ly.pdf",
+  "pdf_sha256": "56809eee3676e1dd656736c2fc7fba3d4480b5c786f1aae051db08c9617b4373",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-133",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1600049t1cvn/29_ngay_2182024_QDCN_dan_su_Cong__Ly.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-133/29_ngay_2182024_QDCN_dan_su_Cong__Ly.pdf"
+}

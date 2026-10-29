@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-114",
+  "anchor_fingerprint": "b0909636aa63725b5e75a7b1f2d5b1c625cbd80d8e4b55c921332a1581c9edf9",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:08:54.058200+07:00",
+  "offline_provenance": null,
+  "original_filename": "Dong_Vinh_P.pdf",
+  "pdf_sha256": "c47d1e7d3ed76c1f51f6ab9c245211849759ef464b912f2718f9c8b5e2308cd3",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-114",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta999933t1cvn/Dong_Vinh_P.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-114/Dong_Vinh_P.pdf"
+}

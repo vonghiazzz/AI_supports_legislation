@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-136",
+  "anchor_fingerprint": "43839aa8e7b1c8b7d49c1bbf5c910676ee38d317a495d5fa17db24e7a2c9527c",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:09:06.549511+07:00",
+  "offline_provenance": null,
+  "original_filename": "Bản_án_mã_hóa_VIB_Tràn_Thiéu_Quan.pdf",
+  "pdf_sha256": "416acad43bc09f4a98482de3437fcfc3d691ca896bc84b48d9cf62cf097d03fc",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-136",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1800119t1cvn/Bản_án_mã_hóa_VIB_Tràn_Thiéu_Quan.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-136/Bản_án_mã_hóa_VIB_Tràn_Thiéu_Quan.pdf"
+}

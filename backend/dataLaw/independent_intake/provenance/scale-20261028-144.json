@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-144",
+  "anchor_fingerprint": "57188c3dc2a22e022e2cbb6dc0e3342df412c565f6809abad80829ac8a9eced1",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:09:11.000209+07:00",
+  "offline_provenance": null,
+  "original_filename": "QDCNSTT__V__N.pdf",
+  "pdf_sha256": "916b9f3c47f777b84440d19d307e1e32f00a63927174517ba3c5ab82f11d8b07",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-144",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1799953t1cvn/QDCNSTT__V__N.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-144/QDCNSTT__V__N.pdf"
+}

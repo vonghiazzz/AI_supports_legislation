@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-147",
+  "anchor_fingerprint": "ad644d98455209e5e055b360f0df17345eff61c5651e32dbebbd2ff45efaf801",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:09:12.589430+07:00",
+  "offline_provenance": null,
+  "original_filename": "11_QDCVA_0310325_Nguyen_Thi_Bay.pdf",
+  "pdf_sha256": "cb60c83ad85c0295bf982503ee79198aeb451f47684dd9f53bc184008c0cfd45",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-147",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1799885t1cvn/11_QDCVA_0310325_Nguyen_Thi_Bay.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-147/11_QDCVA_0310325_Nguyen_Thi_Bay.pdf"
+}

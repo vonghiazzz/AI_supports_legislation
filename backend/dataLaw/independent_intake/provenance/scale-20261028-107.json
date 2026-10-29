@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-107",
+  "anchor_fingerprint": "70c317fb9d11b22006785ca4451a589206f6592b7d2e1db487325a9196466967",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:08:50.038173+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_P___Quy_TD_NH.pdf",
+  "pdf_sha256": "db7e2fa7d34595edd5ba7cc5f0a15550b7ed7261d70517c204d67b18cc140f8f",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-107",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta399918t1cvn/Ban_an_P___Quy_TD_NH.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-107/Ban_an_P___Quy_TD_NH.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-108",
+  "anchor_fingerprint": "17b5197c4245fffa5abc36a9da5a18ff467a924e80df8aa5c45d9556f2bb1d0e",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:08:50.600642+07:00",
+  "offline_provenance": null,
+  "original_filename": "QDD_chuyen_vu_anma_hoa_1.pdf",
+  "pdf_sha256": "bda8acb5249e19c3c255737e490e51ec45f2f2f871842223fa101da7bf19aa8a",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-108",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta400098t1cvn/QDD_chuyen_vu_anma_hoa_1.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-108/QDD_chuyen_vu_anma_hoa_1.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-119",
+  "anchor_fingerprint": "758ee393b3808c6cb64bdb8102aba3e145faa86e8bf98c8012f6de7079ba2dcf",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:08:56.651004+07:00",
+  "offline_provenance": null,
+  "original_filename": "Tuyen_Tan_Diem_ma_hoa.pdf",
+  "pdf_sha256": "ccfa7b8dec4a23f7087c933c3eb9fb3a8cf814abb7b1963af4fa9e8fa0408e8e",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-119",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1000104t1cvn/Tuyen_Tan_Diem_ma_hoa.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-119/Tuyen_Tan_Diem_ma_hoa.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261028-145",
+  "anchor_fingerprint": "be6f5bc0c90bb73058e0d4a4f0e44e81a0d6be438942b934968d1d9c480db405",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-28T15:09:11.531375+07:00",
+  "offline_provenance": null,
+  "original_filename": "PA_LY__NGUYEN_120_cb.pdf",
+  "pdf_sha256": "051abd3f535eb8b925c15256f1f6c4e984e6d8a4560540386a18c048493fb7bc",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261028-145",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1800123t1cvn/PA_LY__NGUYEN_120_cb.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261028-145/PA_LY__NGUYEN_120_cb.pdf"
+}
