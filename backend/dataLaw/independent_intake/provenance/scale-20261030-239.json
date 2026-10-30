@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-239",
+  "anchor_fingerprint": "203978939ff89b8f363ee7561f7b90c7801c28beb00da6e5044f12d14cd480b2",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:30.301648+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_Nguyen_Van_Th__Nguyen_Van_H_kien_boi_thuong_thiet_hai_suc_khoe.pdf",
+  "pdf_sha256": "8ac12afc9f76c1a2106b5f9539618996881fee1089cb153494d0e6ee9d721fae",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-239",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta991936t1cvn/Ban_an_Nguyen_Van_Th__Nguyen_Van_H_kien_boi_thuong_thiet_hai_suc_khoe.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-239/Ban_an_Nguyen_Van_Th__Nguyen_Van_H_kien_boi_thuong_thiet_hai_suc_khoe.pdf"
+}

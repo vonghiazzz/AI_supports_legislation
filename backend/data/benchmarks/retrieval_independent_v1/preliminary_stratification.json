@@ -3,8 +3,8 @@
   "derivation_version": "documentary_rules_v1",
   "benchmark_id": "retrieval_independent_v1",
   "artifact_role": "PRELIMINARY_STRATIFICATION_METADATA_NOT_GROUND_TRUTH",
-  "source_inventory_fingerprint": "c249fadc6667f3821a331c13367d786856bea1d91db5968773276789078c762e",
-  "source_count": 186,
+  "source_inventory_fingerprint": "8957b1a617da34cd63b4c88095504d339523574c999a085a377a6847a118bc55",
+  "source_count": 223,
   "scope": {
     "eligible_independent_only": true,
     "development_sources_included": false,
@@ -68,29 +68,29 @@
     }
   ],
   "family_distribution": {
-    "BLDS_CORE": 49,
+    "BLDS_CORE": 52,
     "BLTTDS_PRIMARY": 45,
-    "LAND_2013": 4,
-    "LAND_2024": 0,
-    "HNGD_2014": 29,
-    "MULTI_FAMILY": 35,
+    "LAND_2013": 5,
+    "LAND_2024": 1,
+    "HNGD_2014": 30,
+    "MULTI_FAMILY": 61,
     "OTHER": 1,
-    "UNKNOWN": 23
+    "UNKNOWN": 28
   },
   "classification_status_distribution": {
-    "CLASSIFIED": 128,
-    "MULTI_FAMILY": 35,
-    "UNKNOWN": 23
+    "CLASSIFIED": 134,
+    "MULTI_FAMILY": 61,
+    "UNKNOWN": 28
   },
-  "classification_coverage": 0.8763440860215054,
+  "classification_coverage": 0.874439461883408,
   "quota_observability": {
     "families": {
       "BLDS_CORE": {
         "minimum": 55,
         "maximum": 65,
-        "classified_available": 49,
-        "multi_family_potential": 25,
-        "unknown_global": 23,
+        "classified_available": 52,
+        "multi_family_potential": 49,
+        "unknown_global": 28,
         "status": "TIGHT",
         "multi_family_counted_toward_minimum": false
       },
@@ -98,36 +98,36 @@
         "minimum": 30,
         "maximum": 40,
         "classified_available": 45,
-        "multi_family_potential": 7,
-        "unknown_global": 23,
+        "multi_family_potential": 8,
+        "unknown_global": 28,
         "status": "PASS",
         "multi_family_counted_toward_minimum": false
       },
       "LAND_2013": {
         "minimum": 35,
         "maximum": 45,
-        "classified_available": 4,
-        "multi_family_potential": 21,
-        "unknown_global": 23,
-        "status": "FAIL",
+        "classified_available": 5,
+        "multi_family_potential": 41,
+        "unknown_global": 28,
+        "status": "TIGHT",
         "multi_family_counted_toward_minimum": false
       },
       "LAND_2024": {
         "minimum": 35,
         "maximum": 45,
-        "classified_available": 0,
-        "multi_family_potential": 15,
-        "unknown_global": 23,
+        "classified_available": 1,
+        "multi_family_potential": 24,
+        "unknown_global": 28,
         "status": "FAIL",
         "multi_family_counted_toward_minimum": false
       },
       "HNGD_2014": {
         "minimum": 30,
         "maximum": 40,
-        "classified_available": 29,
+        "classified_available": 30,
         "multi_family_potential": 8,
-        "unknown_global": 23,
-        "status": "TIGHT",
+        "unknown_global": 28,
+        "status": "PASS",
         "multi_family_counted_toward_minimum": false
       }
     },
@@ -137,7 +137,7 @@
       "status": "NOT_ASSESSABLE_BEFORE_SELECTION_AND_ANNOTATION"
     }
   },
-  "records_fingerprint": "47e1df070cbc871e16693717ef328ff07955ddfc581050d2f0a89de1c66a7a4e",
+  "records_fingerprint": "1af8b33ad2be7dcd7745716102ad846a5f3cbb02071bdbc74f229b876824b54b",
   "records": [
     {
       "acquisition_id": "scale-20261028-108",
@@ -288,6 +288,96 @@
       "procedure_stage": "so_tham",
       "documentary_case_type": "UNKNOWN",
       "decision_year": 2023,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-231",
+      "source_id": "independent:scale-20261030-231",
+      "case_id": "01/2024/DS-PT",
+      "judgment_number": "01/2024/DS-PT",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2013"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2013-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            2,
+            4
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            2,
+            4
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            2,
+            4
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            2
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2013-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2013",
+          "page_numbers": [
+            2
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2024,
       "stress_descriptors": [],
       "quality_watchlist_flags": []
     },
@@ -1065,6 +1155,75 @@
       "documentary_case_type": "CIVIL",
       "decision_year": 2026,
       "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-208",
+      "source_id": "independent:scale-20261030-208",
+      "case_id": "03/2026/QĐST-DS",
+      "judgment_number": "03/2026/QĐST-DS",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLTTDS_PRIMARY",
+        "LAND_2024"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLTTDS-01",
+        "PF-LAND-2024-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            1
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            1
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            2
+          ]
+        },
+        {
+          "rule_id": "PF-BLTTDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "DOCUMENTARY_DECISION_CODE"
+        },
+        {
+          "rule_id": "PF-LAND-2024-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2024",
+          "page_numbers": [
+            2
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "so_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2026,
+      "stress_descriptors": [
+        "SHORT_DOCUMENT"
+      ],
       "quality_watchlist_flags": []
     },
     {
@@ -2031,6 +2190,213 @@
       "quality_watchlist_flags": []
     },
     {
+      "acquisition_id": "scale-20261030-246",
+      "source_id": "independent:scale-20261030-246",
+      "case_id": "08/2019/HNGĐ-PT",
+      "judgment_number": "08/2019/HNGĐ-PT",
+      "primary_family_preliminary": "UNKNOWN",
+      "secondary_families_preliminary": [
+        "HNGD_2014"
+      ],
+      "classification_status": "UNKNOWN",
+      "rule_ids": [
+        "PF-HNGD-01",
+        "PF-LAND-UNRESOLVED-01",
+        "PF-UNKNOWN-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            14,
+            20,
+            21,
+            29,
+            33
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            14,
+            20,
+            21,
+            29,
+            33
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            20,
+            21,
+            22,
+            27,
+            29
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            20,
+            21,
+            22,
+            27,
+            29
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-HNGD-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Hôn nhân và gia đình",
+          "page_numbers": [
+            29
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            17
+          ]
+        },
+        {
+          "rule_id": "PF-HNGD-01",
+          "evidence_class": "documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "HNGĐ/HN"
+        },
+        {
+          "rule_id": "PF-LAND-UNRESOLVED-01",
+          "evidence_class": "ambiguous_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai without documentary-linked version",
+          "page_numbers": [
+            17
+          ]
+        }
+      ],
+      "ambiguity_flags": [
+        "LAND_VERSION_UNRESOLVED"
+      ],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "MARRIAGE_FAMILY",
+      "decision_year": 2019,
+      "stress_descriptors": [
+        "LONG_DOCUMENT"
+      ],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-221",
+      "source_id": "independent:scale-20261030-221",
+      "case_id": "08/2023/DS-PT",
+      "judgment_number": "08/2023/DS-PT",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2013"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2013-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            4,
+            8
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            4,
+            8
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            4,
+            8
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2013-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2013",
+          "page_numbers": [
+            8
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2023,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
       "acquisition_id": "scale-20261029-180",
       "source_id": "independent:scale-20261029-180",
       "case_id": "08/2024/QĐST-DS",
@@ -2139,6 +2505,74 @@
       "procedure_stage": "so_tham",
       "documentary_case_type": "UNKNOWN",
       "decision_year": 2026,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-237",
+      "source_id": "independent:scale-20261030-237",
+      "case_id": "09/2023/DS-PT",
+      "judgment_number": "09/2023/DS-PT",
+      "primary_family_preliminary": "BLDS_CORE",
+      "secondary_families_preliminary": [],
+      "classification_status": "CLASSIFIED",
+      "rule_ids": [
+        "PF-BLDS-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            3,
+            7
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            3,
+            7
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            3,
+            4,
+            7
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            3,
+            4,
+            7
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2023,
       "stress_descriptors": [],
       "quality_watchlist_flags": []
     },
@@ -2287,6 +2721,110 @@
       "procedure_stage": "phuc_tham",
       "documentary_case_type": "CIVIL",
       "decision_year": 2025,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-210",
+      "source_id": "independent:scale-20261030-210",
+      "case_id": "101/2026/DS-ST",
+      "judgment_number": "101/2026/DS-ST",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2024"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2024-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            7,
+            9,
+            10
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            7,
+            9,
+            10
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            6,
+            7,
+            10
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            6,
+            7,
+            10
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-HNGD-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Hôn nhân và gia đình",
+          "page_numbers": [
+            9
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            7,
+            10
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2024-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2024",
+          "page_numbers": [
+            7,
+            10
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "so_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2026,
       "stress_descriptors": [],
       "quality_watchlist_flags": []
     },
@@ -2888,6 +3426,183 @@
       "quality_watchlist_flags": []
     },
     {
+      "acquisition_id": "scale-20261030-211",
+      "source_id": "independent:scale-20261030-211",
+      "case_id": "113/2026/DS-ST",
+      "judgment_number": "113/2026/DS-ST",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2024"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2024-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            8
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            8
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            6,
+            8
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            6,
+            8
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            5,
+            8
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2024-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2024",
+          "page_numbers": [
+            8
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "so_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2026,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-222",
+      "source_id": "independent:scale-20261030-222",
+      "case_id": "116/2025/DSPT",
+      "judgment_number": "116/2025/DSPT",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2013"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2013-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            5
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            5
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            5
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2013-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2013",
+          "page_numbers": [
+            5
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2025,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
       "acquisition_id": "scale-20261028-106",
       "source_id": "independent:scale-20261028-106",
       "case_id": "12/2019/HNGĐ-PT",
@@ -3122,6 +3837,120 @@
       "decision_year": 2025,
       "stress_descriptors": [
         "SHORT_DOCUMENT"
+      ],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-199",
+      "source_id": "independent:scale-20261030-199",
+      "case_id": "122/2026/DS-PT",
+      "judgment_number": "122/2026/DS-PT",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2013",
+        "LAND_2024"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2013-01",
+        "PF-LAND-2024-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            14,
+            21,
+            23
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            14,
+            21,
+            23
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            14,
+            18,
+            21
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            14,
+            16,
+            18,
+            21
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            14,
+            18,
+            20,
+            21
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2013-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2013",
+          "page_numbers": [
+            14,
+            18,
+            20,
+            21
+          ]
+        },
+        {
+          "rule_id": "PF-LAND-2024-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2024",
+          "page_numbers": [
+            14,
+            21
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2026,
+      "stress_descriptors": [
+        "LONG_DOCUMENT"
       ],
       "quality_watchlist_flags": []
     },
@@ -3509,6 +4338,97 @@
       "quality_watchlist_flags": [
         "HIGH_BLANK_PAGE_SHARE"
       ]
+    },
+    {
+      "acquisition_id": "scale-20261030-219",
+      "source_id": "independent:scale-20261030-219",
+      "case_id": "143/2022/DS-PT",
+      "judgment_number": "143/2022/DS-PT",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2013"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2013-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            9
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            9
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            5,
+            6,
+            9
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            5,
+            6,
+            9
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            5,
+            7,
+            9
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2013-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2013",
+          "page_numbers": [
+            9
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2022,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
     },
     {
       "acquisition_id": "scale-20261027-087",
@@ -4015,6 +4935,105 @@
       ]
     },
     {
+      "acquisition_id": "scale-20261030-232",
+      "source_id": "independent:scale-20261030-232",
+      "case_id": "156/2025/DS-PT",
+      "judgment_number": "156/2025/DS-PT",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2013"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2013-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            8,
+            12,
+            13
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            8,
+            12,
+            13
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            8,
+            9,
+            10,
+            12
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            8,
+            9,
+            10,
+            12
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            8,
+            11,
+            12
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2013-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2013",
+          "page_numbers": [
+            8,
+            11,
+            12
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2025,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
       "acquisition_id": "scale-20261026-027",
       "source_id": "independent:scale-20261026-027",
       "case_id": "16/2023/DS-PT",
@@ -4511,6 +5530,186 @@
       "quality_watchlist_flags": []
     },
     {
+      "acquisition_id": "scale-20261030-226",
+      "source_id": "independent:scale-20261030-226",
+      "case_id": "18/2024/DS-PT",
+      "judgment_number": "18/2024/DS-PT",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2013"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2013-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            4,
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            4,
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            4,
+            6
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2013-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2013",
+          "page_numbers": [
+            4,
+            6
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2024,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-234",
+      "source_id": "independent:scale-20261030-234",
+      "case_id": "182/2026/DS-PT",
+      "judgment_number": "182/2026/DS-PT",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2013"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2013-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            6,
+            9,
+            10
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            6,
+            9,
+            10
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            3,
+            6,
+            9
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2013-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2013",
+          "page_numbers": [
+            6
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2026,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
       "acquisition_id": "scale-20261026-006",
       "source_id": "independent:scale-20261026-006",
       "case_id": "183/2023/DS-PT",
@@ -4618,6 +5817,95 @@
       "stress_descriptors": [
         "SHORT_DOCUMENT"
       ],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-229",
+      "source_id": "independent:scale-20261030-229",
+      "case_id": "186/2025/DS-PT",
+      "judgment_number": "186/2025/DS-PT",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2013"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2013-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            3
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            3
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            3,
+            4,
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            3,
+            4,
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            3
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2013-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2013",
+          "page_numbers": [
+            3
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2025,
+      "stress_descriptors": [],
       "quality_watchlist_flags": []
     },
     {
@@ -5460,6 +6748,96 @@
       ]
     },
     {
+      "acquisition_id": "scale-20261030-230",
+      "source_id": "independent:scale-20261030-230",
+      "case_id": "21/2020/DS-PT",
+      "judgment_number": "21/2020/DS-PT",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2013"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2013-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            3,
+            5
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            3,
+            5
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            4
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            3,
+            4
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            3,
+            5
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2013-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2013",
+          "page_numbers": [
+            3,
+            5
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2020,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
       "acquisition_id": "scale-20261029-173",
       "source_id": "independent:scale-20261029-173",
       "case_id": "21/2023/QĐST-DS",
@@ -5576,6 +6954,97 @@
       ]
     },
     {
+      "acquisition_id": "scale-20261030-213",
+      "source_id": "independent:scale-20261030-213",
+      "case_id": "213/2026/DS-ST",
+      "judgment_number": "213/2026/DS-ST",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2024"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2024-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            4,
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            4,
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            4,
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            4,
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            4,
+            6
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2024-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2024",
+          "page_numbers": [
+            4,
+            6
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "so_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2026,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
       "acquisition_id": "scale-20261027-063",
       "source_id": "independent:scale-20261027-063",
       "case_id": "214/2026/HNGĐ-ST",
@@ -5654,6 +7123,98 @@
       ]
     },
     {
+      "acquisition_id": "scale-20261030-247",
+      "source_id": "independent:scale-20261030-247",
+      "case_id": "218/2026/DS-ST",
+      "judgment_number": "218/2026/DS-ST",
+      "primary_family_preliminary": "UNKNOWN",
+      "secondary_families_preliminary": [
+        "BLDS_CORE"
+      ],
+      "classification_status": "UNKNOWN",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-UNRESOLVED-01",
+        "PF-UNKNOWN-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            5,
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            5,
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            3,
+            5
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            3,
+            5
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            3,
+            5
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-UNRESOLVED-01",
+          "evidence_class": "ambiguous_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai without documentary-linked version",
+          "page_numbers": [
+            3,
+            5
+          ]
+        }
+      ],
+      "ambiguity_flags": [
+        "LAND_VERSION_UNRESOLVED"
+      ],
+      "procedure_stage": "so_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2026,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
       "acquisition_id": "pilot-20261025-022",
       "source_id": "independent:pilot-20261025-022",
       "case_id": "22/2025/HNGĐ-ST",
@@ -5708,6 +7269,97 @@
       "procedure_stage": "so_tham",
       "documentary_case_type": "MARRIAGE_FAMILY",
       "decision_year": 2025,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-224",
+      "source_id": "independent:scale-20261030-224",
+      "case_id": "224/2026/DS-PT",
+      "judgment_number": "224/2026/DS-PT",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2013"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2013-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            5
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            5
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            4,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            4,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            5
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2013-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2013",
+          "page_numbers": [
+            5
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2026,
       "stress_descriptors": [],
       "quality_watchlist_flags": []
     },
@@ -5777,6 +7429,70 @@
       "procedure_stage": "phuc_tham",
       "documentary_case_type": "CIVIL",
       "decision_year": 2021,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-223",
+      "source_id": "independent:scale-20261030-223",
+      "case_id": "231/2023/DS-PT",
+      "judgment_number": "231/2023/DS-PT",
+      "primary_family_preliminary": "LAND_2013",
+      "secondary_families_preliminary": [],
+      "classification_status": "CLASSIFIED",
+      "rule_ids": [
+        "PF-LAND-2013-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            2,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            2,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            2,
+            7
+          ]
+        },
+        {
+          "rule_id": "PF-LAND-2013-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2013",
+          "page_numbers": [
+            2,
+            7
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2023,
       "stress_descriptors": [],
       "quality_watchlist_flags": []
     },
@@ -5912,6 +7628,254 @@
       "procedure_stage": "phuc_tham",
       "documentary_case_type": "CIVIL",
       "decision_year": 2025,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-238",
+      "source_id": "independent:scale-20261030-238",
+      "case_id": "246/2026/DS-PT",
+      "judgment_number": "246/2026/DS-PT",
+      "primary_family_preliminary": "BLDS_CORE",
+      "secondary_families_preliminary": [],
+      "classification_status": "CLASSIFIED",
+      "rule_ids": [
+        "PF-BLDS-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            4,
+            6,
+            8,
+            9
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            4,
+            6,
+            8,
+            9
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            6,
+            7,
+            9
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            6,
+            7,
+            9
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2026,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-244",
+      "source_id": "independent:scale-20261030-244",
+      "case_id": "249/2026/DS-PT",
+      "judgment_number": "249/2026/DS-PT",
+      "primary_family_preliminary": "UNKNOWN",
+      "secondary_families_preliminary": [
+        "BLDS_CORE"
+      ],
+      "classification_status": "UNKNOWN",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-UNRESOLVED-01",
+        "PF-UNKNOWN-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            8
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            8
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            5,
+            7
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            5,
+            7
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            6
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-UNRESOLVED-01",
+          "evidence_class": "ambiguous_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai without documentary-linked version",
+          "page_numbers": [
+            6
+          ]
+        }
+      ],
+      "ambiguity_flags": [
+        "LAND_VERSION_UNRESOLVED"
+      ],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2026,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-245",
+      "source_id": "independent:scale-20261030-245",
+      "case_id": "25/2026/DS-PT",
+      "judgment_number": "25/2026/DS-PT",
+      "primary_family_preliminary": "UNKNOWN",
+      "secondary_families_preliminary": [
+        "BLDS_CORE"
+      ],
+      "classification_status": "UNKNOWN",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-UNRESOLVED-01",
+        "PF-UNKNOWN-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            5,
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            5,
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            6
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-UNRESOLVED-01",
+          "evidence_class": "ambiguous_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai without documentary-linked version",
+          "page_numbers": [
+            6
+          ]
+        }
+      ],
+      "ambiguity_flags": [
+        "LAND_VERSION_UNRESOLVED"
+      ],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2026,
       "stress_descriptors": [],
       "quality_watchlist_flags": []
     },
@@ -6879,6 +8843,73 @@
       "quality_watchlist_flags": []
     },
     {
+      "acquisition_id": "scale-20261030-235",
+      "source_id": "independent:scale-20261030-235",
+      "case_id": "288/2025/DS-PT",
+      "judgment_number": "288/2025/DS-PT",
+      "primary_family_preliminary": "BLDS_CORE",
+      "secondary_families_preliminary": [],
+      "classification_status": "CLASSIFIED",
+      "rule_ids": [
+        "PF-BLDS-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            13,
+            14
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            13,
+            14
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            10,
+            12
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            7,
+            10,
+            12
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2025,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
       "acquisition_id": "scale-20261028-133",
       "source_id": "independent:scale-20261028-133",
       "case_id": "29/2024/QĐST-DS",
@@ -7390,6 +9421,99 @@
       ]
     },
     {
+      "acquisition_id": "scale-20261030-218",
+      "source_id": "independent:scale-20261030-218",
+      "case_id": "31/2021/DS-PT",
+      "judgment_number": "31/2021/DS-PT",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2013"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2013-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            6,
+            8
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            6,
+            8
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            6,
+            8
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2013-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2013",
+          "page_numbers": [
+            6,
+            8
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2021,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
       "acquisition_id": "scale-20261028-124",
       "source_id": "independent:scale-20261028-124",
       "case_id": "31/2023/DS-PT",
@@ -7539,6 +9663,92 @@
       "stress_descriptors": [
         "SHORT_DOCUMENT"
       ],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-228",
+      "source_id": "independent:scale-20261030-228",
+      "case_id": "31/2024/DS",
+      "judgment_number": "31/2024/DS",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2013"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2013-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            5
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            5
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            5
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            4,
+            5
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            5
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2013-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2013",
+          "page_numbers": [
+            5
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2024,
+      "stress_descriptors": [],
       "quality_watchlist_flags": []
     },
     {
@@ -7703,6 +9913,64 @@
       "procedure_stage": "phuc_tham",
       "documentary_case_type": "CIVIL",
       "decision_year": 2019,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-203",
+      "source_id": "independent:scale-20261030-203",
+      "case_id": "314/2026/DS-PT",
+      "judgment_number": "314/2026/DS-PT",
+      "primary_family_preliminary": "LAND_2024",
+      "secondary_families_preliminary": [],
+      "classification_status": "CLASSIFIED",
+      "rule_ids": [
+        "PF-LAND-2024-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            7,
+            10
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            7,
+            10
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            10
+          ]
+        },
+        {
+          "rule_id": "PF-LAND-2024-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2024",
+          "page_numbers": [
+            10
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2026,
       "stress_descriptors": [],
       "quality_watchlist_flags": []
     },
@@ -9502,6 +11770,201 @@
       "quality_watchlist_flags": []
     },
     {
+      "acquisition_id": "scale-20261030-214",
+      "source_id": "independent:scale-20261030-214",
+      "case_id": "45/2025/DS-ST",
+      "judgment_number": "45/2025/DS-ST",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2024"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2024-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            3,
+            5,
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            3,
+            5,
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            3,
+            6
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2024-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2024",
+          "page_numbers": [
+            3,
+            6
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "so_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2025,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-206",
+      "source_id": "independent:scale-20261030-206",
+      "case_id": "45/2026/DS-PT",
+      "judgment_number": "45/2026/DS-PT",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2024"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2024-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            3,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            3,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            3,
+            4,
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            3,
+            4,
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            3,
+            5,
+            6
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2024-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2024",
+          "page_numbers": [
+            3,
+            6
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2026,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
       "acquisition_id": "scale-20261026-007",
       "source_id": "independent:scale-20261026-007",
       "case_id": "459/2023/DSPT",
@@ -9610,6 +12073,177 @@
       "procedure_stage": "phuc_tham",
       "documentary_case_type": "CIVIL",
       "decision_year": 2023,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-217",
+      "source_id": "independent:scale-20261030-217",
+      "case_id": "477/2026/DS-PT",
+      "judgment_number": "477/2026/DS-PT",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2013"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2013-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            7,
+            8,
+            10
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            7,
+            8,
+            10
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            7,
+            8,
+            12
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            7,
+            8,
+            12
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            7
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2013-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2013",
+          "page_numbers": [
+            7
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2026,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-207",
+      "source_id": "independent:scale-20261030-207",
+      "case_id": "48/2025/DS-PT",
+      "judgment_number": "48/2025/DS-PT",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "LAND_2013",
+        "LAND_2024"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-LAND-2013-01",
+        "PF-LAND-2024-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            3,
+            5,
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            2,
+            3,
+            6
+          ]
+        },
+        {
+          "rule_id": "PF-LAND-2013-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2013",
+          "page_numbers": [
+            2
+          ]
+        },
+        {
+          "rule_id": "PF-LAND-2024-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2024",
+          "page_numbers": [
+            3,
+            6
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2025,
       "stress_descriptors": [],
       "quality_watchlist_flags": []
     },
@@ -10600,6 +13234,181 @@
       ]
     },
     {
+      "acquisition_id": "scale-20261030-242",
+      "source_id": "independent:scale-20261030-242",
+      "case_id": "601/2026/DS-PT",
+      "judgment_number": "601/2026/DS-PT",
+      "primary_family_preliminary": "UNKNOWN",
+      "secondary_families_preliminary": [
+        "BLDS_CORE"
+      ],
+      "classification_status": "UNKNOWN",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-UNRESOLVED-01",
+        "PF-UNKNOWN-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            13
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            13
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            9,
+            12
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            8,
+            9,
+            12
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            7,
+            11,
+            13
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-UNRESOLVED-01",
+          "evidence_class": "ambiguous_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai without documentary-linked version",
+          "page_numbers": [
+            7,
+            11,
+            13
+          ]
+        }
+      ],
+      "ambiguity_flags": [
+        "LAND_VERSION_UNRESOLVED"
+      ],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2026,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-240",
+      "source_id": "independent:scale-20261030-240",
+      "case_id": "621/2018/HN-PT",
+      "judgment_number": "621/2018/HN-PT",
+      "primary_family_preliminary": "HNGD_2014",
+      "secondary_families_preliminary": [],
+      "classification_status": "CLASSIFIED",
+      "rule_ids": [
+        "PF-HNGD-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            6,
+            8,
+            15
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            6,
+            8,
+            15
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            6,
+            9,
+            10,
+            15
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            6,
+            8,
+            9,
+            10,
+            15
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-HNGD-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Hôn nhân và gia đình",
+          "page_numbers": [
+            15
+          ]
+        },
+        {
+          "rule_id": "PF-HNGD-01",
+          "evidence_class": "documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "HNGĐ/HN"
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "MARRIAGE_FAMILY",
+      "decision_year": 2018,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
       "acquisition_id": "pilot-20261025-013",
       "source_id": "independent:pilot-20261025-013",
       "case_id": "625/2024/DS-PT",
@@ -10631,6 +13440,95 @@
             6,
             7,
             10
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2024,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-227",
+      "source_id": "independent:scale-20261030-227",
+      "case_id": "63/2024/DS-PT",
+      "judgment_number": "63/2024/DS-PT",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2013"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2013-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            6
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            5
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2013-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2013",
+          "page_numbers": [
+            5
           ]
         }
       ],
@@ -11535,6 +14433,99 @@
       ]
     },
     {
+      "acquisition_id": "scale-20261030-220",
+      "source_id": "independent:scale-20261030-220",
+      "case_id": "744/2025/DS-PT",
+      "judgment_number": "744/2025/DS-PT",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2013"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2013-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            6,
+            9
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            6,
+            9
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            6
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2013-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2013",
+          "page_numbers": [
+            6
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2025,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
       "acquisition_id": "scale-20261029-174",
       "source_id": "independent:scale-20261029-174",
       "case_id": "77/2023/HNGĐ-ST",
@@ -12083,6 +15074,190 @@
       "quality_watchlist_flags": []
     },
     {
+      "acquisition_id": "scale-20261030-216",
+      "source_id": "independent:scale-20261030-216",
+      "case_id": "813/2026/DS-PT",
+      "judgment_number": "813/2026/DS-PT",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2013"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2013-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            11,
+            20,
+            21
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            11,
+            20,
+            21
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            14,
+            20
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            14,
+            20
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            9,
+            20
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2013-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2013",
+          "page_numbers": [
+            9,
+            20
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2026,
+      "stress_descriptors": [
+        "LONG_DOCUMENT"
+      ],
+      "quality_watchlist_flags": []
+    },
+    {
+      "acquisition_id": "scale-20261030-225",
+      "source_id": "independent:scale-20261030-225",
+      "case_id": "82/2021/DS-PT",
+      "judgment_number": "82/2021/DS-PT",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2013"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2013-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            4
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            4
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            4
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2013-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2013",
+          "page_numbers": [
+            4
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2021,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
+    },
+    {
       "acquisition_id": "scale-20261027-101",
       "source_id": "independent:scale-20261027-101",
       "case_id": "83/2026/DS-ST",
@@ -12256,6 +15431,116 @@
       "quality_watchlist_flags": [
         "LEGACY_PAGE_STATUS_UNKNOWN"
       ]
+    },
+    {
+      "acquisition_id": "scale-20261030-202",
+      "source_id": "independent:scale-20261030-202",
+      "case_id": "851/2026/DS-PT",
+      "judgment_number": "851/2026/DS-PT",
+      "primary_family_preliminary": "MULTI_FAMILY",
+      "secondary_families_preliminary": [
+        "BLDS_CORE",
+        "LAND_2013",
+        "LAND_2024"
+      ],
+      "classification_status": "MULTI_FAMILY",
+      "rule_ids": [
+        "PF-BLDS-01",
+        "PF-LAND-2013-01",
+        "PF-LAND-2024-01",
+        "PF-MULTI-01"
+      ],
+      "evidence": [
+        {
+          "rule_id": "EVIDENCE-BLDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Dân sự",
+          "page_numbers": [
+            10,
+            11,
+            12,
+            14,
+            15
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Dân sự",
+          "page_numbers": [
+            10,
+            11,
+            12,
+            14,
+            15
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-ARTICLE",
+          "evidence_class": "article_law_mapping",
+          "field": "structured.pages[].text",
+          "canonical_value": "Điều … Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            9,
+            12,
+            13,
+            14
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-BLTTDS-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Bộ luật Tố tụng dân sự",
+          "page_numbers": [
+            9,
+            12,
+            13,
+            14
+          ]
+        },
+        {
+          "rule_id": "EVIDENCE-LAND-NAME",
+          "evidence_class": "explicit_law_name",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai",
+          "page_numbers": [
+            14
+          ]
+        },
+        {
+          "rule_id": "PF-BLDS-01",
+          "evidence_class": "explicit_law_name+documentary_case_type",
+          "field": "judgment_number",
+          "canonical_value": "CIVIL"
+        },
+        {
+          "rule_id": "PF-LAND-2013-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2013",
+          "page_numbers": [
+            14
+          ]
+        },
+        {
+          "rule_id": "PF-LAND-2024-01",
+          "evidence_class": "explicit_law_name+explicit_version",
+          "field": "structured.pages[].text",
+          "canonical_value": "Luật Đất đai … 2024",
+          "page_numbers": [
+            14
+          ]
+        }
+      ],
+      "ambiguity_flags": [],
+      "procedure_stage": "phuc_tham",
+      "documentary_case_type": "CIVIL",
+      "decision_year": 2026,
+      "stress_descriptors": [],
+      "quality_watchlist_flags": []
     },
     {
       "acquisition_id": "scale-20261027-082",

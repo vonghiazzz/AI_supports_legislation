@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-203",
+  "anchor_fingerprint": "137272fffa20504f61f60f790eb92df076db9a7a6da41084db4a02ef0367fb19",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:04.208589+07:00",
+  "offline_provenance": null,
+  "original_filename": "Bản án mã hóa 09-06-2026 11-07-40.pdf",
+  "pdf_sha256": "07be56841aca3c6f0f1319d8fae77f8497dfe7aca9a6ab08c2458faccd5b8bd7",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-203",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2129691t1cvn/Bản án mã hóa 09-06-2026 11-07-40.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-203/Bản án mã hóa 09-06-2026 11-07-40.pdf"
+}

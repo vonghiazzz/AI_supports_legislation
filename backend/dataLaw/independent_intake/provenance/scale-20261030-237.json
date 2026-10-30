@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-237",
+  "anchor_fingerprint": "2df6eb9640b476c0e977331ec9a832018a58a1ceffdedf02b5f3e2bfa6f3191c",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:28.881048+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_Hoang_Thi_T_va_Nguyen_Thi_Van_N_tranh_chap_ranh_gioi.pdf",
+  "pdf_sha256": "2121f179dad1bb20f17ca8ec5e8174e5259e863234a9d97b4724845406bcc959",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-237",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1255629t1cvn/Ban_an_Hoang_Thi_T_va_Nguyen_Thi_Van_N_tranh_chap_ranh_gioi.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-237/Ban_an_Hoang_Thi_T_va_Nguyen_Thi_Van_N_tranh_chap_ranh_gioi.pdf"
+}

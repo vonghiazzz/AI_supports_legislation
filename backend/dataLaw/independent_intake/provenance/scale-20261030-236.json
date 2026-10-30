@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-236",
+  "anchor_fingerprint": "f781151858132de4cbec03eb38e0f0995828ce1fc4ed107003f51e919bccb73f",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:28.190447+07:00",
+  "offline_provenance": null,
+  "original_filename": "BA_DSPT_Bich_Tien.pdf",
+  "pdf_sha256": "800c4e25b86adad697de52161c240fe111ba66ba0d592b8fa4d76e338973183b",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-236",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1468433t1cvn/BA_DSPT_Bich_Tien.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-236/BA_DSPT_Bich_Tien.pdf"
+}

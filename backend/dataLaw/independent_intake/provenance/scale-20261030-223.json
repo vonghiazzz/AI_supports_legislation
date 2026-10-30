@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-223",
+  "anchor_fingerprint": "beef74b9fe98591a90935c2bdd58532cd350384eec65827c156d1237704a467d",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:19.387522+07:00",
+  "offline_provenance": null,
+  "original_filename": "AN_DSPT_NUONG__CHIEN.pdf",
+  "pdf_sha256": "4776a225ae1a8cac492736f718239deb30e4938e5ddb0669981154f6128fbe80",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-223",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1287152t1cvn/AN_DSPT_NUONG__CHIEN.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-223/AN_DSPT_NUONG__CHIEN.pdf"
+}

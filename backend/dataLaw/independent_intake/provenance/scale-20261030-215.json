@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-215",
+  "anchor_fingerprint": "43048fd0011dae089e3d4eff58cfbcb8b67edf47d8466bfac2ad9f190f18b0ca",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:13.498226+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_so_203_2019_DS_PT_ngay_28_10_2019_Nguyen_T.pdf",
+  "pdf_sha256": "bddfe2e3b9147a8020c65a4ff6267fad18179614a1e3d7de1608a84c0ae9a2bb",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-215",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta385825t1cvn/Ban_an_so_203_2019_DS_PT_ngay_28_10_2019_Nguyen_T.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-215/Ban_an_so_203_2019_DS_PT_ngay_28_10_2019_Nguyen_T.pdf"
+}

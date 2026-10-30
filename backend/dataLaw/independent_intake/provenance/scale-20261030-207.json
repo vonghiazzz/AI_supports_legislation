@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-207",
+  "anchor_fingerprint": "33d3e183e9588240e11a2e8d36486d7cae2c57769e3a581e0e7c0cf06c6f24eb",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:07.346660+07:00",
+  "offline_provenance": null,
+  "original_filename": "ban_an_Hoach_Lieng_bay_ma_hoa_dang.pdf",
+  "pdf_sha256": "a1eb7e52079230d99aa31127d2f88ffdca108bc63310bb7c661fb3a7875c049b",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-207",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1994810t1cvn/ban_an_Hoach_Lieng_bay_ma_hoa_dang.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-207/ban_an_Hoach_Lieng_bay_ma_hoa_dang.pdf"
+}

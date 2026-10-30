@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-198",
+  "anchor_fingerprint": "728d4b1e751060d57855ef2a43a259a1294eb106c53e1ac5a8fbfd5243676976",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:00.042329+07:00",
+  "offline_provenance": null,
+  "original_filename": "Bản án Lê Xuân C - Lê Đ 02-10-2026 08-56-48.pdf",
+  "pdf_sha256": "420552aafb6cde698b0d7228c433b225ed1a60ace3a1e23069bbdf07c9063b20",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-198",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2276643t1cvn/Bản án Lê Xuân C - Lê Đ 02-10-2026 08-56-48.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-198/Bản án Lê Xuân C - Lê Đ 02-10-2026 08-56-48.pdf"
+}

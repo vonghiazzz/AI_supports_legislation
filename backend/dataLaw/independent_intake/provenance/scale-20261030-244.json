@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-244",
+  "anchor_fingerprint": "236c92c326f0fb392fb3ebb05b5e43bedfd9a56a778d6cae98f9e75cac702c49",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:33.753038+07:00",
+  "offline_provenance": null,
+  "original_filename": "BA Châu-Viễn mã hóa pdf 25-09-2026 09-03-44.pdf",
+  "pdf_sha256": "1155eddd9ee44d31a149708f3de82de3635b06268a735b999edb78660ffcd396",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-244",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2247380t1cvn/BA Châu-Viễn mã hóa pdf 25-09-2026 09-03-44.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-244/BA Châu-Viễn mã hóa pdf 25-09-2026 09-03-44.pdf"
+}

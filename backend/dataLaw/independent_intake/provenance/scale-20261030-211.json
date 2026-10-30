@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-211",
+  "anchor_fingerprint": "cfb53e784dcb865fb7674caa3202598cc4c7cb00b1a56498f57c0b0efd048faf",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:10.408267+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_113-2026-DS-ST_ma_hoa Vuong Huy 13-10-2026 08-37-45.pdf",
+  "pdf_sha256": "94047bc7d8861fce30c1d582cbc86c84382a89d070c2a95baaf290d67c7541d6",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-211",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2281164t1cvn/Ban_an_113-2026-DS-ST_ma_hoa Vuong Huy 13-10-2026 08-37-45.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-211/Ban_an_113-2026-DS-ST_ma_hoa Vuong Huy 13-10-2026 08-37-45.pdf"
+}

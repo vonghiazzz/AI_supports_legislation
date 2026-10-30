@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-230",
+  "anchor_fingerprint": "a549a64cb76909b41a981d6a2c0cf9251409060140fd9b66854f3f8a4ad6112d",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:24.085081+07:00",
+  "offline_provenance": null,
+  "original_filename": "ban_an_Quang_Co_ma_hoa_dang.pdf",
+  "pdf_sha256": "9b28bb459abef73d9fdf17fa14f8bc77699c8b9c34169560603f0d90918d057d",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-230",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta628027t1cvn/ban_an_Quang_Co_ma_hoa_dang.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-230/ban_an_Quang_Co_ma_hoa_dang.pdf"
+}

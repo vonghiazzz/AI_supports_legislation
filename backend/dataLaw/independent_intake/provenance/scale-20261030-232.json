@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-232",
+  "anchor_fingerprint": "e2eabc048b3d09d9d4e51a5b4bb7b2e22069e5e975705bdb8c68ac0b5909cffc",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:25.415147+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_ma_hoa_Huyen__Hoa.pdf",
+  "pdf_sha256": "d8cbf71f9807b5dfc605f53973a71f18fb38c13db7214363d1c93c1cfba3032b",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-232",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1970420t1cvn/Ban_an_ma_hoa_Huyen__Hoa.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-232/Ban_an_ma_hoa_Huyen__Hoa.pdf"
+}

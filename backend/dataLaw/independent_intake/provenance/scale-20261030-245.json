@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-245",
+  "anchor_fingerprint": "d2dad1323a68df0f0c302e42e7ed1ff522f3c31da17f778d57fbc3218d112fb8",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:34.425502+07:00",
+  "offline_provenance": null,
+  "original_filename": "25DSPT_Hai__Huy.pdf",
+  "pdf_sha256": "9774fd5a4c8bb540961bbf1820c5547eb2a01cfa806c3ed53920bfd3f9608f75",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-245",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2144133t1cvn/25DSPT_Hai__Huy.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-245/25DSPT_Hai__Huy.pdf"
+}

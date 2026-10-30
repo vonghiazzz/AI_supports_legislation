@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-202",
+  "anchor_fingerprint": "d7c1319daa2d816546501861f606a4cdc703c365578dfd95a05bfa2d18a74ee8",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:03.436464+07:00",
+  "offline_provenance": null,
+  "original_filename": "Bản án PT Nguyễn Thị Sáu - Nguyễn Thị Mười Hai 13-10-2026 14-29-58.pdf",
+  "pdf_sha256": "c1c2e341286fd90e44ce8c5d0cdbe16fc1a95fd8c6843dcc57e38a0c8e0de2d6",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-202",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2281362t1cvn/Bản án PT Nguyễn Thị Sáu - Nguyễn Thị Mười Hai 13-10-2026 14-29-58.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-202/Bản án PT Nguyễn Thị Sáu - Nguyễn Thị Mười Hai 13-10-2026 14-29-58.pdf"
+}

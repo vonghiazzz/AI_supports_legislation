@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-213",
+  "anchor_fingerprint": "7e285e81e3954ccc8da0c38a1bae3b0794703ccfce4cb4254c32e79d135cd585",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:11.955266+07:00",
+  "offline_provenance": null,
+  "original_filename": "CHÁNH - HIỂU - MH 28-10-2026 12-10-43.pdf",
+  "pdf_sha256": "627a8445e85412f8fc12647cd7f14e71f39be5be77b2d3ddaa64650b45d74e79",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-213",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2286396t1cvn/CHÁNH - HIỂU - MH 28-10-2026 12-10-43.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-213/CHÁNH - HIỂU - MH 28-10-2026 12-10-43.pdf"
+}

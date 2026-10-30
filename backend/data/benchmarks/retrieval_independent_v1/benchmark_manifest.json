@@ -6,8 +6,8 @@
   "state": "DRAFT",
   "benchmark_role": "independent_confirmatory_evaluation",
   "development_benchmark_role": "development_exploratory_only",
-  "git_commit": "3393504fec59550a3eb3bde112e3888d9c3a46de",
-  "generation_timestamp": "2026-10-29T18:49:31.745850+07:00",
+  "git_commit": "d136e59781aa0646b4ef20ec528170f02bf4294b",
+  "generation_timestamp": "2026-10-30T14:19:16.848029+07:00",
   "corpus_fingerprint": "66fb0b20e0505993ed616f864ece99ecfad801de98b4ba3a37d20a3a7bf55e58",
   "sampling_seed": null,
   "deterministic_ordering": "case_id ASC, then source_id ASC",
@@ -20,9 +20,9 @@
     "silent_quota_reduction_permitted": false
   },
   "current_counts": {
-    "available_sources": 293,
+    "available_sources": 330,
     "development_sources_consumed": 107,
-    "eligible_sources": 186,
+    "eligible_sources": 223,
     "selected_cases": 0,
     "query_records": 0,
     "ground_truth_records": 0
@@ -38,7 +38,7 @@
     },
     {
       "path": "backend/dataLaw/independent_intake/acquisition_manifest.json",
-      "sha256": "6a8df983576dfc10b209d14441a88522d35446c5e5546efcd05afc107ac6818b"
+      "sha256": "073322a134bc3a1a6c7e019d06278cef81ee38c33f11b8203507f1afcef5135e"
     },
     {
       "path": "backend/dataLaw/independent_intake/acquisition_manifest.schema.json",
@@ -50,7 +50,7 @@
     },
     {
       "path": "backend/scripts/Evaluation/benchmarking/independent_benchmark.py",
-      "sha256": "37b9056e676bd50347d84b820504ff133c31d86bd48228d97837054249bde2fd"
+      "sha256": "eba62bdb5c484f050db3f9caff7999d85a205a42b39d868d5f8ee79f92526901"
     },
     {
       "path": "backend/scripts/Evaluation/benchmarking/source_intake.py",
@@ -62,7 +62,7 @@
     },
     {
       "path": "backend/scripts/Tests/test_independent_benchmark_protocol.py",
-      "sha256": "f4b7b4db4066dbd26e6a8f5f908a8574129a5cf74554fed617019f4437303084"
+      "sha256": "06d8cb47a374c3969e1c5d3ec734967f9fd486b0919ed8c7ffcab12a5ee27ff7"
     },
     {
       "path": "backend/scripts/Tests/test_independent_source_intake.py",
@@ -88,11 +88,11 @@
   "phase1_artifacts": [
     {
       "path": "backend/data/benchmarks/retrieval_independent_v1/sampling_manifest.json",
-      "sha256": "5d04ccc6ca2c47b1f8f2a46b315de6f10e09ee47c73903863e1838c9b2b44c82"
+      "sha256": "dcbda00191779bcbdd9682ee75a570792bee071e38a7f4604cf97fab14e5c06c"
     },
     {
       "path": "backend/data/benchmarks/retrieval_independent_v1/source_dedup_report.json",
-      "sha256": "d514cdce77605e62df6e0dfa2dce042b174c01a86674bd0fb8fd43707d64ab71"
+      "sha256": "a2c94bf0adc491fd37054ab834b5c13bfaca27442ddf9357c230da093259e5c2"
     },
     {
       "path": "backend/data/benchmarks/retrieval_independent_v1/gt_schema_v2.snapshot.json",

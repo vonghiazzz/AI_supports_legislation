@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-212",
+  "anchor_fingerprint": "a4dd238f89a79d1c87d24b122b9594531489abde68eafa35e10590f41c33ebc6",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:11.170445+07:00",
+  "offline_provenance": null,
+  "original_filename": "AMH Phương - Khánh (Hợp đồng mua bán đất) 21-08-2026 16-04-37.pdf",
+  "pdf_sha256": "ccd8858b2cc5080fc7601783be0547cdf2ccaae0790de9b91b0fa7945b3c8908",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-212",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2281422t1cvn/AMH Phương - Khánh (Hợp đồng mua bán đất) 21-08-2026 16-04-37.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-212/AMH Phương - Khánh (Hợp đồng mua bán đất) 21-08-2026 16-04-37.pdf"
+}

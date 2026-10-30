@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-228",
+  "anchor_fingerprint": "c96ea54a41f4a50aa3dc1e19659edcf2137850ae9a4a47af9903bcec66fe801f",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:22.734547+07:00",
+  "offline_provenance": null,
+  "original_filename": "ban_an_Hue_Quang_ma_hoa_dang.pdf",
+  "pdf_sha256": "c6469ae622725df45b01ddbcd600adaa3bb93e58f8723277c1c9161b07a2b3b2",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-228",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1531478t1cvn/ban_an_Hue_Quang_ma_hoa_dang.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-228/ban_an_Hue_Quang_ma_hoa_dang.pdf"
+}

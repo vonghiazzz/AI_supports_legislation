@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-210",
+  "anchor_fingerprint": "8f067cea91d4b4eb77d25b40d7edc01d8d22d173acfa47f0608309638afcddf8",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:09.653635+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_101-2026-DS-ST_ma_hoa 13-10-2026 08-47-24.pdf",
+  "pdf_sha256": "6126abd139fa139293bafd7a64813f688711fdccfadf88acfda967975ab8ef2a",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-210",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2281175t1cvn/Ban_an_101-2026-DS-ST_ma_hoa 13-10-2026 08-47-24.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-210/Ban_an_101-2026-DS-ST_ma_hoa 13-10-2026 08-47-24.pdf"
+}

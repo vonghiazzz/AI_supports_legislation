@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-226",
+  "anchor_fingerprint": "1df15aa85d21cd9e0403c41e1801acf409ccf9c0f9373f8a2c10a430b7516168",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:21.386426+07:00",
+  "offline_provenance": null,
+  "original_filename": "ban_an_Lieu_Chienma_hoa_dang.pdf",
+  "pdf_sha256": "54539fffbab65b6c3c83fadbd33840736021a2fced7319bfb40407eb02f8c66d",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-226",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1460340t1cvn/ban_an_Lieu_Chienma_hoa_dang.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-226/ban_an_Lieu_Chienma_hoa_dang.pdf"
+}

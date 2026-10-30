@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-241",
+  "anchor_fingerprint": "42a599de0dac6450020f1907d376e7c20cc842dd78d371f73bbf68f91ad59ed2",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:31.630756+07:00",
+  "offline_provenance": null,
+  "original_filename": "1 Bản án DSPT Tuấn - Thành mã hóa 30-09-2026 15-47-50.pdf",
+  "pdf_sha256": "01adcf5756b2ad38707f7eff0cbe4ae92b95474fef1fb0f9c889011f1c1efdd9",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-241",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2268062t1cvn/1 Bản án DSPT Tuấn - Thành mã hóa 30-09-2026 15-47-50.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-241/1 Bản án DSPT Tuấn - Thành mã hóa 30-09-2026 15-47-50.pdf"
+}

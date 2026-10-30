@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-222",
+  "anchor_fingerprint": "1558cdfba8e753994e520e084f01aa55288d7b8454e635e78521de20f2ee247a",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:18.686378+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ban_an_ma_hoa_DSPT_Luc_Van_N_Dang_Van_N.pdf",
+  "pdf_sha256": "a49343f0de1de34da0c7689b654fce1d28596eeafc830b6f022f1eaa6061cb37",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-222",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1786303t1cvn/Ban_an_ma_hoa_DSPT_Luc_Van_N_Dang_Van_N.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-222/Ban_an_ma_hoa_DSPT_Luc_Van_N_Dang_Van_N.pdf"
+}

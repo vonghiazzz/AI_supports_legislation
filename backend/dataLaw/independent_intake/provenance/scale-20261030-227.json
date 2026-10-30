@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-227",
+  "anchor_fingerprint": "b3e7849cbc836f29f9af836d5ac9ecfd0ada56a30b836882682f6e5f6810a46b",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:22.064249+07:00",
+  "offline_provenance": null,
+  "original_filename": "Ba_Cao_Thi_Ph_doi_ong_Dinh_Van_M_tra_lai_dat.pdf",
+  "pdf_sha256": "b4db8c7ea129e20f6f1339ce04fec6e8d1dc8e2c164d343aa6a09dc113abe67e",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-227",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta1687789t1cvn/Ba_Cao_Thi_Ph_doi_ong_Dinh_Van_M_tra_lai_dat.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-227/Ba_Cao_Thi_Ph_doi_ong_Dinh_Van_M_tra_lai_dat.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-208",
+  "anchor_fingerprint": "0f3910e1b69a1c95ac96267e91d18de89f9827f36873a683076d0342530295d8",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:08.113472+07:00",
+  "offline_provenance": null,
+  "original_filename": "QD_CN_TT_Nhat__Hieu.pdf",
+  "pdf_sha256": "7aca8de9a74b58174197933874e9764bbecaa946095cc9b76d8af55d8e69f5c0",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-208",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2033928t1cvn/QD_CN_TT_Nhat__Hieu.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-208/QD_CN_TT_Nhat__Hieu.pdf"
+}

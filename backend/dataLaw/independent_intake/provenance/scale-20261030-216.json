@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "scale-20261030-216",
+  "anchor_fingerprint": "76d49c0964e1b01a0a9c0477ee32faa6a17a0b5861257bf24ee474c4b1c20b5c",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-10-30T09:16:14.319807+07:00",
+  "offline_provenance": null,
+  "original_filename": "mã hóa BA châu hoàng T 06-09-2026 10-06-19.pdf",
+  "pdf_sha256": "dfce566c5097f28d6edd3e4acbdbe72618b16e436f9fcc0847e04831e7b87142",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:scale-20261030-216",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2211337t1cvn/mã hóa BA châu hoàng T 06-09-2026 10-06-19.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/scale-20261030-216/mã hóa BA châu hoàng T 06-09-2026 10-06-19.pdf"
+}
