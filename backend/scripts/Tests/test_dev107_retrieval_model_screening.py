@@ -35,6 +35,162 @@ def _candidate_path(config):
     return PROJECT_ROOT / config["frozen_inputs"]["exp03_candidate_path"]
 
 
+def test_percentiles_returns_exact_latency_contract_for_non_empty_values():
+    assert screening._percentiles([0.001, 0.002, 0.004, 0.008]) == {
+        "mean_ms": 3.75,
+        "p50_ms": 3.0,
+        "p95_ms": 7.399999999999999,
+    }
+
+
+def test_percentiles_has_no_outer_scope_dependency(monkeypatch):
+    monkeypatch.delattr(screening, "documents", raising=False)
+    monkeypatch.delattr(screening, "records", raising=False)
+    assert screening._percentiles([0.002]) == {
+        "mean_ms": 2.0,
+        "p50_ms": 2.0,
+        "p95_ms": 2.0,
+    }
+
+
+def test_percentiles_preserves_empty_and_single_value_behavior():
+    assert screening._percentiles([]) == {
+        "mean_ms": None,
+        "p50_ms": None,
+        "p95_ms": None,
+    }
+    assert screening._percentiles([0.005]) == {
+        "mean_ms": 5.0,
+        "p50_ms": 5.0,
+        "p95_ms": 5.0,
+    }
+
+
+def test_retrieve_all_aggregates_latency_without_changing_rankings(
+    tmp_path, monkeypatch
+):
+    import sentence_transformers
+
+    documents = [
+        {"standard_law_id": "d1", "vector_text": "alpha"},
+        {"standard_law_id": "d2", "vector_text": "beta"},
+        {"standard_law_id": "d3", "vector_text": "gamma"},
+    ]
+    records = [{"query_id": 1, "query": "alpha"}]
+    bm25 = [
+        {"rank": 1, "standard_law_id": "d1", "score": 3.0},
+        {"rank": 2, "standard_law_id": "d2", "score": 2.0},
+    ]
+    vietnamese_sbert = [
+        {"rank": 1, "standard_law_id": "d2", "score": 0.9},
+        {"rank": 2, "standard_law_id": "d3", "score": 0.8},
+    ]
+    bge_m3 = [
+        {"rank": 1, "standard_law_id": "d3", "score": 0.7},
+        {"rank": 2, "standard_law_id": "d1", "score": 0.6},
+    ]
+    config = {
+        "evaluation": {"candidate_depths": [2]},
+        "vietnamese_sbert": {
+            "id": "synthetic/vietnamese-sbert",
+            "revision": "a" * 40,
+            "dimension": 768,
+            "normalize_embeddings": True,
+        },
+        "bge_m3": {
+            "id": "synthetic/bge-m3",
+            "revision": "b" * 40,
+            "dimension": 1024,
+            "normalize_embeddings": True,
+            "pooling": "cls",
+            "query_instruction": None,
+        },
+    }
+    for filename in ("vietnamese_sbert_embeddings.npz", "bge_m3_embeddings.npz"):
+        (tmp_path / filename).touch()
+
+    def fail_if_model_constructed(*args, **kwargs):
+        raise AssertionError("synthetic retrieval test must not construct a model")
+
+    def fake_load(path, expected):
+        if path.name == "vietnamese_sbert_embeddings.npz":
+            return (
+                np.zeros((1811, 768), dtype=np.float32),
+                np.zeros((107, 768), dtype=np.float32),
+                [0.001],
+                0.01,
+                {"model_name": "Vietnamese_SBERT"},
+            )
+        return (
+            np.zeros((1811, 1024), dtype=np.float32),
+            np.zeros((107, 1024), dtype=np.float32),
+            [0.002],
+            0.02,
+            {"model_name": "BGE_M3"},
+        )
+
+    monkeypatch.setattr(sentence_transformers, "SentenceTransformer", fail_if_model_constructed)
+    monkeypatch.setattr(screening, "_load_embedding_cache", fake_load)
+    monkeypatch.setattr(screening, "build_bm25_index", lambda _documents: object())
+    monkeypatch.setattr(screening, "search_bm25", lambda *args: copy.deepcopy(bm25))
+    monkeypatch.setattr(
+        screening,
+        "_search_faiss",
+        lambda index, *args: copy.deepcopy(
+            vietnamese_sbert if index.d == 768 else bge_m3
+        ),
+    )
+    monkeypatch.setattr(screening, "sha256_file", lambda path: path.name)
+
+    output, timing, _ = screening._retrieve_all(
+        config,
+        records,
+        documents,
+        tmp_path,
+        {},
+        {"git_commit": "c" * 40},
+    )
+
+    assert output == [{
+        "query_id": 1,
+        "query": "alpha",
+        "bm25": bm25,
+        "vietnamese_sbert": vietnamese_sbert,
+        "bge_m3": bge_m3,
+        "candidate_pools": {"2": {
+            "Current_Hybrid": [
+                {"rank": 1, "standard_law_id": "d1", "score": 0.5},
+                {"rank": 2, "standard_law_id": "d2", "score": 0.5},
+            ],
+            "BGE_M3_Hybrid_RRF": [
+                {
+                    "rank": 1,
+                    "standard_law_id": "d1",
+                    "score": 0.03252247488101534,
+                },
+                {
+                    "rank": 2,
+                    "standard_law_id": "d3",
+                    "score": 0.01639344262295082,
+                },
+            ],
+        }},
+    }]
+    assert timing["query_latency"]["Vietnamese_SBERT"] == {
+        "mean_ms": 1.0,
+        "p50_ms": 1.0,
+        "p95_ms": 1.0,
+    }
+    assert timing["query_latency"]["BGE_M3"] == {
+        "mean_ms": 2.0,
+        "p50_ms": 2.0,
+        "p95_ms": 2.0,
+    }
+    assert set(timing["query_latency"]["BM25"]) == {
+        "mean_ms", "p50_ms", "p95_ms"
+    }
+
+
 def test_valid_candidate_cache_accepted(config, candidate_cache):
     records, _, _ = screening._validate_candidate_and_source(
         candidate_cache, _candidate_path(config), config["frozen_inputs"]

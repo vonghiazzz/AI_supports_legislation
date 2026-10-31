@@ -103,8 +103,6 @@ def _percentiles(values: list[float]) -> dict:
     if array.size == 0:
         return {"mean_ms": None, "p50_ms": None, "p95_ms": None}
     return {
-        "document_count": len(documents),
-        "query_count": len(records),
         "mean_ms": float(array.mean() * 1000.0),
         "p50_ms": float(np.percentile(array, 50) * 1000.0),
         "p95_ms": float(np.percentile(array, 95) * 1000.0),
