@@ -1,0 +1,115 @@
+protocol:
+  id: "dev107_retrieval_model_screening_v1"
+  result_scope: "development_exploratory"
+  confirmatory: false
+  automatic_runtime_promotion: false
+
+evaluation:
+  query_count: 107
+  query_representation: "q0"
+  document_representation: "d0"
+  corpus_count: 1811
+  candidate_depths: [20, 30, 50, 100]
+  reported_k: [5, 10, 20]
+  alpha_core: 3
+  alpha_support: 1
+  random_seed: 42
+
+frozen_inputs:
+  development_path: "backend/data/judgments_evaluation.json"
+  exp03_candidate_path: "backend/data/runs/exp03_static_hybrid_5fold_cv_v1_20261013_123303_632045_cef5ac23/candidate_pools.json"
+  exp03_candidate_fingerprint: "4e94fc54bf2dc1ec09c4fbb605daadb1ba0dfa8c7c0c10a2d40ea34e90c2c805"
+  candidate_records_fingerprint: "01de1d851b4ea75f59b197d15714a8651f7b9217f04ffa34f16827b29f18458d"
+  exp05_prediction_path: "backend/data/runs/exp05_frozen_hybrid30_zero_shot_cross_encoder_eval_v1_20261017_025515_995783_bc3d1a8a/prediction_artifact.json"
+  query_fingerprint: "adf712e5d2636a960bbf454e1d32e6e8d665f3189a1c9776cf3cf84558ceff08"
+  corpus_fingerprint: "66fb0b20e0505993ed616f864ece99ecfad801de98b4ba3a37d20a3a7bf55e58"
+  d0_template: "Tiêu đề: {title}. Nội dung: {content}"
+
+corpus:
+  required_keys:
+    - "bo_luat_dan_su_2015"
+    - "bo_luat_to_tung_dan_su_2015"
+    - "luat_dat_dai_2013"
+    - "luat_dat_dai_2024"
+    - "luat_hon_nhan_gia_dinh_2014"
+  expected_counts:
+    bo_luat_dan_su_2015: 689
+    bo_luat_to_tung_dan_su_2015: 517
+    luat_dat_dai_2013: 212
+    luat_dat_dai_2024: 260
+    luat_hon_nhan_gia_dinh_2014: 133
+  expected_total: 1811
+
+bm25:
+  tokenizer: "whitespace"
+
+vietnamese_sbert:
+  id: "keepitreal/vietnamese-sbert"
+  revision: "a9467ef2ef47caa6448edeabfd8e5e5ce0fa2a23"
+  snapshot_path: null
+  dimension: 768
+  normalize_embeddings: true
+  device: "cpu"
+  dtype: "float32"
+  local_files_only: true
+
+bge_m3:
+  id: "BAAI/bge-m3"
+  revision: "5617a9f61b028005a4858fdac845db406aefb181"
+  snapshot_path: null
+  architecture: "XLMRobertaModel"
+  dimension: 1024
+  pooling: "cls"
+  query_instruction: null
+  normalize_embeddings: true
+  max_seq_length: 8192
+  batch_size: 1
+  device: "cpu"
+  dtype: "float32"
+  local_files_only: true
+
+fusion:
+  current_hybrid:
+    method: "minmax"
+    w_bm25: 0.5
+    w_dense: 0.5
+  bge_hybrid:
+    method: "rrf"
+    rrf_k: 60
+  tie_break: "score_desc_then_standard_law_id_asc"
+
+reranker:
+  id: "BAAI/bge-reranker-v2-m3"
+  revision: "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e"
+  snapshot_path: null
+  device: "cpu"
+  dtype: "float32"
+  batch_size: 1
+  max_length: 1024
+  truncation: "only_second"
+  score: "raw_scalar_classification_logit"
+  normalize_scores: false
+  local_files_only: true
+  reuse_exp05_scores: true
+  checkpoint_every_pairs: 250
+
+metrics:
+  world: "closed_world"
+  binary_relevance: "core_or_support"
+  graded_relevance: {core: 3, support: 1}
+  map_k: 20
+  macro_k: 10
+
+statistics:
+  bootstrap_samples: 20000
+  seed: 42
+  ci_percentiles: [2.5, 97.5]
+
+embedding_cache:
+  schema_version: "dev107_embedding_cache_v2"
+  allow_legacy: false
+
+paths:
+  laws_config: "backend/dataLaw/laws_config.json"
+  data_dir: "backend/data"
+  output_dir: "backend/data/runs"
