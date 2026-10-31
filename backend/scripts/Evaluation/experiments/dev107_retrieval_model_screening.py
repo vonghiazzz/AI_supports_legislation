@@ -336,7 +336,11 @@ def _embedding_cache_context(
     documents: list[dict],
     records: list[dict],
 ) -> dict:
+    document_ids = [item["standard_law_id"] for item in documents]
+    query_ids = [item["query_id"] for item in records]
     return {
+        "document_count": len(document_ids),
+        "query_count": len(query_ids),
         "corpus_fingerprint": config["frozen_inputs"]["corpus_fingerprint"],
         "document_representation_id": config["evaluation"]["document_representation"],
         "document_representation_fingerprint": fingerprint_records(
@@ -350,12 +354,8 @@ def _embedding_cache_context(
         ),
         "query_fingerprint": config["frozen_inputs"]["query_fingerprint"],
         "config_fingerprint": _config_fingerprint(config),
-        "document_ids_fingerprint": _sha256_json(
-            [item["standard_law_id"] for item in documents]
-        ),
-        "query_ids_fingerprint": _sha256_json(
-            [item["query_id"] for item in records]
-        ),
+        "document_ids_fingerprint": _sha256_json(document_ids),
+        "query_ids_fingerprint": _sha256_json(query_ids),
     }
 
 
@@ -446,6 +446,13 @@ def _load_embedding_cache(
     path: Path,
     expected_metadata: dict,
 ) -> tuple[np.ndarray, np.ndarray, list[float], float, dict]:
+    for count_key in ("document_count", "query_count"):
+        count = expected_metadata.get(count_key)
+        if isinstance(count, bool) or not isinstance(count, int) or count < 0:
+            _fail(
+                "EMBEDDING_PROVENANCE_FAILURE",
+                f"authoritative {count_key} is missing or invalid",
+            )
     try:
         with np.load(path, allow_pickle=False) as cached:
             required = {

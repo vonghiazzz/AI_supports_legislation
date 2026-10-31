@@ -136,11 +136,132 @@ def _small_cache(tmp_path):
     return path, expected
 
 
+def _rewrite_cache_metadata(path, mutate, *, recompute_fingerprint):
+    with np.load(path, allow_pickle=False) as cached:
+        values = {name: np.asarray(cached[name]) for name in cached.files}
+    metadata = json.loads(str(values["metadata_json"].item()))
+    mutate(metadata)
+    if recompute_fingerprint:
+        metadata.pop("metadata_fingerprint", None)
+        metadata["metadata_fingerprint"] = screening._sha256_json(metadata)
+    values["metadata_json"] = np.asarray(
+        json.dumps(metadata, ensure_ascii=False, sort_keys=True, allow_nan=False)
+    )
+    with open(path, "wb") as handle:
+        np.savez(handle, **values)
+
+
 def test_valid_embedding_cache_accepted(tmp_path):
     path, expected = _small_cache(tmp_path)
-    documents, queries, *_ = screening._load_embedding_cache(path, expected)
+    documents, queries, _, _, metadata = screening._load_embedding_cache(path, expected)
     assert documents.shape == (3, 2)
     assert queries.shape == (2, 2)
+    assert metadata["document_count"] == 3
+    assert metadata["query_count"] == 2
+
+
+def test_embedding_cache_context_derives_counts_from_ordered_inputs(config):
+    documents = [
+        {"standard_law_id": f"doc-{index}", "vector_text": f"document {index}"}
+        for index in range(4)
+    ]
+    records = [
+        {"query_id": f"query-{index}"}
+        for index in range(3)
+    ]
+    before = screening._config_fingerprint(config)
+    context = screening._embedding_cache_context(config, documents, records)
+    assert context["document_count"] == 4
+    assert context["query_count"] == 3
+    assert context["document_ids_fingerprint"] == screening._sha256_json(
+        [item["standard_law_id"] for item in documents]
+    )
+    assert context["query_ids_fingerprint"] == screening._sha256_json(
+        [item["query_id"] for item in records]
+    )
+    assert screening._config_fingerprint(config) == before
+
+
+@pytest.mark.parametrize("count_key", ["document_count", "query_count"])
+def test_embedding_cache_missing_count_fails_explicitly(tmp_path, count_key):
+    path, expected = _small_cache(tmp_path)
+    _rewrite_cache_metadata(
+        path,
+        lambda metadata: metadata.pop(count_key),
+        recompute_fingerprint=True,
+    )
+    with pytest.raises(
+        screening.Dev107IntegrityError,
+        match=f"EMBEDDING_PROVENANCE_FAILURE.*{count_key} mismatch",
+    ):
+        screening._load_embedding_cache(path, expected)
+
+
+@pytest.mark.parametrize("count_key", ["document_count", "query_count"])
+def test_embedding_cache_count_tampering_breaks_metadata_fingerprint(tmp_path, count_key):
+    path, expected = _small_cache(tmp_path)
+    _rewrite_cache_metadata(
+        path,
+        lambda metadata: metadata.__setitem__(count_key, metadata[count_key] + 1),
+        recompute_fingerprint=False,
+    )
+    with pytest.raises(
+        screening.Dev107IntegrityError,
+        match="EMBEDDING_PROVENANCE_FAILURE.*metadata integrity mismatch",
+    ):
+        screening._load_embedding_cache(path, expected)
+
+
+@pytest.mark.parametrize("count_key", ["document_count", "query_count"])
+def test_coordinated_count_and_metadata_fingerprint_rewrite_rejected(tmp_path, count_key):
+    path, expected = _small_cache(tmp_path)
+    _rewrite_cache_metadata(
+        path,
+        lambda metadata: metadata.__setitem__(count_key, metadata[count_key] + 1),
+        recompute_fingerprint=True,
+    )
+    with pytest.raises(
+        screening.Dev107IntegrityError,
+        match=f"EMBEDDING_PROVENANCE_FAILURE.*{count_key} mismatch",
+    ):
+        screening._load_embedding_cache(path, expected)
+
+
+@pytest.mark.parametrize(
+    ("matrix_name", "documents", "queries", "query_seconds", "expected_count"),
+    [
+        ("document", np.zeros((2, 2), dtype=np.float32), np.zeros((2, 2), dtype=np.float32), [0.1, 0.2], 3),
+        ("query", np.zeros((3, 2), dtype=np.float32), np.zeros((3, 2), dtype=np.float32), [0.1, 0.2, 0.3], 4),
+    ],
+)
+def test_embedding_matrix_row_count_mismatch_rejected(
+    tmp_path, matrix_name, documents, queries, query_seconds, expected_count
+):
+    path = tmp_path / f"{matrix_name}-count-mismatch.npz"
+    _, expected = _small_cache(tmp_path)
+    expected = dict(expected)
+    expected[f"{matrix_name}_count"] = expected_count
+    screening._write_embedding_cache(
+        path,
+        documents,
+        queries,
+        query_seconds,
+        1.0,
+        expected,
+        {"runner_sha256": "2" * 64, "git_commit": "3" * 40},
+    )
+    with pytest.raises(
+        screening.Dev107IntegrityError,
+        match="EMBEDDING_PROVENANCE_FAILURE.*matrix shape mismatch",
+    ):
+        screening._load_embedding_cache(path, expected)
+
+
+def test_fresh_embedding_cache_immediate_self_validation_succeeds(tmp_path):
+    path, expected = _small_cache(tmp_path)
+    loaded = screening._load_embedding_cache(path, expected)
+    assert loaded[0].shape[0] == expected["document_count"]
+    assert loaded[1].shape[0] == expected["query_count"]
 
 
 @pytest.mark.parametrize(
