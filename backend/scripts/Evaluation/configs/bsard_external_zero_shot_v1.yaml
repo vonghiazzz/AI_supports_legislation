@@ -1,0 +1,102 @@
+# Phase 1B protocol scaffold only. This file does not authorize model inference.
+
+protocol:
+  id: "bsard_external_zero_shot_v1"
+  status: "scaffold"
+  benchmark_id: "bsard_v1"
+  schema_version: "bsard_canonical_v1"
+  result_scope: "external_zero_shot_research"
+  execute_models: false
+  automatic_runtime_promotion: false
+
+dataset:
+  canonical_source: "Zenodo 5217310"
+  canonical_version: "1.0"
+  doi: "10.5281/zenodo.5217310"
+  language: "fr-BE"
+  dataset_license: "CC-BY-NC-SA-4.0"
+  code_reference_license: "MIT"
+  current_reference_release_role: "VERSIONED_LOGICAL_EQUIVALENCE_REFERENCE"
+  current_reference_revision: "f3ca6a396a47c4a3afd26b766b5abc0a56bb4205"
+  official_code_revision: "ff41f43b8cbf696fee7489cf188b8379dfdfd49c"
+  raw_root: null
+  raw_root_env: "BSARD_RAW_ROOT"
+  raw_data_must_remain_outside_repository: true
+  include_synthetic_by_default: false
+  include_negative_pools_by_default: false
+
+identity:
+  strict: true
+  expected_counts:
+    documents: 22633
+    human_train: 886
+    human_test: 222
+  expected_raw_sha256:
+    dataset_zip: "769380ab00aa472bf25226f9052df96c8d6e6472edc584ef4e2554a68c5685bc"
+    articles_fr_csv: "7886d16812fdc3daa1546dc2d9a7f5501b0ada2a616a7136c309fb3b7d16f2e7"
+    questions_fr_train_csv: "ddb76885f9be9d277e08a26498e8f218727bf282ef89bdba706159467cc2ddd3"
+    questions_fr_test_csv: "2607fff3deab14a2b915366b49674cb9fde35fabdbc9d41be0aa193dfaef37c8"
+  expected_fingerprints:
+    corpus_ordered: "13192650b6a488221b5d98654f6274354910f509ac83b49b9e9bbaff8cccaaf3"
+    corpus_unordered: "13192650b6a488221b5d98654f6274354910f509ac83b49b9e9bbaff8cccaaf3"
+    logical_corpus: "ab1682c5d20f5999dbca5039b63e561f4c69d878b08859ee3ab73752d42dec08"
+    train_split: "e9d180f99f05ab0398e18898d962828c631af5a951fb5643a34fc3055e28c357"
+    test_split: "38865923e39d24b23f140be7a3bd90618aed483c3da7def248186abec7c97c21"
+    train_unique_qrels: "d7445489a340975dc8bb5cfc1655353b76de7ebc6c9baa0a721d1c917d3c11a4"
+    test_unique_qrels: "c1fbd3251a5c1a806bb85d66c8e8a73fd84b864ca6ee5ee5bc072fc3dc2cab0a"
+
+representation:
+  query: "official question, unchanged"
+  document: "official Zenodo article, unchanged"
+  prepend_metadata: false
+  translate: false
+  query_expansion: false
+
+systems:
+  bm25:
+    role: "lexical_control"
+  bge_m3_dense:
+    role: "primary_multilingual_dense_baseline"
+    id: "BAAI/bge-m3"
+    revision: "5617a9f61b028005a4858fdac845db406aefb181"
+    local_files_only: true
+  bm25_bge_m3_rrf:
+    role: "candidate_fusion"
+    method: "rrf"
+    rrf_k: 60
+  bge_reranker_n20:
+    candidate_source: "bm25_bge_m3_rrf"
+    candidate_depth: 20
+  bge_reranker_n50:
+    candidate_source: "bm25_bge_m3_rrf"
+    candidate_depth: 50
+  reranker:
+    id: "BAAI/bge-reranker-v2-m3"
+    revision: "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e"
+    local_files_only: true
+  vietnamese_sbert:
+    role: "not_primary_for_bsard"
+
+evaluation:
+  candidate_diagnostic_depths: [20, 30, 50, 100, 200, 500]
+  official_compat_metrics:
+    - "Recall@100"
+    - "Recall@200"
+    - "Recall@500"
+    - "MAP@100"
+    - "MRR@100"
+  safe_canonical_metrics:
+    recall_at: [10, 20, 30, 50, 100, 200, 500]
+    ndcg_at: [10]
+    map_at: 100
+    mrr_at: 100
+  paired_bootstrap:
+    samples: 20000
+    seed: 42
+
+research_questions:
+  RQ-BSARD-1: "Does BGE-M3 outperform BM25 zero-shot?"
+  RQ-BSARD-2: "Does RRF increase candidate coverage?"
+  RQ-BSARD-3: "Does reranking improve final ranking quality?"
+  RQ-BSARD-4: "Does candidate-generation failure dominate ranking failure?"
+  RQ-BSARD-5: "How does candidate depth trade effectiveness against cost?"

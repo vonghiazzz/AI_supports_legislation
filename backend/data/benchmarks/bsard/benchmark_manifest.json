@@ -1,0 +1,66 @@
+{
+  "benchmark_id": "bsard_v1",
+  "manifest_version": "bsard_manifest_v1",
+  "schema_version": "bsard_canonical_v1",
+  "state": "SCAFFOLD",
+  "raw_data_in_repository": false,
+  "canonical_source": {
+    "provider": "Zenodo",
+    "record": "5217310",
+    "doi": "10.5281/zenodo.5217310",
+    "version": "1.0"
+  },
+  "current_reference_release": {
+    "provider": "Maastricht Law & Tech Hugging Face",
+    "role": "VERSIONED_LOGICAL_EQUIVALENCE_REFERENCE",
+    "revision": "f3ca6a396a47c4a3afd26b766b5abc0a56bb4205"
+  },
+  "official_reference_code": {
+    "revision": "ff41f43b8cbf696fee7489cf188b8379dfdfd49c",
+    "license": "MIT"
+  },
+  "dataset_license": "CC-BY-NC-SA-4.0",
+  "language": "fr-BE",
+  "canonical_counts": {
+    "documents": 22633,
+    "human_train_queries": 886,
+    "human_test_queries": 222
+  },
+  "raw_sha256": {
+    "bsard_v1.zip": "769380ab00aa472bf25226f9052df96c8d6e6472edc584ef4e2554a68c5685bc",
+    "articles_fr.csv": "7886d16812fdc3daa1546dc2d9a7f5501b0ada2a616a7136c309fb3b7d16f2e7",
+    "questions_fr_train.csv": "ddb76885f9be9d277e08a26498e8f218727bf282ef89bdba706159467cc2ddd3",
+    "questions_fr_test.csv": "2607fff3deab14a2b915366b49674cb9fde35fabdbc9d41be0aa193dfaef37c8"
+  },
+  "fingerprints": {
+    "corpus_ordered": "13192650b6a488221b5d98654f6274354910f509ac83b49b9e9bbaff8cccaaf3",
+    "corpus_unordered": "13192650b6a488221b5d98654f6274354910f509ac83b49b9e9bbaff8cccaaf3",
+    "logical_corpus": "ab1682c5d20f5999dbca5039b63e561f4c69d878b08859ee3ab73752d42dec08",
+    "train_split": "e9d180f99f05ab0398e18898d962828c631af5a951fb5643a34fc3055e28c357",
+    "test_split": "38865923e39d24b23f140be7a3bd90618aed483c3da7def248186abec7c97c21",
+    "train_unique_qrels": "d7445489a340975dc8bb5cfc1655353b76de7ebc6c9baa0a721d1c917d3c11a4",
+    "test_unique_qrels": "c1fbd3251a5c1a806bb85d66c8e8a73fd84b864ca6ee5ee5bc072fc3dc2cab0a"
+  },
+  "known_source_defects": [
+    {
+      "split": "test",
+      "query_id": "274",
+      "type": "duplicate_qrel_occurrence",
+      "document_id": "1102",
+      "raw_qrel_occurrence_count": 7,
+      "unique_qrel_count": 6,
+      "duplicate_qrel_count": 1,
+      "canonical_policy": "preserve raw occurrences and expose unique first-occurrence qrels"
+    }
+  ],
+  "metric_modes": [
+    "bsard_official_compat",
+    "bsard_safe_canonical"
+  ],
+  "explicit_absences": {
+    "raw_dataset_text": true,
+    "retrieval_outputs": true,
+    "model_outputs": true,
+    "experiment_metrics": true
+  }
+}
