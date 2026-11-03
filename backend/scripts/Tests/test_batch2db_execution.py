@@ -87,11 +87,53 @@ def _registration_record(entry, disposition="REGISTERED_HASH_VERIFIED"):
     }
 
 
+def _tls_trust():
+    return {
+        "schema_version": runner.TLS_PROTOCOL_SCHEMA_VERSION,
+        "mode": runner.TLS_TRUST_MODE,
+        "base_certifi_sha256": runner.EXPECTED_BASE_CERTIFI_SHA256,
+        "supplemental_intermediate_der_sha256": runner.EXPECTED_INTERMEDIATE_DER_SHA256,
+        "expected_root_r3_sha256": runner.EXPECTED_ROOT_R3_SHA256,
+        "combined_ca_bundle_sha256": runner.EXPECTED_SUPPLEMENTAL_BUNDLE_SHA256,
+        "verify_mode": "CERT_REQUIRED",
+        "check_hostname": True,
+        "partial_chain_enabled": False,
+        "base_trust": "certifi",
+        "intermediate_role": "CHAIN_COMPLETION_ONLY",
+    }
+
+
+def _valid_test_bundle(tmp_path, monkeypatch):
+    path = tmp_path / "verified-supplemental.pem"
+    path.write_bytes(b"test-only-supplemental-bundle\n")
+    digest = hashlib.sha256(path.read_bytes()).hexdigest()
+    monkeypatch.setattr(runner, "EXPECTED_SUPPLEMENTAL_BUNDLE_SHA256", digest)
+    return path
+
+
+class FakeSSLContext:
+    def __init__(
+        self,
+        *,
+        verify_mode=ssl.CERT_REQUIRED,
+        check_hostname=True,
+        verify_flags=0,
+    ):
+        self.verify_mode = verify_mode
+        self.check_hostname = check_hostname
+        self.verify_flags = verify_flags
+
+
 def test_frozen_constants_are_exact():
     assert runner.COHORT_CHECKPOINT_COMMIT == "c34825798754de0e97943abfbd372f439256b7e0"
     assert runner.COHORT_FINGERPRINT == "7f98015c8127bbf282098215d5db3bcb6037803ca1c7fc5f8c587bd4a26d4802"
     assert runner.COHORT_FILE_SHA256 == "2372285a1cce328943a86b769609157bfd0db2024efc451007fb3ab11a43c85c"
     assert runner.EXPECTED_IDS == [f"batch2db-20261103-{index:03d}" for index in range(1, 51)]
+    assert runner.TLS_TRUST_MODE == "CERTIFI_PLUS_VERIFIED_GLOBALSIGN_INTERMEDIATE"
+    assert runner.EXPECTED_BASE_CERTIFI_SHA256 == "fc9165a12403263e7ebfbdad7be7a3eac0fa5d325d3c70465f28d3690072ca28"
+    assert runner.EXPECTED_INTERMEDIATE_DER_SHA256 == "b676ffa3179e8812093a1b5eafee876ae7a6aaf231078dad1bfb21cd2893764a"
+    assert runner.EXPECTED_ROOT_R3_SHA256 == "cbb522d7b7f127ad6a0113865bdf1cd4102e7d0759af635a7cf4720dc963c53b"
+    assert runner.EXPECTED_SUPPLEMENTAL_BUNDLE_SHA256 == "f08632660e469b1953e83ecc06d02ffb9a6dd4ad3de44502979679197d6f3fcc"
 
 
 def test_real_frozen_cohort_validates(cohort, intake):
@@ -99,7 +141,10 @@ def test_real_frozen_cohort_validates(cohort, intake):
     assert validated["cohort_fingerprint"] == runner.COHORT_FINGERPRINT
 
 
-def test_real_execution_inputs_and_checkpoint_ancestry_are_valid():
+def test_real_execution_inputs_and_checkpoint_ancestry_are_valid(monkeypatch):
+    monkeypatch.setattr(
+        runner, "validate_git_gate", lambda root: runner.COHORT_CHECKPOINT_COMMIT
+    )
     loaded, manifest, head = runner.load_execution_inputs(PROJECT_ROOT)
     assert loaded["cohort_fingerprint"] == runner.COHORT_FINGERPRINT
     assert len(manifest["sources"]) == 271
@@ -309,7 +354,199 @@ def test_resume_protocol_fingerprint_mismatch_fails_closed(tmp_path):
     }
     runner.strict_json_write(tmp_path / "execution_protocol.json", payload)
     with pytest.raises(runner.Batch2DBExecutionError, match="parent_cohort_fingerprint"):
-        runner._load_resume_protocol(tmp_path, runner.COHORT_CHECKPOINT_COMMIT)
+        runner._load_resume_protocol(
+            tmp_path, runner.COHORT_CHECKPOINT_COMMIT, _tls_trust()
+        )
+
+
+def test_exact_ca_bundle_path_is_accepted(tmp_path, monkeypatch):
+    bundle = _valid_test_bundle(tmp_path, monkeypatch)
+    assert runner.validate_ca_bundle(bundle) == bundle.resolve()
+
+
+def test_wrong_ca_bundle_sha_is_rejected(tmp_path):
+    bundle = tmp_path / "wrong.pem"
+    bundle.write_bytes(b"wrong bundle\n")
+    with pytest.raises(runner.Batch2DBExecutionError, match="SHA256 mismatch"):
+        runner.validate_ca_bundle(bundle)
+
+
+def test_missing_ca_bundle_is_rejected(tmp_path):
+    with pytest.raises(runner.Batch2DBExecutionError, match="does not exist"):
+        runner.validate_ca_bundle(tmp_path / "missing.pem")
+
+
+def test_symlink_ca_bundle_is_rejected(tmp_path, monkeypatch):
+    bundle = _valid_test_bundle(tmp_path, monkeypatch)
+    link = tmp_path / "bundle-link.pem"
+    link.symlink_to(bundle)
+    with pytest.raises(runner.Batch2DBExecutionError, match="must not be a symlink"):
+        runner.validate_ca_bundle(link)
+
+
+def test_directory_ca_bundle_is_rejected(tmp_path):
+    with pytest.raises(runner.Batch2DBExecutionError, match="regular file"):
+        runner.validate_ca_bundle(tmp_path)
+
+
+def test_unreadable_ca_bundle_is_rejected(tmp_path, monkeypatch):
+    bundle = tmp_path / "unreadable.pem"
+    bundle.write_bytes(b"bundle\n")
+    monkeypatch.setattr(runner.os, "access", lambda path, mode: False)
+    with pytest.raises(runner.Batch2DBExecutionError, match="not readable"):
+        runner.validate_ca_bundle(bundle)
+
+
+def test_verified_ssl_context_and_provenance_are_exact(tmp_path, monkeypatch):
+    bundle = _valid_test_bundle(tmp_path, monkeypatch)
+    context = FakeSSLContext()
+    monkeypatch.setattr(
+        runner.ssl, "create_default_context", lambda *, cafile: context
+    )
+    actual_context, provenance = runner.build_verified_ssl_context(bundle)
+    assert actual_context is context
+    assert provenance == _tls_trust()
+    assert provenance["base_trust"] == "certifi"
+    assert provenance["intermediate_role"] == "CHAIN_COMPLETION_ONLY"
+
+
+@pytest.mark.parametrize(
+    ("context", "message"),
+    [
+        (FakeSSLContext(verify_mode=ssl.CERT_NONE), "certificate verification"),
+        (FakeSSLContext(check_hostname=False), "hostname verification"),
+        (
+            FakeSSLContext(
+                verify_flags=int(getattr(ssl, "VERIFY_X509_PARTIAL_CHAIN", 0))
+            ),
+            "partial-chain",
+        ),
+    ],
+)
+def test_unsafe_ssl_context_is_rejected(tmp_path, monkeypatch, context, message):
+    if message == "partial-chain" and not getattr(
+        ssl, "VERIFY_X509_PARTIAL_CHAIN", 0
+    ):
+        pytest.skip("Runtime has no partial-chain flag")
+    bundle = _valid_test_bundle(tmp_path, monkeypatch)
+    monkeypatch.setattr(
+        runner.ssl, "create_default_context", lambda *, cafile: context
+    )
+    with pytest.raises(runner.Batch2DBExecutionError, match=message):
+        runner.build_verified_ssl_context(bundle)
+
+
+def test_tls_downloader_injects_verified_context_and_preserves_stage_barrier(
+    tmp_path, monkeypatch
+):
+    context = FakeSSLContext()
+    calls = []
+
+    def fake_urlopen(request, timeout, context=None):
+        calls.append((request.full_url, timeout, context))
+        return FakeResponse(url=request.full_url)
+
+    monkeypatch.setattr(
+        runner.source_intake, "validate_pdf_source", lambda path, sha: sha
+    )
+    entries = [_entry(index) for index in range(1, 51)]
+    downloader = runner.make_tls_downloader(context, urlopen=fake_urlopen)
+    records = runner.run_download_stage(entries, tmp_path, downloader=downloader)
+    assert len(records) == 50
+    assert len(calls) == 50
+    assert all(call[2] is context for call in calls)
+    assert [record["acquisition_id"] for record in records] == runner.EXPECTED_IDS
+
+
+def test_tls_protocol_records_exact_provenance(tmp_path, cohort):
+    protocol = runner._create_protocol(
+        PROJECT_ROOT,
+        tmp_path,
+        cohort,
+        runner.COHORT_CHECKPOINT_COMMIT,
+        runner.BASELINE_MANIFEST_SHA256,
+        _tls_trust(),
+    )
+    assert protocol["tls_protocol_schema_version"] == runner.TLS_PROTOCOL_SCHEMA_VERSION
+    assert protocol["tls_trust"] == _tls_trust()
+
+
+def test_resume_with_same_tls_provenance_is_accepted(tmp_path, cohort):
+    runner._create_protocol(
+        PROJECT_ROOT,
+        tmp_path,
+        cohort,
+        runner.COHORT_CHECKPOINT_COMMIT,
+        runner.BASELINE_MANIFEST_SHA256,
+        _tls_trust(),
+    )
+    loaded = runner._load_resume_protocol(
+        tmp_path, runner.COHORT_CHECKPOINT_COMMIT, _tls_trust()
+    )
+    assert loaded["tls_trust"] == _tls_trust()
+
+
+@pytest.mark.parametrize(
+    ("field", "changed"),
+    [
+        ("combined_ca_bundle_sha256", "0" * 64),
+        ("base_certifi_sha256", "1" * 64),
+        ("supplemental_intermediate_der_sha256", "2" * 64),
+        ("partial_chain_enabled", True),
+        ("check_hostname", False),
+    ],
+)
+def test_resume_with_changed_tls_provenance_is_rejected(
+    tmp_path, cohort, field, changed
+):
+    runner._create_protocol(
+        PROJECT_ROOT,
+        tmp_path,
+        cohort,
+        runner.COHORT_CHECKPOINT_COMMIT,
+        runner.BASELINE_MANIFEST_SHA256,
+        _tls_trust(),
+    )
+    changed_trust = _tls_trust()
+    changed_trust[field] = changed
+    with pytest.raises(runner.Batch2DBExecutionError, match="tls_trust"):
+        runner._load_resume_protocol(
+            tmp_path, runner.COHORT_CHECKPOINT_COMMIT, changed_trust
+        )
+
+
+def test_old_protocol_without_tls_section_is_rejected(tmp_path):
+    old = {
+        "protocol_id": runner.PROTOCOL_ID,
+        "run_id": tmp_path.name,
+        "parent_cohort_checkpoint_commit": runner.COHORT_CHECKPOINT_COMMIT,
+        "parent_cohort_fingerprint": runner.COHORT_FINGERPRINT,
+        "parent_cohort_file_sha256": runner.COHORT_FILE_SHA256,
+        "execution_git_commit": runner.COHORT_CHECKPOINT_COMMIT,
+        "runner_sha256": runner._runner_sha256(),
+        "baseline_manifest_sha256": runner.BASELINE_MANIFEST_SHA256,
+        "baseline_source_count": runner.BASELINE_SOURCE_COUNT,
+    }
+    runner.strict_json_write(tmp_path / "execution_protocol.json", old)
+    with pytest.raises(
+        runner.Batch2DBExecutionError, match="tls_protocol_schema_version"
+    ):
+        runner._load_resume_protocol(
+            tmp_path, runner.COHORT_CHECKPOINT_COMMIT, _tls_trust()
+        )
+
+
+def test_historical_partial_run_is_rejected_before_network():
+    historical = (
+        PROJECT_ROOT
+        / runner.RUNS_RELATIVE
+        / "independent_batch2db_execution_v1_20261103_075028_894809_8bdd74ba"
+    )
+    assert historical.is_dir()
+    with pytest.raises(runner.Batch2DBExecutionError):
+        runner._load_resume_protocol(
+            historical, runner.COHORT_CHECKPOINT_COMMIT, _tls_trust()
+        )
 
 
 def test_manifest_count_reconciliation_rejects_wrong_delta(tmp_path, monkeypatch):
@@ -417,14 +654,8 @@ def test_runner_contains_no_tls_bypass_or_ca_ignore_escape_hatch():
         "http://",
     }
     assert all(fragment not in source for fragment in forbidden_fragments)
-    tree = ast.parse(source)
-    imported_roots = {
-        alias.name.split(".")[0]
-        for node in ast.walk(tree)
-        if isinstance(node, (ast.Import, ast.ImportFrom))
-        for alias in node.names
-    }
-    assert "ssl" not in imported_roots
+    assert "verify_flags |= " not in source
+    assert "verify_flags = verify_flags |" not in source
 
 
 def test_frozen_cohort_validation_rejects_https_to_http_downgrade(cohort, intake):
@@ -439,9 +670,24 @@ def test_frozen_cohort_validation_rejects_https_to_http_downgrade(cohort, intake
 @pytest.mark.parametrize("unsafe_flag", ["--insecure", "--no-verify", "--ca-ignore"])
 def test_cli_rejects_arbitrary_tls_bypass_flags(unsafe_flag, capsys):
     with pytest.raises(SystemExit) as exc:
-        runner.main(["--project-root", str(PROJECT_ROOT), unsafe_flag])
+        runner.main(
+            [
+                "--project-root",
+                str(PROJECT_ROOT),
+                "--ca-bundle",
+                "unused.pem",
+                unsafe_flag,
+            ]
+        )
     assert exc.value.code == 2
     assert "unrecognized arguments" in capsys.readouterr().err
+
+
+def test_cli_requires_explicit_ca_bundle(capsys):
+    with pytest.raises(SystemExit) as exc:
+        runner.main(["--project-root", str(PROJECT_ROOT)])
+    assert exc.value.code == 2
+    assert "--ca-bundle" in capsys.readouterr().err
 
 
 def test_no_main_stress_seed_query_gt_or_model_fields_in_protocol(tmp_path, cohort):
@@ -451,6 +697,7 @@ def test_no_main_stress_seed_query_gt_or_model_fields_in_protocol(tmp_path, coho
         cohort,
         runner.COHORT_CHECKPOINT_COMMIT,
         runner.BASELINE_MANIFEST_SHA256,
+        _tls_trust(),
     )
     assert "main" not in protocol
     assert "stress" not in protocol

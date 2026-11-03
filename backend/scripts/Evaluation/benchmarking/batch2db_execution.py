@@ -14,6 +14,7 @@ import hashlib
 import json
 import os
 import re
+import ssl
 import subprocess
 import time
 import unicodedata
@@ -29,6 +30,20 @@ from .sampling_policy import sha256_file, strict_json_load, strict_json_write
 
 
 PROTOCOL_ID = "independent_batch2db_execution_v1"
+TLS_PROTOCOL_SCHEMA_VERSION = "batch2db_verified_tls_trust_v1"
+TLS_TRUST_MODE = "CERTIFI_PLUS_VERIFIED_GLOBALSIGN_INTERMEDIATE"
+EXPECTED_BASE_CERTIFI_SHA256 = (
+    "fc9165a12403263e7ebfbdad7be7a3eac0fa5d325d3c70465f28d3690072ca28"
+)
+EXPECTED_INTERMEDIATE_DER_SHA256 = (
+    "b676ffa3179e8812093a1b5eafee876ae7a6aaf231078dad1bfb21cd2893764a"
+)
+EXPECTED_ROOT_R3_SHA256 = (
+    "cbb522d7b7f127ad6a0113865bdf1cd4102e7d0759af635a7cf4720dc963c53b"
+)
+EXPECTED_SUPPLEMENTAL_BUNDLE_SHA256 = (
+    "f08632660e469b1953e83ecc06d02ffb9a6dd4ad3de44502979679197d6f3fcc"
+)
 COHORT_ID = "batch2db-20261103"
 COHORT_CHECKPOINT_COMMIT = "c34825798754de0e97943abfbd372f439256b7e0"
 COHORT_FINGERPRINT = "7f98015c8127bbf282098215d5db3bcb6037803ca1c7fc5f8c587bd4a26d4802"
@@ -213,6 +228,76 @@ def validate_initial_baseline(project_root: Path, manifest: dict) -> None:
         path = Path(project_root).resolve() / relative
         if any(path.glob("batch2db-20261103-*")):
             raise Batch2DBExecutionError(f"Unexpected Batch 2D-B artifact under {relative}")
+
+
+def validate_ca_bundle(ca_bundle: Path) -> Path:
+    """Validate the exact, previously audited supplemental CA bundle."""
+
+    candidate = Path(ca_bundle)
+    if not candidate.exists():
+        raise Batch2DBExecutionError("Explicit CA bundle does not exist")
+    if candidate.is_symlink():
+        raise Batch2DBExecutionError("Explicit CA bundle must not be a symlink")
+    if not candidate.is_file():
+        raise Batch2DBExecutionError("Explicit CA bundle must be a regular file")
+    if not os.access(candidate, os.R_OK):
+        raise Batch2DBExecutionError("Explicit CA bundle is not readable")
+    try:
+        resolved = candidate.resolve(strict=True)
+    except OSError as exc:
+        raise Batch2DBExecutionError("Explicit CA bundle cannot be resolved") from exc
+    if not resolved.is_file():
+        raise Batch2DBExecutionError("Resolved CA bundle must be a regular file")
+    if sha256_file(resolved) != EXPECTED_SUPPLEMENTAL_BUNDLE_SHA256:
+        raise Batch2DBExecutionError("Explicit CA bundle SHA256 mismatch")
+    return resolved
+
+
+def build_verified_ssl_context(ca_bundle: Path) -> tuple[ssl.SSLContext, dict[str, Any]]:
+    """Build fail-closed TLS trust from the fingerprint-pinned bundle."""
+
+    resolved = validate_ca_bundle(ca_bundle)
+    context = ssl.create_default_context(cafile=str(resolved))
+    if context.verify_mode != ssl.CERT_REQUIRED:
+        raise Batch2DBExecutionError("TLS context must require certificate verification")
+    if context.check_hostname is not True:
+        raise Batch2DBExecutionError("TLS context must enforce hostname verification")
+    partial_chain_flag = getattr(ssl, "VERIFY_X509_PARTIAL_CHAIN", 0)
+    partial_chain_enabled = bool(
+        partial_chain_flag and context.verify_flags & partial_chain_flag
+    )
+    if partial_chain_enabled:
+        raise Batch2DBExecutionError("TLS partial-chain trust is forbidden")
+    provenance = {
+        "schema_version": TLS_PROTOCOL_SCHEMA_VERSION,
+        "mode": TLS_TRUST_MODE,
+        "base_certifi_sha256": EXPECTED_BASE_CERTIFI_SHA256,
+        "supplemental_intermediate_der_sha256": EXPECTED_INTERMEDIATE_DER_SHA256,
+        "expected_root_r3_sha256": EXPECTED_ROOT_R3_SHA256,
+        "combined_ca_bundle_sha256": EXPECTED_SUPPLEMENTAL_BUNDLE_SHA256,
+        "verify_mode": "CERT_REQUIRED",
+        "check_hostname": True,
+        "partial_chain_enabled": False,
+        "base_trust": "certifi",
+        "intermediate_role": "CHAIN_COMPLETION_ONLY",
+    }
+    return context, provenance
+
+
+def make_tls_downloader(
+    context: ssl.SSLContext,
+    *,
+    urlopen: Callable[..., Any] = urllib.request.urlopen,
+) -> Callable[[dict, Path], dict]:
+    """Bind the verified context to the existing download implementation."""
+
+    def verified_opener(request: urllib.request.Request, timeout: int) -> Any:
+        return urlopen(request, timeout=timeout, context=context)
+
+    def downloader(entry: dict, downloads_dir: Path) -> dict:
+        return download_entry(entry, downloads_dir, opener=verified_opener)
+
+    return downloader
 
 
 def _atomic_json(path: Path, value: Mapping[str, Any]) -> None:
@@ -598,7 +683,12 @@ def _new_run_id() -> str:
 
 
 def _create_protocol(
-    root: Path, run_dir: Path, cohort: dict, head: str, baseline_manifest_sha: str
+    root: Path,
+    run_dir: Path,
+    cohort: dict,
+    head: str,
+    baseline_manifest_sha: str,
+    tls_trust: Mapping[str, Any],
 ) -> dict:
     protocol = {
         "protocol_id": PROTOCOL_ID,
@@ -609,6 +699,8 @@ def _create_protocol(
         "parent_cohort_file_sha256": COHORT_FILE_SHA256,
         "execution_git_commit": head,
         "runner_sha256": _runner_sha256(),
+        "tls_protocol_schema_version": TLS_PROTOCOL_SCHEMA_VERSION,
+        "tls_trust": dict(tls_trust),
         "baseline_manifest_sha256": baseline_manifest_sha,
         "baseline_source_count": BASELINE_SOURCE_COUNT,
         "frozen_source_count": len(cohort["entries"]),
@@ -627,7 +719,9 @@ def _create_protocol(
     return protocol
 
 
-def _load_resume_protocol(run_dir: Path, head: str) -> dict:
+def _load_resume_protocol(
+    run_dir: Path, head: str, tls_trust: Mapping[str, Any]
+) -> dict:
     protocol = strict_json_load(run_dir / "execution_protocol.json")
     required = {
         "protocol_id": PROTOCOL_ID,
@@ -637,6 +731,7 @@ def _load_resume_protocol(run_dir: Path, head: str) -> dict:
         "runner_sha256": _runner_sha256(),
         "baseline_manifest_sha256": BASELINE_MANIFEST_SHA256,
         "baseline_source_count": BASELINE_SOURCE_COUNT,
+        "tls_protocol_schema_version": TLS_PROTOCOL_SCHEMA_VERSION,
     }
     for key, value in required.items():
         if protocol.get(key) != value:
@@ -645,6 +740,8 @@ def _load_resume_protocol(run_dir: Path, head: str) -> dict:
         raise Batch2DBExecutionError("Resume run ID mismatch")
     if protocol.get("execution_git_commit") != head:
         raise Batch2DBExecutionError("Resume execution HEAD mismatch")
+    if protocol.get("tls_trust") != dict(tls_trust):
+        raise Batch2DBExecutionError("Resume protocol mismatch: tls_trust")
     return protocol
 
 
@@ -723,6 +820,7 @@ def _finalize(
         "completed_at": dt.datetime.now().astimezone().isoformat(),
         "execution_git_commit": protocol["execution_git_commit"],
         "runner_sha256": protocol["runner_sha256"],
+        "tls_trust": protocol["tls_trust"],
         "cohort_fingerprint": COHORT_FINGERPRINT,
         "baseline_manifest_sha256": protocol["baseline_manifest_sha256"],
         "final_manifest_sha256": final_manifest_sha,
@@ -740,9 +838,13 @@ def _finalize(
     return run_manifest
 
 
-def run(*, project_root: Path, resume_run: Path | None = None) -> Path:
+def run(
+    *, project_root: Path, ca_bundle: Path, resume_run: Path | None = None
+) -> Path:
     root = Path(project_root).resolve()
     cohort, intake, head = load_execution_inputs(root)
+    context, tls_trust = build_verified_ssl_context(ca_bundle)
+    downloader = make_tls_downloader(context)
     entries = cohort["entries"]
     if resume_run is None:
         validate_initial_baseline(root, intake)
@@ -750,7 +852,12 @@ def run(*, project_root: Path, resume_run: Path | None = None) -> Path:
         run_dir.mkdir(parents=True, exist_ok=False)
         (run_dir / "downloads").mkdir()
         protocol = _create_protocol(
-            root, run_dir, cohort, head, sha256_file(root / MANIFEST_RELATIVE)
+            root,
+            run_dir,
+            cohort,
+            head,
+            sha256_file(root / MANIFEST_RELATIVE),
+            tls_trust,
         )
     else:
         run_dir = Path(resume_run).resolve()
@@ -758,8 +865,8 @@ def run(*, project_root: Path, resume_run: Path | None = None) -> Path:
             run_dir.relative_to((root / RUNS_RELATIVE).resolve())
         except ValueError as exc:
             raise Batch2DBExecutionError("Resume run must remain under backend/data/runs") from exc
-        protocol = _load_resume_protocol(run_dir, head)
-    downloads = run_download_stage(entries, run_dir)
+        protocol = _load_resume_protocol(run_dir, head, tls_trust)
+    downloads = run_download_stage(entries, run_dir, downloader=downloader)
     registrations = run_registration_stage(root, entries, downloads, run_dir)
     extractions = run_extraction_stage(
         root, entries, downloads, registrations, run_dir
@@ -774,9 +881,14 @@ def main(argv: list[str] | None = None) -> Path:
         allow_abbrev=False,
     )
     parser.add_argument("--project-root", type=Path, required=True)
+    parser.add_argument("--ca-bundle", type=Path, required=True)
     parser.add_argument("--resume-run", type=Path)
     args = parser.parse_args(argv)
-    result = run(project_root=args.project_root, resume_run=args.resume_run)
+    result = run(
+        project_root=args.project_root,
+        ca_bundle=args.ca_bundle,
+        resume_run=args.resume_run,
+    )
     print(result)
     return result
 
