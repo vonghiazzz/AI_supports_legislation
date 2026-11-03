@@ -1,0 +1,143 @@
+policy_id: "independent_sampling_policy_v1"
+policy_status: "POLICY_FROZEN_FOR_ACQUISITION_PLANNING"
+benchmark_id: "retrieval_independent_v1"
+authoritative_base_commit: "299b45317648219d4f780531ac3d2f3c6196094e"
+
+required_state:
+  benchmark: "DRAFT"
+  sampling: "DRAFT"
+  selection: "NOT_STARTED"
+  sampling_seed: null
+
+target:
+  selection_mode: "TARGET_ONLY"
+  total: 250
+  main: 200
+  stress: 50
+  slices_disjoint: true
+  fallback_authorized: false
+  legacy_minimum_mode_authorized: false
+  silent_quota_reduction_authorized: false
+  proportional_quota_scaling_authorized: false
+
+family_quota:
+  scope: "MAIN_ONLY"
+  target_families:
+    - "BLDS_CORE"
+    - "BLTTDS_PRIMARY"
+    - "LAND_2013"
+    - "LAND_2024"
+    - "HNGD_2014"
+  hard_minima:
+    BLDS_CORE: 55
+    BLTTDS_PRIMARY: 30
+    LAND_2013: 35
+    LAND_2024: 35
+    HNGD_2014: 30
+  soft_maxima:
+    BLDS_CORE: 65
+    BLTTDS_PRIMARY: 40
+    LAND_2013: 45
+    LAND_2024: 45
+    HNGD_2014: 40
+  soft_maxima_enforcement: "REPORT_AND_PENALIZE_NOT_INVALIDATE"
+  hard_feasibility_upper_bounds: null
+  max_quota_slots_per_case: 1
+  stress_quota_contribution_to_main: 0
+  unknown_other_quota_slots: 0
+  assignment_role: "SAMPLING_METADATA_NOT_GROUND_TRUTH"
+
+main_guardrails:
+  blttds_only_procedural:
+    definition: "compatible_families == {BLTTDS_PRIMARY}"
+    maximum_ratio: 0.20
+    maximum_count_at_target: 40
+  anticipated_substantive_core:
+    compatible_family_intersection:
+      - "BLDS_CORE"
+      - "LAND_2013"
+      - "LAND_2024"
+      - "HNGD_2014"
+    minimum_ratio: 0.65
+    minimum_count_at_target: 130
+  role: "SAMPLING_TIME_ANTICIPATORY_METADATA_NOT_GROUND_TRUTH"
+
+stress:
+  target: 50
+  eligibility: "AT_LEAST_ONE_STRESS_DESCRIPTOR"
+  family_quota: null
+  main_quota_contribution: 0
+  hard_descriptor_quotas: false
+  descriptor_distribution: "REPORT_ONLY_SOFT_DIVERSITY_OBJECTIVE"
+
+joint_selection:
+  required: true
+  case_capacity_across_slices: 1
+  independent_slice_sampling_forbidden: true
+  objective_order:
+    - "FROZEN_ELIGIBLE_INDEPENDENT_FRAME_ONLY"
+    - "NO_DEVELOPMENT_OVERLAP_OR_DUPLICATE_CASE_SOURCE"
+    - "EXACTLY_200_MAIN_AND_50_STRESS"
+    - "SATISFY_MAIN_HARD_FAMILY_MINIMA"
+    - "SATISFY_MAIN_PROCEDURAL_SUBSTANTIVE_GUARDRAILS"
+    - "EVERY_STRESS_CASE_HAS_A_STRESS_DESCRIPTOR"
+    - "MINIMIZE_SOFT_FAMILY_MAX_OVERFLOW"
+    - "PREFER_BROADER_STRESS_DESCRIPTOR_DIVERSITY"
+    - "FROZEN_SEEDED_TIE_BREAK_LAST"
+
+seed_freeze:
+  sampling_seed: null
+  generate_in_phase_2a: false
+  freeze_after_acquisition_closed: true
+  freeze_after_final_frame_fingerprinted: true
+  freeze_before_selection: true
+  commit_before_selected_ids_observed: true
+  derivation_rule: "SHA256_UTF8(policy_id + LF + final_eligible_frame_fingerprint), first 16 hex, mask to signed 63 bits"
+  prohibited_inputs:
+    - "retrieval_metrics"
+    - "model_outputs"
+    - "queries"
+    - "ground_truth"
+    - "selection_outcome"
+
+leakage_firewall:
+  allowed_metadata:
+    - "source_case_identity"
+    - "preliminary_family_metadata"
+    - "stress_descriptors"
+    - "quality_watchlist_metadata"
+    - "procedure_metadata"
+    - "documentary_case_metadata"
+    - "source_provenance_and_hashes"
+  forbidden_inputs:
+    - "bm25_output"
+    - "dense_output"
+    - "rrf_output"
+    - "reranker_output"
+    - "retrieval_score_or_rank"
+    - "evaluation_metric"
+    - "generated_query"
+    - "ground_truth"
+    - "annotation_outcome"
+    - "llm_or_gemini_output"
+
+authoritative_frame:
+  artifact_path: "backend/data/benchmarks/retrieval_independent_v1/preliminary_stratification.json"
+  sampling_manifest_path: "backend/data/benchmarks/retrieval_independent_v1/sampling_manifest.json"
+  benchmark_manifest_path: "backend/data/benchmarks/retrieval_independent_v1/benchmark_manifest.json"
+  source_count: 223
+  source_inventory_fingerprint: "8957b1a617da34cd63b4c88095504d339523574c999a085a377a6847a118bc55"
+  records_fingerprint: "1af8b33ad2be7dcd7745716102ad846a5f3cbb02071bdbc74f229b876824b54b"
+  eligible_independent_only: true
+  development_excluded: true
+  blocked_extracted_hash_verified_only_excluded: true
+
+legacy_manifest:
+  stale_classification: "LEGACY_DRAFT_QUOTA_FEASIBILITY_STALE"
+  regenerate_before_sampling_frozen: true
+  mutate_in_phase_2a: false
+
+phase_2b:
+  acquisition_performed_in_phase_2a: false
+  reserve_target_frozen: false
+  overlapping_deficits_must_not_be_added: true
