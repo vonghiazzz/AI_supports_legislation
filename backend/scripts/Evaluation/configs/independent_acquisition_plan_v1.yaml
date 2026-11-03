@@ -1,0 +1,150 @@
+plan_id: "independent_acquisition_plan_v1"
+plan_status: "ACQUISITION_PLAN_FROZEN_NOT_EXECUTED"
+batch_label: "BATCH_2D_B"
+benchmark_id: "retrieval_independent_v1"
+plan_authoritative_base_commit: "a5ebb4a03f35a4c33596faf93b8d5fa82d6d076f"
+
+parent_sampling_policy:
+  policy_id: "independent_sampling_policy_v1"
+  policy_status: "POLICY_FROZEN_FOR_ACQUISITION_PLANNING"
+  checkpoint_commit: "ef9c3fbefc45d76f0568fb0c3623270c77ed0d27"
+  path: "backend/scripts/Evaluation/configs/independent_sampling_policy_v1.yaml"
+  sha256: "a9926eafe2ee4544f75c194e1de435eeeec5121076d91a6a819424e305b2c91f"
+
+required_state:
+  benchmark: "DRAFT"
+  sampling: "DRAFT"
+  selection: "NOT_STARTED"
+  sampling_seed: null
+  selected_cases: 0
+  query_records: 0
+  ground_truth_records: 0
+
+authoritative_inputs:
+  acquisition_manifest:
+    path: "backend/dataLaw/independent_intake/acquisition_manifest.json"
+    sha256: "073322a134bc3a1a6c7e019d06278cef81ee38c33f11b8203507f1afcef5135e"
+    source_count: 271
+    statuses:
+      eligible: 223
+      extracted: 47
+      hash_verified: 1
+  preliminary_stratification:
+    path: "backend/data/benchmarks/retrieval_independent_v1/preliminary_stratification.json"
+    source_count: 223
+    source_inventory_fingerprint: "8957b1a617da34cd63b4c88095504d339523574c999a085a377a6847a118bc55"
+    records_fingerprint: "1af8b33ad2be7dcd7745716102ad846a5f3cbb02071bdbc74f229b876824b54b"
+
+current_constraints:
+  target_eligible_count: 250
+  overall_eligible_deficit: 27
+  required_family_slots: 185
+  maximum_filled_family_slots: 172
+  family_max_flow_shortage: 13
+  land_2024_compatible: 25
+  land_2024_minimum: 35
+  land_2024_compatible_deficit: 10
+  hall_bottleneck:
+    families:
+      - "BLDS_CORE"
+      - "LAND_2013"
+      - "LAND_2024"
+    compatible_unique_sources: 112
+    required_slots: 125
+    hall_union_deficit: 13
+  stress_eligible: 87
+  deficits_overlap: true
+  add_deficits_for_raw_target: false
+
+yield_planning:
+  primary_history_scope: "SCALE_BATCHES_ONLY"
+  pilot_reported_separately: true
+  pilot_excluded_from_primary_estimator: true
+  pilot_exclusion_reason: "Perfect pilot yield is not representative of later scale operations."
+  scale_batch_prefix: "scale-YYYYMMDD"
+  confidence_level: 0.95
+  wilson_z: 1.96
+  conservative_yield_rule: "MIN(SCALE_AGGREGATE_WILSON_95_LOWER, MIN_COMPLETED_SCALE_BATCH_YIELD)"
+  raw_count_hard_floor_rule: "CEIL(TARGET_COUNT_DEFICIT / CONSERVATIVE_YIELD)"
+  scenario_eligible_rounding: "FLOOR"
+  scenarios:
+    - 37
+    - 40
+    - 45
+    - 50
+
+batch_size_decision:
+  operational_reference_rule: "HISTORICAL_COMPLETED_SCALE_BATCH_MEDIAN"
+  qualifications:
+    - "RAW_COUNT_EXCEEDS_HARD_FLOOR"
+    - "NONZERO_CONSERVATIVE_SELECTION_RESERVE"
+    - "RAW_COUNT_WITHIN_OBSERVED_COMPLETED_SCALE_RANGE"
+  raw_target_role: "ACQUISITION_COHORT_SIZE_NOT_SCIENTIFIC_SUFFICIENCY"
+
+targeting:
+  acquisition_mode: "TARGETED_DOCUMENTARY_DISCOVERY"
+  priority_order:
+    - "LAND_2024_TARGETED_DISCOVERY"
+    - "LAND_HALL_TARGETED_DISCOVERY"
+  allowed_pre_acquisition_metadata:
+    - "official_source_metadata"
+    - "case_document_identity"
+    - "court"
+    - "procedure_stage"
+    - "decision_date"
+    - "documentary_case_type"
+    - "quality_and_provenance_metadata"
+  confirmed_family_claim_before_review: false
+  raw_family_quota: null
+  family_specific_raw_yield_calibration_status: "FAMILY_SPECIFIC_RAW_YIELD_UNCALIBRATED"
+
+post_review_close_gates:
+  final_eligible_count_minimum: 250
+  land_2024_compatible_minimum: 35
+  family_maximum_filled_minimum_slots: 185
+  family_shortage: 0
+  hall_bottleneck_shortage: 0
+  stress_eligible_minimum: 50
+  development_overlap: 0
+  duplicate_source_or_case_identity: 0
+  benchmark_state: "DRAFT"
+  selection_status: "NOT_STARTED"
+  complete_cohort_reviewed: true
+  all_required: true
+
+cohort_review:
+  identify_complete_cohort_before_processing: true
+  review_complete_processable_cohort_before_promotion: true
+  within_batch_outcome_adaptive_downloads_forbidden: true
+  raw_target_reached_does_not_close_acquisition: true
+
+top_up:
+  precreate_now: false
+  silently_enlarge_batch_2d_b: false
+  separate_batch_identity_required: true
+  new_plan_must_use_residual_post_review_deficits: true
+
+leakage_firewall:
+  forbidden_inputs:
+    - "dev107_retrieval_results"
+    - "bsard_results"
+    - "bm25_rank"
+    - "bge_rank"
+    - "rrf_rank"
+    - "reranker_score"
+    - "query_text"
+    - "ground_truth"
+    - "future_annotation"
+    - "llm_or_gemini_classification"
+
+execution_prohibitions:
+  network: true
+  download: true
+  source_registration: true
+  extraction: true
+  ocr: true
+  review_or_promotion: true
+  selection: true
+  sampling_seed_generation: true
+  query_or_gt_generation: true
+  model_or_retrieval: true
