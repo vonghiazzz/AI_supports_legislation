@@ -639,17 +639,60 @@ def build_policy_audit(project_root: Path, policy_path: Path) -> dict[str, dict]
     }
 
 
-def _git_head(project_root: Path) -> str:
-    result = subprocess.run(
+def _git_execution_provenance(project_root: Path) -> dict[str, Any]:
+    """Validate descendant execution provenance without rejecting untracked files."""
+
+    project_root = Path(project_root).resolve()
+    execution_commit = subprocess.run(
         ["git", "rev-parse", "HEAD"],
         cwd=project_root,
         check=True,
         capture_output=True,
         text=True,
     ).stdout.strip()
-    if result != AUTHORITATIVE_BASE_COMMIT:
-        raise SamplingPolicyError("Audit must run from the authoritative base commit")
-    return result
+    ancestor = subprocess.run(
+        [
+            "git",
+            "merge-base",
+            "--is-ancestor",
+            AUTHORITATIVE_BASE_COMMIT,
+            execution_commit,
+        ],
+        cwd=project_root,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if ancestor.returncode == 1:
+        raise SamplingPolicyError(
+            "Policy authoritative base is not an ancestor of execution HEAD"
+        )
+    if ancestor.returncode != 0:
+        raise SamplingPolicyError("Unable to validate policy execution lineage")
+
+    for command, label in (
+        (["git", "diff", "--quiet", "--"], "unstaged tracked"),
+        (["git", "diff", "--cached", "--quiet", "--"], "staged tracked"),
+    ):
+        result = subprocess.run(
+            command,
+            cwd=project_root,
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode == 1:
+            raise SamplingPolicyError(
+                f"Policy audit requires clean {label} repository state"
+            )
+        if result.returncode != 0:
+            raise SamplingPolicyError(f"Unable to validate {label} repository state")
+    return {
+        "execution_git_commit": execution_commit,
+        "policy_authoritative_base_commit": AUTHORITATIVE_BASE_COMMIT,
+        "authoritative_base_is_ancestor": True,
+        "tracked_worktree_clean": True,
+    }
 
 
 def publish_audit(
@@ -681,11 +724,13 @@ def publish_audit(
             path.name: sha256_file(path)
             for path in sorted(partial.iterdir(), key=lambda item: item.name)
         }
+        provenance = _git_execution_provenance(project_root)
         manifest = {
             "protocol_id": PROTOCOL_ID,
             "run_id": run_id,
             "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
-            "git_commit": _git_head(project_root),
+            "git_commit": provenance["execution_git_commit"],
+            **provenance,
             "policy_id": POLICY_ID,
             "policy_status": POLICY_STATUS,
             "policy_config_sha256": sha256_file(policy_path),
@@ -748,7 +793,7 @@ def run(
         if output_root is not None
         else root / DEFAULT_RUNS_RELATIVE
     )
-    _git_head(root)
+    _git_execution_provenance(root)
     structured = build_policy_audit(root, policy)
     return publish_audit(root, policy, output, structured)
 

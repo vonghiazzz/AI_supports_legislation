@@ -2,8 +2,10 @@ import ast
 import copy
 import hashlib
 import json
+import subprocess
 import tempfile
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
@@ -57,6 +59,51 @@ def _record(primary, secondary=None, index=1):
     }
 
 
+def _fake_git_runner(
+    *,
+    head="b" * 40,
+    ancestor_returncode=0,
+    unstaged_returncode=0,
+    staged_returncode=0,
+    calls=None,
+):
+    def run(command, **kwargs):
+        if calls is not None:
+            calls.append(list(command))
+        if command[:3] == ["git", "rev-parse", "HEAD"]:
+            return SimpleNamespace(returncode=0, stdout=f"{head}\n", stderr="")
+        if command[:3] == ["git", "merge-base", "--is-ancestor"]:
+            return SimpleNamespace(
+                returncode=ancestor_returncode, stdout="", stderr=""
+            )
+        if command == ["git", "diff", "--quiet", "--"]:
+            return SimpleNamespace(
+                returncode=unstaged_returncode, stdout="", stderr=""
+            )
+        if command == ["git", "diff", "--cached", "--quiet", "--"]:
+            return SimpleNamespace(
+                returncode=staged_returncode, stdout="", stderr=""
+            )
+        raise AssertionError(f"Unexpected git command: {command}")
+
+    return run
+
+
+def _repository_tracked_clean():
+    return (
+        subprocess.run(
+            ["git", "diff", "--quiet", "--"], cwd=PROJECT_ROOT, check=False
+        ).returncode
+        == 0
+        and subprocess.run(
+            ["git", "diff", "--cached", "--quiet", "--"],
+            cwd=PROJECT_ROOT,
+            check=False,
+        ).returncode
+        == 0
+    )
+
+
 def test_policy_target_and_status_are_phase_2a_only(policy):
     assert policy["policy_status"] == "POLICY_FROZEN_FOR_ACQUISITION_PLANNING"
     assert policy["policy_status"] != "SAMPLING_FROZEN"
@@ -64,6 +111,97 @@ def test_policy_target_and_status_are_phase_2a_only(policy):
     assert policy["target"]["main"] == 200
     assert policy["target"]["stress"] == 50
     assert policy["target"]["slices_disjoint"] is True
+
+
+def test_policy_yaml_keeps_authoritative_authoring_base(policy):
+    assert policy["authoritative_base_commit"] == (
+        "299b45317648219d4f780531ac3d2f3c6196094e"
+    )
+    assert policy_module.AUTHORITATIVE_BASE_COMMIT == policy[
+        "authoritative_base_commit"
+    ]
+
+
+def test_descendant_execution_head_may_differ_from_policy_base(monkeypatch):
+    descendant = "b" * 40
+    monkeypatch.setattr(
+        policy_module.subprocess,
+        "run",
+        _fake_git_runner(head=descendant),
+    )
+    result = policy_module._git_execution_provenance(PROJECT_ROOT)
+    assert descendant != policy_module.AUTHORITATIVE_BASE_COMMIT
+    assert result == {
+        "execution_git_commit": descendant,
+        "policy_authoritative_base_commit": (
+            "299b45317648219d4f780531ac3d2f3c6196094e"
+        ),
+        "authoritative_base_is_ancestor": True,
+        "tracked_worktree_clean": True,
+    }
+
+
+def test_non_descendant_execution_fails_closed(monkeypatch):
+    monkeypatch.setattr(
+        policy_module.subprocess,
+        "run",
+        _fake_git_runner(ancestor_returncode=1),
+    )
+    with pytest.raises(policy_module.SamplingPolicyError, match="not an ancestor"):
+        policy_module._git_execution_provenance(PROJECT_ROOT)
+
+
+@pytest.mark.parametrize(
+    ("unstaged", "staged", "message"),
+    [(1, 0, "unstaged tracked"), (0, 1, "staged tracked")],
+)
+def test_tracked_modifications_fail_closed(
+    monkeypatch, unstaged, staged, message
+):
+    monkeypatch.setattr(
+        policy_module.subprocess,
+        "run",
+        _fake_git_runner(
+            unstaged_returncode=unstaged,
+            staged_returncode=staged,
+        ),
+    )
+    with pytest.raises(policy_module.SamplingPolicyError, match=message):
+        policy_module._git_execution_provenance(PROJECT_ROOT)
+
+
+def test_untracked_files_are_not_part_of_provenance_gate(monkeypatch):
+    calls = []
+    monkeypatch.setattr(
+        policy_module.subprocess,
+        "run",
+        _fake_git_runner(calls=calls),
+    )
+    result = policy_module._git_execution_provenance(PROJECT_ROOT)
+    assert result["tracked_worktree_clean"] is True
+    assert ["git", "status"] not in calls
+    assert all("--untracked-files" not in command for command in calls)
+    assert ["git", "diff", "--quiet", "--"] in calls
+    assert ["git", "diff", "--cached", "--quiet", "--"] in calls
+
+
+def test_current_clean_repository_accepts_descendant_execution_with_untracked_files():
+    if not _repository_tracked_clean():
+        pytest.skip("actual provenance integration requires post-commit tracked clean state")
+    result = policy_module._git_execution_provenance(PROJECT_ROOT)
+    actual_head = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=PROJECT_ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    assert result["execution_git_commit"] == actual_head
+    assert result["policy_authoritative_base_commit"] == (
+        "299b45317648219d4f780531ac3d2f3c6196094e"
+    )
+    assert result["authoritative_base_is_ancestor"] is True
+    assert result["tracked_worktree_clean"] is True
 
 
 def test_benchmark_and_sampling_remain_draft(audit):
@@ -452,10 +590,33 @@ def test_policy_audit_is_strictly_deterministic(audit):
     assert policy_module.canonical_json_fingerprint(second) == (
         policy_module.canonical_json_fingerprint(audit)
     )
+    assert policy_module.canonical_json_fingerprint(audit) == (
+        "147522f58db30e2e9c80fd534839e234995ab3b66d426c3b2234e00b2b5dc0d2"
+    )
     json.dumps(audit, allow_nan=False, sort_keys=True)
 
 
-def test_atomic_audit_publication_contains_no_selection_output(audit):
+def test_atomic_audit_publication_contains_no_selection_output(audit, monkeypatch):
+    actual_head = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=PROJECT_ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    if not _repository_tracked_clean():
+        monkeypatch.setattr(
+            policy_module,
+            "_git_execution_provenance",
+            lambda project_root: {
+                "execution_git_commit": actual_head,
+                "policy_authoritative_base_commit": (
+                    "299b45317648219d4f780531ac3d2f3c6196094e"
+                ),
+                "authoritative_base_is_ancestor": True,
+                "tracked_worktree_clean": True,
+            },
+        )
     runs = PROJECT_ROOT / "backend/data/runs"
     with tempfile.TemporaryDirectory(prefix="phase2a-test-", dir=runs) as temp:
         result = policy_module.publish_audit(
@@ -472,6 +633,13 @@ def test_atomic_audit_publication_contains_no_selection_output(audit):
             "run_manifest.json",
         }
         manifest = policy_module.strict_json_load(result / "run_manifest.json")
+        assert manifest["git_commit"] == actual_head
+        assert manifest["execution_git_commit"] == actual_head
+        assert manifest["policy_authoritative_base_commit"] == (
+            "299b45317648219d4f780531ac3d2f3c6196094e"
+        )
+        assert manifest["authoritative_base_is_ancestor"] is True
+        assert manifest["tracked_worktree_clean"] is True
         assert manifest["selection_performed"] is False
         assert manifest["sampling_seed_generated"] is False
         assert manifest["acquisition_performed"] is False
