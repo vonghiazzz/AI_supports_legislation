@@ -3821,11 +3821,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -3871,11 +3871,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -3921,11 +3921,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -3971,17 +3971,19 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
       "original_filename": "40.pdf",
       "procedure_stage": "so_tham",
-      "rejection_reasons": [],
+      "rejection_reasons": [
+        "dedup_or_development_overlap:new_pool_related_decision_ids"
+      ],
       "related_decision_ids": [
         "44/2026/QĐXXST-DS",
         "10/2025/DS-ST",
@@ -4025,17 +4027,19 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
       "original_filename": "153.pdf",
       "procedure_stage": "so_tham",
-      "rejection_reasons": [],
+      "rejection_reasons": [
+        "dedup_or_development_overlap:development_benchmark_exact_source"
+      ],
       "related_decision_ids": [],
       "sha256": "7e9b0543bf36263795a260e656001a2f620b1f419384c62bd95a445776bcb5f4",
       "source_domain": "congbobanan.toaan.gov.vn",
@@ -4075,11 +4079,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -4130,11 +4134,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -4180,11 +4184,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -4230,11 +4234,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -4284,11 +4288,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -4334,11 +4338,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -4388,11 +4392,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -4442,11 +4446,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -4495,17 +4499,19 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
       "original_filename": "153.pdf",
       "procedure_stage": "phuc_tham",
-      "rejection_reasons": [],
+      "rejection_reasons": [
+        "dedup_or_development_overlap:development_benchmark_exact_source"
+      ],
       "related_decision_ids": [
         "02/2026/DS-ST",
         "117/2026/QĐ-PT",
@@ -4551,17 +4557,20 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
       "original_filename": "57.pdf",
       "procedure_stage": "phuc_tham",
-      "rejection_reasons": [],
+      "rejection_reasons": [
+        "dedup_or_development_overlap:new_pool_duplicate_normalized_identity",
+        "dedup_or_development_overlap:new_pool_related_decision_ids"
+      ],
       "related_decision_ids": [
         "13/2026/DS-ST",
         "79/2026/QĐ-PT",
@@ -4605,11 +4614,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -4660,11 +4669,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -4720,17 +4729,19 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
       "original_filename": "110.pdf",
       "procedure_stage": "so_tham",
-      "rejection_reasons": [],
+      "rejection_reasons": [
+        "dedup_or_development_overlap:development_benchmark_exact_source"
+      ],
       "related_decision_ids": [
         "81/2026/QĐXXST-DS",
         "43/2026/QĐ-CA",
@@ -4774,17 +4785,19 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
       "original_filename": "105.pdf",
       "procedure_stage": "so_tham",
-      "rejection_reasons": [],
+      "rejection_reasons": [
+        "dedup_or_development_overlap:new_pool_related_decision_ids"
+      ],
       "related_decision_ids": [
         "82/2026/QĐXXST-DS",
         "44/2026/QĐ-CA",
@@ -4828,11 +4841,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -4878,11 +4891,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -4928,17 +4941,21 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
       "original_filename": "3.pdf",
       "procedure_stage": "giam_doc_tham",
-      "rejection_reasons": [],
+      "rejection_reasons": [
+        "dedup_or_development_overlap:new_pool_duplicate_case_id",
+        "dedup_or_development_overlap:new_pool_duplicate_normalized_identity",
+        "dedup_or_development_overlap:new_pool_related_decision_ids"
+      ],
       "related_decision_ids": [
         "05/2023/QĐST-DS",
         "02/2026/KN-DS"
@@ -4981,11 +4998,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -5033,11 +5050,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -5086,11 +5103,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -5138,17 +5155,19 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
       "original_filename": "456.pdf",
       "procedure_stage": "phuc_tham",
-      "rejection_reasons": [],
+      "rejection_reasons": [
+        "dedup_or_development_overlap:new_pool_related_decision_ids"
+      ],
       "related_decision_ids": [
         "444/2026/QĐXXPT-DS",
         "49/2025/DS-ST"
@@ -5191,11 +5210,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -5247,11 +5266,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -5302,11 +5321,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -5357,11 +5376,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -5411,17 +5430,19 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
       "original_filename": "142.pdf",
       "procedure_stage": "phuc_tham",
-      "rejection_reasons": [],
+      "rejection_reasons": [
+        "dedup_or_development_overlap:new_pool_related_decision_ids"
+      ],
       "related_decision_ids": [
         "10/2026/DS-ST",
         "164/2026/QĐ-PT",
@@ -5465,11 +5486,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -5515,11 +5536,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -5565,11 +5586,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -5619,11 +5640,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -5669,11 +5690,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -5722,11 +5743,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -5775,11 +5796,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -5825,17 +5846,19 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
       "original_filename": "1106.pdf",
       "procedure_stage": "phuc_tham",
-      "rejection_reasons": [],
+      "rejection_reasons": [
+        "dedup_or_development_overlap:new_pool_related_decision_ids"
+      ],
       "related_decision_ids": [
         "40/2026/DS-ST",
         "1368/2026/QĐ-PT"
@@ -5878,11 +5901,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -5932,11 +5955,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -5986,11 +6009,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -6036,11 +6059,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -6089,17 +6112,19 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
       "original_filename": "645.pdf",
       "procedure_stage": "phuc_tham",
-      "rejection_reasons": [],
+      "rejection_reasons": [
+        "dedup_or_development_overlap:new_pool_related_decision_ids"
+      ],
       "related_decision_ids": [
         "49/2025/DS-ST",
         "1610/2026/QĐ-PT"
@@ -6142,11 +6167,11 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
@@ -6192,17 +6217,19 @@
         "case_id": true,
         "court": true,
         "decision_date": true,
-        "development_overlap_check": false,
-        "internal_dedup_check": false,
+        "development_overlap_check": true,
+        "internal_dedup_check": true,
         "judgment_number": true,
         "procedure_stage": true,
-        "underlying_dispute_review": false
+        "underlying_dispute_review": true
       },
       "notes": null,
       "offline_provenance": null,
       "original_filename": "282.pdf",
       "procedure_stage": "so_tham",
-      "rejection_reasons": [],
+      "rejection_reasons": [
+        "dedup_or_development_overlap:development_benchmark_exact_source"
+      ],
       "related_decision_ids": [
         "565/2026/QĐXXST-DS"
       ],
