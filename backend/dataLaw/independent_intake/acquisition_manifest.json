@@ -3811,7 +3811,7 @@
   "sources": [
     {
       "acquisition_id": "batch2db-20261103-001",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "300/2026/TLST-DS",
       "court": "Tòa án nhân dân Khu vực 8 - Hà Nội",
       "decision_date": "2026-10-09",
@@ -3852,6 +3852,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:49:45.326337+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:12:55.899121+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-001/446.pdf",
@@ -3861,7 +3866,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-002",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "205/2025/TLST-DS",
       "court": "Tòa án nhân dân Khu vực 1 - Quảng Ninh",
       "decision_date": "2026-09-18",
@@ -3902,6 +3907,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:49:46.957830+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:13:26.299015+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-002/167.pdf",
@@ -3911,7 +3921,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-003",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "157/2026/TLST-DS",
       "court": "Tòa án nhân dân Khu vực 6 - Nghệ An",
       "decision_date": "2026-09-21",
@@ -3952,6 +3962,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:49:50.284958+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:13:56.529440+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-003/146.pdf",
@@ -4069,7 +4084,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-006",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "161/2026/TLPT-DS",
       "court": "Tòa án nhân dân Thành phố Bắc Ninh",
       "decision_date": "2026-09-28",
@@ -4115,6 +4130,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:50:51.783306+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:14:26.854296+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-006/339.pdf",
@@ -4124,7 +4144,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-007",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "74/2026/TLST-DS",
       "court": "Tòa án nhân dân Khu vực 8 - Hưng Yên",
       "decision_date": "2026-08-13",
@@ -4165,6 +4185,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:50:54.550114+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:14:56.918837+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-007/155.pdf",
@@ -4174,7 +4199,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-008",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "341/2026/TLST-DS",
       "court": "Tòa án nhân dân Khu vực 5 - Lâm Đồng",
       "decision_date": "2026-09-28",
@@ -4215,6 +4240,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:50:56.039821+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:15:26.981947+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-008/259.pdf",
@@ -4224,7 +4254,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-009",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "174/2026/TLPT-DS",
       "court": "Tòa án nhân dân Thành phố Hải Phòng",
       "decision_date": "2026-09-23",
@@ -4269,6 +4299,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:51:00.779579+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:15:57.107901+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-009/287.pdf",
@@ -4278,7 +4313,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-010",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "1503/2023/TLST-DS",
       "court": "Tòa án nhân dân Khu vực 2 - Thành phố Hồ Chí Minh",
       "decision_date": "2026-06-05",
@@ -4319,6 +4354,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:51:08.379071+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:16:27.276488+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-010/1166.pdf",
@@ -4328,7 +4368,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-011",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "152/2026/TLPT-DS",
       "court": "Tòa án nhân dân Tỉnh Đắk Lắk",
       "decision_date": "2026-09-22",
@@ -4373,6 +4413,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:51:13.141314+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:16:57.591540+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-011/455.pdf",
@@ -4382,7 +4427,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-012",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "177/2026/TLPT-DS",
       "court": "Tòa án nhân dân Thành phố Đà Nẵng",
       "decision_date": "2026-09-08",
@@ -4427,6 +4472,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:51:15.715654+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:17:27.711120+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-012/268.pdf",
@@ -4436,7 +4486,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-014",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "316/2026/TLPT-DS",
       "court": "Tòa án nhân dân Tỉnh An Giang",
       "decision_date": "2026-09-30",
@@ -4480,6 +4530,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:51:19.230990+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:17:58.106887+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-014/525.pdf",
@@ -4604,7 +4659,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-017",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "313/2026/TLPT-DS",
       "court": "Tòa án nhân dân Tỉnh Lâm Đồng",
       "decision_date": "2026-08-24",
@@ -4650,6 +4705,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:52:37.756669+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:18:28.349122+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-017/495.pdf",
@@ -4659,7 +4719,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-018",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "91/2025/TLST-DS",
       "court": "Tòa án nhân dân Khu vực 12 - Hải Phòng",
       "decision_date": "2026-09-07",
@@ -4710,6 +4770,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:53:07.855540+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:18:58.612866+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-018/64.pdf",
@@ -4831,7 +4896,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-021",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "371/2026/TLST-DS",
       "court": "Tòa án nhân dân Khu vực 7 - Bắc Ninh",
       "decision_date": "2026-09-23",
@@ -4872,6 +4937,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:54:11.281639+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:19:29.704905+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-021/281.pdf",
@@ -4881,7 +4951,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-022",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "321/2026/TLST-DS",
       "court": "Tòa án nhân dân Khu vực 9 - Vĩnh Long",
       "decision_date": "2026-09-28",
@@ -4922,6 +4992,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:54:15.772893+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:20:00.074133+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-022/232.pdf",
@@ -4988,7 +5063,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-024",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "54/2025/TLST-DS",
       "court": "Tòa án nhân dân Khu vực 9 - Cần Thơ",
       "decision_date": "2026-09-15",
@@ -5031,6 +5106,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:54:21.338046+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:20:30.240762+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-024/294.pdf",
@@ -5040,7 +5120,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-026",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "401/2026/TLPT-DS",
       "court": "Tòa án nhân dân Tỉnh Lâm Đồng",
       "decision_date": "2026-09-21",
@@ -5084,6 +5164,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:54:47.456508+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:21:00.762049+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-026/593.pdf",
@@ -5093,7 +5178,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-027",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "40/2025/TLST-DS",
       "court": "Tòa án nhân dân Khu vực 7 - Cần Thơ",
       "decision_date": "2026-08-18",
@@ -5136,6 +5221,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:54:50.503753+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:21:31.581875+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-027/136.pdf",
@@ -5200,7 +5290,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-029",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "342/2026/TLPT-DS",
       "court": "Tòa án nhân dân Thành phố H",
       "decision_date": "2026-05-07",
@@ -5247,6 +5337,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:55:53.822120+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:22:01.881683+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-029/883.pdf",
@@ -5256,7 +5351,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-030",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "101/2026/TLPT-DS",
       "court": "Tòa án nhân dân Tỉnh Quảng Ngãi",
       "decision_date": "2026-09-24",
@@ -5302,6 +5397,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:56:34.556149+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:22:32.624086+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-030/170.pdf",
@@ -5311,7 +5411,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-031",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "527/2026/TLPT-DS",
       "court": "Tòa án nhân dân Thành phố Đồng Nai",
       "decision_date": "2026-09-15",
@@ -5357,6 +5457,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:57:27.956798+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:23:03.127076+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-031/702.pdf",
@@ -5366,7 +5471,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-032",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "1449/2026/TLPT-DS",
       "court": "Tòa án nhân dân Thành phố Cần Thơ",
       "decision_date": "2026-09-28",
@@ -5411,6 +5516,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:58:23.815631+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:23:33.815481+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-032/1388.pdf",
@@ -5476,7 +5586,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-034",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "48/2024/TLST-DS",
       "court": "Tòa án nhân dân Khu vực 15 - Phú Thọ",
       "decision_date": "2026-10-13",
@@ -5517,6 +5627,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:58:46.839973+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:24:04.322104+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-034/121.pdf",
@@ -5526,7 +5641,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-035",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "420/2026/TLST-DS",
       "court": "Tòa án nhân dân Khu vực 3 - Thành phố Cần Thơ",
       "decision_date": "2026-09-29",
@@ -5567,6 +5682,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:58:48.932741+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:24:34.621110+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-035/453.pdf",
@@ -5576,7 +5696,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-037",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "107/2026/TLPT-DS",
       "court": "TAND tỉnh Hưng Yên",
       "decision_date": "2026-07-30",
@@ -5621,6 +5741,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:58:53.665174+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:25:09.321729+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-037/135.pdf",
@@ -5630,7 +5755,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-038",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "653/2024/TLST-DS",
       "court": "Tòa án nhân dân Khu vực 11 - Vĩnh Long",
       "decision_date": "2026-09-25",
@@ -5671,6 +5796,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:59:30.510074+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:25:44.773316+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-038/178.pdf",
@@ -5680,7 +5810,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-039",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "309/2026/TLPT-DS",
       "court": "Tòa án nhân dân Thành phố Cần Thơ",
       "decision_date": "2026-05-13",
@@ -5724,6 +5854,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T08:59:58.690196+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:26:19.692307+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-039/450.pdf",
@@ -5733,7 +5868,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-040",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "299/2026/TLPT-DS",
       "court": "Tòa án nhân dân Thành phố Cần Thơ",
       "decision_date": "2026-04-17",
@@ -5777,6 +5912,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T09:00:31.823750+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:26:54.359663+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-040/345.pdf",
@@ -5786,7 +5926,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-041",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "229/2026/TLST-DS",
       "court": "Tòa án nhân dân Khu vực 4 - Vĩnh Long",
       "decision_date": "2026-05-15",
@@ -5827,6 +5967,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T09:00:33.318513+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:27:30.171968+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-041/83.pdf",
@@ -5891,7 +6036,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-043",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "532/2026/TLPT-DS",
       "court": "Tòa án nhân dân Thành phố Cần Thơ",
       "decision_date": "2026-05-07",
@@ -5936,6 +6081,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T09:01:56.808275+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:28:08.887293+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-043/420.pdf",
@@ -5945,7 +6095,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-044",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "704/2026/TLPT-DS",
       "court": "Tòa án nhân dân Thành phố Cần Thơ",
       "decision_date": "2026-07-08",
@@ -5990,6 +6140,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T09:02:22.597848+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:28:42.873189+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-044/726.pdf",
@@ -5999,7 +6154,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-045",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "134/2026/TLST-DS",
       "court": "Tòa án nhân dân Khu vực 7 - Hải Phòng",
       "decision_date": "2026-07-10",
@@ -6040,6 +6195,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T09:02:31.790127+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:29:14.759109+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-045/50.pdf",
@@ -6049,7 +6209,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-046",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "207/2026/TLPT-DS",
       "court": "Tòa Phúc thẩm Tòa án nhân dân tối cao tại Thành phố Hồ Chí Minh",
       "decision_date": "2026-07-30",
@@ -6093,6 +6253,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T09:03:01.054984+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:29:45.314404+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-046/786.pdf",
@@ -6157,7 +6322,7 @@
     },
     {
       "acquisition_id": "batch2db-20261103-048",
-      "acquisition_status": "extracted",
+      "acquisition_status": "eligible",
       "case_id": "75/2024/TLST-DS",
       "court": "Tòa án nhân dân Tỉnh Vĩnh Long",
       "decision_date": "2026-02-09",
@@ -6198,6 +6363,11 @@
           "reasons": [],
           "status": "extracted",
           "timestamp": "2026-11-04T09:04:07.321933+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "eligible",
+          "timestamp": "2026-11-04T20:30:16.590032+07:00"
         }
       ],
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-048/06.pdf",
