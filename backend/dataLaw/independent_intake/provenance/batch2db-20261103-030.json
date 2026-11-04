@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2db-20261103-030",
+  "anchor_fingerprint": "61a16869477244f3a2ab838a5a23ba4c7c77f6ba0310667ed7f18f0215fc617b",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-04T08:47:37.802183+07:00",
+  "offline_provenance": null,
+  "original_filename": "170.pdf",
+  "pdf_sha256": "f1998f7acac392c2bfec8d1e455f2347ef78617889fc6eaa1dd2bc2012f69288",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2db-20261103-030",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2281029t1cvn/BA%20CHIM%20ROT%2012-10-2026%2016-31-29.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-030/170.pdf"
+}

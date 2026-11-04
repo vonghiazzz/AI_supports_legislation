@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2db-20261103-049",
+  "anchor_fingerprint": "49a64d091e28b015275a66318a49740c074d9348f1fe487ccf1245aff04c517d",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-04T08:48:39.532101+07:00",
+  "offline_provenance": null,
+  "original_filename": "282.pdf",
+  "pdf_sha256": "bf8b2ef25a7465fba18616beb89dd6acec6c7d167e05813a4cedb49d1314d7c0",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2db-20261103-049",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2125653t1cvn/THIEP-DUNG%2002-06-2026%2015-06-08.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-049/282.pdf"
+}

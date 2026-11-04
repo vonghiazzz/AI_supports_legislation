@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2db-20261103-037",
+  "anchor_fingerprint": "6dd9b74534fef50bd8ad0cbf87fe9ad307df564f20ec291e1c56c57ea0e6c4bd",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-04T08:47:52.565618+07:00",
+  "offline_provenance": null,
+  "original_filename": "135.pdf",
+  "pdf_sha256": "fb17bd20ed8dfa9e45568656da61598100b289eca39268a1580c889985554014",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2db-20261103-037",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2260489t1cvn/Ban_an_phuc_tham_137_2026_DS_PT_Toan_Nam_ma_hoa%2029-09-2026%2015-52-30.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-037/135.pdf"
+}

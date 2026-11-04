@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2db-20261103-039",
+  "anchor_fingerprint": "d5098fe648811a62a61ad86cbf3495538c9ab2b7a46c60cff98c484926cba36f",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-04T08:48:02.075003+07:00",
+  "offline_provenance": null,
+  "original_filename": "450.pdf",
+  "pdf_sha256": "84d233bc5cc9282bac1381c51ddbbd3b39e8afb93d556aa8efde7cbf37303993",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2db-20261103-039",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2249230t1cvn/Tuy%E1%BA%BFt%20-%20Quang%20DSPT%2025-09-2026%2016-30-07.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-039/450.pdf"
+}

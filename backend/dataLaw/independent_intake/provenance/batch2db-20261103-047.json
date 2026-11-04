@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2db-20261103-047",
+  "anchor_fingerprint": "8dff22f0afb387c1641a7c450206f323016b9642a52adaf97e49916756b5a271",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-04T08:48:38.088237+07:00",
+  "offline_provenance": null,
+  "original_filename": "645.pdf",
+  "pdf_sha256": "aba8b2c8deddb021922100943a8bc3a505bd943c5591d6ac3ce7fb000d1cc319",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2db-20261103-047",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2171112t1cvn/BADS%20PT%20NGUY%E1%BB%84N%20TH%E1%BB%8A%20H-%20NGUY%E1%BB%84N%20V%C4%82N%20L%20TC%20th%E1%BB%ABa%20k%E1%BA%BF%20quy%E1%BB%81n%20s%E1%BB%AD%20d%E1%BB%A5ng%20%C4%91%E1%BA%A5t%2003-08-2026%2008-21-00.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-047/645.pdf"
+}

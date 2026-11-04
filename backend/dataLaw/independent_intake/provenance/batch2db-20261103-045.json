@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2db-20261103-045",
+  "anchor_fingerprint": "b39c9c4b02431f3c14962c5dba143a91e6f1bfe0b7ef74a9efcc2afd720a5ab1",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-04T08:48:24.647054+07:00",
+  "offline_provenance": null,
+  "original_filename": "50.pdf",
+  "pdf_sha256": "346630c142882a35a30f19f7808527fa0c4f9c1f479fce13ad7911f1866c3d1a",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2db-20261103-045",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2169284t1cvn/Q%C4%90%2050%20Cho%20-%20%C3%82n%2031-07-2026%2020-25-38.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-045/50.pdf"
+}

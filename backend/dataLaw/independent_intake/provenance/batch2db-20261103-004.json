@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2db-20261103-004",
+  "anchor_fingerprint": "a4e60cc75a10f1eb76c371026ecba3894a49ae5f6e6d1d725b83e61aa7992f59",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-04T08:46:41.340803+07:00",
+  "offline_provenance": null,
+  "original_filename": "40.pdf",
+  "pdf_sha256": "c43fdd4733f308f92579b72a651c66e08241a591322df900d440e348e6b030c1",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2db-20261103-004",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2286752t1cvn/dung%20h%C3%B9ng%20m%C3%A3%20h%C3%B3a%2029-10-2026%2009-43-55.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-004/40.pdf"
+}

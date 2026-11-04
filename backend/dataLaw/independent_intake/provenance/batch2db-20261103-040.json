@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2db-20261103-040",
+  "anchor_fingerprint": "06d3fe04271307ce6914c9c304aafcfc0d4fbe058f3f032efaa94488df87af11",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-04T08:48:10.972882+07:00",
+  "offline_provenance": null,
+  "original_filename": "345.pdf",
+  "pdf_sha256": "15dbcc363fe4e07f5b4dc2dcaf9649fa7791c3dd7fc42ada31b218e1fd304525",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2db-20261103-040",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2249082t1cvn/Nga%20-%20Ho%C3%A0ng%20DSPT%2025-09-2026%2016-12-46.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-040/345.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2db-20261103-042",
+  "anchor_fingerprint": "44d02c0ab1d4326f66d73ecec0d8d9651d625295fc20a1218b744a0f2c10bd90",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-04T08:48:16.802638+07:00",
+  "offline_provenance": null,
+  "original_filename": "1106.pdf",
+  "pdf_sha256": "7eed17db35342786aa0ea7aeb2942441895e065237745bbc6d283a8623987e58",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2db-20261103-042",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2248325t1cvn/L%C3%A2m%20-%20B%C3%A1%20DSPT%2025-09-2026%2013-55-47.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-042/1106.pdf"
+}

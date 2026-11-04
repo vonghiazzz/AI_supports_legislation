@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2db-20261103-026",
+  "anchor_fingerprint": "1b543bae9e45977b1e41b90c72bfa07fd6dbff510bdc21151b4ae31ebef5cc7f",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-04T08:47:27.016889+07:00",
+  "offline_provenance": null,
+  "original_filename": "593.pdf",
+  "pdf_sha256": "8b7a772d8aac99b1f8d724c7bdb1f77a810d2b1a8e708a9ebb22c6384f61cdca",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2db-20261103-026",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2283642t1cvn/M%C3%A3%20ho%C3%A1%20Ph%C6%B0%C6%A1ng%20-%20Sa%2019-10-2026%2009-36-12.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-026/593.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2db-20261103-035",
+  "anchor_fingerprint": "db2f658a1d6c1bd7c8bd9074780bf776a9831a969040645989b31f014413cded",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-04T08:47:51.418628+07:00",
+  "offline_provenance": null,
+  "original_filename": "453.pdf",
+  "pdf_sha256": "86de011d9316d394a7e8948f19dd494785b9e212378af2b54ea45a239d6dbd85",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2db-20261103-035",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2283762t1cvn/TU-SAU%2019-10-2026%2013-29-36.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-035/453.pdf"
+}

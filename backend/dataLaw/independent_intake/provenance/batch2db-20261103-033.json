@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2db-20261103-033",
+  "anchor_fingerprint": "d357f3df354f7b21b55ecbaa97aa87d27a151c8c56de07af2c537e7e894bc5c5",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-04T08:47:50.230012+07:00",
+  "offline_provenance": null,
+  "original_filename": "142.pdf",
+  "pdf_sha256": "1fcfbab97c2732f99a7d9dff5407571c65871b77b5827bc430e366d483fc925c",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2db-20261103-033",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2280453t1cvn/BAN%20AN%20HUONG%20-%20TAM%2010-10-2026%2013-59-58.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-033/142.pdf"
+}

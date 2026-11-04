@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2db-20261103-007",
+  "anchor_fingerprint": "584be6a77a2325407ff70b73e9c554c4e7996951ceb987042f4ae6da822265c5",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-04T08:46:47.579985+07:00",
+  "offline_provenance": null,
+  "original_filename": "155.pdf",
+  "pdf_sha256": "a7141fc2f7aaa2cc8eaaaf39a91740aeee0073b2c4b62f881cd93755f8a9ce96",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2db-20261103-007",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285399t1cvn/%C4%90C%20Hoa%20-%20Len%2024-10-2026%2015-14-56.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-007/155.pdf"
+}

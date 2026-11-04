@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2db-20261103-024",
+  "anchor_fingerprint": "d01ab9fba440b01a685ffabe552d5276322f7b6a3a908689c37afcbc40fe2b5a",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-04T08:47:19.808403+07:00",
+  "offline_provenance": null,
+  "original_filename": "294.pdf",
+  "pdf_sha256": "25568339284d13d84e6846578dfe4de5ba22eddcb2679d9207c51a4ca71b9384",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2db-20261103-024",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2285466t1cvn/BA%20Vinh%20m%C6%B0%E1%BB%9Di%2022-10-2026%2009-33-45.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-024/294.pdf"
+}

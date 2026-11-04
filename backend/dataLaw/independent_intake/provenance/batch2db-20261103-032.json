@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2db-20261103-032",
+  "anchor_fingerprint": "e7acc255644e64b24370abd5d539188b84a34d95eb38d2e109c55486f1a0745e",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-04T08:47:48.020936+07:00",
+  "offline_provenance": null,
+  "original_filename": "1388.pdf",
+  "pdf_sha256": "71ed844f0dd7d8c109f1d5fb830229fefc106cc9ac75d3d1c3a10b7e38429ade",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2db-20261103-032",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2280540t1cvn/B%E1%BA%A2N%20%C3%81N%20T%20-C%2010-10-2026%2015-44-17.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-032/1388.pdf"
+}

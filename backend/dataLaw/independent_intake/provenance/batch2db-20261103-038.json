@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2db-20261103-038",
+  "anchor_fingerprint": "f51e9ebd94abd27a08155521757d791d9afc8c9c1cd6db260027df31c2ef165c",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-04T08:47:58.930415+07:00",
+  "offline_provenance": null,
+  "original_filename": "178.pdf",
+  "pdf_sha256": "cdade2c75ad949e5fa587949c7da1d158129c24ebf1f23e2f71c198adfda1325",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2db-20261103-038",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2255553t1cvn/Scan%20Q%C4%90%20s%E1%BB%91%20178%20Ph%C6%B0%C6%A1ng%20-%20Ngh%C4%A9a%2028-09-2026%2014-14-37.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-038/178.pdf"
+}

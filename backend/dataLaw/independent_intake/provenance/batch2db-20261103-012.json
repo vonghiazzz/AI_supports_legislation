@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2db-20261103-012",
+  "anchor_fingerprint": "492012a08afd0b5e4e5778433708a711668327dec0ae6df0aa2bb305b9a4f48f",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-04T08:46:51.349694+07:00",
+  "offline_provenance": null,
+  "original_filename": "268.pdf",
+  "pdf_sha256": "11347a9f66dc57fac38af33e649234486e1b5d9f9b15c44b49088b2e362503f1",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2db-20261103-012",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2284625t1cvn/DSPT%20My%20Lam%20ban%20ma%20hoa%2021-10-2026%2015-37-00.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-012/268.pdf"
+}

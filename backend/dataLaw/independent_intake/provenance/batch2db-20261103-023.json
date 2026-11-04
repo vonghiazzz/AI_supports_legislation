@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2db-20261103-023",
+  "anchor_fingerprint": "80776b8ade713918f15203bf88fa1809b875586a6c44ed29a7fe8d4767483350",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-04T08:47:19.083080+07:00",
+  "offline_provenance": null,
+  "original_filename": "3.pdf",
+  "pdf_sha256": "083287c78c303724f3c078192de4d073bca8b9ba64b5812858a78ba1524215fc",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2db-20261103-023",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2286632t1cvn/Nguy%E1%BB%85n%20Th%E1%BB%8B%20L%E1%BB%87%20T%20-%20Mai%20V%C4%83n%20G%2028-10-2026%2019-51-53.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-023/3.pdf"
+}

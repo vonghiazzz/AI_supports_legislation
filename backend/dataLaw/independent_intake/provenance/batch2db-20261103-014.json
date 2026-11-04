@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2db-20261103-014",
+  "anchor_fingerprint": "098e44c52ab1b2b679ed08d7a3a66665afbe6b9c7212483fa2cadf1d6dcc4407",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-04T08:46:51.983846+07:00",
+  "offline_provenance": null,
+  "original_filename": "525.pdf",
+  "pdf_sha256": "58fdf30f6e6ea8ef4fd56869c6bca317d3aa67850c6e79f065396872f1ee5d09",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2db-20261103-014",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2284506t1cvn/BAPT%20so%20525%20Hu%E1%BB%B3nh%20Thi%E1%BB%87n%20T%20-%20Hu%E1%BB%B3nh%20V%C4%83n%20T1%2021-10-2026%2013-45-51.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-014/525.pdf"
+}

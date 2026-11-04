@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2db-20261103-041",
+  "anchor_fingerprint": "7a1a04cfd448205ff0e612ddba696f6ea98c31d523a329933a92a360d77c7016",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-04T08:48:11.512984+07:00",
+  "offline_provenance": null,
+  "original_filename": "83.pdf",
+  "pdf_sha256": "d086416ff9f7124095bc960c398931a4260ced40a1048ac1bd953f23e116f690",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2db-20261103-041",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2248636t1cvn/Thang%20-%20%C4%90at%2025-09-2026%2015-06-50.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-041/83.pdf"
+}
