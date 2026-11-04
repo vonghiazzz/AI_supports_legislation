@@ -11,6 +11,7 @@ import argparse
 import copy
 import datetime as dt
 import hashlib
+import http.client
 import json
 import os
 import re
@@ -423,6 +424,28 @@ def download_entry(
                     "terminal_disposition": "DOWNLOADED_VALID_PDF",
                     "technical_failure": None,
                 }
+        except http.client.IncompleteRead as exc:
+            partial.unlink(missing_ok=True)
+            partial_byte_count = len(exc.partial)
+            last_error = (
+                "IncompleteRead: "
+                f"{partial_byte_count} bytes read, {exc.expected} more expected"
+            )
+            if attempt < MAX_ATTEMPTS:
+                sleeper(BACKOFF_SECONDS[attempt - 1])
+                continue
+            return {
+                "acquisition_id": acquisition_id,
+                "source_url": source_url,
+                "attempt_count": attempts,
+                "http_terminal_status": last_http_status,
+                "final_host": None,
+                "download_timestamp": None,
+                "staged_byte_count": None,
+                "staged_sha256": None,
+                "terminal_disposition": "DOWNLOAD_NETWORK_FAILURE",
+                "technical_failure": last_error,
+            }
         except urllib.error.HTTPError as exc:
             partial.unlink(missing_ok=True)
             last_http_status = int(exc.code)

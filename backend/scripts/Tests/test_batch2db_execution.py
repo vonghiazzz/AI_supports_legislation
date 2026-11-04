@@ -1,6 +1,7 @@
 import ast
 import copy
 import hashlib
+import http.client
 import json
 import ssl
 import urllib.error
@@ -51,6 +52,29 @@ class FakeResponse:
             return b""
         self.offset = len(self.body)
         return self.body
+
+
+class IncompleteReadResponse(FakeResponse):
+    def __init__(self, partial=b"partial-body", expected=17, **kwargs):
+        super().__init__(**kwargs)
+        self.partial = partial
+        self.expected = expected
+
+    def read(self, size=-1):
+        raise http.client.IncompleteRead(self.partial, self.expected)
+
+
+class ChunkThenIncompleteReadResponse(FakeResponse):
+    def __init__(self, first_chunk=b"stale-first-attempt", **kwargs):
+        super().__init__(**kwargs)
+        self.first_chunk = first_chunk
+        self.read_count = 0
+
+    def read(self, size=-1):
+        self.read_count += 1
+        if self.read_count == 1:
+            return self.first_chunk
+        raise http.client.IncompleteRead(b"truncated-tail", 23)
 
 
 def _entry(index=1):
@@ -203,6 +227,124 @@ def test_permanent_404_is_not_retried(tmp_path):
     assert result["terminal_disposition"] == "DOWNLOAD_HTTP_FAILURE"
     assert result["attempt_count"] == 1
     assert calls == [_entry()["source_url"]]
+    assert not list(tmp_path.iterdir())
+
+
+def test_incomplete_read_retries_same_url_then_succeeds(tmp_path, monkeypatch):
+    complete_pdf = b"%PDF-complete-second-response"
+    calls, sleeps = [], []
+
+    def opener(request, timeout):
+        calls.append(request.full_url)
+        if len(calls) == 1:
+            return IncompleteReadResponse(url=request.full_url)
+        return FakeResponse(body=complete_pdf, url=request.full_url)
+
+    monkeypatch.setattr(
+        runner.source_intake, "validate_pdf_source", lambda path, sha: sha
+    )
+    result = runner.download_entry(
+        _entry(), tmp_path, opener=opener, sleeper=sleeps.append
+    )
+
+    assert result["terminal_disposition"] == "DOWNLOADED_VALID_PDF"
+    assert result["attempt_count"] == 2
+    assert calls == [_entry()["source_url"], _entry()["source_url"]]
+    assert sleeps == [1.0]
+    assert result["staged_byte_count"] == len(complete_pdf)
+    assert result["staged_sha256"] == hashlib.sha256(complete_pdf).hexdigest()
+    assert (tmp_path / "batch2db-20261103-001.pdf").read_bytes() == complete_pdf
+    assert not (tmp_path / ".batch2db-20261103-001.part").exists()
+
+
+def test_incomplete_read_exhaustion_terminalizes_without_partial_file(tmp_path):
+    calls, sleeps = [], []
+
+    def opener(request, timeout):
+        calls.append(request.full_url)
+        return IncompleteReadResponse(
+            partial=b"never-persist-this-body", expected=41, url=request.full_url
+        )
+
+    result = runner.download_entry(
+        _entry(), tmp_path, opener=opener, sleeper=sleeps.append
+    )
+
+    assert result["terminal_disposition"] == "DOWNLOAD_NETWORK_FAILURE"
+    assert result["attempt_count"] == runner.MAX_ATTEMPTS
+    assert result["staged_byte_count"] is None
+    assert result["staged_sha256"] is None
+    assert result["technical_failure"] == (
+        "IncompleteRead: 23 bytes read, 41 more expected"
+    )
+    assert calls == [_entry()["source_url"]] * runner.MAX_ATTEMPTS
+    assert sleeps == [1.0, 2.0]
+    assert not list(tmp_path.iterdir())
+
+
+def test_incomplete_read_retry_discards_all_cross_attempt_bytes(
+    tmp_path, monkeypatch
+):
+    stale = b"%PDF-stale-first-attempt"
+    complete_pdf = b"%PDF-only-the-second-response-counts"
+    calls = []
+
+    def opener(request, timeout):
+        calls.append(request.full_url)
+        if len(calls) == 1:
+            return ChunkThenIncompleteReadResponse(
+                first_chunk=stale, url=request.full_url
+            )
+        return FakeResponse(body=complete_pdf, url=request.full_url)
+
+    monkeypatch.setattr(
+        runner.source_intake, "validate_pdf_source", lambda path, sha: sha
+    )
+    result = runner.download_entry(
+        _entry(), tmp_path, opener=opener, sleeper=lambda _: None
+    )
+
+    assert result["terminal_disposition"] == "DOWNLOADED_VALID_PDF"
+    assert result["attempt_count"] == 2
+    assert result["staged_byte_count"] == len(complete_pdf)
+    assert result["staged_sha256"] == hashlib.sha256(complete_pdf).hexdigest()
+    assert (tmp_path / "batch2db-20261103-001.pdf").read_bytes() == complete_pdf
+    assert stale not in complete_pdf
+    assert not (tmp_path / ".batch2db-20261103-001.part").exists()
+
+
+def test_incomplete_read_terminal_record_allows_full_ledger_continuation(
+    tmp_path, monkeypatch
+):
+    entries = [_entry(index) for index in range(1, 51)]
+    calls = []
+
+    def downloader(entry, downloads_dir):
+        def opener(request, timeout):
+            calls.append(entry["acquisition_id"])
+            if entry["acquisition_id"] == entries[0]["acquisition_id"]:
+                return IncompleteReadResponse(url=request.full_url)
+            return FakeResponse(url=request.full_url)
+
+        return runner.download_entry(
+            entry, downloads_dir, opener=opener, sleeper=lambda _: None
+        )
+
+    monkeypatch.setattr(
+        runner.source_intake, "validate_pdf_source", lambda path, sha: sha
+    )
+    records = runner.run_download_stage(entries, tmp_path, downloader=downloader)
+
+    assert len(records) == 50
+    assert records[0]["terminal_disposition"] == "DOWNLOAD_NETWORK_FAILURE"
+    assert records[0]["attempt_count"] == runner.MAX_ATTEMPTS
+    assert records[1]["terminal_disposition"] == "DOWNLOADED_VALID_PDF"
+    assert records[-1]["acquisition_id"] == "batch2db-20261103-050"
+    assert calls.count("batch2db-20261103-001") == runner.MAX_ATTEMPTS
+    assert calls[-1] == "batch2db-20261103-050"
+    ledger = runner.strict_json_load(tmp_path / "download_ledger.json")
+    assert len(ledger["records"]) == 50
+    assert not list((tmp_path / "downloads").glob(".*.part"))
 
 
 def test_retryable_503_uses_exact_frozen_attempt_count_and_backoff(tmp_path):
@@ -546,6 +688,19 @@ def test_historical_partial_run_is_rejected_before_network():
     with pytest.raises(runner.Batch2DBExecutionError):
         runner._load_resume_protocol(
             historical, runner.COHORT_CHECKPOINT_COMMIT, _tls_trust()
+        )
+
+
+def test_blocked_r5_run_is_rejected_before_network():
+    blocked_r5 = (
+        PROJECT_ROOT
+        / runner.RUNS_RELATIVE
+        / "independent_batch2db_execution_v1_20261103_153757_174475_8e8a10d9"
+    )
+    assert blocked_r5.is_dir()
+    with pytest.raises(runner.Batch2DBExecutionError):
+        runner._load_resume_protocol(
+            blocked_r5, runner.COHORT_CHECKPOINT_COMMIT, _tls_trust()
         )
 
 
