@@ -1,0 +1,186 @@
+plan_id: "independent_topup_acquisition_plan_v1"
+plan_status: "TOPUP_PLAN_FROZEN_NOT_EXECUTED"
+benchmark_id: "retrieval_independent_v1"
+batch_label: "BATCH_2D_C_TOPUP"
+batch_id_prefix: "batch2dc"
+
+parent_provenance:
+  promotion_checkpoint_commit: "3573aedcfc455ec2e2b4be5b33fdb8396cc15aab"
+  acquisition_manifest_sha256: "4716e61118ce77dee60597940f68247423be685a27b6dde1c3c479393bbc5094"
+  b3_audit_id: "independent_post_acquisition_close_gate_v1_20261104_212020_3e1d9a91"
+  b3_run_fingerprint: "d024f30111929abb126df27b35fe862e6f0dd849b8d01c47b32c32f6a09da928"
+  live_eligible_frame_fingerprint: "1a2e3330df020a60acdd13b27bda47ddc7c0da511e0d68f795a2a1ff283d3a23"
+  family_quota_fingerprint: "e5f8cabd558d56d316ec2e724d0ba902e7180ee0447e3dc81b202ee95294f4a5"
+  close_gate_summary_fingerprint: "a183d98b9e0655fd653f2e4d8f458864ff47e1e033d18d4413fd476e75886901"
+
+residual_constraints:
+  eligible_count:
+    observed: 257
+    minimum: 250
+    deficit: 0
+  land_2024_compatible:
+    observed: 30
+    minimum: 35
+    deficit: 5
+  family_minimum_slots:
+    required: 185
+    maximum_filled: 180
+    shortage: 5
+  hall_bottleneck:
+    families:
+      - "LAND_2024"
+    compatible_unique_sources: 30
+    required_slots: 35
+    shortage: 5
+  stress_eligible:
+    observed: 113
+    minimum: 50
+    deficit: 0
+  development_overlap: 0
+  duplicate_identity: 0
+
+residual_interpretation:
+  deficits_overlap: true
+  shared_bottleneck: "LAND_2024"
+  additive_deficit_forbidden: true
+  scientific_compatible_source_deficit: 5
+  explicit_rule: "LAND deficit, max-flow shortage, and Hall shortage describe one bottleneck and MUST_NOT_BE_SUMMED."
+
+topup_objective:
+  primary:
+    close_land_2024_compatible_deficit: 5
+  required_post_review_condition:
+    land_2024_compatible_minimum: 35
+  secondary_effect_expected_but_not_assumed:
+    family_shortage_zero: true
+    hall_shortage_zero: true
+
+family_specific_yield:
+  status: "SINGLE_TARGETED_BATCH_OBSERVED_NOT_CALIBRATED"
+  calibration_sufficient: false
+  evidence_role: "DESCRIPTIVE_SINGLE_BATCH_EVIDENCE"
+  batch2db_descriptive_outcome:
+    frozen_raw_cohort: 50
+    registered_extracted: 46
+    promoted_eligible: 34
+    land_2024_compatible_increase: 5
+  general_eligible_yield_is_land_yield: false
+  forbidden_scientific_floor_formula: "CEIL(5 / 0.74)"
+
+batch_size:
+  raw_target: 50
+  rationale: "HISTORICAL_COMPLETED_SCALE_BATCH_MEDIAN_OPERATIONAL_REFERENCE"
+  historical_completed_scale_sizes:
+    - 41
+    - 50
+    - 50
+    - 53
+    - 53
+  historical_median: 50
+  role: "OPERATIONAL_COHORT_SIZE_NOT_SCIENTIFIC_CLOSE_GUARANTEE"
+
+batch_identity:
+  separate_from_batch2db: true
+  prefix: "batch2dc"
+  silent_extension_of_batch2db_forbidden: true
+
+targeting:
+  mode: "TARGETED_DOCUMENTARY_DISCOVERY"
+  priority_order:
+    - "LAND_2024_TARGETED_DISCOVERY"
+  confirmed_family_claim_before_review: false
+  raw_family_quota: null
+  authoritative_domain: "congbobanan.toaan.gov.vn"
+  official_source_listing_urls_only: true
+  third_party_mirrors_forbidden: true
+  allowed_pre_acquisition_metadata:
+    - "official_source_metadata"
+    - "official_case_document_identity"
+    - "court"
+    - "procedure_stage"
+    - "decision_date"
+    - "documentary_dispute_case_metadata"
+    - "source_provenance"
+    - "quality_metadata"
+  pdf_body_discovery_forbidden: true
+
+duplicate_firewall:
+  compare_all_existing_317_source_urls: true
+  compare_known_source_identities_where_metadata_permits: true
+  compare_development_metadata_where_available: true
+  compare_within_new_cohort: true
+
+complete_cohort_rule:
+  freeze_full_cohort_before_pdf_body_acquisition: true
+  download_all_frozen_members: true
+  register_all_valid_downloads: true
+  extract_all_registered: true
+  identify_all_processable: true
+  review_all_processable: true
+  promote_only_after_complete_cohort_review: true
+  rerun_live_frame_close_gates: true
+  outcome_adaptive_enlargement_forbidden: true
+
+failure_replacement_rule:
+  failed_downloads_are_terminal_outcomes: true
+  invalid_pdfs_are_terminal_outcomes: true
+  review_blocked_sources_are_observed_outcomes: true
+  silent_replacement_forbidden: true
+  unfavorable_member_replacement_forbidden: true
+  failed_member_replacement_forbidden: true
+  remaining_deficit_requires_distinct_future_batch: true
+
+post_review_close_gates:
+  final_eligible_count_minimum: 250
+  land_2024_compatible_minimum: 35
+  family_maximum_filled_minimum_slots: 185
+  family_shortage: 0
+  hall_bottleneck_shortage: 0
+  stress_eligible_minimum: 50
+  development_overlap: 0
+  duplicate_source_or_case_identity: 0
+  benchmark_state: "DRAFT"
+  selection_status: "NOT_STARTED"
+  complete_cohort_reviewed: true
+  all_required: true
+
+required_state:
+  benchmark: "DRAFT"
+  sampling: "DRAFT"
+  selection: "NOT_STARTED"
+  sampling_seed: null
+  selected_cases: 0
+  query_records: 0
+  ground_truth_records: 0
+
+leakage_firewall:
+  forbidden_inputs:
+    - "DEV107_RETRIEVAL_RESULTS"
+    - "BSARD_RESULTS"
+    - "BM25_RANKS"
+    - "DENSE_RANKS"
+    - "RRF_RANKS"
+    - "RERANKER_SCORES"
+    - "GENERATED_QUERIES"
+    - "GROUND_TRUTH"
+    - "ANNOTATIONS"
+    - "MODEL_OUTPUT"
+    - "LLM_GEMINI_FAMILY_CLASSIFICATION"
+
+execution_prohibitions:
+  network: true
+  discovery_execution: true
+  cohort_creation: true
+  download: true
+  registration: true
+  extraction: true
+  ocr: true
+  identity_mutation: true
+  review_mutation: true
+  promotion: true
+  preliminary_live_frame_mutation: true
+  sampling_manifest_mutation: true
+  seed_generation: true
+  selection: true
+  query_gt_generation: true
+  retrieval_model: true
