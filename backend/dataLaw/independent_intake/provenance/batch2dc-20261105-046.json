@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-046",
+  "anchor_fingerprint": "9427b1ba66f95e8ebfc58826f5a06f838ee1738c23d1ac5d5e5ef4e3de49a507",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:59.806459+07:00",
+  "offline_provenance": null,
+  "original_filename": "103.pdf",
+  "pdf_sha256": "7b0bb3641dfebbf1aa7486a312cbb7c85073e85fd47001fac1b2bf03639a1a54",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-046",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2271634t1cvn/TR%C6%AF%C6%A0NG%20V%C4%82N%20H%C3%82N%20-%20CH%C3%82U%20V%C4%82N%20S%C3%81CH%20PDF%2030-09-2026%2020-29-23.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-046/103.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-009",
+  "anchor_fingerprint": "ae545c45592de0d6a1e8282be570b91d4e0d684b9965546128c8b6cba8261722",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:10.949408+07:00",
+  "offline_provenance": null,
+  "original_filename": "79.pdf",
+  "pdf_sha256": "1410d482e27d2b7fb9975b3253c227f8295348fbdd5f0dda740f9960e04ca4ce",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-009",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2265148t1cvn/3.%20Q%C4%90%20C%C3%94NG%20NHAN-%20%C4%90%C3%81NG-%20TRUC-6-2026%2030-09-2026%2010-49-08.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-009/79.pdf"
+}

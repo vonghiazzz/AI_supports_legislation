@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-005",
+  "anchor_fingerprint": "90bf5acf7cf333a0f755374ea1ec8fe1e6ded75c3d547d23e190e765a1411787",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:09.174399+07:00",
+  "offline_provenance": null,
+  "original_filename": "191.pdf",
+  "pdf_sha256": "fe141f1ebb06288bb33bc0da36ad22de4aa2f9be1840966a91e572c360d502ed",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-005",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2264169t1cvn/Q%C4%90%20%C4%91%C3%ACnh%20ch%E1%BB%89%20Tu%E1%BA%A5n-Qu%C3%AA,%20Vi%E1%BB%87t%20(%C4%91%C4%83ng)%2030-09-2026%2008-27-53.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-005/191.pdf"
+}

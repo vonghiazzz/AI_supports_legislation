@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-014",
+  "anchor_fingerprint": "6cef13437d8180baa52ebc94d48c0a2757a79e2a4c9c54520773f732e87d2d06",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:14.160475+07:00",
+  "offline_provenance": null,
+  "original_filename": "48.pdf",
+  "pdf_sha256": "82a1eab1388ae7cb0d96a780c0c902a7abcc63c4943d71eb2303611a491480f3",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-014",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2265256t1cvn/Luy%E1%BA%BFn%20-%20Thanh%2030-09-2026%2011-00-56.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-014/48.pdf"
+}

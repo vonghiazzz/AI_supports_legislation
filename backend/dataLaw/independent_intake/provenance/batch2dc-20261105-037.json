@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-037",
+  "anchor_fingerprint": "3605a62b3a97dcb6dfa0a9970de2e11c02e969663b11e4a22e6c08362d496599",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:51.202198+07:00",
+  "offline_provenance": null,
+  "original_filename": "412.pdf",
+  "pdf_sha256": "0779d52cf0c829b64aafb4d5f7dce9d63db043f69aeefffc98393cd15d292b85",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-037",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2270088t1cvn/412%2024.7.2026%20Ng%C3%B4%20Th%E1%BB%8B%20L%20-%20L%C3%AA%20Minh%20P%2030-09-2026%2017-37-41.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-037/412.pdf"
+}

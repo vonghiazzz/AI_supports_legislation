@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-011",
+  "anchor_fingerprint": "da604e2edc3da2abb623453a7c5b6cfac0e81b4c2609a23cff237de73990a74f",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:11.797002+07:00",
+  "offline_provenance": null,
+  "original_filename": "40.pdf",
+  "pdf_sha256": "e7a9c106cd729b4cf74637b29c319d6c3a4f5f32a307821876625d6920e9d952",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-011",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2265183t1cvn/3.%20Q%C4%90%2040%20(T3)%20%C4%90%C3%8CNH%20CH%E1%BB%88%20GI%E1%BA%A2I%20QUY%E1%BA%BET%20V%E1%BB%A4%20%C3%81N%20-%20(V%C3%A2n%20-%20Th%C3%A1i)%2030-09-2026%2010-57-36.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-011/40.pdf"
+}

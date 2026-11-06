@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-013",
+  "anchor_fingerprint": "40f0c0b96937f93027cededb8a9122766cab89f456890f88e74181233e4b9b48",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:13.278372+07:00",
+  "offline_provenance": null,
+  "original_filename": "56.pdf",
+  "pdf_sha256": "39d56d9247c6f74729fd5d81d0b0b302ca7c025427d961257e97b2bf939472f1",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-013",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2265252t1cvn/QDCNTT%20so%2056%20ngay%2015062026%2030-09-2026%2011-00-05.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-013/56.pdf"
+}

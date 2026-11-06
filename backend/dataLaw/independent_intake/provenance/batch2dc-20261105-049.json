@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-049",
+  "anchor_fingerprint": "45808db6f6e908e08c7fadaa11cc66136938324605d831f3b45681e6a5e882db",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:11:00.881252+07:00",
+  "offline_provenance": null,
+  "original_filename": "123.pdf",
+  "pdf_sha256": "b4043a65277637c47535dd1bd8a5efe7f4a2b8ec5dcc677b012365418651845e",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-049",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2272281t1cvn/T9-%20Nga%20V%C6%B0%E1%BB%A3ng%20m%C3%A3%20h%C3%B3a%2030-09-2026%2022-15-24.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-049/123.pdf"
+}

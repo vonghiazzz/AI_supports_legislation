@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-006",
+  "anchor_fingerprint": "6315813886cb485dc06a081551c1dbb351aec5b7115e445b73bf660a719cbcb9",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:09.586426+07:00",
+  "offline_provenance": null,
+  "original_filename": "22.pdf",
+  "pdf_sha256": "1ba6e1b4055d6c6d68c18a0700e30cf95f0f07fab6810130895d854eb6910765",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-006",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2264391t1cvn/2024%20Q%C4%90%20%C4%90C%20H%E1%BA%ADu%20-%20Loan%202%2030-09-2026%2009-01-03.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-006/22.pdf"
+}

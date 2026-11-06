@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-021",
+  "anchor_fingerprint": "78a34d4d131fdde605bafbba618e751745d37f91619ae86a4422eb6bf5143159",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:23.957987+07:00",
+  "offline_provenance": null,
+  "original_filename": "67.pdf",
+  "pdf_sha256": "5f0f9c637d3438135fbd46adf2d0ca4e1b09a57b8b1c7405d53a90cf439373b3",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-021",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2266725t1cvn/MH%20Quy%E1%BA%BFt%20%C4%91%E1%BB%8Bnh%20c%C3%B4ng%20nh%E1%BA%ADn%20s%E1%BB%B1%20th%E1%BB%8Fa%20thu%E1%BA%ADn%20b%C3%A0%20Nguy%E1%BB%85n%20Th%E1%BB%8B%20Thu%20H%C6%B0%C6%A1ng%20-%20%C3%B4ng%20L%C3%A2m%20Thanh%20Tuy%E1%BA%BFn%20ng%C3%A0y%2007-8-2026%2030-09-2026%2014-29-22.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-021/67.pdf"
+}

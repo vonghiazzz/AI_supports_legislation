@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-017",
+  "anchor_fingerprint": "71e339ed985d9123a0ca8ff30f795c9d4d6511b9fb0b87e6592b0205fde271ee",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:15.997644+07:00",
+  "offline_provenance": null,
+  "original_filename": "199.pdf",
+  "pdf_sha256": "e9410054da8d39a2e812f13401847b7486ef36b28af30dd2caed7bac4eeb1515",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-017",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2265504t1cvn/M%C3%A3%20h%C3%A1o%20C%E1%BB%AD%20Hi%C3%AAn%2030-09-2026%2011-28-51.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-017/199.pdf"
+}

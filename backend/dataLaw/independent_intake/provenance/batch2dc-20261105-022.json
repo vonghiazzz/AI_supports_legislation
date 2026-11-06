@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-022",
+  "anchor_fingerprint": "e0b4f9bee51d8da7eb2da57e192fb32c16cfd1a1c541435bbc0e6ee9d56cefab",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:24.617426+07:00",
+  "offline_provenance": null,
+  "original_filename": "29.pdf",
+  "pdf_sha256": "683441c01bf966dc334324a76a180eba44f8cf901f1557c6557a35004caf2af5",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-022",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2266914t1cvn/Kh%C3%A1nh%20D%C5%A9ng%20m%C3%A3%20h%C3%B3a%2030-09-2026%2014-38-13.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-022/29.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-001",
+  "anchor_fingerprint": "4b08e26b11ffabc51d168633fb82d4cfff93c6af64e491aeb13ac1c7fbed7c11",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:06.387806+07:00",
+  "offline_provenance": null,
+  "original_filename": "117.pdf",
+  "pdf_sha256": "cc99762b990b6e0ce4d7fb9c79cc24078ad33a5a20b5f208bd7870ab20b56a10",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-001",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2262253t1cvn/117%20-%2021.9.2026%20Dung%20-%20Sinh%2029-09-2026%2021-17-05.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-001/117.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-041",
+  "anchor_fingerprint": "50afd7f9017c3e10f6d71bc1cbf76a787ec9df79afb119dd4a4d8cf2dee5ebab",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:54.383890+07:00",
+  "offline_provenance": null,
+  "original_filename": "296.pdf",
+  "pdf_sha256": "c243a3163338e8c101f31af7af38f3a74903728f2859703826aa7c2fc364a931",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-041",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2270721t1cvn/D%C3%A2n%20Nguy%E1%BB%87t%2030-09-2026%2018-30-27.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-041/296.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-048",
+  "anchor_fingerprint": "5ba65e897b25a68e77ad9b5652a0f4b88ea045eb73c152055c35d498de3aac2f",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:11:00.554710+07:00",
+  "offline_provenance": null,
+  "original_filename": "1369.pdf",
+  "pdf_sha256": "0af76f51b3fe564d803e9d48a944299d5094196b330962f4aaead3ee09a78062",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-048",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2271806t1cvn/BA%20T-K%20PH.doc%2030-09-2026%2020-58-10.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-048/1369.pdf"
+}

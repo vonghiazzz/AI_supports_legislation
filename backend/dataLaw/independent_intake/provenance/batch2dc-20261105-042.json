@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-042",
+  "anchor_fingerprint": "d10bd65dcfe875d28ac48761de864509d2377d65c28b34d1c66d8d0a5141f4d3",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:56.252998+07:00",
+  "offline_provenance": null,
+  "original_filename": "140.pdf",
+  "pdf_sha256": "47b732d18010b056454f1e7a828fda86eb440e2641f6858d73812211c4633864",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-042",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2271161t1cvn/HOA-%20LI%E1%BB%84U,%20THU%E1%BA%A4N%2030-09-2026%2019-16-08.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-042/140.pdf"
+}

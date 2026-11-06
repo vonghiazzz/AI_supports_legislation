@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-010",
+  "anchor_fingerprint": "f7ca805a533e5899e91010cc7ee8205cdc64744806174ac7b59caa3a9508b383",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:11.399151+07:00",
+  "offline_provenance": null,
+  "original_filename": "172.pdf",
+  "pdf_sha256": "06a2493502db4fff35d8fcac85fad8b34d2d9b5ceffdfc0e3c103ee924447eaa",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-010",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2265159t1cvn/4.%20Q%C4%90%20C%C3%94NG%20NH%E1%BA%ACN-DS-%20N%C4%82M-%20HUNG%20-9-2026%2030-09-2026%2010-50-53.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-010/172.pdf"
+}

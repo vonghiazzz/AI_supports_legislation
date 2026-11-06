@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-033",
+  "anchor_fingerprint": "1fa125b36c91c4ba69a23acb929eff80fb4f1b3b3069c4572efd91a43d7c3e5d",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:46.652421+07:00",
+  "offline_provenance": null,
+  "original_filename": "QD_DC_Minh_Cho.pdf",
+  "pdf_sha256": "6c37a1de11af817c3b20846adc93632f17faf2f0761a60e428e9fbc26c8a7dd1",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-033",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2269697t1cvn/QD_DC_Minh_Cho.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-033/QD_DC_Minh_Cho.pdf"
+}

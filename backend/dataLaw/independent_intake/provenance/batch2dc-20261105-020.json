@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-020",
+  "anchor_fingerprint": "bccc5df0488acec728584ec606f0a773310c8538e1c4be68359061ab546def01",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:21.621922+07:00",
+  "offline_provenance": null,
+  "original_filename": "157.pdf",
+  "pdf_sha256": "ee0a32e5348d1b03f0e62fbe593b9b213803eff8c6445f8f93d9b1d7ad5ab364",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-020",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2266526t1cvn/Q%C4%90%20CNSTT%20HOA%20-%20B%C3%89%20MH%2030-09-2026%2014-18-26.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-020/157.pdf"
+}

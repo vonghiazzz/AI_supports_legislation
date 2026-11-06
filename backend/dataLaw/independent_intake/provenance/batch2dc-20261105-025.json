@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-025",
+  "anchor_fingerprint": "9c923aeb3a1e438614f391b4828ea3505801b2eac846b9b75c151afa7b1406b7",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:33.538156+07:00",
+  "offline_provenance": null,
+  "original_filename": "1775.pdf",
+  "pdf_sha256": "73ad11b360fdfc572f0c59f2ca3df754c02f7515534f3a0c4f90be5bb990511a",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-025",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2268247t1cvn/C%C3%A1nh%20-%20Long%2030-09-2026%2015-53-11.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-025/1775.pdf"
+}

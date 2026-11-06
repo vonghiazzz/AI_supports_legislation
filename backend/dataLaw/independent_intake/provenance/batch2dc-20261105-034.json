@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-034",
+  "anchor_fingerprint": "b31a5d929fcf56aa7553d42948e3ad76e137deebded3c27215d44bec8d4be814",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:48.760079+07:00",
+  "offline_provenance": null,
+  "original_filename": "NĐ Trịnh Huy C - Dương Văn D 30-09-2026 17-11-09.pdf",
+  "pdf_sha256": "082875c455bf761b2b8105de772e9a8747d0fd268d83be33cf4e95fd9a256dc6",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-034",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2269721t1cvn/N%C4%90%20Tr%E1%BB%8Bnh%20Huy%20C%20-%20D%C6%B0%C6%A1ng%20V%C4%83n%20D%2030-09-2026%2017-11-09.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-034/NĐ Trịnh Huy C - Dương Văn D 30-09-2026 17-11-09.pdf"
+}

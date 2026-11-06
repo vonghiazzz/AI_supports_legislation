@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-028",
+  "anchor_fingerprint": "47ab0a3e28ef7cd5177974bc3952d93c245996e2a68e46f64ba4687d7ddfeff9",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:43.068704+07:00",
+  "offline_provenance": null,
+  "original_filename": "QD_DC_Thu_Cuong.pdf",
+  "pdf_sha256": "a72e2767e60a9c89c8524fcd995cac4d638ec5bd12e8618018d31a9313ad1ea6",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-028",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2269226t1cvn/QD_DC_Thu_Cuong.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-028/QD_DC_Thu_Cuong.pdf"
+}

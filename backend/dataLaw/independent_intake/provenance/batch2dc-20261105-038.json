@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-038",
+  "anchor_fingerprint": "68c83e4a3aa14658307d49da7437adf8efb67fb3e917675bed76ab22a9c413f8",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:51.820785+07:00",
+  "offline_provenance": null,
+  "original_filename": "154.pdf",
+  "pdf_sha256": "a9367208d1698d5932eec699af7c9c1679dcd8c1db1a54a664cc17372ee7febf",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-038",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2270176t1cvn/h%C6%B0%C6%A1ng%20Kh%C3%A1nh%2030-09-2026%2017-43-48.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-038/154.pdf"
+}

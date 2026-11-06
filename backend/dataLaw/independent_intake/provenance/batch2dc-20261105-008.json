@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-008",
+  "anchor_fingerprint": "d6a57e4b72df2f3bb1b2a00497b4687951f3ec53472b9466e80ca6ea7f7e286c",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:10.478038+07:00",
+  "offline_provenance": null,
+  "original_filename": "BA_SO_37_TUONG__QUYEN.pdf",
+  "pdf_sha256": "e35fe3f88f0a770b3e715511fa93665e620316925dac8ba0409b2cd889da3642",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-008",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2264615t1cvn/BA_SO_37_TUONG__QUYEN.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-008/BA_SO_37_TUONG__QUYEN.pdf"
+}

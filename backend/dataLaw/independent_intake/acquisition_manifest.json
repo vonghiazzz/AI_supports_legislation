@@ -554,6 +554,558 @@
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-049/282.pdf"
     },
     {
+      "acquisition_id": "batch2dc-20261105-001",
+      "download_timestamp": "2026-11-06T09:10:06.387806+07:00",
+      "immutable_fingerprint": "237409af177700e2ea65e612c483a8e8cc90e9cfa87b2fccbdb2a65af76cf9e1",
+      "offline_provenance": null,
+      "original_filename": "117.pdf",
+      "sha256": "cc99762b990b6e0ce4d7fb9c79cc24078ad33a5a20b5f208bd7870ab20b56a10",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-001",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2262253t1cvn/117%20-%2021.9.2026%20Dung%20-%20Sinh%2029-09-2026%2021-17-05.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-001/117.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-002",
+      "download_timestamp": "2026-11-06T09:10:07.154522+07:00",
+      "immutable_fingerprint": "d1f7b9f7bac5ca1936a912ab9eb6af28eb7fae78717e1ea2299be99a61b5a3a9",
+      "offline_provenance": null,
+      "original_filename": "25.pdf",
+      "sha256": "55cba38b61b041010c5db78c45b8da9d52216f05e30dd98b45f67fa434dc1965",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-002",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2262420t1cvn/sample%20(12)%2029-09-2026%2021-37-44.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-002/25.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-003",
+      "download_timestamp": "2026-11-06T09:10:07.999695+07:00",
+      "immutable_fingerprint": "0f590f4c83822bc0be8377195c7fb47d6bb572fd51dbd58a162ba826dc01bfa1",
+      "offline_provenance": null,
+      "original_filename": "117.pdf",
+      "sha256": "ffb6935da50657ae73bec1007a9f7ccd19b890cf7ac2275b90b7c10b80695cd0",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-003",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2263801t1cvn/sample%20-%202026-09-30T064313.101%2030-09-2026%2006-44-06.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-003/117.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-004",
+      "download_timestamp": "2026-11-06T09:10:08.542619+07:00",
+      "immutable_fingerprint": "95ad319b641d8b1f7599033019f03e1e66cae203138a7ca7690b8dedae2db086",
+      "offline_provenance": null,
+      "original_filename": "56.pdf",
+      "sha256": "28e2a6dbfaaf00da9a1108ada21e0a92a967c6fb29a450b107e2206f8c312f4f",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-004",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2264092t1cvn/sample%20(6)%2030-09-2026%2008-04-50.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-004/56.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-005",
+      "download_timestamp": "2026-11-06T09:10:09.174399+07:00",
+      "immutable_fingerprint": "9697bdb042c00f23460ce08b0da22fb16471d933b2a13542b0995f011f98d6eb",
+      "offline_provenance": null,
+      "original_filename": "191.pdf",
+      "sha256": "fe141f1ebb06288bb33bc0da36ad22de4aa2f9be1840966a91e572c360d502ed",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-005",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2264169t1cvn/Q%C4%90%20%C4%91%C3%ACnh%20ch%E1%BB%89%20Tu%E1%BA%A5n-Qu%C3%AA,%20Vi%E1%BB%87t%20(%C4%91%C4%83ng)%2030-09-2026%2008-27-53.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-005/191.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-006",
+      "download_timestamp": "2026-11-06T09:10:09.586426+07:00",
+      "immutable_fingerprint": "d32345dd94973ef8aa2bfbf9958833147a9d1cfae1a75032d9d006a3385e9e12",
+      "offline_provenance": null,
+      "original_filename": "22.pdf",
+      "sha256": "1ba6e1b4055d6c6d68c18a0700e30cf95f0f07fab6810130895d854eb6910765",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-006",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2264391t1cvn/2024%20Q%C4%90%20%C4%90C%20H%E1%BA%ADu%20-%20Loan%202%2030-09-2026%2009-01-03.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-006/22.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-007",
+      "download_timestamp": "2026-11-06T09:10:09.956409+07:00",
+      "immutable_fingerprint": "f723398e0a775dcaeed4c0cc7bb346cdfc08725c5b1b7edb13e278a2d2b9354d",
+      "offline_provenance": null,
+      "original_filename": "528.pdf",
+      "sha256": "feef5f008c7605219400e5bb88a66efc202ccfa01f1110c9a5760291c8bcf0f2",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-007",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2264575t1cvn/QUY%E1%BA%BET%20%C4%90%E1%BB%8ANH%20%C4%90%C3%8CNH%20CH%E1%BB%88%20V%E1%BB%A4%20%C3%81N%20Long%20-%20Th%C3%A2n%2030-09-2026%2009-28-15.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-007/528.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-008",
+      "download_timestamp": "2026-11-06T09:10:10.478038+07:00",
+      "immutable_fingerprint": "06f4c63c27b125aa94b83835d819bcf3ed4547c43252c190556693bc903a574b",
+      "offline_provenance": null,
+      "original_filename": "BA_SO_37_TUONG__QUYEN.pdf",
+      "sha256": "e35fe3f88f0a770b3e715511fa93665e620316925dac8ba0409b2cd889da3642",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-008",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2264615t1cvn/BA_SO_37_TUONG__QUYEN.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-008/BA_SO_37_TUONG__QUYEN.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-009",
+      "download_timestamp": "2026-11-06T09:10:10.949408+07:00",
+      "immutable_fingerprint": "04d32356c86a1534327fc1774e13d7880c51527e8ff6ba259bcc8948d8838299",
+      "offline_provenance": null,
+      "original_filename": "79.pdf",
+      "sha256": "1410d482e27d2b7fb9975b3253c227f8295348fbdd5f0dda740f9960e04ca4ce",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-009",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2265148t1cvn/3.%20Q%C4%90%20C%C3%94NG%20NHAN-%20%C4%90%C3%81NG-%20TRUC-6-2026%2030-09-2026%2010-49-08.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-009/79.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-010",
+      "download_timestamp": "2026-11-06T09:10:11.399151+07:00",
+      "immutable_fingerprint": "cdc05dbaf3c094d3ce748d49cb283e111b110cb2fc19d6a670926fb1fe9e534b",
+      "offline_provenance": null,
+      "original_filename": "172.pdf",
+      "sha256": "06a2493502db4fff35d8fcac85fad8b34d2d9b5ceffdfc0e3c103ee924447eaa",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-010",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2265159t1cvn/4.%20Q%C4%90%20C%C3%94NG%20NH%E1%BA%ACN-DS-%20N%C4%82M-%20HUNG%20-9-2026%2030-09-2026%2010-50-53.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-010/172.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-011",
+      "download_timestamp": "2026-11-06T09:10:11.797002+07:00",
+      "immutable_fingerprint": "d6086f7e3f09172a0a55078614ffe591baf43e7adadd81e3ac7199e8366ad0f6",
+      "offline_provenance": null,
+      "original_filename": "40.pdf",
+      "sha256": "e7a9c106cd729b4cf74637b29c319d6c3a4f5f32a307821876625d6920e9d952",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-011",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2265183t1cvn/3.%20Q%C4%90%2040%20(T3)%20%C4%90%C3%8CNH%20CH%E1%BB%88%20GI%E1%BA%A2I%20QUY%E1%BA%BET%20V%E1%BB%A4%20%C3%81N%20-%20(V%C3%A2n%20-%20Th%C3%A1i)%2030-09-2026%2010-57-36.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-011/40.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-012",
+      "download_timestamp": "2026-11-06T09:10:12.532507+07:00",
+      "immutable_fingerprint": "bfe9fd3ac24d49aad069b117d167b16ba96744ae2fdccdc112120a95bf182c73",
+      "offline_provenance": null,
+      "original_filename": "213.pdf",
+      "sha256": "fc84e16405e474047da6ebd3c27fc05f21ea224283cd053cd3553ad21ef6a51a",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-012",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2265222t1cvn/213.Q%C4%90%20%C4%90C%20Ng%C3%B4%20Th%E1%BB%8B%20T%20-%20N%2030-09-2026%2010-54-47.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-012/213.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-013",
+      "download_timestamp": "2026-11-06T09:10:13.278372+07:00",
+      "immutable_fingerprint": "f9e618549b8ed600ddbcac2e4eb82bb021fce6798fbcf63fe58103f7e40ff424",
+      "offline_provenance": null,
+      "original_filename": "56.pdf",
+      "sha256": "39d56d9247c6f74729fd5d81d0b0b302ca7c025427d961257e97b2bf939472f1",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-013",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2265252t1cvn/QDCNTT%20so%2056%20ngay%2015062026%2030-09-2026%2011-00-05.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-013/56.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-014",
+      "download_timestamp": "2026-11-06T09:10:14.160475+07:00",
+      "immutable_fingerprint": "3a5d7ba9b73079e9db7540999503d5ffb634a5a1379c2dba536ef054f7b69229",
+      "offline_provenance": null,
+      "original_filename": "48.pdf",
+      "sha256": "82a1eab1388ae7cb0d96a780c0c902a7abcc63c4943d71eb2303611a491480f3",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-014",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2265256t1cvn/Luy%E1%BA%BFn%20-%20Thanh%2030-09-2026%2011-00-56.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-014/48.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-015",
+      "download_timestamp": "2026-11-06T09:10:14.705132+07:00",
+      "immutable_fingerprint": "48ed7102f3d66e086c8cac43f5a45e9bbf4e14f324fa2c69fe224f2fb188a31b",
+      "offline_provenance": null,
+      "original_filename": "247.pdf",
+      "sha256": "d8ad43f9bee0d073a49d1145fdf32bf946b23a922630c1c26eadd8e11b0766e1",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-015",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2265296t1cvn/247%2006.5.2026%20Ph%E1%BA%A1m%20%C4%90,%20L%C3%AA%20Th%E1%BB%8B%20N%20-%20V%C3%B5%20V%C4%83n%20P%2030-09-2026%2011-05-35.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-015/247.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-016",
+      "download_timestamp": "2026-11-06T09:10:15.240295+07:00",
+      "immutable_fingerprint": "0ba04862bc73a4c7fa441765703ee4d4be3a669f6d0ec938d0ec6715cb030d87",
+      "offline_provenance": null,
+      "original_filename": "96.pdf",
+      "sha256": "8cb70ab2b6bd851eb882cb128e3487b7abeceb712f0e251f126d5e65b6f067cb",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-016",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2265343t1cvn/3.%20Q%C4%90%2096%20(T6)%20%C4%90%C3%8CNH%20CH%E1%BB%88%20GI%E1%BA%A2I%20QUY%E1%BA%BET%20V%E1%BB%A4%20%C3%81N%20D%C3%82N%20S%E1%BB%B0%20(Thanh%20-%20T%C3%BAc)%2030-09-2026%2011-11-03.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-016/96.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-017",
+      "download_timestamp": "2026-11-06T09:10:15.997644+07:00",
+      "immutable_fingerprint": "7603c80b2e71b0d30e091243901dfe5110d016169ad6cd0baba538db216835b5",
+      "offline_provenance": null,
+      "original_filename": "199.pdf",
+      "sha256": "e9410054da8d39a2e812f13401847b7486ef36b28af30dd2caed7bac4eeb1515",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-017",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2265504t1cvn/M%C3%A3%20h%C3%A1o%20C%E1%BB%AD%20Hi%C3%AAn%2030-09-2026%2011-28-51.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-017/199.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-018",
+      "download_timestamp": "2026-11-06T09:10:19.265293+07:00",
+      "immutable_fingerprint": "9314131ca72092df4d74a557d37244f5a0ca2fab99edfd2354ce9501d2732372",
+      "offline_provenance": null,
+      "original_filename": "793.pdf",
+      "sha256": "6c28aa329a920be5437a32911691da8171f3e88cae59db4a9afbf61be631c0fa",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-018",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2265884t1cvn/sample%20(79)%2030-09-2026%2012-51-10.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-018/793.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-019",
+      "download_timestamp": "2026-11-06T09:10:20.819194+07:00",
+      "immutable_fingerprint": "28f61691ddf5fe9f1029dec19621a26f6c1bb6a522fde8d0e405f15687cfc685",
+      "offline_provenance": null,
+      "original_filename": "24.pdf",
+      "sha256": "b45f93009fcc26359d4ce7d7f7ea6fa3436133ecd21462dd1ef55d6bb1517af7",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-019",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2266083t1cvn/sample%20(14)%2030-09-2026%2013-24-41.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-019/24.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-020",
+      "download_timestamp": "2026-11-06T09:10:21.621922+07:00",
+      "immutable_fingerprint": "a5274aac196df61193ce30e1f04aaf6a72dd8d24078740fb89c1efb5567118b0",
+      "offline_provenance": null,
+      "original_filename": "157.pdf",
+      "sha256": "ee0a32e5348d1b03f0e62fbe593b9b213803eff8c6445f8f93d9b1d7ad5ab364",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-020",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2266526t1cvn/Q%C4%90%20CNSTT%20HOA%20-%20B%C3%89%20MH%2030-09-2026%2014-18-26.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-020/157.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-021",
+      "download_timestamp": "2026-11-06T09:10:23.957987+07:00",
+      "immutable_fingerprint": "911802dc9923ea7147764ef1b592c980af6c22d20b751b97888809473c2a3a62",
+      "offline_provenance": null,
+      "original_filename": "67.pdf",
+      "sha256": "5f0f9c637d3438135fbd46adf2d0ca4e1b09a57b8b1c7405d53a90cf439373b3",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-021",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2266725t1cvn/MH%20Quy%E1%BA%BFt%20%C4%91%E1%BB%8Bnh%20c%C3%B4ng%20nh%E1%BA%ADn%20s%E1%BB%B1%20th%E1%BB%8Fa%20thu%E1%BA%ADn%20b%C3%A0%20Nguy%E1%BB%85n%20Th%E1%BB%8B%20Thu%20H%C6%B0%C6%A1ng%20-%20%C3%B4ng%20L%C3%A2m%20Thanh%20Tuy%E1%BA%BFn%20ng%C3%A0y%2007-8-2026%2030-09-2026%2014-29-22.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-021/67.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-022",
+      "download_timestamp": "2026-11-06T09:10:24.617426+07:00",
+      "immutable_fingerprint": "2d08b1fe5dd5de96ce2e51d2a89e3089f9151c4c0e03d183009b8468d657ad7f",
+      "offline_provenance": null,
+      "original_filename": "29.pdf",
+      "sha256": "683441c01bf966dc334324a76a180eba44f8cf901f1557c6557a35004caf2af5",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-022",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2266914t1cvn/Kh%C3%A1nh%20D%C5%A9ng%20m%C3%A3%20h%C3%B3a%2030-09-2026%2014-38-13.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-022/29.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-024",
+      "download_timestamp": "2026-11-06T09:10:25.243599+07:00",
+      "immutable_fingerprint": "610606ab64b2567a3700837291dcb9594947d52bf218b83ecad0e0205a234059",
+      "offline_provenance": null,
+      "original_filename": "418.pdf",
+      "sha256": "4e3a3935836923223e2eb720d079df487b427463b66c31a46e0bdf031c6660bf",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-024",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2267799t1cvn/m%C3%A3%20h%C3%B3a%20HX%2030-09-2026%2015-29-46.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-024/418.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-025",
+      "download_timestamp": "2026-11-06T09:10:33.538156+07:00",
+      "immutable_fingerprint": "2e4e15421d3d85f01758f436409648e94b07c5ece34bbc3e877d44e329444abf",
+      "offline_provenance": null,
+      "original_filename": "1775.pdf",
+      "sha256": "73ad11b360fdfc572f0c59f2ca3df754c02f7515534f3a0c4f90be5bb990511a",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-025",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2268247t1cvn/C%C3%A1nh%20-%20Long%2030-09-2026%2015-53-11.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-025/1775.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-026",
+      "download_timestamp": "2026-11-06T09:10:41.779291+07:00",
+      "immutable_fingerprint": "09977b1898d3576024442ecd38830b2c7902753555a9079935fba3d974133756",
+      "offline_provenance": null,
+      "original_filename": "1687.pdf",
+      "sha256": "73ad11b360fdfc572f0c59f2ca3df754c02f7515534f3a0c4f90be5bb990511a",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-026",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2268280t1cvn/C%C3%A1nh%20-%20Long%2030-09-2026%2015-55-21.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-026/1687.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-027",
+      "download_timestamp": "2026-11-06T09:10:42.357571+07:00",
+      "immutable_fingerprint": "92976372429eb75135926f04e54e20d412eacdad312e265f3be75bc8222aeae5",
+      "offline_provenance": null,
+      "original_filename": "217.pdf",
+      "sha256": "c0fad3115e51a72e37249052985111ac2d5e47449ace73cc6d91de2dfb56b6dc",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-027",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2269133t1cvn/sample%2030-09-2026%2016-37-00.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-027/217.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-028",
+      "download_timestamp": "2026-11-06T09:10:43.068704+07:00",
+      "immutable_fingerprint": "a5239f43abc197cbe5ee055f03d662b4ef8b887fdf45a0ba53e1bdbdc7ec4c0a",
+      "offline_provenance": null,
+      "original_filename": "QD_DC_Thu_Cuong.pdf",
+      "sha256": "a72e2767e60a9c89c8524fcd995cac4d638ec5bd12e8618018d31a9313ad1ea6",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-028",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2269226t1cvn/QD_DC_Thu_Cuong.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-028/QD_DC_Thu_Cuong.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-029",
+      "download_timestamp": "2026-11-06T09:10:43.640806+07:00",
+      "immutable_fingerprint": "1c736d9c6d5eb55c055038e6d34ef927a15890521d3466d6c6ec0d736d9bdfd7",
+      "offline_provenance": null,
+      "original_filename": "182.pdf",
+      "sha256": "24fbac0091a46d68803030951c522a48cd14f0f4613716c70bca2b5d292f9571",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-029",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2269273t1cvn/TK%2030-09-2026%2016-49-20.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-029/182.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-030",
+      "download_timestamp": "2026-11-06T09:10:44.045927+07:00",
+      "immutable_fingerprint": "70985c829b07155e27a663bb942b148c193595313dd4c409eb37ae220fca3fea",
+      "offline_provenance": null,
+      "original_filename": "1324.pdf",
+      "sha256": "cdf23e5fec727e0f5d836376cb6b356a0f9dc6308ab3ac9d9ed2f8c97b536e36",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-030",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2269340t1cvn/sample%20(45)%2030-09-2026%2016-53-19.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-030/1324.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-031",
+      "download_timestamp": "2026-11-06T09:10:45.557565+07:00",
+      "immutable_fingerprint": "2b1123f0eaefebc72594108c2ee2beb7bdfbf973baf380aa783682802434cf8c",
+      "offline_provenance": null,
+      "original_filename": "525.pdf",
+      "sha256": "687aa36ab7c22967d7b8049fce539054980d21d6a26a29a215740f8d54618948",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-031",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2269403t1cvn/Ch%E1%BB%89%20UB%20Quang%20Phu%2030-09-2026%2017-03-03.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-031/525.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-032",
+      "download_timestamp": "2026-11-06T09:10:46.092334+07:00",
+      "immutable_fingerprint": "2536a3cab84f2ce304d80a8e82a5d39eb2e72d12a56b158f04af8ba8f4af64e2",
+      "offline_provenance": null,
+      "original_filename": "1030.pdf",
+      "sha256": "e287d0ad3286289892ede698320905d614015d6cc31baf68f0ad77770faf6776",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-032",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2269674t1cvn/QD_DC_NU__VAN_1.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-032/1030.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-033",
+      "download_timestamp": "2026-11-06T09:10:46.652421+07:00",
+      "immutable_fingerprint": "3886131721376bafda0f2cb35c5f7397a9165eaaed8a493cd56a723781d378fb",
+      "offline_provenance": null,
+      "original_filename": "QD_DC_Minh_Cho.pdf",
+      "sha256": "6c37a1de11af817c3b20846adc93632f17faf2f0761a60e428e9fbc26c8a7dd1",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-033",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2269697t1cvn/QD_DC_Minh_Cho.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-033/QD_DC_Minh_Cho.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-034",
+      "download_timestamp": "2026-11-06T09:10:48.760079+07:00",
+      "immutable_fingerprint": "3de977bea9cabc44429e63220de8a03d824b70d2df73fbe1808f4d36eccbc71f",
+      "offline_provenance": null,
+      "original_filename": "NĐ Trịnh Huy C - Dương Văn D 30-09-2026 17-11-09.pdf",
+      "sha256": "082875c455bf761b2b8105de772e9a8747d0fd268d83be33cf4e95fd9a256dc6",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-034",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2269721t1cvn/N%C4%90%20Tr%E1%BB%8Bnh%20Huy%20C%20-%20D%C6%B0%C6%A1ng%20V%C4%83n%20D%2030-09-2026%2017-11-09.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-034/NĐ Trịnh Huy C - Dương Văn D 30-09-2026 17-11-09.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-035",
+      "download_timestamp": "2026-11-06T09:10:50.126425+07:00",
+      "immutable_fingerprint": "dcc27ea22893c7fc07344a8876058ba207add1475d81eb0026f7247619502ada",
+      "offline_provenance": null,
+      "original_filename": "53.pdf",
+      "sha256": "2ee616eda7b9b099d36cbfbcb1a634fb01fd0b676e1ef5e0009b7f2e78e2ee1f",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-035",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2269798t1cvn/sample%20(69)%2030-09-2026%2017-19-31.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-035/53.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-036",
+      "download_timestamp": "2026-11-06T09:10:50.677905+07:00",
+      "immutable_fingerprint": "48bf7b5d290dc606d6abc006e943697e95f0cdae0162eb6227a1b11eb55a813c",
+      "offline_provenance": null,
+      "original_filename": "97.pdf",
+      "sha256": "336af00677d617c0e22a6a44e40409b7d2894271a07290fdc6144edae8b3d3e2",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-036",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2270083t1cvn/sample%20(17)%2030-09-2026%2017-37-12.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-036/97.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-037",
+      "download_timestamp": "2026-11-06T09:10:51.202198+07:00",
+      "immutable_fingerprint": "fd29cd7cb49781ebe65c8d57f9f701e074c74b73179df3f9fe97def5f6348f90",
+      "offline_provenance": null,
+      "original_filename": "412.pdf",
+      "sha256": "0779d52cf0c829b64aafb4d5f7dce9d63db043f69aeefffc98393cd15d292b85",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-037",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2270088t1cvn/412%2024.7.2026%20Ng%C3%B4%20Th%E1%BB%8B%20L%20-%20L%C3%AA%20Minh%20P%2030-09-2026%2017-37-41.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-037/412.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-038",
+      "download_timestamp": "2026-11-06T09:10:51.820785+07:00",
+      "immutable_fingerprint": "fb3b3c1832c201d0c13d6fda4132675a30167b4c86d5d6a93b8b593c5fda3ff7",
+      "offline_provenance": null,
+      "original_filename": "154.pdf",
+      "sha256": "a9367208d1698d5932eec699af7c9c1679dcd8c1db1a54a664cc17372ee7febf",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-038",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2270176t1cvn/h%C6%B0%C6%A1ng%20Kh%C3%A1nh%2030-09-2026%2017-43-48.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-038/154.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-039",
+      "download_timestamp": "2026-11-06T09:10:52.453730+07:00",
+      "immutable_fingerprint": "3466bcb9db621251c0346ccb6ccf264a9e359e74eecd49792f6f56bbc128cd02",
+      "offline_provenance": null,
+      "original_filename": "25.pdf",
+      "sha256": "cb62d2943a67975c40bffcac11c18ab57920ba23c8dc2f0900df463276a0da7d",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-039",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2270343t1cvn/sample%20(25)%2030-09-2026%2018-00-27.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-039/25.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-041",
+      "download_timestamp": "2026-11-06T09:10:54.383890+07:00",
+      "immutable_fingerprint": "a53bc1148a945752e0421405e254239aaf150de6684d4869ee8063a31a1a2937",
+      "offline_provenance": null,
+      "original_filename": "296.pdf",
+      "sha256": "c243a3163338e8c101f31af7af38f3a74903728f2859703826aa7c2fc364a931",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-041",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2270721t1cvn/D%C3%A2n%20Nguy%E1%BB%87t%2030-09-2026%2018-30-27.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-041/296.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-042",
+      "download_timestamp": "2026-11-06T09:10:56.252998+07:00",
+      "immutable_fingerprint": "5b483e705282eb5168c54b860586c6ad66712441bd1d1ae0aaefa1c82305bcbb",
+      "offline_provenance": null,
+      "original_filename": "140.pdf",
+      "sha256": "47b732d18010b056454f1e7a828fda86eb440e2641f6858d73812211c4633864",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-042",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2271161t1cvn/HOA-%20LI%E1%BB%84U,%20THU%E1%BA%A4N%2030-09-2026%2019-16-08.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-042/140.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-043",
+      "download_timestamp": "2026-11-06T09:10:57.835724+07:00",
+      "immutable_fingerprint": "1d5256ec37496503867cf9f8f03011622d7deeac6061b25ae61a3292c8df6e22",
+      "offline_provenance": null,
+      "original_filename": "06.pdf",
+      "sha256": "4f2868bca12cbbce27ec623751b8909b27df0baf7bb14eafd2d48f260b74257b",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-043",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2271312t1cvn/M%20-%20U%2030-09-2026%2019-32-50.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-043/06.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-044",
+      "download_timestamp": "2026-11-06T09:10:58.601851+07:00",
+      "immutable_fingerprint": "304b5af46570daca1f8c39a3b261361ed6bb6d3a19c324d0c990593093588dc5",
+      "offline_provenance": null,
+      "original_filename": "107.pdf",
+      "sha256": "5a81d1e3d51847ab6e7f91c2e220a83b7665c7171a2286ae14d0c0f645d6e71a",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-044",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2271331t1cvn/LI%E1%BB%84U%20-%20TU%E1%BA%A4N%2030-09-2026%2019-36-22.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-044/107.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-045",
+      "download_timestamp": "2026-11-06T09:10:59.278917+07:00",
+      "immutable_fingerprint": "252344032b0236c0cfbf2630bb4f6f1955fbb1ceeb444adacbb9796be802c7f6",
+      "offline_provenance": null,
+      "original_filename": "06.pdf",
+      "sha256": "ecd805bbd3a523c6acaa3a6c8fa029f030fc4b1042ef85dda4e6778c721a8a81",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-045",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2271546t1cvn/sample%2030-09-2026%2020-20-24.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-045/06.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-046",
+      "download_timestamp": "2026-11-06T09:10:59.806459+07:00",
+      "immutable_fingerprint": "9b550af9e926056d7b54b27ef7aedbb647c7f78a66a6557ddeaeaf3743fd53a7",
+      "offline_provenance": null,
+      "original_filename": "103.pdf",
+      "sha256": "7b0bb3641dfebbf1aa7486a312cbb7c85073e85fd47001fac1b2bf03639a1a54",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-046",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2271634t1cvn/TR%C6%AF%C6%A0NG%20V%C4%82N%20H%C3%82N%20-%20CH%C3%82U%20V%C4%82N%20S%C3%81CH%20PDF%2030-09-2026%2020-29-23.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-046/103.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-048",
+      "download_timestamp": "2026-11-06T09:11:00.554710+07:00",
+      "immutable_fingerprint": "96227f8166508b6c0fa33305648ba5a9801ed5c140e0c9db2caa68571f1e9af3",
+      "offline_provenance": null,
+      "original_filename": "1369.pdf",
+      "sha256": "0af76f51b3fe564d803e9d48a944299d5094196b330962f4aaead3ee09a78062",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-048",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2271806t1cvn/BA%20T-K%20PH.doc%2030-09-2026%2020-58-10.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-048/1369.pdf"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-049",
+      "download_timestamp": "2026-11-06T09:11:00.881252+07:00",
+      "immutable_fingerprint": "c8ddc967bb277d63750c6a35f0ebce8f945339b874bc5b13ff14349c91e18075",
+      "offline_provenance": null,
+      "original_filename": "123.pdf",
+      "sha256": "b4043a65277637c47535dd1bd8a5efe7f4a2b8ec5dcc677b012365418651845e",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-049",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2272281t1cvn/T9-%20Nga%20V%C6%B0%E1%BB%A3ng%20m%C3%A3%20h%C3%B3a%2030-09-2026%2022-15-24.pdf",
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-049/123.pdf"
+    },
+    {
       "acquisition_id": "pilot-20261025-001",
       "download_timestamp": "2026-10-25T14:33:31.117112+07:00",
       "immutable_fingerprint": "ae8a1ca9e026839ea6c380412526e0c14b82941630f4f0e1760c365df7869344",
@@ -6427,6 +6979,2306 @@
       "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2db-20261103-049/282.pdf",
       "structured_path": "backend/dataLaw/independent_intake/structured/batch2db-20261103-049/282_structured.json",
       "structured_sha256": "41930d1ef08c19efdb2a2ecec443baa2b8974ad79c7f9751b9e2e54d171c97b2",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-001",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:06.387806+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "117.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "cc99762b990b6e0ce4d7fb9c79cc24078ad33a5a20b5f208bd7870ab20b56a10",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-001",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2262253t1cvn/117%20-%2021.9.2026%20Dung%20-%20Sinh%2029-09-2026%2021-17-05.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:06.387806+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:05.059205+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:12:22.262510+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-001/117.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-001/117_structured.json",
+      "structured_sha256": "ec3c991a7c666de48ad4fcd28db1d64b38ed249f02cd4dd18ee7611b6b1f6c68",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-002",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:07.154522+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "25.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "55cba38b61b041010c5db78c45b8da9d52216f05e30dd98b45f67fa434dc1965",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-002",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2262420t1cvn/sample%20(12)%2029-09-2026%2021-37-44.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:07.154522+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:06.110108+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:12:25.138622+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-002/25.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-002/25_structured.json",
+      "structured_sha256": "b70b48dad5d6f6eb2ab40ddf4c85d3245cd786d82a865c1cffdfd222275ba0e3",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-003",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:07.999695+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "117.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "ffb6935da50657ae73bec1007a9f7ccd19b890cf7ac2275b90b7c10b80695cd0",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-003",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2263801t1cvn/sample%20-%202026-09-30T064313.101%2030-09-2026%2006-44-06.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:07.999695+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:07.128200+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:12:29.699989+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-003/117.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-003/117_structured.json",
+      "structured_sha256": "c7c09c7c227037b5c491884cf46e8c4ba6fb96aeef74964f55a2c64210a73e54",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-004",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:08.542619+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "56.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "28e2a6dbfaaf00da9a1108ada21e0a92a967c6fb29a450b107e2206f8c312f4f",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-004",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2264092t1cvn/sample%20(6)%2030-09-2026%2008-04-50.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:08.542619+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:08.231120+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:12:32.454562+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-004/56.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-004/56_structured.json",
+      "structured_sha256": "e020c27fbb2599e8134c388c04eee2187936ff17cfe1bc562de412833dd89c33",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-005",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:09.174399+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "191.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "fe141f1ebb06288bb33bc0da36ad22de4aa2f9be1840966a91e572c360d502ed",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-005",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2264169t1cvn/Q%C4%90%20%C4%91%C3%ACnh%20ch%E1%BB%89%20Tu%E1%BA%A5n-Qu%C3%AA,%20Vi%E1%BB%87t%20(%C4%91%C4%83ng)%2030-09-2026%2008-27-53.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:09.174399+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:09.284731+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:12:34.118247+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-005/191.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-005/191_structured.json",
+      "structured_sha256": "8009ec776a4d08c46d9dd517416ad6be46efe9f8f0b998174d7b7f9e79a59ae0",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-006",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:09.586426+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "22.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "1ba6e1b4055d6c6d68c18a0700e30cf95f0f07fab6810130895d854eb6910765",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-006",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2264391t1cvn/2024%20Q%C4%90%20%C4%90C%20H%E1%BA%ADu%20-%20Loan%202%2030-09-2026%2009-01-03.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:09.586426+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:10.314008+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:12:35.638325+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-006/22.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-006/22_structured.json",
+      "structured_sha256": "a2554267b0b2000dc09c72bc606b8c1c33f630fa9c57ed2cee98c2fb8f8f3435",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-007",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:09.956409+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "528.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "feef5f008c7605219400e5bb88a66efc202ccfa01f1110c9a5760291c8bcf0f2",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-007",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2264575t1cvn/QUY%E1%BA%BET%20%C4%90%E1%BB%8ANH%20%C4%90%C3%8CNH%20CH%E1%BB%88%20V%E1%BB%A4%20%C3%81N%20Long%20-%20Th%C3%A2n%2030-09-2026%2009-28-15.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:09.956409+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:11.343671+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:12:37.176848+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-007/528.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-007/528_structured.json",
+      "structured_sha256": "12e07fbdda2bd80072046ecf94299ffd1b4932fdee0c94dc5fb43b907d1e7fe7",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-008",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:10.478038+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "BA_SO_37_TUONG__QUYEN.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "e35fe3f88f0a770b3e715511fa93665e620316925dac8ba0409b2cd889da3642",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-008",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2264615t1cvn/BA_SO_37_TUONG__QUYEN.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:10.478038+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:12.388732+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:12:44.807522+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-008/BA_SO_37_TUONG__QUYEN.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-008/BA_SO_37_TUONG__QUYEN_structured.json",
+      "structured_sha256": "225d170420a036db9eac2f28bbea4b871b40a898976178a9ae150c87996a3563",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-009",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:10.949408+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "79.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "1410d482e27d2b7fb9975b3253c227f8295348fbdd5f0dda740f9960e04ca4ce",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-009",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2265148t1cvn/3.%20Q%C4%90%20C%C3%94NG%20NHAN-%20%C4%90%C3%81NG-%20TRUC-6-2026%2030-09-2026%2010-49-08.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:10.949408+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:13.525480+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:12:46.568354+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-009/79.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-009/79_structured.json",
+      "structured_sha256": "c9e35a34f02f8578ec9f8616015bab5bc765f06fad69ebf8b69e534db036d6ce",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-010",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:11.399151+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "172.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "06a2493502db4fff35d8fcac85fad8b34d2d9b5ceffdfc0e3c103ee924447eaa",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-010",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2265159t1cvn/4.%20Q%C4%90%20C%C3%94NG%20NH%E1%BA%ACN-DS-%20N%C4%82M-%20HUNG%20-9-2026%2030-09-2026%2010-50-53.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:11.399151+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:14.558336+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:12:48.170281+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-010/172.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-010/172_structured.json",
+      "structured_sha256": "f08592e48f7f49b442e9e071dbdbb33b4ab635592a80446af8b8bfa63426de98",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-011",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:11.797002+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "40.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "e7a9c106cd729b4cf74637b29c319d6c3a4f5f32a307821876625d6920e9d952",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-011",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2265183t1cvn/3.%20Q%C4%90%2040%20(T3)%20%C4%90%C3%8CNH%20CH%E1%BB%88%20GI%E1%BA%A2I%20QUY%E1%BA%BET%20V%E1%BB%A4%20%C3%81N%20-%20(V%C3%A2n%20-%20Th%C3%A1i)%2030-09-2026%2010-57-36.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:11.797002+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:15.590377+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:12:49.630675+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-011/40.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-011/40_structured.json",
+      "structured_sha256": "f2bd2bf8918cb84e58c78b6709286f6b56ad9db684d76b597d90e666b769cbfa",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-012",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:12.532507+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "213.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "fc84e16405e474047da6ebd3c27fc05f21ea224283cd053cd3553ad21ef6a51a",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-012",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2265222t1cvn/213.Q%C4%90%20%C4%90C%20Ng%C3%B4%20Th%E1%BB%8B%20T%20-%20N%2030-09-2026%2010-54-47.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:12.532507+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:16.644116+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:12:54.023168+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-012/213.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-012/213_structured.json",
+      "structured_sha256": "dbdafa0550c8d322b61d7bdf64a45ae64182544feeb43ed6b2df766c30251c4f",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-013",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:13.278372+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "56.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "39d56d9247c6f74729fd5d81d0b0b302ca7c025427d961257e97b2bf939472f1",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-013",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2265252t1cvn/QDCNTT%20so%2056%20ngay%2015062026%2030-09-2026%2011-00-05.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:13.278372+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:17.680384+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:12:56.386986+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-013/56.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-013/56_structured.json",
+      "structured_sha256": "9212bf8872d6f423ee4dd33e822153f4d96036ebaedb07ac4fe0a7de7e0b2158",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-014",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:14.160475+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "48.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "82a1eab1388ae7cb0d96a780c0c902a7abcc63c4943d71eb2303611a491480f3",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-014",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2265256t1cvn/Luy%E1%BA%BFn%20-%20Thanh%2030-09-2026%2011-00-56.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:14.160475+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:18.749242+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:12:59.306046+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-014/48.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-014/48_structured.json",
+      "structured_sha256": "ace8d07b4223d5921baa7617aa6ca8fc1e6b216262f6fdef0c31c6b8b84c6ea0",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-015",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:14.705132+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "247.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "d8ad43f9bee0d073a49d1145fdf32bf946b23a922630c1c26eadd8e11b0766e1",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-015",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2265296t1cvn/247%2006.5.2026%20Ph%E1%BA%A1m%20%C4%90,%20L%C3%AA%20Th%E1%BB%8B%20N%20-%20V%C3%B5%20V%C4%83n%20P%2030-09-2026%2011-05-35.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:14.705132+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:19.794126+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:13:01.896735+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-015/247.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-015/247_structured.json",
+      "structured_sha256": "cce28fb8e6f4e7f43bbc39968ed321308f2c2655540a249f3fc8503aeef02fba",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-016",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:15.240295+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "96.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "8cb70ab2b6bd851eb882cb128e3487b7abeceb712f0e251f126d5e65b6f067cb",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-016",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2265343t1cvn/3.%20Q%C4%90%2096%20(T6)%20%C4%90%C3%8CNH%20CH%E1%BB%88%20GI%E1%BA%A2I%20QUY%E1%BA%BET%20V%E1%BB%A4%20%C3%81N%20D%C3%82N%20S%E1%BB%B0%20(Thanh%20-%20T%C3%BAc)%2030-09-2026%2011-11-03.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:15.240295+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:20.852295+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:13:04.814137+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-016/96.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-016/96_structured.json",
+      "structured_sha256": "04f2d7924ac9e4502aee7f19c23cf0238fc231330b2dfe890dec20e736c293a1",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-017",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:15.997644+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "199.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "e9410054da8d39a2e812f13401847b7486ef36b28af30dd2caed7bac4eeb1515",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-017",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2265504t1cvn/M%C3%A3%20h%C3%A1o%20C%E1%BB%AD%20Hi%C3%AAn%2030-09-2026%2011-28-51.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:15.997644+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:21.900193+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:13:08.656090+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-017/199.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-017/199_structured.json",
+      "structured_sha256": "051057aa872f4c2073c15f86924055b145d6f1eb1d5807bd309b2d7bfc0ed4c4",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-018",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:19.265293+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "793.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "6c28aa329a920be5437a32911691da8171f3e88cae59db4a9afbf61be631c0fa",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-018",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2265884t1cvn/sample%20(79)%2030-09-2026%2012-51-10.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:19.265293+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:23.102802+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:14:02.317901+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-018/793.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-018/793_structured.json",
+      "structured_sha256": "16a157d4a5a1536da8fe4ba5e6103686b7ffe562fef74d98346d77a8a5a1170c",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-019",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:20.819194+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "24.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "b45f93009fcc26359d4ce7d7f7ea6fa3436133ecd21462dd1ef55d6bb1517af7",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-019",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2266083t1cvn/sample%20(14)%2030-09-2026%2013-24-41.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:20.819194+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:24.359147+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:14:06.005300+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-019/24.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-019/24_structured.json",
+      "structured_sha256": "ed898949c7d44648fda0daa6493aa4ef877da3dd8ce3c356af4a8c7bbca74ed7",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-020",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:21.621922+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "157.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "ee0a32e5348d1b03f0e62fbe593b9b213803eff8c6445f8f93d9b1d7ad5ab364",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-020",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2266526t1cvn/Q%C4%90%20CNSTT%20HOA%20-%20B%C3%89%20MH%2030-09-2026%2014-18-26.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:21.621922+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:25.457169+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:14:10.806707+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-020/157.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-020/157_structured.json",
+      "structured_sha256": "2abb3608b4f399e070fbdbd54f94488d6f2dffdbd746c77fd5527655af525f89",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-021",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:23.957987+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "67.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "5f0f9c637d3438135fbd46adf2d0ca4e1b09a57b8b1c7405d53a90cf439373b3",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-021",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2266725t1cvn/MH%20Quy%E1%BA%BFt%20%C4%91%E1%BB%8Bnh%20c%C3%B4ng%20nh%E1%BA%ADn%20s%E1%BB%B1%20th%E1%BB%8Fa%20thu%E1%BA%ADn%20b%C3%A0%20Nguy%E1%BB%85n%20Th%E1%BB%8B%20Thu%20H%C6%B0%C6%A1ng%20-%20%C3%B4ng%20L%C3%A2m%20Thanh%20Tuy%E1%BA%BFn%20ng%C3%A0y%2007-8-2026%2030-09-2026%2014-29-22.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:23.957987+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:26.640715+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:14:17.210670+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-021/67.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-021/67_structured.json",
+      "structured_sha256": "2d5b614d72484c4fb87bbde2b94cf9164429e508c8038afd602469c15144a079",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-022",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:24.617426+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "29.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "683441c01bf966dc334324a76a180eba44f8cf901f1557c6557a35004caf2af5",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-022",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2266914t1cvn/Kh%C3%A1nh%20D%C5%A9ng%20m%C3%A3%20h%C3%B3a%2030-09-2026%2014-38-13.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:24.617426+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:27.773375+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:14:35.648548+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-022/29.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-022/29_structured.json",
+      "structured_sha256": "f8f00f2858fb082c091366778e8253ed35d845851298f17e138a31d09a288b07",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-024",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:25.243599+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "418.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "4e3a3935836923223e2eb720d079df487b427463b66c31a46e0bdf031c6660bf",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-024",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2267799t1cvn/m%C3%A3%20h%C3%B3a%20HX%2030-09-2026%2015-29-46.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:25.243599+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:28.975917+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:14:40.129489+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-024/418.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-024/418_structured.json",
+      "structured_sha256": "1bbd8a84434e0b64a944659ddf7f8176b616c8b8504a8bae98c91c24dbf7816d",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-025",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:33.538156+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "1775.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "73ad11b360fdfc572f0c59f2ca3df754c02f7515534f3a0c4f90be5bb990511a",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-025",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2268247t1cvn/C%C3%A1nh%20-%20Long%2030-09-2026%2015-53-11.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:33.538156+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:30.168763+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:15:19.908932+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-025/1775.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-025/1775_structured.json",
+      "structured_sha256": "7aa2a7cd9389b9c46425cce55c736e4d289f0c81837c46844d267f25e3e391f1",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-026",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:41.779291+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "1687.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "73ad11b360fdfc572f0c59f2ca3df754c02f7515534f3a0c4f90be5bb990511a",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-026",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2268280t1cvn/C%C3%A1nh%20-%20Long%2030-09-2026%2015-55-21.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:41.779291+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:31.465473+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:15:59.811982+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-026/1687.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-026/1687_structured.json",
+      "structured_sha256": "9350cbfef88c0bffb18e12cefd1583fb969e725512ef321bfbbc2c6ccfe9f494",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-027",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:42.357571+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "217.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "c0fad3115e51a72e37249052985111ac2d5e47449ace73cc6d91de2dfb56b6dc",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-027",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2269133t1cvn/sample%2030-09-2026%2016-37-00.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:42.357571+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:32.734309+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:16:03.268901+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-027/217.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-027/217_structured.json",
+      "structured_sha256": "2d93066008483e3f53a8a6572ef5e45f4935d78087b3a20ba00a3d2e092a5726",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-028",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:43.068704+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "QD_DC_Thu_Cuong.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "a72e2767e60a9c89c8524fcd995cac4d638ec5bd12e8618018d31a9313ad1ea6",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-028",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2269226t1cvn/QD_DC_Thu_Cuong.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:43.068704+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:33.955652+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:16:05.246622+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-028/QD_DC_Thu_Cuong.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-028/QD_DC_Thu_Cuong_structured.json",
+      "structured_sha256": "333dc92f56934e388626acd3167e7cad395d0c5bee797ada3b0690e9acf439c3",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-029",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:43.640806+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "182.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "24fbac0091a46d68803030951c522a48cd14f0f4613716c70bca2b5d292f9571",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-029",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2269273t1cvn/TK%2030-09-2026%2016-49-20.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:43.640806+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:35.179118+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:16:09.288880+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-029/182.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-029/182_structured.json",
+      "structured_sha256": "ad71c47bdd8cea011e7f6d0dfba62275fce35fccf0c64109e02dd43bb6b16636",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-030",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:44.045927+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "1324.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "cdf23e5fec727e0f5d836376cb6b356a0f9dc6308ab3ac9d9ed2f8c97b536e36",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-030",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2269340t1cvn/sample%20(45)%2030-09-2026%2016-53-19.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:44.045927+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:36.434611+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:16:10.918899+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-030/1324.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-030/1324_structured.json",
+      "structured_sha256": "8e1cc213f980b0cd66c9af7530ce1eb94c18f978ebe98a665897785a9176fb2e",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-031",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:45.557565+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "525.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "687aa36ab7c22967d7b8049fce539054980d21d6a26a29a215740f8d54618948",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-031",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2269403t1cvn/Ch%E1%BB%89%20UB%20Quang%20Phu%2030-09-2026%2017-03-03.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:45.557565+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:37.631491+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:16:28.535078+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-031/525.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-031/525_structured.json",
+      "structured_sha256": "bf06abb619d490df608da36aa0256fb6e9121deb64a192e20a61571a4486b379",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-032",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:46.092334+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "1030.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "e287d0ad3286289892ede698320905d614015d6cc31baf68f0ad77770faf6776",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-032",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2269674t1cvn/QD_DC_NU__VAN_1.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:46.092334+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:38.834171+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:16:30.760574+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-032/1030.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-032/1030_structured.json",
+      "structured_sha256": "9115f06133a9490f283704883594ec0f18474147c704d410ef8408c55122ff4a",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-033",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:46.652421+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "QD_DC_Minh_Cho.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "6c37a1de11af817c3b20846adc93632f17faf2f0761a60e428e9fbc26c8a7dd1",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-033",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2269697t1cvn/QD_DC_Minh_Cho.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:46.652421+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:40.009317+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:16:32.680266+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-033/QD_DC_Minh_Cho.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-033/QD_DC_Minh_Cho_structured.json",
+      "structured_sha256": "ae10a5b3c3f450d81f631d366bbc06a00e96ee5f38000063c02ebdf2bf311dff",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-034",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:48.760079+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "NĐ Trịnh Huy C - Dương Văn D 30-09-2026 17-11-09.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "082875c455bf761b2b8105de772e9a8747d0fd268d83be33cf4e95fd9a256dc6",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-034",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2269721t1cvn/N%C4%90%20Tr%E1%BB%8Bnh%20Huy%20C%20-%20D%C6%B0%C6%A1ng%20V%C4%83n%20D%2030-09-2026%2017-11-09.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:48.760079+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:41.258087+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:17:09.200042+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-034/NĐ Trịnh Huy C - Dương Văn D 30-09-2026 17-11-09.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-034/NĐ Trịnh Huy C - Dương Văn D 30-09-2026 17-11-09_structured.json",
+      "structured_sha256": "61c84356a30f610e0fd4ca6a509e8577f935e7a50ff755564c5b865f6f887dae",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-035",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:50.126425+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "53.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "2ee616eda7b9b099d36cbfbcb1a634fb01fd0b676e1ef5e0009b7f2e78e2ee1f",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-035",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2269798t1cvn/sample%20(69)%2030-09-2026%2017-19-31.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:50.126425+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:42.563199+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:17:12.030461+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-035/53.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-035/53_structured.json",
+      "structured_sha256": "ce469536ae7c7fa6bc1c296156a290adc3d7975837b6849d947283fbe0105ae7",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-036",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:50.677905+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "97.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "336af00677d617c0e22a6a44e40409b7d2894271a07290fdc6144edae8b3d3e2",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-036",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2270083t1cvn/sample%20(17)%2030-09-2026%2017-37-12.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:50.677905+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:43.809882+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:17:15.157308+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-036/97.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-036/97_structured.json",
+      "structured_sha256": "28aaf61577b542d76193a1945eb4c38efed4067b73cf7094a363c997bd35d457",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-037",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:51.202198+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "412.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "0779d52cf0c829b64aafb4d5f7dce9d63db043f69aeefffc98393cd15d292b85",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-037",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2270088t1cvn/412%2024.7.2026%20Ng%C3%B4%20Th%E1%BB%8B%20L%20-%20L%C3%AA%20Minh%20P%2030-09-2026%2017-37-41.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:51.202198+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:45.235734+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:17:18.243725+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-037/412.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-037/412_structured.json",
+      "structured_sha256": "09cbb73e33bc45f0eeb0581414b3c36c875666ac11edc88a8901df5e667e789a",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-038",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:51.820785+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "154.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "a9367208d1698d5932eec699af7c9c1679dcd8c1db1a54a664cc17372ee7febf",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-038",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2270176t1cvn/h%C6%B0%C6%A1ng%20Kh%C3%A1nh%2030-09-2026%2017-43-48.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:51.820785+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:46.451900+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:17:21.954170+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-038/154.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-038/154_structured.json",
+      "structured_sha256": "0d31b374cdc91f59bd2e15daec46657687357829e3157068a9fcb2f5e66e1b01",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-039",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:52.453730+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "25.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "cb62d2943a67975c40bffcac11c18ab57920ba23c8dc2f0900df463276a0da7d",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-039",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2270343t1cvn/sample%20(25)%2030-09-2026%2018-00-27.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:52.453730+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:47.563900+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:17:24.192192+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-039/25.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-039/25_structured.json",
+      "structured_sha256": "5138c691effa572801ce96e0a7db214fd1a107f5d09a6212a6b02e1b49106acf",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-041",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:54.383890+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "296.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "c243a3163338e8c101f31af7af38f3a74903728f2859703826aa7c2fc364a931",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-041",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2270721t1cvn/D%C3%A2n%20Nguy%E1%BB%87t%2030-09-2026%2018-30-27.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:54.383890+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:48.718143+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:17:28.499528+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-041/296.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-041/296_structured.json",
+      "structured_sha256": "bc27d21822889a30de5f1ddf1238419c50667f04f25970108fb285b58af0e771",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-042",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:56.252998+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "140.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "47b732d18010b056454f1e7a828fda86eb440e2641f6858d73812211c4633864",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-042",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2271161t1cvn/HOA-%20LI%E1%BB%84U,%20THU%E1%BA%A4N%2030-09-2026%2019-16-08.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:56.252998+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:49.862800+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:17:33.711636+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-042/140.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-042/140_structured.json",
+      "structured_sha256": "6046c01822fc45dff8eb0b0ce8374a63489283867f060c33dfddd36b19dbcc38",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-043",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:57.835724+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "06.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "4f2868bca12cbbce27ec623751b8909b27df0baf7bb14eafd2d48f260b74257b",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-043",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2271312t1cvn/M%20-%20U%2030-09-2026%2019-32-50.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:57.835724+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:51.043595+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:18:00.539976+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-043/06.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-043/06_structured.json",
+      "structured_sha256": "2bd6d9858c87c4951eb97b49934b793529e6462812a2659082506f06bac57ce2",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-044",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:58.601851+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "107.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "5a81d1e3d51847ab6e7f91c2e220a83b7665c7171a2286ae14d0c0f645d6e71a",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-044",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2271331t1cvn/LI%E1%BB%84U%20-%20TU%E1%BA%A4N%2030-09-2026%2019-36-22.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:58.601851+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:52.269413+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:18:03.893861+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-044/107.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-044/107_structured.json",
+      "structured_sha256": "70b81a5bc9373bac954efbbf0e3c50730ab2339b30674cd75acf1fc4cc2ff347",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-045",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:59.278917+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "06.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "ecd805bbd3a523c6acaa3a6c8fa029f030fc4b1042ef85dda4e6778c721a8a81",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-045",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2271546t1cvn/sample%2030-09-2026%2020-20-24.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:59.278917+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:53.511073+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:18:10.682365+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-045/06.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-045/06_structured.json",
+      "structured_sha256": "84298ba891e7e1b35ad88b59aa192cfc48e8f0423e25c65b775e892268c695fd",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-046",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:10:59.806459+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "103.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "7b0bb3641dfebbf1aa7486a312cbb7c85073e85fd47001fac1b2bf03639a1a54",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-046",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2271634t1cvn/TR%C6%AF%C6%A0NG%20V%C4%82N%20H%C3%82N%20-%20CH%C3%82U%20V%C4%82N%20S%C3%81CH%20PDF%2030-09-2026%2020-29-23.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:10:59.806459+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:54.765750+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:18:12.639851+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-046/103.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-046/103_structured.json",
+      "structured_sha256": "91a8fa5735fd0efa4af1a0759545c1fbda8a6d8e145f87c4559bd537a97c2d05",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-048",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:11:00.554710+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "1369.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "0af76f51b3fe564d803e9d48a944299d5094196b330962f4aaead3ee09a78062",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-048",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2271806t1cvn/BA%20T-K%20PH.doc%2030-09-2026%2020-58-10.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:11:00.554710+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:55.957534+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:18:16.500213+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-048/1369.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-048/1369_structured.json",
+      "structured_sha256": "db1e20dcff6bab8cbf1daf7e518da335820557d007d60f253567f4868a640102",
+      "underlying_dispute_id": null
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-049",
+      "acquisition_status": "extracted",
+      "case_id": null,
+      "court": null,
+      "decision_date": null,
+      "download_timestamp": "2026-11-06T09:11:00.881252+07:00",
+      "judgment_number": null,
+      "metadata_verification": {
+        "case_id": false,
+        "court": false,
+        "decision_date": false,
+        "development_overlap_check": false,
+        "internal_dedup_check": false,
+        "judgment_number": false,
+        "procedure_stage": false,
+        "underlying_dispute_review": false
+      },
+      "notes": null,
+      "offline_provenance": null,
+      "original_filename": "123.pdf",
+      "procedure_stage": null,
+      "rejection_reasons": [],
+      "related_decision_ids": [],
+      "sha256": "b4043a65277637c47535dd1bd8a5efe7f4a2b8ec5dcc677b012365418651845e",
+      "source_domain": "congbobanan.toaan.gov.vn",
+      "source_id": "independent:batch2dc-20261105-049",
+      "source_url": "https://congbobanan.toaan.gov.vn/5ta2272281t1cvn/T9-%20Nga%20V%C6%B0%E1%BB%A3ng%20m%C3%A3%20h%C3%B3a%2030-09-2026%2022-15-24.pdf",
+      "status_history": [
+        {
+          "reasons": [],
+          "status": "downloaded",
+          "timestamp": "2026-11-06T09:11:00.881252+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "hash_verified",
+          "timestamp": "2026-11-06T09:11:57.201642+07:00"
+        },
+        {
+          "reasons": [],
+          "status": "extracted",
+          "timestamp": "2026-11-06T09:18:18.904505+07:00"
+        }
+      ],
+      "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-049/123.pdf",
+      "structured_path": "backend/dataLaw/independent_intake/structured/batch2dc-20261105-049/123_structured.json",
+      "structured_sha256": "62f433e59e103a36be1448af695e68fff0af0a9ad78dd135cbc7ee881b5bfde2",
       "underlying_dispute_id": null
     },
     {

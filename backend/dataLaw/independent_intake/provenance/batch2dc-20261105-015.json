@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-015",
+  "anchor_fingerprint": "6540ad549db73fdfa56acd0b4ce2159f6f666b02b51532787b956c87366af978",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:14.705132+07:00",
+  "offline_provenance": null,
+  "original_filename": "247.pdf",
+  "pdf_sha256": "d8ad43f9bee0d073a49d1145fdf32bf946b23a922630c1c26eadd8e11b0766e1",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-015",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2265296t1cvn/247%2006.5.2026%20Ph%E1%BA%A1m%20%C4%90,%20L%C3%AA%20Th%E1%BB%8B%20N%20-%20V%C3%B5%20V%C4%83n%20P%2030-09-2026%2011-05-35.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-015/247.pdf"
+}

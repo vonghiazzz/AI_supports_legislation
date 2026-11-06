@@ -1,0 +1,13 @@
+{
+  "acquisition_id": "batch2dc-20261105-031",
+  "anchor_fingerprint": "18fb3447de816766fadcfad9b3e14ccfa4fc88b62c175cc9ffbbf9bd397f8741",
+  "anchor_version": "independent_provenance_anchor_v1",
+  "download_timestamp": "2026-11-06T09:10:45.557565+07:00",
+  "offline_provenance": null,
+  "original_filename": "525.pdf",
+  "pdf_sha256": "687aa36ab7c22967d7b8049fce539054980d21d6a26a29a215740f8d54618948",
+  "source_domain": "congbobanan.toaan.gov.vn",
+  "source_id": "independent:batch2dc-20261105-031",
+  "source_url": "https://congbobanan.toaan.gov.vn/5ta2269403t1cvn/Ch%E1%BB%89%20UB%20Quang%20Phu%2030-09-2026%2017-03-03.pdf",
+  "stored_pdf_path": "backend/dataLaw/independent_intake/raw/batch2dc-20261105-031/525.pdf"
+}
