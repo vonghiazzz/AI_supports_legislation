@@ -1,0 +1,96 @@
+policy_id: "independent_identity_normalization_policy_v1"
+policy_version: "independent_identity_normalization_policy_v1"
+status: "FROZEN_FOR_IDENTITY_ADJUDICATION"
+policy_fingerprint: "1033d13d11c0c7b3353a371ca236579ce821d310ec86a0873a47d6661bf9656c"
+
+bindings:
+  parent_technical_checkpoint_commit: "93b5f260b34974da02ed291423ceef0a3cd3a330"
+  acquisition_manifest_path: "backend/dataLaw/independent_intake/acquisition_manifest.json"
+  acquisition_manifest_sha256: "6933ef27c489ba51da1d3f2d157b60ca93a6ae57a51eb8e67570fda0d68add5d"
+  source_intake_path: "backend/scripts/Evaluation/benchmarking/source_intake.py"
+  source_intake_sha256: "f0c093378723e916006d19887facbea44b0df0798ec0be87c8685288cf76c8c9"
+  blocked_b3_4_run_id: "independent_batch2dc_identity_v1_20261106_033252_694479_944f4fda"
+  blocked_b3_4_protocol_fingerprint: "3d308a9665c163c0d20eca39dfb57ebe2958e4b7473e5e1ba2cf2bdaa0bb5f9c"
+  blocked_b3_4_run_fingerprint: "791c3838e852c35dbee391260b2b93a9d97193cb770c22c94444f5e1193c252f"
+  blocked_b3_4_resolved_count: 45
+  blocked_b3_4_unresolved_count: 1
+  blocked_b3_4_identity_application_count: 0
+  provisional_45_payload_fingerprint: "b9f44e22a1536bd1a4929544909c85170a25a3ec99e68ef960793f884025f9c0"
+  raw_pdf_path: "backend/dataLaw/independent_intake/raw/batch2dc-20261105-039/25.pdf"
+  raw_pdf_sha256: "cb62d2943a67975c40bffcac11c18ab57920ba23c8dc2f0900df463276a0da7d"
+  structured_path: "backend/dataLaw/independent_intake/structured/batch2dc-20261105-039/25_structured.json"
+  structured_sha256: "5138c691effa572801ce96e0a7db214fd1a107f5d09a6212a6b02e1b49106acf"
+
+scope:
+  acquisition_id: "batch2dc-20261105-039"
+  field: "judgment_number"
+  raw_observed_value: "25 2026/QĐST-DS"
+  canonical_identity_value: "25/2026/QĐST-DS"
+  current_document_heading: "Số:"
+  current_document_kind: "Quyết định"
+  current_document_procedure_stage: "Sơ thẩm"
+  current_document_case_category: "Dân sự"
+  competing_current_document_identity_count: 0
+
+transformation:
+  rule: "SINGLE_MISSING_STRUCTURAL_SLASH_NORMALIZATION"
+  malformed_shape_regex: "^(\\d{1,4})\\s+((?:19|20)\\d{2}/[A-ZĐ0-9-]+)$"
+  canonical_shape_regex: "^\\d{1,4}/(?:19|20)\\d{2}/[A-ZĐ0-9-]+$"
+  sequence_group: "25"
+  remainder_group: "2026/QĐST-DS"
+  replacement: "replace exactly one ASCII-space boundary with one slash"
+  changed_boundary_count: 1
+  whitespace_semantics: "exactly_one_ascii_space"
+  alter_digits: false
+  alter_year: false
+  alter_suffix: false
+  alter_other_punctuation: false
+
+corroboration:
+  result: "PASS"
+  run_id: "independent_topup_detail_validation_v1_20261105_145220_da4b6e0a"
+  artifact_path: "backend/data/runs/independent_topup_detail_validation_v1_20261105_145220_da4b6e0a/detail_html/040_2ta2270343t1cvn.html"
+  artifact_sha256: "98f8a1208d2f9ee2f40bac5d905348cfcbcc9543fd9fbde8845e005de03e6ec3"
+  frozen_before_b3_4: true
+  official_detail_url: "https://congbobanan.toaan.gov.vn/2ta2270343t1cvn/chi-tiet-ban-an"
+  official_sequence_number: "25"
+  official_decision_date: "31/07/2026"
+  official_document_kind: "Quyết định"
+  official_procedure_stage: "Sơ thẩm"
+  official_case_category: "Dân sự"
+  independently_represented_identity: "25/2026/QĐST-DS"
+  exact_required_fragments:
+    - "<label>Quyết định số: </label>"
+    - "<span>25<br/> ngày 31/07/2026</span>"
+    - "<label>Cấp xét xử: </label><span>Sơ thẩm</span>"
+    - "<label>Loại vụ/việc:</label><span>Dân sự</span>"
+  filename_support_only: "25.pdf"
+
+prohibitions:
+  - "no_network"
+  - "no_generic_typo_correction"
+  - "no_wildcard_or_source_family_rule"
+  - "no_other_acquisition_id"
+  - "no_other_field"
+  - "no_case_id_normalization"
+  - "no_related_decision_id_normalization"
+  - "no_identity_mutation_in_r1"
+  - "no_source_review"
+  - "no_promotion"
+  - "future_exception_requires_separate_policy_amendment"
+
+protected_state:
+  global_total: 363
+  global_eligible: 257
+  global_extracted: 105
+  global_hash_verified: 1
+  batch2dc_extracted: 46
+  batch2dc_identity_ready: 0
+  batch2dc_eligible: 0
+  benchmark_state: "DRAFT"
+  sampling_state: "DRAFT"
+  selection_status: "NOT_STARTED"
+  sampling_seed: null
+  selected_count: 0
+  query_count: 0
+  ground_truth_count: 0
