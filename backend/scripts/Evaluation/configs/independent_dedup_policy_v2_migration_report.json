@@ -1,0 +1,31 @@
+{
+  "activation_status": "ANALYSIS_ONLY_NO_MIGRATION_AUTHORIZED",
+  "counterfactual_comparison": {
+    "S0": {
+      "batch2dc_potential_eligible_count": 23,
+      "difference_from_r3": 0
+    },
+    "S1": {
+      "batch2dc_potential_eligible_count": 39,
+      "difference_from_r3": 0
+    },
+    "S2": {
+      "batch2dc_potential_eligible_count": 40,
+      "difference_from_r3": 0
+    },
+    "role": "HISTORICAL_COUNTERFACTUAL_REFERENCE_NOT_ACCEPTANCE_TARGET"
+  },
+  "evidence_fixture_fingerprint": "8a2c7e1e5e48f76a5ac5c481a13e798b229657225031ffc99ddfd5e8fdb5e05b",
+  "migration_report_fingerprint": "3fee2fbfb08dc8189fae80ba4ab673a5c2fabb4bf1d6d85793051f7d1905ae5c",
+  "parent_git_sha": "13a283e1fd315a1a7dfb9a98018a75c693ba6ed0",
+  "parent_r3_report_fingerprint": "20d403b32175a62c45a2a3ec03dc2d85b62db38d64b9376c1de6027a667ab0ac",
+  "policy_fingerprint": "bf148f9421d27603f83328e6f98362d7b8d668263cdc4cb51735613c5e82b914",
+  "report_version": "independent_dedup_policy_v2_migration_report_v1",
+  "v1_compatibility": {
+    "historical_artifacts_rewritten": false,
+    "historical_expected_values_changed": false,
+    "v1_implementation_modified": false,
+    "v2_is_additive_and_inactive": true
+  },
+  "v1_dedup_report_fingerprint": "6de3f1edb83eee4f61c8f724d872e719e9bd823ca383ef13b6e9b27cdf539c8c"
+}

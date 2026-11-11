@@ -1,0 +1,1037 @@
+{
+  "clean_batch2dc_acquisition_ids": [
+    "batch2dc-20261105-005",
+    "batch2dc-20261105-006",
+    "batch2dc-20261105-007",
+    "batch2dc-20261105-009",
+    "batch2dc-20261105-010",
+    "batch2dc-20261105-012",
+    "batch2dc-20261105-015",
+    "batch2dc-20261105-016",
+    "batch2dc-20261105-017",
+    "batch2dc-20261105-018",
+    "batch2dc-20261105-019",
+    "batch2dc-20261105-020",
+    "batch2dc-20261105-021",
+    "batch2dc-20261105-028",
+    "batch2dc-20261105-030",
+    "batch2dc-20261105-032",
+    "batch2dc-20261105-033",
+    "batch2dc-20261105-036",
+    "batch2dc-20261105-037",
+    "batch2dc-20261105-041",
+    "batch2dc-20261105-042",
+    "batch2dc-20261105-044",
+    "batch2dc-20261105-048"
+  ],
+  "fixture_fingerprint": "8a2c7e1e5e48f76a5ac5c481a13e798b229657225031ffc99ddfd5e8fdb5e05b",
+  "fixture_role": "FROZEN_LOCAL_CONTROLS_NOT_SOURCE_STATE",
+  "fixture_version": "independent_dedup_policy_v2_evidence_v1",
+  "pair_controls": [
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-001",
+      "court_equal": false,
+      "decision_date_equal": false,
+      "decision_year_equal": true,
+      "document_type_equal": true,
+      "evidence_paths": [
+        "backend/dataLaw/independent_intake/raw/batch2db-20261103-004/40.pdf",
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-011/40.pdf"
+      ],
+      "evidence_sha256": [
+        "c43fdd4733f308f92579b72a651c66e08241a591322df900d440e348e6b030c1",
+        "e7a9c106cd729b4cf74637b29c319d6c3a4f5f32a307821876625d6920e9d952"
+      ],
+      "expected_v2_relation": "WEAK_ASSOCIATION_DISTINCT_CONTROL",
+      "filename_equal": true,
+      "finding_reasons": [
+        "new_pool_duplicate_source_identity"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-011",
+      "normalized_judgment_equal": false,
+      "procedure_stage_equal": true,
+      "raw_sha_equal": false,
+      "related_decision": false,
+      "right_source_id": "independent:batch2db-20261103-004",
+      "same_underlying_dispute": null,
+      "scope": "INTERNAL",
+      "structured_sha_equal": false,
+      "text_similarity": 0.004646078163432632
+    },
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-002",
+      "court_equal": false,
+      "decision_date_equal": false,
+      "decision_year_equal": true,
+      "document_type_equal": true,
+      "evidence_paths": [
+        "backend/dataLaw/independent_intake/raw/batch2db-20261103-014/525.pdf",
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-031/525.pdf"
+      ],
+      "evidence_sha256": [
+        "58fdf30f6e6ea8ef4fd56869c6bca317d3aa67850c6e79f065396872f1ee5d09",
+        "687aa36ab7c22967d7b8049fce539054980d21d6a26a29a215740f8d54618948"
+      ],
+      "expected_v2_relation": "WEAK_ASSOCIATION_DISTINCT_CONTROL",
+      "filename_equal": true,
+      "finding_reasons": [
+        "new_pool_duplicate_normalized_identity",
+        "new_pool_duplicate_source_identity"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-031",
+      "normalized_judgment_equal": true,
+      "procedure_stage_equal": true,
+      "raw_sha_equal": false,
+      "related_decision": false,
+      "right_source_id": "independent:batch2db-20261103-014",
+      "same_underlying_dispute": null,
+      "scope": "INTERNAL",
+      "structured_sha_equal": false,
+      "text_similarity": 0.022666269012824338
+    },
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-003",
+      "court_equal": false,
+      "decision_date_equal": false,
+      "decision_year_equal": true,
+      "document_type_equal": true,
+      "evidence_paths": [
+        "backend/dataLaw/independent_intake/raw/batch2db-20261103-016/57.pdf",
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-024/418.pdf"
+      ],
+      "evidence_sha256": [
+        "4e3a3935836923223e2eb720d079df487b427463b66c31a46e0bdf031c6660bf",
+        "85fc40b6fb62257a577d072eed582f65d905d2e92c94278e5d29263c7c181740"
+      ],
+      "expected_v2_relation": "DISPUTE_RELATION_UNRESOLVED",
+      "filename_equal": false,
+      "finding_reasons": [
+        "new_pool_related_decision_ids"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-024",
+      "normalized_judgment_equal": false,
+      "procedure_stage_equal": true,
+      "raw_sha_equal": false,
+      "related_decision": true,
+      "right_source_id": "independent:batch2db-20261103-016",
+      "same_underlying_dispute": null,
+      "scope": "INTERNAL",
+      "structured_sha_equal": false,
+      "text_similarity": 0.014389116595447806
+    },
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-004",
+      "court_equal": false,
+      "decision_date_equal": false,
+      "decision_year_equal": true,
+      "document_type_equal": true,
+      "evidence_paths": [
+        "backend/dataLaw/independent_intake/raw/batch2db-20261103-018/64.pdf",
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-014/48.pdf"
+      ],
+      "evidence_sha256": [
+        "0bec2d49df93f1569cac510437f44d6f4263f122ab8bae979b4c6131d8b95045",
+        "82a1eab1388ae7cb0d96a780c0c902a7abcc63c4943d71eb2303611a491480f3"
+      ],
+      "expected_v2_relation": "DISPUTE_RELATION_UNRESOLVED",
+      "filename_equal": false,
+      "finding_reasons": [
+        "new_pool_related_decision_ids"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-014",
+      "normalized_judgment_equal": false,
+      "procedure_stage_equal": true,
+      "raw_sha_equal": false,
+      "related_decision": true,
+      "right_source_id": "independent:batch2db-20261103-018",
+      "same_underlying_dispute": null,
+      "scope": "INTERNAL",
+      "structured_sha_equal": false,
+      "text_similarity": 0.017761194029850748
+    },
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-005",
+      "court_equal": false,
+      "decision_date_equal": false,
+      "decision_year_equal": true,
+      "document_type_equal": true,
+      "evidence_paths": [
+        "backend/dataLaw/independent_intake/raw/batch2db-20261103-048/06.pdf",
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-043/06.pdf"
+      ],
+      "evidence_sha256": [
+        "4f2868bca12cbbce27ec623751b8909b27df0baf7bb14eafd2d48f260b74257b",
+        "8cabb467a73fa2bbe0756ae9dc29784d657a1c54276dbfbda0037e2d8db866e3"
+      ],
+      "expected_v2_relation": "WEAK_ASSOCIATION_DISTINCT_CONTROL",
+      "filename_equal": true,
+      "finding_reasons": [
+        "new_pool_duplicate_source_identity"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-043",
+      "normalized_judgment_equal": false,
+      "procedure_stage_equal": true,
+      "raw_sha_equal": false,
+      "related_decision": false,
+      "right_source_id": "independent:batch2db-20261103-048",
+      "same_underlying_dispute": null,
+      "scope": "INTERNAL",
+      "structured_sha_equal": false,
+      "text_similarity": 0.006648199445983379
+    },
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-006",
+      "court_equal": false,
+      "decision_date_equal": false,
+      "decision_year_equal": true,
+      "document_type_equal": true,
+      "evidence_paths": [
+        "backend/dataLaw/independent_intake/raw/batch2db-20261103-048/06.pdf",
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-045/06.pdf"
+      ],
+      "evidence_sha256": [
+        "8cabb467a73fa2bbe0756ae9dc29784d657a1c54276dbfbda0037e2d8db866e3",
+        "ecd805bbd3a523c6acaa3a6c8fa029f030fc4b1042ef85dda4e6778c721a8a81"
+      ],
+      "expected_v2_relation": "WEAK_ASSOCIATION_DISTINCT_CONTROL",
+      "filename_equal": true,
+      "finding_reasons": [
+        "new_pool_duplicate_normalized_identity",
+        "new_pool_duplicate_source_identity"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-045",
+      "normalized_judgment_equal": true,
+      "procedure_stage_equal": true,
+      "raw_sha_equal": false,
+      "related_decision": false,
+      "right_source_id": "independent:batch2db-20261103-048",
+      "same_underlying_dispute": null,
+      "scope": "INTERNAL",
+      "structured_sha_equal": false,
+      "text_similarity": 0.01795020266357846
+    },
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-007",
+      "court_equal": false,
+      "decision_date_equal": false,
+      "decision_year_equal": true,
+      "document_type_equal": true,
+      "evidence_paths": [
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-001/117.pdf",
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-003/117.pdf"
+      ],
+      "evidence_sha256": [
+        "cc99762b990b6e0ce4d7fb9c79cc24078ad33a5a20b5f208bd7870ab20b56a10",
+        "ffb6935da50657ae73bec1007a9f7ccd19b890cf7ac2275b90b7c10b80695cd0"
+      ],
+      "expected_v2_relation": "WEAK_ASSOCIATION_DISTINCT_CONTROL",
+      "filename_equal": true,
+      "finding_reasons": [
+        "AUDIT_ONLY_SHARED_FILENAME_AND_NORMALIZED_JUDGMENT_IDENTITY"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-001",
+      "normalized_judgment_equal": true,
+      "procedure_stage_equal": true,
+      "raw_sha_equal": false,
+      "related_decision": false,
+      "right_source_id": "independent:batch2dc-20261105-003",
+      "same_underlying_dispute": null,
+      "scope": "INTERNAL",
+      "structured_sha_equal": false,
+      "text_similarity": 0.020754716981132074
+    },
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-008",
+      "court_equal": false,
+      "decision_date_equal": null,
+      "decision_year_equal": false,
+      "document_type_equal": null,
+      "evidence_paths": [
+        "backend/dataLaw/ban_an/117.pdf",
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-001/117.pdf"
+      ],
+      "evidence_sha256": [
+        "8ca13eae154581f28ddee1210c1765435052d8da2dbd262ca12f0553ac85eec2",
+        "cc99762b990b6e0ce4d7fb9c79cc24078ad33a5a20b5f208bd7870ab20b56a10"
+      ],
+      "expected_v2_relation": "WEAK_ASSOCIATION_DISTINCT_CONTROL",
+      "filename_equal": true,
+      "finding_reasons": [
+        "development_benchmark_exact_source"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-001",
+      "normalized_judgment_equal": false,
+      "procedure_stage_equal": false,
+      "raw_sha_equal": false,
+      "related_decision": false,
+      "right_source_id": "judgment:117.pdf",
+      "same_underlying_dispute": null,
+      "scope": "DEVELOPMENT",
+      "structured_sha_equal": false,
+      "text_similarity": 0.005768848219614084
+    },
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-009",
+      "court_equal": false,
+      "decision_date_equal": false,
+      "decision_year_equal": true,
+      "document_type_equal": true,
+      "evidence_paths": [
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-002/25.pdf",
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-039/25.pdf"
+      ],
+      "evidence_sha256": [
+        "55cba38b61b041010c5db78c45b8da9d52216f05e30dd98b45f67fa434dc1965",
+        "cb62d2943a67975c40bffcac11c18ab57920ba23c8dc2f0900df463276a0da7d"
+      ],
+      "expected_v2_relation": "WEAK_ASSOCIATION_DISTINCT_CONTROL",
+      "filename_equal": true,
+      "finding_reasons": [
+        "new_pool_duplicate_normalized_identity",
+        "new_pool_duplicate_source_identity"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-002",
+      "normalized_judgment_equal": true,
+      "procedure_stage_equal": true,
+      "raw_sha_equal": false,
+      "related_decision": false,
+      "right_source_id": "independent:batch2dc-20261105-039",
+      "same_underlying_dispute": null,
+      "scope": "INTERNAL",
+      "structured_sha_equal": false,
+      "text_similarity": 0.010894941634241245
+    },
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-010",
+      "court_equal": false,
+      "decision_date_equal": null,
+      "decision_year_equal": false,
+      "document_type_equal": null,
+      "evidence_paths": [
+        "backend/dataLaw/ban_an/117.pdf",
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-003/117.pdf"
+      ],
+      "evidence_sha256": [
+        "8ca13eae154581f28ddee1210c1765435052d8da2dbd262ca12f0553ac85eec2",
+        "ffb6935da50657ae73bec1007a9f7ccd19b890cf7ac2275b90b7c10b80695cd0"
+      ],
+      "expected_v2_relation": "WEAK_ASSOCIATION_DISTINCT_CONTROL",
+      "filename_equal": true,
+      "finding_reasons": [
+        "development_benchmark_exact_source"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-003",
+      "normalized_judgment_equal": false,
+      "procedure_stage_equal": false,
+      "raw_sha_equal": false,
+      "related_decision": false,
+      "right_source_id": "judgment:117.pdf",
+      "same_underlying_dispute": null,
+      "scope": "DEVELOPMENT",
+      "structured_sha_equal": false,
+      "text_similarity": 0.005410491649023759
+    },
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-011",
+      "court_equal": false,
+      "decision_date_equal": false,
+      "decision_year_equal": true,
+      "document_type_equal": true,
+      "evidence_paths": [
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-004/56.pdf",
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-013/56.pdf"
+      ],
+      "evidence_sha256": [
+        "28e2a6dbfaaf00da9a1108ada21e0a92a967c6fb29a450b107e2206f8c312f4f",
+        "39d56d9247c6f74729fd5d81d0b0b302ca7c025427d961257e97b2bf939472f1"
+      ],
+      "expected_v2_relation": "WEAK_ASSOCIATION_DISTINCT_CONTROL",
+      "filename_equal": true,
+      "finding_reasons": [
+        "new_pool_duplicate_normalized_identity",
+        "new_pool_duplicate_source_identity"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-004",
+      "normalized_judgment_equal": true,
+      "procedure_stage_equal": true,
+      "raw_sha_equal": false,
+      "related_decision": false,
+      "right_source_id": "independent:batch2dc-20261105-013",
+      "same_underlying_dispute": null,
+      "scope": "INTERNAL",
+      "structured_sha_equal": false,
+      "text_similarity": 0.015349194167306216
+    },
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-012",
+      "court_equal": false,
+      "decision_date_equal": false,
+      "decision_year_equal": true,
+      "document_type_equal": true,
+      "evidence_paths": [
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-008/BA_SO_37_TUONG__QUYEN.pdf",
+        "backend/dataLaw/independent_intake/raw/scale-20261030-203/Bản án mã hóa 09-06-2026 11-07-40.pdf"
+      ],
+      "evidence_sha256": [
+        "07be56841aca3c6f0f1319d8fae77f8497dfe7aca9a6ab08c2458faccd5b8bd7",
+        "e35fe3f88f0a770b3e715511fa93665e620316925dac8ba0409b2cd889da3642"
+      ],
+      "expected_v2_relation": "DISPUTE_RELATION_UNRESOLVED",
+      "filename_equal": false,
+      "finding_reasons": [
+        "new_pool_related_decision_ids"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-008",
+      "normalized_judgment_equal": false,
+      "procedure_stage_equal": true,
+      "raw_sha_equal": false,
+      "related_decision": true,
+      "right_source_id": "independent:scale-20261030-203",
+      "same_underlying_dispute": null,
+      "scope": "INTERNAL",
+      "structured_sha_equal": false,
+      "text_similarity": 0.02387628515591809
+    },
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-013",
+      "court_equal": false,
+      "decision_date_equal": false,
+      "decision_year_equal": true,
+      "document_type_equal": true,
+      "evidence_paths": [
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-022/29.pdf",
+        "backend/dataLaw/independent_intake/raw/scale-20261030-241/1 Bản án DSPT Tuấn - Thành mã hóa 30-09-2026 15-47-50.pdf"
+      ],
+      "evidence_sha256": [
+        "01adcf5756b2ad38707f7eff0cbe4ae92b95474fef1fb0f9c889011f1c1efdd9",
+        "683441c01bf966dc334324a76a180eba44f8cf901f1557c6557a35004caf2af5"
+      ],
+      "expected_v2_relation": "DISPUTE_RELATION_UNRESOLVED",
+      "filename_equal": false,
+      "finding_reasons": [
+        "new_pool_related_decision_ids"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-022",
+      "normalized_judgment_equal": false,
+      "procedure_stage_equal": false,
+      "raw_sha_equal": false,
+      "related_decision": true,
+      "right_source_id": "independent:scale-20261030-241",
+      "same_underlying_dispute": null,
+      "scope": "INTERNAL",
+      "structured_sha_equal": false,
+      "text_similarity": 0.012644716314968388
+    },
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-014",
+      "court_equal": false,
+      "decision_date_equal": false,
+      "decision_year_equal": true,
+      "document_type_equal": true,
+      "evidence_paths": [
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-024/418.pdf",
+        "backend/dataLaw/independent_intake/raw/scale-20261030-217/sample (11) 15-10-2026 09-56-52.pdf"
+      ],
+      "evidence_sha256": [
+        "0e6dadabf47372a21c329f4844d07fda8e05e6312dcaeb004ccea5bcc27ca073",
+        "4e3a3935836923223e2eb720d079df487b427463b66c31a46e0bdf031c6660bf"
+      ],
+      "expected_v2_relation": "DISPUTE_RELATION_UNRESOLVED",
+      "filename_equal": false,
+      "finding_reasons": [
+        "new_pool_related_decision_ids"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-024",
+      "normalized_judgment_equal": false,
+      "procedure_stage_equal": true,
+      "raw_sha_equal": false,
+      "related_decision": true,
+      "right_source_id": "independent:scale-20261030-217",
+      "same_underlying_dispute": null,
+      "scope": "INTERNAL",
+      "structured_sha_equal": false,
+      "text_similarity": 0.025258552108194113
+    },
+    {
+      "case_id_equal": true,
+      "control_id": "R3-PAIR-015",
+      "court_equal": true,
+      "decision_date_equal": true,
+      "decision_year_equal": true,
+      "document_type_equal": true,
+      "evidence_paths": [
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-025/1775.pdf",
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-026/1687.pdf"
+      ],
+      "evidence_sha256": [
+        "73ad11b360fdfc572f0c59f2ca3df754c02f7515534f3a0c4f90be5bb990511a"
+      ],
+      "expected_v2_relation": "CONFIRMED_EXACT_DUPLICATE",
+      "filename_equal": false,
+      "finding_reasons": [
+        "new_pool_duplicate_case_id",
+        "new_pool_duplicate_normalized_identity",
+        "new_pool_duplicate_sha256",
+        "new_pool_near_duplicate_source_text:1.000000",
+        "new_pool_related_decision_ids"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-025",
+      "normalized_judgment_equal": true,
+      "procedure_stage_equal": true,
+      "raw_sha_equal": true,
+      "related_decision": true,
+      "right_source_id": "independent:batch2dc-20261105-026",
+      "same_underlying_dispute": null,
+      "scope": "INTERNAL",
+      "structured_sha_equal": false,
+      "text_similarity": 1.0
+    },
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-016",
+      "court_equal": false,
+      "decision_date_equal": null,
+      "decision_year_equal": false,
+      "document_type_equal": null,
+      "evidence_paths": [
+        "backend/dataLaw/ban_an/217.pdf",
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-027/217.pdf"
+      ],
+      "evidence_sha256": [
+        "76426840010829c86f48f52b0489e365ec2c2814635143375e30c27ed84b64d7",
+        "c0fad3115e51a72e37249052985111ac2d5e47449ace73cc6d91de2dfb56b6dc"
+      ],
+      "expected_v2_relation": "WEAK_ASSOCIATION_DISTINCT_CONTROL",
+      "filename_equal": true,
+      "finding_reasons": [
+        "development_benchmark_exact_source"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-027",
+      "normalized_judgment_equal": false,
+      "procedure_stage_equal": false,
+      "raw_sha_equal": false,
+      "related_decision": false,
+      "right_source_id": "judgment:217.pdf",
+      "same_underlying_dispute": null,
+      "scope": "DEVELOPMENT",
+      "structured_sha_equal": false,
+      "text_similarity": 0.011142587346553353
+    },
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-017",
+      "court_equal": false,
+      "decision_date_equal": null,
+      "decision_year_equal": false,
+      "document_type_equal": null,
+      "evidence_paths": [
+        "backend/dataLaw/ban_an/182.pdf",
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-029/182.pdf"
+      ],
+      "evidence_sha256": [
+        "24fbac0091a46d68803030951c522a48cd14f0f4613716c70bca2b5d292f9571",
+        "6e3ad7f349ff54265d5eb18dbdb91f6fda9d0e72cef78faa14b18adf1623fd18"
+      ],
+      "expected_v2_relation": "WEAK_ASSOCIATION_DISTINCT_CONTROL",
+      "filename_equal": true,
+      "finding_reasons": [
+        "development_benchmark_exact_source"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-029",
+      "normalized_judgment_equal": false,
+      "procedure_stage_equal": false,
+      "raw_sha_equal": false,
+      "related_decision": false,
+      "right_source_id": "judgment:182.pdf",
+      "same_underlying_dispute": null,
+      "scope": "DEVELOPMENT",
+      "structured_sha_equal": false,
+      "text_similarity": 0.012762665979115637
+    },
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-018",
+      "court_equal": false,
+      "decision_date_equal": false,
+      "decision_year_equal": true,
+      "document_type_equal": true,
+      "evidence_paths": [
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-034/NĐ Trịnh Huy C - Dương Văn D 30-09-2026 17-11-09.pdf",
+        "backend/dataLaw/independent_intake/raw/scale-20261028-154/sample (4) 23-10-2026 09-27-51.pdf"
+      ],
+      "evidence_sha256": [
+        "082875c455bf761b2b8105de772e9a8747d0fd268d83be33cf4e95fd9a256dc6",
+        "3208ed2193d786cff3967da4700b98e157e107cec8d5f90aefb8140c10510321"
+      ],
+      "expected_v2_relation": "DISPUTE_RELATION_UNRESOLVED",
+      "filename_equal": false,
+      "finding_reasons": [
+        "new_pool_related_decision_ids"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-034",
+      "normalized_judgment_equal": false,
+      "procedure_stage_equal": true,
+      "raw_sha_equal": false,
+      "related_decision": true,
+      "right_source_id": "independent:scale-20261028-154",
+      "same_underlying_dispute": null,
+      "scope": "INTERNAL",
+      "structured_sha_equal": false,
+      "text_similarity": 0.019850453978992346
+    },
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-019",
+      "court_equal": false,
+      "decision_date_equal": false,
+      "decision_year_equal": true,
+      "document_type_equal": true,
+      "evidence_paths": [
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-035/53.pdf",
+        "backend/dataLaw/independent_intake/raw/scale-20261027-074/Hồ Văn Den 26-10-2026 13-59-09.pdf"
+      ],
+      "evidence_sha256": [
+        "2ee616eda7b9b099d36cbfbcb1a634fb01fd0b676e1ef5e0009b7f2e78e2ee1f",
+        "6495f0c3ca6ebfb31766001128b133f7758fc2ef96c07a6bc664e17ec970cfdb"
+      ],
+      "expected_v2_relation": "WEAK_ASSOCIATION_DISTINCT_CONTROL",
+      "filename_equal": false,
+      "finding_reasons": [
+        "new_pool_duplicate_normalized_identity"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-035",
+      "normalized_judgment_equal": true,
+      "procedure_stage_equal": true,
+      "raw_sha_equal": false,
+      "related_decision": false,
+      "right_source_id": "independent:scale-20261027-074",
+      "same_underlying_dispute": null,
+      "scope": "INTERNAL",
+      "structured_sha_equal": false,
+      "text_similarity": 0.04827586206896552
+    },
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-020",
+      "court_equal": false,
+      "decision_date_equal": false,
+      "decision_year_equal": true,
+      "document_type_equal": true,
+      "evidence_paths": [
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-038/154.pdf",
+        "backend/dataLaw/independent_intake/raw/scale-20261027-073/sample (25) 26-10-2026 21-10-36.pdf"
+      ],
+      "evidence_sha256": [
+        "9c9bcc9f62984d24003f9b31cd51aa3768864d802c2dc5b0607bf6600da6953e",
+        "a9367208d1698d5932eec699af7c9c1679dcd8c1db1a54a664cc17372ee7febf"
+      ],
+      "expected_v2_relation": "WEAK_ASSOCIATION_DISTINCT_CONTROL",
+      "filename_equal": false,
+      "finding_reasons": [
+        "new_pool_duplicate_normalized_identity"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-038",
+      "normalized_judgment_equal": true,
+      "procedure_stage_equal": true,
+      "raw_sha_equal": false,
+      "related_decision": false,
+      "right_source_id": "independent:scale-20261027-073",
+      "same_underlying_dispute": null,
+      "scope": "INTERNAL",
+      "structured_sha_equal": false,
+      "text_similarity": 0.11428571428571428
+    },
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-021",
+      "court_equal": true,
+      "decision_date_equal": false,
+      "decision_year_equal": true,
+      "document_type_equal": true,
+      "evidence_paths": [
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-043/06.pdf",
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-045/06.pdf"
+      ],
+      "evidence_sha256": [
+        "4f2868bca12cbbce27ec623751b8909b27df0baf7bb14eafd2d48f260b74257b",
+        "ecd805bbd3a523c6acaa3a6c8fa029f030fc4b1042ef85dda4e6778c721a8a81"
+      ],
+      "expected_v2_relation": "WEAK_ASSOCIATION_DISTINCT_CONTROL",
+      "filename_equal": true,
+      "finding_reasons": [
+        "new_pool_duplicate_source_identity"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-043",
+      "normalized_judgment_equal": false,
+      "procedure_stage_equal": true,
+      "raw_sha_equal": false,
+      "related_decision": false,
+      "right_source_id": "independent:batch2dc-20261105-045",
+      "same_underlying_dispute": null,
+      "scope": "INTERNAL",
+      "structured_sha_equal": false,
+      "text_similarity": 0.021288014311270125
+    },
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-022",
+      "court_equal": false,
+      "decision_date_equal": null,
+      "decision_year_equal": false,
+      "document_type_equal": null,
+      "evidence_paths": [
+        "backend/dataLaw/ban_an/103.pdf",
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-046/103.pdf"
+      ],
+      "evidence_sha256": [
+        "7b0bb3641dfebbf1aa7486a312cbb7c85073e85fd47001fac1b2bf03639a1a54",
+        "e902d7e34a1802966797b57fd6021cc484d1f9038fd2dd0038f3a3b46f1b3ad0"
+      ],
+      "expected_v2_relation": "WEAK_ASSOCIATION_DISTINCT_CONTROL",
+      "filename_equal": true,
+      "finding_reasons": [
+        "development_benchmark_exact_source"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-046",
+      "normalized_judgment_equal": false,
+      "procedure_stage_equal": false,
+      "raw_sha_equal": false,
+      "related_decision": false,
+      "right_source_id": "judgment:103.pdf",
+      "same_underlying_dispute": null,
+      "scope": "DEVELOPMENT",
+      "structured_sha_equal": false,
+      "text_similarity": 0.004505954296749276
+    },
+    {
+      "case_id_equal": false,
+      "control_id": "R3-PAIR-023",
+      "court_equal": false,
+      "decision_date_equal": null,
+      "decision_year_equal": false,
+      "document_type_equal": null,
+      "evidence_paths": [
+        "backend/dataLaw/ban_an/123.pdf",
+        "backend/dataLaw/independent_intake/raw/batch2dc-20261105-049/123.pdf"
+      ],
+      "evidence_sha256": [
+        "b4043a65277637c47535dd1bd8a5efe7f4a2b8ec5dcc677b012365418651845e",
+        "f5770a0e5e2537b6605e422415342f4a3ef6151309510bba06e939f1412f1a3e"
+      ],
+      "expected_v2_relation": "WEAK_ASSOCIATION_DISTINCT_CONTROL",
+      "filename_equal": true,
+      "finding_reasons": [
+        "development_benchmark_exact_source"
+      ],
+      "left_source_id": "independent:batch2dc-20261105-049",
+      "normalized_judgment_equal": false,
+      "procedure_stage_equal": false,
+      "raw_sha_equal": false,
+      "related_decision": false,
+      "right_source_id": "judgment:123.pdf",
+      "same_underlying_dispute": null,
+      "scope": "DEVELOPMENT",
+      "structured_sha_equal": false,
+      "text_similarity": 0.004420703628660895
+    }
+  ],
+  "parent_git_sha": "13a283e1fd315a1a7dfb9a98018a75c693ba6ed0",
+  "parent_manifest_sha256": "411a5ad54b26e640d190bc04b76fbbbfb39896c2d2b6b3fd96450347a8fec08a",
+  "parent_r2_plan_fingerprint": "8fca6c2db743dc94c4ea9f479c2de27abc89739cfbd8b83efea0612e8aea5297",
+  "parent_r3_report_fingerprint": "20d403b32175a62c45a2a3ec03dc2d85b62db38d64b9376c1de6027a667ab0ac",
+  "r3_counterfactual_reference": [
+    {
+      "batch2dc_potential_eligible_count": 23,
+      "family_shortage": 4,
+      "global_potential_eligible_count": 280,
+      "land_2024_compatible_count": 31,
+      "maximum_filled_minimum_slots": 181,
+      "scenario": "S0_EXISTING_STRICT_POLICY"
+    },
+    {
+      "batch2dc_potential_eligible_count": 39,
+      "family_shortage": 4,
+      "global_potential_eligible_count": 296,
+      "land_2024_compatible_count": 31,
+      "maximum_filled_minimum_slots": 181,
+      "scenario": "S1_JUSTIFIED_WEAK_SIGNAL_RECLASSIFICATION"
+    },
+    {
+      "batch2dc_potential_eligible_count": 40,
+      "family_shortage": 3,
+      "global_potential_eligible_count": 297,
+      "land_2024_compatible_count": 32,
+      "maximum_filled_minimum_slots": 182,
+      "scenario": "S2_S1_PLUS_EXACT_DUPLICATE_CANONICAL_RETENTION"
+    }
+  ],
+  "source_adjudications": [
+    {
+      "acquisition_id": "batch2dc-20261105-001",
+      "analytical_classification": "DISTINCT_DOCUMENT_WITH_SHARED_METADATA",
+      "cluster_member_source_ids": [],
+      "evidence_sufficient_for_policy_decision": true,
+      "finding_origin": "DIRECT_ONLY",
+      "source_id": "independent:batch2dc-20261105-001"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-002",
+      "analytical_classification": "DISTINCT_DOCUMENT_WITH_SHARED_METADATA",
+      "cluster_member_source_ids": [
+        "independent:batch2dc-20261105-002",
+        "independent:batch2dc-20261105-039"
+      ],
+      "evidence_sufficient_for_policy_decision": true,
+      "finding_origin": "DIRECT_ONLY",
+      "source_id": "independent:batch2dc-20261105-002"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-003",
+      "analytical_classification": "DISTINCT_DOCUMENT_WITH_SHARED_METADATA",
+      "cluster_member_source_ids": [],
+      "evidence_sufficient_for_policy_decision": true,
+      "finding_origin": "DIRECT_ONLY",
+      "source_id": "independent:batch2dc-20261105-003"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-004",
+      "analytical_classification": "DISTINCT_DOCUMENT_WITH_SHARED_METADATA",
+      "cluster_member_source_ids": [
+        "independent:batch2dc-20261105-004",
+        "independent:batch2dc-20261105-013"
+      ],
+      "evidence_sufficient_for_policy_decision": true,
+      "finding_origin": "DIRECT_ONLY",
+      "source_id": "independent:batch2dc-20261105-004"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-008",
+      "analytical_classification": "GRAPH_RELATED_BUT_DOCUMENT_IDENTITY_UNPROVEN",
+      "cluster_member_source_ids": [
+        "independent:batch2dc-20261105-008",
+        "independent:scale-20261030-203"
+      ],
+      "evidence_sufficient_for_policy_decision": false,
+      "finding_origin": "DIRECT_ONLY",
+      "source_id": "independent:batch2dc-20261105-008"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-011",
+      "analytical_classification": "DISTINCT_DOCUMENT_WITH_SHARED_METADATA",
+      "cluster_member_source_ids": [
+        "independent:batch2db-20261103-004",
+        "independent:batch2db-20261103-042",
+        "independent:batch2dc-20261105-011",
+        "independent:scale-20261030-232"
+      ],
+      "evidence_sufficient_for_policy_decision": true,
+      "finding_origin": "DIRECT_AND_PROPAGATED",
+      "source_id": "independent:batch2dc-20261105-011"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-013",
+      "analytical_classification": "DISTINCT_DOCUMENT_WITH_SHARED_METADATA",
+      "cluster_member_source_ids": [
+        "independent:batch2dc-20261105-004",
+        "independent:batch2dc-20261105-013"
+      ],
+      "evidence_sufficient_for_policy_decision": true,
+      "finding_origin": "DIRECT_ONLY",
+      "source_id": "independent:batch2dc-20261105-013"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-014",
+      "analytical_classification": "GRAPH_RELATED_BUT_DOCUMENT_IDENTITY_UNPROVEN",
+      "cluster_member_source_ids": [
+        "independent:batch2db-20261103-018",
+        "independent:batch2dc-20261105-014"
+      ],
+      "evidence_sufficient_for_policy_decision": false,
+      "finding_origin": "DIRECT_ONLY",
+      "source_id": "independent:batch2dc-20261105-014"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-022",
+      "analytical_classification": "GRAPH_RELATED_BUT_DOCUMENT_IDENTITY_UNPROVEN",
+      "cluster_member_source_ids": [
+        "independent:batch2dc-20261105-022",
+        "independent:scale-20261030-236",
+        "independent:scale-20261030-241"
+      ],
+      "evidence_sufficient_for_policy_decision": false,
+      "finding_origin": "DIRECT_ONLY",
+      "source_id": "independent:batch2dc-20261105-022"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-024",
+      "analytical_classification": "GRAPH_RELATED_BUT_DOCUMENT_IDENTITY_UNPROVEN",
+      "cluster_member_source_ids": [
+        "independent:batch2db-20261103-016",
+        "independent:batch2dc-20261105-024",
+        "independent:batch2dc-20261105-034",
+        "independent:scale-20261027-051",
+        "independent:scale-20261028-154",
+        "independent:scale-20261030-204",
+        "independent:scale-20261030-217"
+      ],
+      "evidence_sufficient_for_policy_decision": false,
+      "finding_origin": "DIRECT_AND_PROPAGATED",
+      "source_id": "independent:batch2dc-20261105-024"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-025",
+      "analytical_classification": "CONFIRMED_SAME_DOCUMENT",
+      "cluster_member_source_ids": [
+        "independent:batch2dc-20261105-025",
+        "independent:batch2dc-20261105-026"
+      ],
+      "evidence_sufficient_for_policy_decision": true,
+      "finding_origin": "DIRECT_ONLY",
+      "source_id": "independent:batch2dc-20261105-025"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-026",
+      "analytical_classification": "CONFIRMED_SAME_DOCUMENT",
+      "cluster_member_source_ids": [
+        "independent:batch2dc-20261105-025",
+        "independent:batch2dc-20261105-026"
+      ],
+      "evidence_sufficient_for_policy_decision": true,
+      "finding_origin": "DIRECT_ONLY",
+      "source_id": "independent:batch2dc-20261105-026"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-027",
+      "analytical_classification": "DISTINCT_DOCUMENT_WITH_SHARED_METADATA",
+      "cluster_member_source_ids": [],
+      "evidence_sufficient_for_policy_decision": true,
+      "finding_origin": "DIRECT_ONLY",
+      "source_id": "independent:batch2dc-20261105-027"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-029",
+      "analytical_classification": "DISTINCT_DOCUMENT_WITH_SHARED_METADATA",
+      "cluster_member_source_ids": [],
+      "evidence_sufficient_for_policy_decision": true,
+      "finding_origin": "DIRECT_ONLY",
+      "source_id": "independent:batch2dc-20261105-029"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-031",
+      "analytical_classification": "DISTINCT_DOCUMENT_WITH_SHARED_METADATA",
+      "cluster_member_source_ids": [
+        "independent:batch2db-20261103-014",
+        "independent:batch2dc-20261105-031"
+      ],
+      "evidence_sufficient_for_policy_decision": true,
+      "finding_origin": "DIRECT_ONLY",
+      "source_id": "independent:batch2dc-20261105-031"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-034",
+      "analytical_classification": "GRAPH_RELATED_BUT_DOCUMENT_IDENTITY_UNPROVEN",
+      "cluster_member_source_ids": [
+        "independent:batch2db-20261103-016",
+        "independent:batch2dc-20261105-024",
+        "independent:batch2dc-20261105-034",
+        "independent:scale-20261027-051",
+        "independent:scale-20261028-154",
+        "independent:scale-20261030-204",
+        "independent:scale-20261030-217"
+      ],
+      "evidence_sufficient_for_policy_decision": false,
+      "finding_origin": "DIRECT_AND_PROPAGATED",
+      "source_id": "independent:batch2dc-20261105-034"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-035",
+      "analytical_classification": "DISTINCT_DOCUMENT_WITH_SHARED_METADATA",
+      "cluster_member_source_ids": [
+        "independent:batch2dc-20261105-035",
+        "independent:scale-20261027-074"
+      ],
+      "evidence_sufficient_for_policy_decision": true,
+      "finding_origin": "DIRECT_ONLY",
+      "source_id": "independent:batch2dc-20261105-035"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-038",
+      "analytical_classification": "DISTINCT_DOCUMENT_WITH_SHARED_METADATA",
+      "cluster_member_source_ids": [
+        "independent:batch2dc-20261105-038",
+        "independent:scale-20261027-073"
+      ],
+      "evidence_sufficient_for_policy_decision": true,
+      "finding_origin": "DIRECT_ONLY",
+      "source_id": "independent:batch2dc-20261105-038"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-039",
+      "analytical_classification": "DISTINCT_DOCUMENT_WITH_SHARED_METADATA",
+      "cluster_member_source_ids": [
+        "independent:batch2dc-20261105-002",
+        "independent:batch2dc-20261105-039"
+      ],
+      "evidence_sufficient_for_policy_decision": true,
+      "finding_origin": "DIRECT_ONLY",
+      "source_id": "independent:batch2dc-20261105-039"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-043",
+      "analytical_classification": "DISTINCT_DOCUMENT_WITH_SHARED_METADATA",
+      "cluster_member_source_ids": [
+        "independent:batch2db-20261103-048",
+        "independent:batch2dc-20261105-043",
+        "independent:batch2dc-20261105-045"
+      ],
+      "evidence_sufficient_for_policy_decision": true,
+      "finding_origin": "DIRECT_AND_PROPAGATED",
+      "source_id": "independent:batch2dc-20261105-043"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-045",
+      "analytical_classification": "DISTINCT_DOCUMENT_WITH_SHARED_METADATA",
+      "cluster_member_source_ids": [
+        "independent:batch2db-20261103-048",
+        "independent:batch2dc-20261105-043",
+        "independent:batch2dc-20261105-045"
+      ],
+      "evidence_sufficient_for_policy_decision": true,
+      "finding_origin": "DIRECT_ONLY",
+      "source_id": "independent:batch2dc-20261105-045"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-046",
+      "analytical_classification": "DISTINCT_DOCUMENT_WITH_SHARED_METADATA",
+      "cluster_member_source_ids": [],
+      "evidence_sufficient_for_policy_decision": true,
+      "finding_origin": "DIRECT_ONLY",
+      "source_id": "independent:batch2dc-20261105-046"
+    },
+    {
+      "acquisition_id": "batch2dc-20261105-049",
+      "analytical_classification": "DISTINCT_DOCUMENT_WITH_SHARED_METADATA",
+      "cluster_member_source_ids": [],
+      "evidence_sufficient_for_policy_decision": true,
+      "finding_origin": "DIRECT_ONLY",
+      "source_id": "independent:batch2dc-20261105-049"
+    }
+  ],
+  "v1_algorithm": "source_name_sha_case_id_text_shingle_v2",
+  "v1_dedup_report_fingerprint": "6de3f1edb83eee4f61c8f724d872e719e9bd823ca383ef13b6e9b27cdf539c8c",
+  "v1_near_duplicate_threshold": 0.72
+}

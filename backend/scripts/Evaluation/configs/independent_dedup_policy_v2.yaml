@@ -1,0 +1,113 @@
+policy_id: independent_dedup_policy_v2
+policy_version: 2
+status: FROZEN_SPECIFICATION_NOT_ACTIVATED
+policy_fingerprint: bf148f9421d27603f83328e6f98362d7b8d668263cdc4cb51735613c5e82b914
+
+bindings:
+  parent_git_sha: 13a283e1fd315a1a7dfb9a98018a75c693ba6ed0
+  parent_manifest_path: backend/dataLaw/independent_intake/acquisition_manifest.json
+  parent_manifest_sha256: 411a5ad54b26e640d190bc04b76fbbbfb39896c2d2b6b3fd96450347a8fec08a
+  parent_r2_plan_fingerprint: 8fca6c2db743dc94c4ea9f479c2de27abc89739cfbd8b83efea0612e8aea5297
+  parent_r3_report_fingerprint: 20d403b32175a62c45a2a3ec03dc2d85b62db38d64b9376c1de6027a667ab0ac
+  v1_algorithm: source_name_sha_case_id_text_shingle_v2
+  v1_near_duplicate_threshold: 0.72
+  v1_dedup_report_fingerprint: 6de3f1edb83eee4f61c8f724d872e719e9bd823ca383ef13b6e9b27cdf539c8c
+  evidence_fixture_path: backend/scripts/Tests/fixtures/independent_dedup_policy_v2_evidence.json
+  evidence_fixture_sha256: 2083bb5da3af87301ab3ab54c51079890a83036d9feb04c19d5627207d96d4ef
+  evidence_fixture_fingerprint: 8a2c7e1e5e48f76a5ac5c481a13e798b229657225031ffc99ddfd5e8fdb5e05b
+
+activation:
+  active: false
+  replaces_v1: false
+  source_review_authorized: false
+  eligibility_promotion_authorized: false
+  migration_authorized: false
+
+evidence_model:
+  near_duplicate_threshold: 0.72
+  confirmed_exact_duplicate_any_of:
+    - raw_pdf_sha_equal
+    - structured_artifact_sha_equal
+  strong_positive_not_cancelled_by_negative_metadata: true
+  case_id_alone_nonblocking: true
+  weak_nonblocking_audit_signals:
+    - filename_equal
+    - normalized_judgment_equal
+    - case_id_equal
+  distinct_control_requirements:
+    raw_sha_equal: false
+    structured_sha_equal: false
+    text_similarity_lt: 0.72
+    minimum_verified_contextual_conflicts: 1
+    contextual_fields:
+      - court_equal
+      - decision_date_equal
+      - decision_year_equal
+      - document_type_equal
+      - procedure_stage_equal
+
+development_overlap:
+  confirmed_same_document_blocks: true
+  weak_filename_only_may_clear_with_complete_negative_evidence: true
+  ambiguous_metadata_overlap_blocks: true
+  known_or_unresolved_dispute_relation_blocks: true
+  filename_mismatch_never_waives_other_evidence: true
+
+dispute_leakage:
+  separate_from_same_document: true
+  related_decision_is_not_document_equivalence: true
+  unresolved_related_decision_blocks: true
+  confirmed_same_underlying_dispute_blocks: true
+  reviewed_distinct_dispute_may_clear: true
+  never_auto_promote_acquisition_ids:
+    - batch2dc-20261105-008
+    - batch2dc-20261105-014
+    - batch2dc-20261105-022
+    - batch2dc-20261105-024
+    - batch2dc-20261105-034
+
+canonical_retention:
+  exact_raw_sha_clusters_only: true
+  ordering:
+    - case_id
+    - source_id
+    - raw_sha256
+  at_most_one_canonical: true
+  noncanonical_rejected: true
+  preserve_duplicate_provenance: true
+  preserve_other_blockers: true
+  positive_control_canonical_source_id: independent:batch2dc-20261105-025
+  positive_control_noncanonical_source_id: independent:batch2dc-20261105-026
+
+relation_graphs:
+  strong_same_document:
+    transitive: true
+    purpose: DOCUMENT_EQUIVALENCE_ONLY
+  weak_metadata_association:
+    transitive: false
+    purpose: AUDIT_SIGNAL_ONLY
+  underlying_dispute:
+    transitive_for_review_grouping: true
+    implies_same_document: false
+    purpose: FAIL_CLOSED_LEAKAGE_REVIEW
+
+missing_evidence:
+  weak_collision_with_missing_required_evidence: BLOCK_AMBIGUOUS
+  nonfinite_similarity: REJECT_INPUT
+  conflicting_strong_positive_and_negative_metadata: STRONG_POSITIVE_WINS_AND_CONFLICT_IS_RETAINED
+
+counterfactual_reference:
+  S0_batch2dc_potential: 23
+  S1_batch2dc_potential: 39
+  S2_batch2dc_potential: 40
+  reference_only_not_acceptance_target: true
+
+prohibitions:
+  no_v1_modification: true
+  no_historical_artifact_rewrite: true
+  no_source_review: true
+  no_eligibility_promotion: true
+  no_benchmark_or_sampling_mutation: true
+  no_network: true
+  no_threshold_tuning_for_land_2024: true
+  no_generalized_weak_signal_waiver: true
