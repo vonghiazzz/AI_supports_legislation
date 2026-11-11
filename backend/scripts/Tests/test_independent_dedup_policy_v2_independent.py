@@ -244,6 +244,7 @@ def test_gate_preserves_rejections_and_cross_version_blockers(inventory_context)
     assert gate["failures"] == [
         "CROSS_VERSION_OVERLAP_OR_DISPUTE",
         "EXISTING_REJECTION_REASON_DISCARDED",
+        "REVIEW_NOT_AUTHORITATIVELY_COMPLETE",
     ]
     assert gate["mutation_performed"] is False
 
@@ -254,8 +255,8 @@ def test_gate_can_only_report_readiness_not_promote(inventory_context):
     gate = r6.evaluate_gate_v2(payload, payload["source_binding"], [], [])
     assert gate == {
         "gate_version": r6.GATE_VERSION,
-        "ready_for_separately_authorized_promotion": True,
-        "failures": [],
+        "ready_for_separately_authorized_promotion": False,
+        "failures": ["REVIEW_NOT_AUTHORITATIVELY_COMPLETE"],
         "mutation_performed": False,
     }
     assert payload["eligibility_authorization"]["authorized"] is False

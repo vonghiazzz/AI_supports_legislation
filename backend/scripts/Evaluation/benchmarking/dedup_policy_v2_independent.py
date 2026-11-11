@@ -34,6 +34,7 @@ REVIEW_ROOT_FIELDS = {
     "pair_classifications",
     "source_findings",
     "review_decisions",
+    "completion_status",
     "eligibility_authorization",
     "decision_provenance",
     "decision_fingerprint",
@@ -92,6 +93,7 @@ def _load_inventory(project_root: Path) -> tuple[list[dict], dict]:
                 "procedure_stage": item["procedure_stage"],
                 "related_decision_ids": [],
                 "underlying_dispute_id": None,
+                "identity_verified": False,
                 "text": item["_dedup_text"],
             }
         )
@@ -131,6 +133,7 @@ def _load_inventory(project_root: Path) -> tuple[list[dict], dict]:
                 "procedure_stage": source["procedure_stage"],
                 "related_decision_ids": list(source["related_decision_ids"]),
                 "underlying_dispute_id": source["underlying_dispute_id"],
+                "identity_verified": True,
                 "text": _full_text(structured),
             }
         )
@@ -261,16 +264,56 @@ def generate_candidates(
 
 
 def exhaustive_oracle_candidates(
-    records: Sequence[Mapping[str, Any]], target_source_ids: set[str]
+    records: Sequence[Mapping[str, Any]],
+    target_source_ids: set[str],
+    known_duplicate_links: Iterable[tuple[str, str]] = (),
 ) -> set[tuple[str, str]]:
-    """Bounded test oracle with no candidate pruning."""
+    """Independent bounded oracle; deliberately does not call the generator."""
     if len(records) > 64:
         raise IndependentCoverageError("Exhaustive oracle is restricted to <=64 records")
-    generated = generate_candidates(records, target_source_ids)
-    return {
-        _pair_key(item["evidence"]["left_source_id"], item["evidence"]["right_source_id"])
-        for item in generated["pairs"]
-    }
+    by_id = {item["source_id"]: dict(item) for item in records}
+    if len(by_id) != len(records) or not target_source_ids <= set(by_id):
+        raise IndependentCoverageError("Oracle inventory/targets are invalid")
+    known = {_pair_key(left, right) for left, right in known_duplicate_links}
+    result = set()
+    for index, left_id in enumerate(sorted(by_id)):
+        for right_id in sorted(by_id)[index + 1 :]:
+            if not {left_id, right_id} & target_source_ids:
+                continue
+            left, right = by_id[left_id], by_id[right_id]
+            candidate = False
+            candidate |= left["raw_sha256"] == right["raw_sha256"]
+            candidate |= bool(
+                left["structured_sha256"]
+                and left["structured_sha256"] == right["structured_sha256"]
+            )
+            candidate |= (
+                v1.canonical_source_name(left["source_name"])
+                == v1.canonical_source_name(right["source_name"])
+            )
+            candidate |= _normalized_optional_equal(
+                left["judgment_number"], right["judgment_number"]
+            ) is True
+            candidate |= _optional_equal(left["case_id"], right["case_id"]) is True
+            candidate |= bool(
+                left["underlying_dispute_id"]
+                and left["underlying_dispute_id"] == right["underlying_dispute_id"]
+            )
+            left_related = set(left["related_decision_ids"])
+            right_related = set(right["related_decision_ids"])
+            candidate |= bool(
+                left_related & right_related
+                or left["judgment_number"] in right_related
+                or right["judgment_number"] in left_related
+            )
+            candidate |= _pair_key(left_id, right_id) in known
+            candidate |= (
+                v1.dedup_text_similarity(left["text"], right["text"])
+                >= policy_v2.NEAR_DUPLICATE_THRESHOLD
+            )
+            if candidate:
+                result.add(_pair_key(left_id, right_id))
+    return result
 
 
 def evaluate_candidates(policy: Mapping[str, Any], generated: Mapping[str, Any]) -> list[dict]:
@@ -354,8 +397,8 @@ def review_contract_spec() -> dict:
     return {
         "review_version": REVIEW_VERSION,
         "policy_binding_required": ["policy_id", "policy_version", "policy_fingerprint"],
-        "source_binding_required": ["source_id", "acquisition_id", "manifest_sha256", "raw_sha256", "structured_sha256", "identity_fingerprint"],
-        "separation": ["evidence_observations", "pair_classifications", "source_findings", "review_decisions", "eligibility_authorization"],
+        "source_binding_required": ["source_id", "acquisition_id", "manifest_sha256", "raw_sha256", "structured_sha256", "identity_fingerprint", "identity_verified"],
+        "separation": ["evidence_observations", "pair_classifications", "source_findings", "review_decisions", "completion_status", "eligibility_authorization"],
         "typed_findings": ["document_equivalence", "development_overlap", "underlying_dispute", "canonical_duplicate", "nonblocking_audit_signal", "blocking_rejection_reason"],
         "generic_override_allowed": False,
         "missing_evidence_behavior": "FAIL_CLOSED",
@@ -393,16 +436,69 @@ def validate_review_payload_v2(payload: Mapping[str, Any]) -> dict:
     required_findings = {"document_equivalence", "development_overlap", "underlying_dispute", "canonical_duplicate", "nonblocking_audit_signals", "blocking_rejection_reasons"}
     if not isinstance(checked["source_findings"], dict) or set(checked["source_findings"]) != required_findings:
         raise IndependentCoverageError("V2 source findings fields are invalid")
+    observations = checked["evidence_observations"]
+    classifications = checked["pair_classifications"]
+    if any(
+        not isinstance(item, dict)
+        or set(item) != {"pair_id", "signals", "counterpart_source_id", "evidence_fingerprint", "evidence_complete"}
+        for item in observations
+    ):
+        raise IndependentCoverageError("V2 evidence observations are invalid")
+    if any(
+        not isinstance(item, dict)
+        or set(item) != {"pair_id", "same_document_relation", "development_relation", "dispute_relation", "overall_blocking", "adjudication_status"}
+        for item in classifications
+    ):
+        raise IndependentCoverageError("V2 pair classifications are invalid")
+    collection_complete = (
+        checked["source_binding"]["identity_verified"] is True
+        and all(item["evidence_complete"] is True for item in observations)
+    )
+    adjudicated = all(item["adjudication_status"] == "ADJUDICATED" for item in classifications)
+    expected_completion_blockers = []
+    if not collection_complete:
+        expected_completion_blockers.append("EVIDENCE_COLLECTION_INCOMPLETE")
+    if not adjudicated:
+        expected_completion_blockers.append("PAIR_ADJUDICATION_UNRESOLVED")
+    completion = checked["completion_status"]
+    if not isinstance(completion, dict) or set(completion) != {
+        "evidence_collection_complete",
+        "evidence_adjudicated",
+        "authoritative_review_completed",
+        "eligibility_approved",
+        "completion_blockers",
+    }:
+        raise IndependentCoverageError("V2 completion status fields are invalid")
+    if (
+        completion["evidence_collection_complete"] is not collection_complete
+        or completion["evidence_adjudicated"] is not adjudicated
+        or completion["eligibility_approved"] is not False
+        or completion["completion_blockers"] != expected_completion_blockers
+    ):
+        raise IndependentCoverageError("Fabricated or inconsistent review completion")
+    provenance = checked["decision_provenance"]
+    if not isinstance(provenance, dict) or set(provenance) != {
+        "findings_producer_version",
+        "evidence_fingerprint",
+        "review_authority",
+    } or provenance["findings_producer_version"] != FINDINGS_PRODUCER_VERSION:
+        raise IndependentCoverageError("V2 decision provenance is invalid")
+    authoritative = provenance["review_authority"] == "AUTHORIZED_VERSIONED_REVIEW_PRODUCER"
+    if completion["authoritative_review_completed"] is not (
+        collection_complete and adjudicated and authoritative
+    ):
+        raise IndependentCoverageError("Authoritative review completion is not supported by evidence/provenance")
     decisions = checked["review_decisions"]
-    if not isinstance(decisions, dict) or set(decisions) != {"document_equivalence_complete", "development_overlap_complete", "underlying_dispute_complete", "canonical_duplicate_complete", "review_disposition"}:
+    if not isinstance(decisions, dict) or set(decisions) != {"evidence_collection_attested", "pair_adjudication_attested", "review_completed", "review_disposition"}:
         raise IndependentCoverageError("V2 review decisions fields are invalid")
-    if any(decisions[field] is not True for field in decisions if field.endswith("_complete")):
-        raise IndependentCoverageError("V2 review decisions are incomplete")
+    if (
+        decisions["evidence_collection_attested"] is not collection_complete
+        or decisions["pair_adjudication_attested"] is not adjudicated
+        or decisions["review_completed"] is not completion["authoritative_review_completed"]
+    ):
+        raise IndependentCoverageError("V2 review decision attestations are inconsistent")
     if checked["eligibility_authorization"] != {"authorized": False, "gate_version": GATE_VERSION, "reasons": ["SEPARATE_PROMOTION_AUTHORIZATION_REQUIRED"]}:
         raise IndependentCoverageError("Review payload cannot authorize eligibility")
-    provenance = checked["decision_provenance"]
-    if not isinstance(provenance, dict) or set(provenance) != {"findings_producer_version", "evidence_fingerprint"} or provenance["findings_producer_version"] != FINDINGS_PRODUCER_VERSION:
-        raise IndependentCoverageError("V2 decision provenance is invalid")
     if checked["decision_fingerprint"] != policy_v2.canonical_fingerprint(checked, excluded_key="decision_fingerprint"):
         raise IndependentCoverageError("V2 decision fingerprint mismatch")
     return checked
@@ -425,27 +521,167 @@ def evaluate_gate_v2(
         failures.append("BLOCKING_V2_FINDINGS")
     if cross_version_blockers:
         failures.append("CROSS_VERSION_OVERLAP_OR_DISPUTE")
+    if not checked["completion_status"]["authoritative_review_completed"]:
+        failures.append("REVIEW_NOT_AUTHORITATIVELY_COMPLETE")
     return {"gate_version": GATE_VERSION, "ready_for_separately_authorized_promotion": not failures, "failures": sorted(set(failures)), "mutation_performed": False}
 
 
-def build_review_payload_v2(source: Mapping[str, Any], manifest_sha256: str, pair_results: Sequence[Mapping[str, Any]]) -> dict:
+def verify_gate_v2_authoritatively(
+    payload: Mapping[str, Any],
+    live_source: Mapping[str, Any],
+    live_manifest_sha256: str,
+    authoritative_pair_results: Sequence[Mapping[str, Any]],
+    existing_rejection_reasons: Sequence[str],
+    cross_version_blockers: Sequence[str],
+    *,
+    canonical_disposition: str | None = None,
+) -> dict:
+    """Pure future-gate verifier; recomputes findings and never promotes."""
+    checked = validate_review_payload_v2(payload)
+    recomputed = build_review_payload_v2(
+        live_source,
+        live_manifest_sha256,
+        authoritative_pair_results,
+        canonical_disposition=canonical_disposition,
+        review_authority=checked["decision_provenance"]["review_authority"],
+    )
+    comparable_fields = {
+        "policy_binding",
+        "source_binding",
+        "evidence_observations",
+        "pair_classifications",
+        "source_findings",
+        "completion_status",
+    }
+    mismatches = sorted(
+        field
+        for field in comparable_fields
+        if checked[field] != recomputed[field]
+    )
+    base = evaluate_gate_v2(
+        checked,
+        recomputed["source_binding"],
+        existing_rejection_reasons,
+        cross_version_blockers,
+    )
+    failures = list(base["failures"])
+    if mismatches:
+        failures.append("CALLER_FINDINGS_MISMATCH")
+    if live_manifest_sha256 != MANIFEST_SHA256:
+        failures.append("STALE_MANIFEST_BINDING")
+    return {
+        "gate_version": GATE_VERSION,
+        "ready_for_separately_authorized_promotion": not failures,
+        "failures": sorted(set(failures)),
+        "mismatched_fields": mismatches,
+        "authoritative_recomputation_performed": True,
+        "complete_inventory_recheck_required_at_mutation_time": True,
+        "mutation_performed": False,
+    }
+
+
+def build_review_payload_v2(
+    source: Mapping[str, Any],
+    manifest_sha256: str,
+    pair_results: Sequence[Mapping[str, Any]],
+    *,
+    canonical_disposition: str | None = None,
+    review_authority: str = "SHADOW_STRUCTURAL_PRODUCER",
+) -> dict:
     observations = [
-        {"pair_id": item["pair_id"], "signals": item["signals"], "counterpart_source_id": item["evidence"]["right_source_id"] if item["evidence"]["left_source_id"] == source["source_id"] else item["evidence"]["left_source_id"]}
+        {
+            "pair_id": item["pair_id"],
+            "signals": item["signals"],
+            "counterpart_source_id": item["evidence"]["right_source_id"] if item["evidence"]["left_source_id"] == source["source_id"] else item["evidence"]["left_source_id"],
+            "evidence_fingerprint": policy_v2.canonical_fingerprint(item["evidence"]),
+            "evidence_complete": all(
+                item["evidence"][field] is not None
+                for field in (
+                    "raw_sha_equal",
+                    "structured_sha_equal",
+                    "case_id_equal",
+                    "court_equal",
+                    "decision_date_equal",
+                    "decision_year_equal",
+                    "document_type_equal",
+                    "procedure_stage_equal",
+                    "text_similarity",
+                )
+            ),
+        }
         for item in pair_results
     ]
-    classifications = [{"pair_id": item["pair_id"], "same_document_relation": item["decision"]["same_document_relation"], "development_relation": item["decision"]["development_relation"], "dispute_relation": item["decision"]["dispute_relation"], "overall_blocking": item["decision"]["overall_blocking"]} for item in pair_results]
-    blockers = sorted({relation for item in classifications if item["overall_blocking"] for relation in (item["development_relation"], item["dispute_relation"], item["same_document_relation"]) if relation not in {"NOT_DEVELOPMENT_SCOPE", "NO_DISPUTE_RELATION", "NO_SAME_DOCUMENT_RELATION"}})
-    source_binding = {"source_id": source["source_id"], "acquisition_id": source["acquisition_id"], "manifest_sha256": manifest_sha256, "raw_sha256": source["raw_sha256"], "structured_sha256": source["structured_sha256"], "identity_fingerprint": policy_v2.canonical_fingerprint({key: source[key] for key in ("case_id", "judgment_number", "court", "decision_date", "procedure_stage")})}
+    unresolved_relations = {
+        "AMBIGUOUS_STRONG_TEXT_MATCH",
+        "AMBIGUOUS_WEAK_ASSOCIATION",
+        "AMBIGUOUS_DEVELOPMENT_OVERLAP",
+        "DISPUTE_RELATION_UNRESOLVED",
+    }
+    classifications = [
+        {
+            "pair_id": item["pair_id"],
+            "same_document_relation": item["decision"]["same_document_relation"],
+            "development_relation": item["decision"]["development_relation"],
+            "dispute_relation": item["decision"]["dispute_relation"],
+            "overall_blocking": item["decision"]["overall_blocking"],
+            "adjudication_status": (
+                "UNRESOLVED"
+                if unresolved_relations
+                & {
+                    item["decision"]["same_document_relation"],
+                    item["decision"]["development_relation"],
+                    item["decision"]["dispute_relation"],
+                }
+                else "ADJUDICATED"
+            ),
+        }
+        for item in pair_results
+    ]
+    blockers = sorted(
+        {
+            relation
+            for item in pair_results
+            for enabled, relation in (
+                (
+                    item["decision"]["same_document_blocking"],
+                    item["decision"]["same_document_relation"],
+                ),
+                (
+                    item["decision"]["development_blocking"],
+                    item["decision"]["development_relation"],
+                ),
+                (
+                    item["decision"]["dispute_blocking"],
+                    item["decision"]["dispute_relation"],
+                ),
+            )
+            if enabled
+        }
+    )
+    if canonical_disposition == "CANONICAL_RETAINED":
+        blockers = [item for item in blockers if item != "CONFIRMED_EXACT_DUPLICATE"]
+    if canonical_disposition == "NONCANONICAL_REJECTED" and "CONFIRMED_EXACT_DUPLICATE" not in blockers:
+        blockers.append("CONFIRMED_EXACT_DUPLICATE")
+    source_binding = {"source_id": source["source_id"], "acquisition_id": source["acquisition_id"], "manifest_sha256": manifest_sha256, "raw_sha256": source["raw_sha256"], "structured_sha256": source["structured_sha256"], "identity_fingerprint": policy_v2.canonical_fingerprint({key: source[key] for key in ("case_id", "judgment_number", "court", "decision_date", "procedure_stage")}), "identity_verified": source.get("identity_verified") is True}
+    collection_complete = source_binding["identity_verified"] and all(item["evidence_complete"] for item in observations)
+    adjudicated = all(item["adjudication_status"] == "ADJUDICATED" for item in classifications)
+    completion_blockers = []
+    if not collection_complete:
+        completion_blockers.append("EVIDENCE_COLLECTION_INCOMPLETE")
+    if not adjudicated:
+        completion_blockers.append("PAIR_ADJUDICATION_UNRESOLVED")
+    authoritative_completed = collection_complete and adjudicated and review_authority == "AUTHORIZED_VERSIONED_REVIEW_PRODUCER"
     payload = {
         "review_version": REVIEW_VERSION,
         "policy_binding": {"policy_id": policy_v2.POLICY_ID, "policy_version": policy_v2.POLICY_VERSION, "policy_fingerprint": "bf148f9421d27603f83328e6f98362d7b8d668263cdc4cb51735613c5e82b914"},
         "source_binding": source_binding,
         "evidence_observations": observations,
         "pair_classifications": classifications,
-        "source_findings": {"document_equivalence": sorted({item["same_document_relation"] for item in classifications}), "development_overlap": sorted({item["development_relation"] for item in classifications}), "underlying_dispute": sorted({item["dispute_relation"] for item in classifications}), "canonical_duplicate": [], "nonblocking_audit_signals": sorted({signal for item in observations for signal in item["signals"]}), "blocking_rejection_reasons": blockers},
-        "review_decisions": {"document_equivalence_complete": True, "development_overlap_complete": True, "underlying_dispute_complete": True, "canonical_duplicate_complete": True, "review_disposition": "BLOCKED" if blockers else "REVIEW_COMPLETE_NO_BLOCKERS"},
+        "source_findings": {"document_equivalence": sorted({item["same_document_relation"] for item in classifications}), "development_overlap": sorted({item["development_relation"] for item in classifications}), "underlying_dispute": sorted({item["dispute_relation"] for item in classifications}), "canonical_duplicate": [canonical_disposition] if canonical_disposition else [], "nonblocking_audit_signals": sorted({signal for item in observations for signal in item["signals"]}), "blocking_rejection_reasons": sorted(blockers)},
+        "review_decisions": {"evidence_collection_attested": collection_complete, "pair_adjudication_attested": adjudicated, "review_completed": authoritative_completed, "review_disposition": "STRUCTURALLY_VALID_NOT_AUTHORITATIVE" if not authoritative_completed else "BLOCKED" if blockers else "REVIEW_COMPLETE_NO_BLOCKERS"},
+        "completion_status": {"evidence_collection_complete": collection_complete, "evidence_adjudicated": adjudicated, "authoritative_review_completed": authoritative_completed, "eligibility_approved": False, "completion_blockers": completion_blockers},
         "eligibility_authorization": {"authorized": False, "gate_version": GATE_VERSION, "reasons": ["SEPARATE_PROMOTION_AUTHORIZATION_REQUIRED"]},
-        "decision_provenance": {"findings_producer_version": FINDINGS_PRODUCER_VERSION, "evidence_fingerprint": policy_v2.canonical_fingerprint(observations)},
+        "decision_provenance": {"findings_producer_version": FINDINGS_PRODUCER_VERSION, "evidence_fingerprint": policy_v2.canonical_fingerprint(observations), "review_authority": review_authority},
         "decision_fingerprint": "PENDING",
     }
     payload["decision_fingerprint"] = policy_v2.canonical_fingerprint(payload, excluded_key="decision_fingerprint")
@@ -526,7 +762,16 @@ def build_independent_outputs(project_root: Path, execution_git_sha: str, run_id
         related = [item for item in results if item["pair_id"] in decision["pair_ids"]]
         review_examples.append(
             build_review_payload_v2(
-                by_id[decision["source_id"]], MANIFEST_SHA256, related
+                by_id[decision["source_id"]],
+                MANIFEST_SHA256,
+                related,
+                canonical_disposition=(
+                    "NONCANONICAL_REJECTED"
+                    if decision["noncanonical_exact_duplicate"]
+                    else "CANONICAL_RETAINED"
+                    if decision["canonical_source_id"] == decision["source_id"]
+                    else None
+                ),
             )
         )
     common = {
