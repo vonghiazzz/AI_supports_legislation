@@ -25,6 +25,17 @@ from urllib.parse import urlparse
 INTAKE_ROOT_RELATIVE = Path("backend/dataLaw/independent_intake")
 ACQUISITION_MANIFEST_RELATIVE = INTAKE_ROOT_RELATIVE / "acquisition_manifest.json"
 MANIFEST_VERSION = "independent_source_acquisition_v1"
+INACTIVE_V21_MANIFEST_VERSION = (
+    "independent_source_acquisition_v2_1_scoped_bindings"
+)
+INACTIVE_V21_STAGING_MARKER_RELATIVE = (
+    INTAKE_ROOT_RELATIVE / ".inactive_v2_1_staging.json"
+)
+INACTIVE_V21_STAGING_MARKER = {
+    "mode": "INACTIVE_V2_1_STAGING_ONLY",
+    "manifest_version": INACTIVE_V21_MANIFEST_VERSION,
+    "live_activation_authorized": False,
+}
 STRUCTURED_SCHEMA_VERSION = "independent_structured_judgment_v1"
 PROVENANCE_ANCHOR_VERSION = "independent_provenance_anchor_v1"
 PUBLICATION_JOURNAL_VERSION = "independent_publication_journal_v1"
@@ -149,6 +160,84 @@ REVIEW_COMPLETION_FIELDS = (
 
 class SourceIntakeError(ValueError):
     """Raised when an independent-source intake invariant is violated."""
+
+
+def _require_inactive_v21_staging(project_root: Path, intake_chain=None) -> None:
+    """Require an explicit non-live marker before inactive V2.1 access."""
+
+    root = Path(project_root).resolve()
+    repository_root = Path(__file__).resolve().parents[4]
+    if root == repository_root:
+        raise SourceIntakeError(
+            "Inactive V2.1 access is forbidden for the live repository root"
+        )
+    owned_chain = None
+    try:
+        if intake_chain is None:
+            _, owned_chain = _open_trusted_directory(
+                root, INTAKE_ROOT_RELATIVE, create=False
+            )
+            intake_chain = owned_chain
+        intake_chain.assert_identity()
+        marker_bytes = _read_regular_bytes_at(
+            intake_chain.fd, INACTIVE_V21_STAGING_MARKER_RELATIVE.name
+        )
+        marker = json.loads(marker_bytes.decode("utf-8"))
+        intake_chain.assert_identity()
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError, SourceIntakeError) as exc:
+        raise SourceIntakeError("Inactive V2.1 staging marker is invalid") from exc
+    finally:
+        if owned_chain is not None:
+            owned_chain.close()
+    if marker != INACTIVE_V21_STAGING_MARKER:
+        raise SourceIntakeError("Inactive V2.1 staging marker contract mismatch")
+
+
+def validate_acquisition_manifest_version_aware(
+    manifest: dict,
+    prior_manifest: dict | None = None,
+    *,
+    allow_inactive_v21: bool = False,
+) -> None:
+    """Validate exact V1 or explicitly staged, inactive V2.1.
+
+    V1 remains the default.  The V2.1 branch is available only to controlled
+    staging callers and never performs implicit migration or policy changes.
+    """
+
+    version = manifest.get("manifest_version") if isinstance(manifest, dict) else None
+    if version == MANIFEST_VERSION:
+        validate_acquisition_manifest(manifest, prior_manifest=prior_manifest)
+        return
+    if not allow_inactive_v21 or version != INACTIVE_V21_MANIFEST_VERSION:
+        raise SourceIntakeError("Unsupported acquisition manifest version")
+    try:
+        from . import dual_version_manifest_safety as v21
+
+        v21.validate_dual_version_manifest(manifest)
+        if prior_manifest is not None:
+            if prior_manifest.get("manifest_version") != version:
+                raise SourceIntakeError(
+                    "Manifest version cannot change during a source operation"
+                )
+            v21.validate_dual_version_manifest(prior_manifest)
+            current_projection = v21._v1_projection(manifest)
+            prior_projection = v21._v1_projection(prior_manifest)
+            validate_acquisition_manifest(
+                current_projection, prior_manifest=prior_projection
+            )
+            if manifest["review_schema"] != prior_manifest["review_schema"]:
+                raise SourceIntakeError(
+                    "V1-compatible writer cannot change V2.1 review schema"
+                )
+            if manifest["review_records"] != prior_manifest["review_records"]:
+                raise SourceIntakeError(
+                    "V1-compatible writer cannot change V2.1 review records"
+                )
+    except SourceIntakeError:
+        raise
+    except Exception as exc:
+        raise SourceIntakeError(f"Inactive V2.1 manifest validation failed: {exc}") from exc
 
 
 def _sha256_file(path: Path) -> str:
@@ -2078,7 +2167,10 @@ def _validate_manifest_artifacts(project_root: Path, manifest: dict) -> None:
 
 
 def _load_authoritative_manifest_locked(
-    project_root: Path, intake_chain: _TrustedDirectoryChain
+    project_root: Path,
+    intake_chain: _TrustedDirectoryChain,
+    *,
+    allow_inactive_v21: bool = False,
 ) -> tuple[dict, bytes]:
     """Load and reconcile the live manifest while its mutation lock is held."""
 
@@ -2091,7 +2183,11 @@ def _load_authoritative_manifest_locked(
         manifest = json.loads(manifest_bytes.decode("utf-8"))
     except (UnicodeDecodeError, json.JSONDecodeError) as exc:
         raise SourceIntakeError("Acquisition manifest is not valid UTF-8 JSON") from exc
-    validate_acquisition_manifest(manifest)
+    if allow_inactive_v21:
+        _require_inactive_v21_staging(project_root, intake_chain)
+    validate_acquisition_manifest_version_aware(
+        manifest, allow_inactive_v21=allow_inactive_v21
+    )
     _reconcile_registration_journals(project_root, manifest, manifest_bytes)
     _reconcile_publication_journals(project_root, manifest, manifest_bytes)
     _validate_manifest_anchors(project_root, manifest)
@@ -2100,31 +2196,46 @@ def _load_authoritative_manifest_locked(
     return manifest, manifest_bytes
 
 
-def _load_authoritative_manifest(project_root: Path) -> tuple[dict, bytes]:
+def _load_authoritative_manifest(
+    project_root: Path, *, allow_inactive_v21: bool = False
+) -> tuple[dict, bytes]:
     project_root = Path(project_root).resolve()
     _, intake_chain = _open_trusted_directory(
         project_root, INTAKE_ROOT_RELATIVE, create=False
     )
     _acquire_manifest_mutation_lock(intake_chain)
     try:
-        return _load_authoritative_manifest_locked(project_root, intake_chain)
+        return _load_authoritative_manifest_locked(
+            project_root,
+            intake_chain,
+            allow_inactive_v21=allow_inactive_v21,
+        )
     finally:
         _release_manifest_mutation_lock(intake_chain)
         intake_chain.close()
 
 
-def load_acquisition_manifest(project_root: Path) -> dict:
-    manifest, _ = _load_authoritative_manifest(project_root)
+def load_acquisition_manifest(
+    project_root: Path, *, allow_inactive_v21: bool = False
+) -> dict:
+    manifest, _ = _load_authoritative_manifest(
+        project_root, allow_inactive_v21=allow_inactive_v21
+    )
     return manifest
 
 
 def inventory_independent_sources(
-    project_root: Path, include_private_text: bool = False
+    project_root: Path,
+    include_private_text: bool = False,
+    *,
+    allow_inactive_v21: bool = False,
 ) -> tuple[list[dict], dict, list[tuple[str, str]]]:
     """Return only fail-closed eligible sources and an intake validation report."""
 
     project_root = Path(project_root).resolve()
-    manifest = load_acquisition_manifest(project_root)
+    manifest = load_acquisition_manifest(
+        project_root, allow_inactive_v21=allow_inactive_v21
+    )
     inventory = []
     source_results = []
     for source in sorted(manifest["sources"], key=lambda item: item["acquisition_id"]):
@@ -2184,6 +2295,8 @@ def register_source(
     download_timestamp: str,
     original_filename: str,
     offline_provenance: dict | None = None,
+    *,
+    allow_inactive_v21: bool = False,
 ) -> dict:
     """Register one validated raw PDF using a recoverable create-once transaction.
 
@@ -2300,7 +2413,7 @@ def register_source(
             raise SourceIntakeError("Registration paths do not match source identity")
 
         manifest, original_manifest_bytes = _load_authoritative_manifest(
-            project_root
+            project_root, allow_inactive_v21=allow_inactive_v21
         )
         if any(
             item["acquisition_id"] == acquisition_id
@@ -2323,7 +2436,11 @@ def register_source(
         updated_manifest["immutable_provenance"].sort(
             key=lambda item: item["acquisition_id"]
         )
-        validate_acquisition_manifest(updated_manifest, prior_manifest=manifest)
+        validate_acquisition_manifest_version_aware(
+            updated_manifest,
+            prior_manifest=manifest,
+            allow_inactive_v21=allow_inactive_v21,
+        )
         intended_manifest_bytes = _canonical_json_bytes(updated_manifest)
         anchor_bytes = _canonical_json_bytes(_provenance_anchor_payload(source))
 
@@ -2529,8 +2646,10 @@ def register_source(
                             "Registration failed after an invalid concurrent "
                             "manifest mutation; journal recovery is required"
                         ) from exc
-                    validate_acquisition_manifest(
-                        concurrent_manifest, prior_manifest=manifest
+                    validate_acquisition_manifest_version_aware(
+                        concurrent_manifest,
+                        prior_manifest=manifest,
+                        allow_inactive_v21=allow_inactive_v21,
                     )
                     if any(
                         item["acquisition_id"] == acquisition_id
@@ -2805,6 +2924,8 @@ def record_source_identity(
     project_root: Path,
     acquisition_id: str,
     identity_payload: dict,
+    *,
+    allow_inactive_v21: bool = False,
 ) -> dict:
     """Persist verified per-document identity without review or promotion."""
 
@@ -2816,7 +2937,9 @@ def record_source_identity(
     _acquire_manifest_mutation_lock(intake_chain)
     try:
         manifest, original_manifest_bytes = _load_authoritative_manifest_locked(
-            project_root, intake_chain
+            project_root,
+            intake_chain,
+            allow_inactive_v21=allow_inactive_v21,
         )
         matches = [
             source
@@ -2870,7 +2993,11 @@ def record_source_identity(
                     f"Source identity attempted review mutation: {field}"
                 )
 
-        validate_acquisition_manifest(updated_manifest, prior_manifest=manifest)
+        validate_acquisition_manifest_version_aware(
+            updated_manifest,
+            prior_manifest=manifest,
+            allow_inactive_v21=allow_inactive_v21,
+        )
         _validate_manifest_anchors(project_root, updated_manifest)
         _validate_manifest_artifacts(project_root, updated_manifest)
 
@@ -2906,7 +3033,9 @@ def record_source_identity(
                     "Published source-identity manifest verification failed"
                 )
             checked_manifest, checked_bytes = _load_authoritative_manifest_locked(
-                project_root, intake_chain
+                project_root,
+                intake_chain,
+                allow_inactive_v21=allow_inactive_v21,
             )
             checked_source = next(
                 item
@@ -2940,7 +3069,11 @@ def record_source_identity(
                         raise SourceIntakeError(
                             "Source-identity rollback verification failed"
                         )
-                    _load_authoritative_manifest_locked(project_root, intake_chain)
+                    _load_authoritative_manifest_locked(
+                        project_root,
+                        intake_chain,
+                        allow_inactive_v21=allow_inactive_v21,
+                    )
                 except Exception as rollback_error:
                     raise SourceIntakeError(
                         "Source-identity publication rollback failed"
@@ -2987,6 +3120,8 @@ def record_source_review(
     project_root: Path,
     acquisition_id: str,
     review_payload: dict,
+    *,
+    allow_inactive_v21: bool = False,
 ) -> dict:
     """Record one strict, independently verified review without promotion.
 
@@ -3005,7 +3140,9 @@ def record_source_review(
     _acquire_manifest_mutation_lock(intake_chain)
     try:
         manifest, original_manifest_bytes = _load_authoritative_manifest_locked(
-            project_root, intake_chain
+            project_root,
+            intake_chain,
+            allow_inactive_v21=allow_inactive_v21,
         )
         matches = [
             source
@@ -3080,7 +3217,11 @@ def record_source_review(
                 raise SourceIntakeError(
                     f"Source review attempted forbidden mutation: {field}"
                 )
-        validate_acquisition_manifest(updated_manifest, prior_manifest=manifest)
+        validate_acquisition_manifest_version_aware(
+            updated_manifest,
+            prior_manifest=manifest,
+            allow_inactive_v21=allow_inactive_v21,
+        )
         _validate_manifest_anchors(project_root, updated_manifest)
         _validate_manifest_artifacts(project_root, updated_manifest)
 
@@ -3119,7 +3260,9 @@ def record_source_review(
                     "Published source-review manifest verification failed"
                 )
             checked_manifest, checked_bytes = _load_authoritative_manifest_locked(
-                project_root, intake_chain
+                project_root,
+                intake_chain,
+                allow_inactive_v21=allow_inactive_v21,
             )
             checked_source = next(
                 item
@@ -3156,7 +3299,11 @@ def record_source_review(
                         raise SourceIntakeError(
                             "Source-review rollback verification failed"
                         )
-                    _load_authoritative_manifest_locked(project_root, intake_chain)
+                    _load_authoritative_manifest_locked(
+                        project_root,
+                        intake_chain,
+                        allow_inactive_v21=allow_inactive_v21,
+                    )
                 except Exception as rollback_error:
                     raise SourceIntakeError(
                         "Source-review publication rollback failed"
@@ -3176,11 +3323,22 @@ def record_source_review(
         intake_chain.close()
 
 
-def promote_source_to_eligible(project_root: Path, acquisition_id: str) -> dict:
+def promote_source_to_eligible(
+    project_root: Path,
+    acquisition_id: str,
+    *,
+    allow_inactive_v21: bool = False,
+) -> dict:
     """Atomically promote one fully validated extracted source to eligible."""
 
     project_root = Path(project_root).resolve()
-    manifest, original_manifest_bytes = _load_authoritative_manifest(project_root)
+    manifest, original_manifest_bytes = _load_authoritative_manifest(
+        project_root, allow_inactive_v21=allow_inactive_v21
+    )
+    if manifest["manifest_version"] != MANIFEST_VERSION:
+        raise SourceIntakeError(
+            "V2.1 eligibility promotion is not authorized or activated"
+        )
     matches = [
         source
         for source in manifest["sources"]
@@ -3226,7 +3384,11 @@ def promote_source_to_eligible(project_root: Path, acquisition_id: str) -> dict:
         "timestamp": timestamp.isoformat(),
         "reasons": [],
     })
-    validate_acquisition_manifest(updated_manifest, prior_manifest=manifest)
+    validate_acquisition_manifest_version_aware(
+        updated_manifest,
+        prior_manifest=manifest,
+        allow_inactive_v21=allow_inactive_v21,
+    )
     _validate_manifest_anchors(project_root, updated_manifest)
     intended_manifest_bytes = _canonical_json_bytes(updated_manifest)
 
@@ -3294,7 +3456,9 @@ def promote_source_to_eligible(project_root: Path, acquisition_id: str) -> dict:
         intake_chain.close()
 
     try:
-        checked_manifest = load_acquisition_manifest(project_root)
+        checked_manifest = load_acquisition_manifest(
+            project_root, allow_inactive_v21=allow_inactive_v21
+        )
         checked_source = next(
             item
             for item in checked_manifest["sources"]
@@ -3303,7 +3467,7 @@ def promote_source_to_eligible(project_root: Path, acquisition_id: str) -> dict:
         if checked_source["acquisition_status"] != "eligible":
             raise SourceIntakeError("Eligibility status was not published")
         checked_inventory, checked_report, _ = inventory_independent_sources(
-            project_root
+            project_root, allow_inactive_v21=allow_inactive_v21
         )
         checked_result = next(
             item
@@ -3366,7 +3530,11 @@ def _eligibility_publication_checkpoint(name: str) -> None:
 
 
 def extract_intake_source(
-    project_root: Path, acquisition_id: str, force_ocr: bool = False
+    project_root: Path,
+    acquisition_id: str,
+    force_ocr: bool = False,
+    *,
+    allow_inactive_v21: bool = False,
 ) -> dict:
     """Extract one manifest source without overwriting and record its hash.
 
@@ -3375,7 +3543,9 @@ def extract_intake_source(
     """
 
     project_root = Path(project_root).resolve()
-    manifest, original_manifest_bytes = _load_authoritative_manifest(project_root)
+    manifest, original_manifest_bytes = _load_authoritative_manifest(
+        project_root, allow_inactive_v21=allow_inactive_v21
+    )
     matches = [item for item in manifest["sources"] if item["acquisition_id"] == acquisition_id]
     if len(matches) != 1:
         raise SourceIntakeError(f"Unknown acquisition_id: {acquisition_id}")
@@ -3449,7 +3619,11 @@ def extract_intake_source(
         updated_source["status_history"].append(
             {"status": "extracted", "timestamp": timestamp, "reasons": []}
         )
-        validate_acquisition_manifest(updated_manifest, prior_manifest=manifest)
+        validate_acquisition_manifest_version_aware(
+            updated_manifest,
+            prior_manifest=manifest,
+            allow_inactive_v21=allow_inactive_v21,
+        )
         _validate_manifest_anchors(project_root, updated_manifest)
         intended_manifest_bytes = _canonical_json_bytes(updated_manifest)
         now = datetime.now().astimezone().isoformat()
