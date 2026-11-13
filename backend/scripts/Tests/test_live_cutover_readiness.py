@@ -473,7 +473,7 @@ def test_live_staging_flag_cannot_bypass_activation_guard():
         )
 
 
-def test_signed_activation_opens_only_isolated_live_simulation(tmp_path, monkeypatch):
+def test_r12_rejects_r11_activation_as_operational_credential(tmp_path, monkeypatch):
     _extracted_fixture(tmp_path)
     _migrate_fixture(tmp_path)
     code_relatives = (
@@ -481,6 +481,8 @@ def test_signed_activation_opens_only_isolated_live_simulation(tmp_path, monkeyp
         "backend/scripts/Evaluation/benchmarking/dual_version_manifest_safety.py",
         "backend/scripts/Evaluation/benchmarking/trusted_review_protocol.py",
         "backend/scripts/Evaluation/benchmarking/live_cutover_readiness.py",
+        "backend/scripts/Evaluation/benchmarking/cutover_authorization_lifecycle.py",
+        "backend/scripts/Evaluation/benchmarking/dedup_performance_v1.py",
     )
     for relative in code_relatives:
         destination = tmp_path / relative
@@ -511,11 +513,11 @@ def test_signed_activation_opens_only_isolated_live_simulation(tmp_path, monkeyp
         "signature_base64": "PENDING",
     }
     _sign(authorization, issuer_key)
-    loaded = source_intake.load_acquisition_manifest(
-        tmp_path,
-        v21_activation_authorization=authorization,
-    )
-    assert loaded["manifest_version"] == v21.V21_MANIFEST_VERSION
+    with pytest.raises(SourceIntakeError, match="One-time cutover authorization"):
+        source_intake.load_acquisition_manifest(
+            tmp_path,
+            v21_activation_authorization=authorization,
+        )
     with pytest.raises(SourceIntakeError, match="live repository"):
         source_intake.load_acquisition_manifest(
             tmp_path,

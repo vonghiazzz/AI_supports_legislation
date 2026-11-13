@@ -400,6 +400,8 @@ def cutover_code_bundle_fingerprint(project_root: Path) -> str:
         "backend/scripts/Evaluation/benchmarking/dual_version_manifest_safety.py",
         "backend/scripts/Evaluation/benchmarking/trusted_review_protocol.py",
         "backend/scripts/Evaluation/benchmarking/live_cutover_readiness.py",
+        "backend/scripts/Evaluation/benchmarking/cutover_authorization_lifecycle.py",
+        "backend/scripts/Evaluation/benchmarking/dedup_performance_v1.py",
     )
     values = {}
     for relative in relative_paths:

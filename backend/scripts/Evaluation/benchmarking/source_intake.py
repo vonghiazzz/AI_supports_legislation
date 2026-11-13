@@ -200,21 +200,24 @@ def _authorize_v21_access(
     *,
     allow_inactive_v21: bool,
     v21_activation_authorization: Mapping[str, Any] | None,
+    v21_operational_access: Mapping[str, Any] | None,
 ) -> None:
-    """Authorize V2.1 staging or a future signed live activation.
+    """Authorize V2.1 staging or independently signed live operation.
 
-    The repository-controlled live registry is inactive in R11.  Consequently
-    the live branch is technically wired but cannot authorize access until a
-    later reviewed code change installs an approved issuer.  Intake-local JSON
-    cannot create live authority.
+    R12 makes R11's activation token a one-time schema-transition authority.
+    It is deliberately rejected as a normal read/write credential.  Live V2.1
+    operation instead requires the independently revocable operational bundle.
     """
 
     root = Path(project_root).resolve()
     repository_root = Path(__file__).resolve().parents[4]
     if root != repository_root:
-        if v21_activation_authorization is not None:
+        if (
+            v21_activation_authorization is not None
+            or v21_operational_access is not None
+        ):
             raise SourceIntakeError(
-                "Live activation authorization cannot be used for staging"
+                "Live authorization cannot be used for inactive staging"
             )
         if not allow_inactive_v21:
             raise SourceIntakeError("Unsupported acquisition manifest version")
@@ -225,16 +228,20 @@ def _authorize_v21_access(
         raise SourceIntakeError(
             "Caller-controlled staging cannot authorize live V2.1 access"
         )
+    if v21_activation_authorization is not None:
+        raise SourceIntakeError(
+            "One-time cutover authorization cannot authorize post-cutover operations"
+        )
     try:
-        from . import trusted_review_protocol as trusted
+        from . import cutover_authorization_lifecycle as lifecycle
 
-        trusted.verify_live_activation_authorization(
+        lifecycle.verify_live_operational_access(
             root,
-            v21_activation_authorization,
+            v21_operational_access,
         )
     except Exception as exc:
         raise SourceIntakeError(
-            "live repository V2.1 activation authorization failed"
+            "live repository V2.1 operational authorization failed"
         ) from exc
 
 
@@ -2217,6 +2224,7 @@ def _load_authoritative_manifest_locked(
     *,
     allow_inactive_v21: bool = False,
     v21_activation_authorization: Mapping[str, Any] | None = None,
+    v21_operational_access: Mapping[str, Any] | None = None,
 ) -> tuple[dict, bytes]:
     """Load and reconcile the live manifest while its mutation lock is held."""
 
@@ -2244,11 +2252,15 @@ def _load_authoritative_manifest_locked(
             intake_chain,
             allow_inactive_v21=allow_inactive_v21,
             v21_activation_authorization=v21_activation_authorization,
+            v21_operational_access=v21_operational_access,
         )
         v21_access_authorized = True
-    elif v21_activation_authorization is not None:
+    elif (
+        v21_activation_authorization is not None
+        or v21_operational_access is not None
+    ):
         raise SourceIntakeError(
-            "V2.1 activation authorization cannot be applied to a V1 manifest"
+            "V2.1 authorization cannot be applied to a V1 manifest"
         )
     validate_acquisition_manifest_version_aware(
         manifest, allow_inactive_v21=v21_access_authorized
@@ -2266,6 +2278,7 @@ def _load_authoritative_manifest(
     *,
     allow_inactive_v21: bool = False,
     v21_activation_authorization: Mapping[str, Any] | None = None,
+    v21_operational_access: Mapping[str, Any] | None = None,
 ) -> tuple[dict, bytes]:
     project_root = Path(project_root).resolve()
     _, intake_chain = _open_trusted_directory(
@@ -2278,6 +2291,7 @@ def _load_authoritative_manifest(
             intake_chain,
             allow_inactive_v21=allow_inactive_v21,
             v21_activation_authorization=v21_activation_authorization,
+            v21_operational_access=v21_operational_access,
         )
     finally:
         _release_manifest_mutation_lock(intake_chain)
@@ -2289,13 +2303,84 @@ def load_acquisition_manifest(
     *,
     allow_inactive_v21: bool = False,
     v21_activation_authorization: Mapping[str, Any] | None = None,
+    v21_operational_access: Mapping[str, Any] | None = None,
 ) -> dict:
     manifest, _ = _load_authoritative_manifest(
         project_root,
         allow_inactive_v21=allow_inactive_v21,
         v21_activation_authorization=v21_activation_authorization,
+        v21_operational_access=v21_operational_access,
     )
     return manifest
+
+
+def inspect_v21_recovery_state(
+    project_root: Path,
+    recovery_access: Mapping[str, Any] | None,
+) -> dict:
+    """Read and validate a suspended live V2.1 state without mutating it.
+
+    This deliberately bypasses normal operational authorization only for
+    read-only evidence inspection.  It never reconciles journals, publishes a
+    manifest, rolls back to V1, or authorizes any intake mutation.
+    """
+
+    project_root = Path(project_root).resolve()
+    if project_root != Path(__file__).resolve().parents[4]:
+        raise SourceIntakeError("Recovery-only access is restricted to the live root")
+    try:
+        from . import cutover_authorization_lifecycle as lifecycle
+
+        authorization = lifecycle.verify_live_recovery_access(recovery_access)
+    except Exception as exc:
+        raise SourceIntakeError("Live V2.1 recovery authorization failed") from exc
+
+    _, intake_chain = _open_trusted_directory(
+        project_root, INTAKE_ROOT_RELATIVE, create=False
+    )
+    _acquire_manifest_mutation_lock(intake_chain)
+    try:
+        manifest_bytes = _read_regular_bytes_at(
+            intake_chain.fd, ACQUISITION_MANIFEST_RELATIVE.name
+        )
+        try:
+            manifest = json.loads(manifest_bytes.decode("utf-8"))
+        except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+            raise SourceIntakeError("Recovery manifest is not valid JSON") from exc
+        if manifest.get("manifest_version") != INACTIVE_V21_MANIFEST_VERSION:
+            raise SourceIntakeError("Recovery inspection requires a V2.1 manifest")
+        validate_acquisition_manifest_version_aware(
+            manifest, allow_inactive_v21=True
+        )
+        _validate_manifest_anchors(project_root, manifest)
+        _validate_manifest_artifacts(project_root, manifest)
+        _, transaction_chain = _open_trusted_directory(
+            project_root, TRANSACTION_ROOT_RELATIVE, create=False
+        )
+        try:
+            transaction_chain.assert_identity()
+            pending = sorted(
+                name
+                for name in os.listdir(transaction_chain.fd)
+                if name.endswith(".json")
+            )
+            transaction_chain.assert_identity()
+        finally:
+            transaction_chain.close()
+        intake_chain.assert_identity()
+        return {
+            "mode": "READ_ONLY_RECOVERY_INSPECTION",
+            "manifest_version": manifest["manifest_version"],
+            "manifest_sha256": hashlib.sha256(manifest_bytes).hexdigest(),
+            "source_count": len(manifest["sources"]),
+            "pending_journals": pending,
+            "authorization": authorization,
+            "mutations_performed": False,
+            "automatic_v1_rollback_performed": False,
+        }
+    finally:
+        _release_manifest_mutation_lock(intake_chain)
+        intake_chain.close()
 
 
 def inventory_independent_sources(
@@ -2304,6 +2389,7 @@ def inventory_independent_sources(
     *,
     allow_inactive_v21: bool = False,
     v21_activation_authorization: Mapping[str, Any] | None = None,
+    v21_operational_access: Mapping[str, Any] | None = None,
 ) -> tuple[list[dict], dict, list[tuple[str, str]]]:
     """Return only fail-closed eligible sources and an intake validation report."""
 
@@ -2312,6 +2398,7 @@ def inventory_independent_sources(
         project_root,
         allow_inactive_v21=allow_inactive_v21,
         v21_activation_authorization=v21_activation_authorization,
+        v21_operational_access=v21_operational_access,
     )
     inventory = []
     source_results = []
@@ -2375,6 +2462,7 @@ def register_source(
     *,
     allow_inactive_v21: bool = False,
     v21_activation_authorization: Mapping[str, Any] | None = None,
+    v21_operational_access: Mapping[str, Any] | None = None,
 ) -> dict:
     """Register one validated raw PDF using a recoverable create-once transaction.
 
@@ -2494,6 +2582,7 @@ def register_source(
             project_root,
             allow_inactive_v21=allow_inactive_v21,
             v21_activation_authorization=v21_activation_authorization,
+            v21_operational_access=v21_operational_access,
         )
         if any(
             item["acquisition_id"] == acquisition_id
@@ -2791,16 +2880,13 @@ def register_source(
         os.close(input_fd)
 
 
-def _eligibility_dedup_report(
+def _eligibility_dedup_inputs(
     project_root: Path,
     manifest: dict,
-) -> tuple[list[dict], dict]:
-    """Evaluate the committed development/internal dedup contract."""
+) -> tuple[list[dict], list[dict], list[tuple[str, str]]]:
+    """Load and validate the exact inputs to the frozen V1 dedup contract."""
 
-    from .independent_benchmark import (
-        deduplicate_against_development,
-        inventory_judgment_sources,
-    )
+    from .independent_benchmark import inventory_judgment_sources
 
     development_path = (
         Path(project_root).resolve() / "backend/data/judgments_evaluation.json"
@@ -2866,10 +2952,37 @@ def _eligibility_dedup_report(
         )
         for link in manifest["known_duplicate_links"]
     ]
-    eligible, report = deduplicate_against_development(
+    return (
         development_inventory + independent_inventory,
         development_records,
+        known_links,
+    )
+
+
+def _eligibility_dedup_report(
+    project_root: Path,
+    manifest: dict,
+    *,
+    _precompute_shingles: bool = True,
+    _performance_stats: dict | None = None,
+) -> tuple[list[dict], dict]:
+    """Evaluate the unchanged development/internal V1 dedup contract."""
+
+    from . import dedup_performance_v1
+
+    inventory, development_records, known_links = _eligibility_dedup_inputs(
+        project_root, manifest
+    )
+    evaluator = (
+        dedup_performance_v1.deduplicate_memoized
+        if _precompute_shingles
+        else dedup_performance_v1.deduplicate_reference_profiled
+    )
+    eligible, report = evaluator(
+        inventory,
+        development_records,
         known_duplicate_links=known_links,
+        performance_stats=_performance_stats,
     )
     return eligible, report
 
@@ -3012,6 +3125,7 @@ def record_source_identity(
     *,
     allow_inactive_v21: bool = False,
     v21_activation_authorization: Mapping[str, Any] | None = None,
+    v21_operational_access: Mapping[str, Any] | None = None,
 ) -> dict:
     """Persist verified per-document identity without review or promotion."""
 
@@ -3027,6 +3141,7 @@ def record_source_identity(
             intake_chain,
             allow_inactive_v21=allow_inactive_v21,
             v21_activation_authorization=v21_activation_authorization,
+            v21_operational_access=v21_operational_access,
         )
         matches = [
             source
@@ -3126,6 +3241,7 @@ def record_source_identity(
                 intake_chain,
                 allow_inactive_v21=allow_inactive_v21,
                 v21_activation_authorization=v21_activation_authorization,
+                v21_operational_access=v21_operational_access,
             )
             checked_source = next(
                 item
@@ -3164,6 +3280,7 @@ def record_source_identity(
                         intake_chain,
                         allow_inactive_v21=allow_inactive_v21,
                         v21_activation_authorization=v21_activation_authorization,
+                        v21_operational_access=v21_operational_access,
                     )
                 except Exception as rollback_error:
                     raise SourceIntakeError(
@@ -3214,6 +3331,7 @@ def record_source_review(
     *,
     allow_inactive_v21: bool = False,
     v21_activation_authorization: Mapping[str, Any] | None = None,
+    v21_operational_access: Mapping[str, Any] | None = None,
 ) -> dict:
     """Record one strict, independently verified review without promotion.
 
@@ -3236,6 +3354,7 @@ def record_source_review(
             intake_chain,
             allow_inactive_v21=allow_inactive_v21,
             v21_activation_authorization=v21_activation_authorization,
+            v21_operational_access=v21_operational_access,
         )
         matches = [
             source
@@ -3359,6 +3478,7 @@ def record_source_review(
                 intake_chain,
                 allow_inactive_v21=allow_inactive_v21,
                 v21_activation_authorization=v21_activation_authorization,
+                v21_operational_access=v21_operational_access,
             )
             checked_source = next(
                 item
@@ -3400,6 +3520,7 @@ def record_source_review(
                         intake_chain,
                         allow_inactive_v21=allow_inactive_v21,
                         v21_activation_authorization=v21_activation_authorization,
+                        v21_operational_access=v21_operational_access,
                     )
                 except Exception as rollback_error:
                     raise SourceIntakeError(
@@ -3426,6 +3547,7 @@ def promote_source_to_eligible(
     *,
     allow_inactive_v21: bool = False,
     v21_activation_authorization: Mapping[str, Any] | None = None,
+    v21_operational_access: Mapping[str, Any] | None = None,
 ) -> dict:
     """Atomically promote one fully validated extracted source to eligible."""
 
@@ -3434,6 +3556,7 @@ def promote_source_to_eligible(
         project_root,
         allow_inactive_v21=allow_inactive_v21,
         v21_activation_authorization=v21_activation_authorization,
+        v21_operational_access=v21_operational_access,
     )
     matches = [
         source
@@ -3566,6 +3689,7 @@ def promote_source_to_eligible(
             project_root,
             allow_inactive_v21=allow_inactive_v21,
             v21_activation_authorization=v21_activation_authorization,
+            v21_operational_access=v21_operational_access,
         )
         checked_source = next(
             item
@@ -3578,6 +3702,7 @@ def promote_source_to_eligible(
             project_root,
             allow_inactive_v21=allow_inactive_v21,
             v21_activation_authorization=v21_activation_authorization,
+            v21_operational_access=v21_operational_access,
         )
         checked_result = next(
             item
@@ -3646,6 +3771,7 @@ def extract_intake_source(
     *,
     allow_inactive_v21: bool = False,
     v21_activation_authorization: Mapping[str, Any] | None = None,
+    v21_operational_access: Mapping[str, Any] | None = None,
 ) -> dict:
     """Extract one manifest source without overwriting and record its hash.
 
@@ -3658,6 +3784,7 @@ def extract_intake_source(
         project_root,
         allow_inactive_v21=allow_inactive_v21,
         v21_activation_authorization=v21_activation_authorization,
+        v21_operational_access=v21_operational_access,
     )
     matches = [item for item in manifest["sources"] if item["acquisition_id"] == acquisition_id]
     if len(matches) != 1:

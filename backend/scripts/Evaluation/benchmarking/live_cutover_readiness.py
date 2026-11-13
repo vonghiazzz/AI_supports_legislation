@@ -111,6 +111,7 @@ def load_dynamic_inventory(
     *,
     allow_inactive_v21: bool = False,
     v21_activation_authorization: Mapping[str, Any] | None = None,
+    v21_operational_access: Mapping[str, Any] | None = None,
 ) -> dict:
     """Load current verified inventory without historical count invariants."""
 
@@ -119,6 +120,7 @@ def load_dynamic_inventory(
         root,
         allow_inactive_v21=allow_inactive_v21,
         v21_activation_authorization=v21_activation_authorization,
+        v21_operational_access=v21_operational_access,
     )
     policy = policy_v2.load_and_validate_policy(root)
     if policy["policy_fingerprint"] != POLICY_FINGERPRINT:
@@ -221,6 +223,7 @@ def recompute_dynamic_candidates(
     *,
     allow_inactive_v21: bool = False,
     v21_activation_authorization: Mapping[str, Any] | None = None,
+    v21_operational_access: Mapping[str, Any] | None = None,
 ) -> dict:
     """Recompute candidates/dispositions from current authoritative state."""
 
@@ -228,6 +231,7 @@ def recompute_dynamic_candidates(
         project_root,
         allow_inactive_v21=allow_inactive_v21,
         v21_activation_authorization=v21_activation_authorization,
+        v21_operational_access=v21_operational_access,
     )
     incomplete_ids = {item["source_id"] for item in context["incomplete_candidate_sources"]}
     if target_source_ids & incomplete_ids:
