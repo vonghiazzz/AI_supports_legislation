@@ -137,13 +137,16 @@ def validate_protocol(protocol: dict) -> dict:
     """Validate the complete frozen contract and return stable validation data."""
     required_sections = {
         "protocol",
+        "hypothesis",
         "scope",
         "representations",
         "candidate_generation",
         "systems",
         "evaluation",
+        "coverage_policy",
         "statistics",
         "success_contract",
+        "stop_conditions",
         "independent_benchmark_gate",
         "prohibited_changes",
         "implementation_readiness",
@@ -157,6 +160,15 @@ def validate_protocol(protocol: dict) -> dict:
     _require(meta["research_phase"] == "confirmatory_candidate_generation", "scope drift")
     _require(meta["automatic_runtime_promotion"] is False, "runtime promotion forbidden")
     _require(meta["development_benchmark_use"] == "prohibited", "DEV107 fallback forbidden")
+
+    _require(protocol["hypothesis"] == {
+        "research_question": "Does BGE-M3 improve frozen Hybrid 0.5 candidate generation relative to Vietnamese-SBERT?",
+        "null": "treatment_macro_candidate_recall_at_50_delta_is_less_than_or_equal_to_zero",
+        "alternative": "treatment_macro_candidate_recall_at_50_delta_is_greater_than_zero",
+        "development_selection_basis": "A1_DEV107_exploratory_missing_candidate_analysis",
+        "known_selection_bias": "BGE-M3_and_depth_50_were_selected_using_repeated_DEV107_exploration",
+        "independent_result_tuning_permitted": False,
+    }, "hypothesis or development-bias disclosure drift")
 
     scope = protocol["scope"]
     _require(scope["treatment_variable"] == "dense_encoder_only", "treatment drift")
@@ -192,6 +204,8 @@ def validate_protocol(protocol: dict) -> dict:
     _require(evaluation["primary_metric"] == "macro_candidate_recall_at_50", "primary metric drift")
     _require(evaluation["primary_denominator"] == "all_evaluable_queries", "query denominator drift")
     _require(evaluation["per_query_denominator"] == "in_corpus_ground_truth_instances", "GT denominator drift")
+    _require(evaluation["report_evaluable_query_count"] is True, "evaluable query count must be reported")
+    _require(evaluation["report_in_corpus_gt_instance_count"] is True, "GT instance count must be reported")
     _require(evaluation["relevance_weights"] == {"core": 3, "support": 1}, "weights drift")
     _require(evaluation["secondary_metrics"] == [
         "core_recall_at_50",
@@ -207,6 +221,13 @@ def validate_protocol(protocol: dict) -> dict:
         "query_latency_p95_ms",
         "peak_memory_bytes",
     ], "secondary metrics drift")
+    _require(protocol["coverage_policy"] == {
+        "closed_world_matching": "frozen_benchmark_canonical_retrieval_id",
+        "corpus_missing_gt": "report_separately_and_exclude_from_retrieval_miss_count",
+        "retrieval_miss": "in_corpus_gt_absent_from_candidate_set",
+        "candidate_recall_not_final_answer_accuracy": True,
+        "core_support_labels": "preserve_frozen_benchmark_labels",
+    }, "corpus/GT coverage policy drift")
 
     stats = protocol["statistics"]
     _require(stats == {
@@ -215,6 +236,7 @@ def validate_protocol(protocol: dict) -> dict:
         "bootstrap_resamples": 20000,
         "random_seed": 42,
         "confidence_interval": "two_sided_95_percentile",
+        "report_mean_paired_delta": True,
         "report_wins_ties_losses": True,
         "slice_reporting": "MAIN_and_STRESS_separate_only_when_frozen",
     }, "statistics contract drift")
@@ -224,6 +246,13 @@ def validate_protocol(protocol: dict) -> dict:
         "all_provenance_and_contract_gates_pass": True,
         "all_conditions_required": True,
     }, "success contract drift")
+    _require(protocol["stop_conditions"] == {
+        "readiness_gate_failure": BLOCKED_VERDICT,
+        "provenance_or_contract_failure": "invalidate_run_and_publish_no_confirmatory_claim",
+        "primary_success_condition_failure": "report_failure_and_stop_without_retuning",
+        "secondary_metrics_role": "diagnostic_only",
+        "independent_result_parameter_tuning": "prohibited",
+    }, "stop conditions drift")
 
     gate = protocol["independent_benchmark_gate"]
     _require(gate["failure_verdict"] == BLOCKED_VERDICT, "failure verdict drift")

@@ -1,5 +1,5 @@
 {
-  "artifact_fingerprint": "8645af100e326b85f8df15e61f5306e80c8d71b9431e5b6399ef8792c6fafdc8",
+  "artifact_fingerprint": "832ceffa0416fc9c5cab4516dc679a0bab3857d5918692843ddff07647307760",
   "artifact_schema": "a2_experiment_readiness_v1",
   "benchmark_metadata": {
     "benchmark_id": "retrieval_independent_v1",
@@ -52,7 +52,7 @@
     "parameters_unchanged",
     "execution_authorized"
   ],
-  "protocol_fingerprint": "6a7cddad008442a0dc1cdea981d14b080ae0e321bd5624cfe69e58b50c8ebcf5",
+  "protocol_fingerprint": "b30f2ea89e545bda004dd6ea05e1c52ce7f958e664f823ed9a347febf670246f",
   "query_or_gt_content_read": false,
   "ready": false,
   "verdict": "A2_CONFIRMATORY_EVALUATION_BLOCKED"

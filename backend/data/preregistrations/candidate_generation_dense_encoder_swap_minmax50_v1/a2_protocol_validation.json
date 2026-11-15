@@ -1,10 +1,10 @@
 {
-  "artifact_fingerprint": "fa9a2adc13c170fdd736ea89cf8eaf9d7f26c95ecc2739ef10411cf698158af9",
+  "artifact_fingerprint": "51857c66505ffc8fed3ec354d416fcafa2a4a145b583ef20efccc17214c3cdd1",
   "artifact_schema": "a2_protocol_validation_v1",
   "experiment_id": "candidate_generation_dense_encoder_swap_minmax50_v1",
-  "protocol_fingerprint": "6a7cddad008442a0dc1cdea981d14b080ae0e321bd5624cfe69e58b50c8ebcf5",
+  "protocol_fingerprint": "b30f2ea89e545bda004dd6ea05e1c52ce7f958e664f823ed9a347febf670246f",
   "protocol_path": "backend/scripts/Evaluation/configs/a2_preregistered_protocol.yaml",
-  "protocol_sha256": "cf0d1d04574140b78f4c18b642e254717d9ea19edc5679384512266d92484f1b",
+  "protocol_sha256": "8427a1363c4dad206fe28feb717557d4ca5f2484d4fa601bafc73df9864094a0",
   "result": "PASS",
   "validated_invariants": {
     "candidate_depths": {
@@ -18,6 +18,7 @@
       "revision": "a9467ef2ef47caa6448edeabfd8e5e5ce0fa2a23"
     },
     "development_fallback": false,
+    "development_selection_bias_disclosed": true,
     "fusion": {
       "method": "minmax",
       "normalization_pool": "full_source_top50_per_retriever_per_query",
@@ -25,6 +26,7 @@
       "w_dense": 0.5
     },
     "model_or_retrieval_imports": false,
+    "corpus_missing_gt_reported_separately": true,
     "primary_metric": "macro_candidate_recall_at_50",
     "query_or_gt_content_read": false,
     "representations": {
@@ -42,5 +44,5 @@
     },
     "treatment_difference": "dense_encoder_only"
   },
-  "validation_code_sha256": "12da4b8cf40be476879abd45f9e9508880734a184d80d49c67c0a28f43e9954e"
+  "validation_code_sha256": "05608778a079a33e2c8238fdb1d2e5874901c73c2cbc422131dc4bc9dcd6cfbe"
 }
