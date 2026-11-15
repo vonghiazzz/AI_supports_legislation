@@ -1,0 +1,66 @@
+{
+  "artifact_fingerprint": "85a958dbd9f431a0320eeddccedde8512bc4dd1fd58785b3cdf96497649be283",
+  "artifact_schema": "a2_reproducibility_manifest_v1",
+  "base_commit": "2cbdddf0647bd8c9d3ff30c6973100905f7371c7",
+  "branch": "research/a2-dense-encoder-swap-prereg",
+  "experiment_id": "candidate_generation_dense_encoder_swap_minmax50_v1",
+  "frozen_models": {
+    "control": {
+      "id": "keepitreal/vietnamese-sbert",
+      "revision": "a9467ef2ef47caa6448edeabfd8e5e5ce0fa2a23"
+    },
+    "treatment": {
+      "id": "BAAI/bge-m3",
+      "revision": "5617a9f61b028005a4858fdac845db406aefb181"
+    }
+  },
+  "independent_benchmark_snapshot": {
+    "benchmark_manifest_sha256": "f3d69ee36653da42256c7c94158414a144ab863bd561112fa390c9c0cec99046",
+    "benchmark_state": "DRAFT",
+    "ground_truth_records": 0,
+    "query_records": 0,
+    "sampling_manifest_sha256": "dcbda00191779bcbdd9682ee75a570792bee071e38a7f4604cf97fab14e5c06c",
+    "sampling_seed": null,
+    "selected_cases": 0,
+    "selection_status": "NOT_STARTED"
+  },
+  "preregistration_files": [
+    {
+      "path": "backend/scripts/Evaluation/configs/a2_preregistered_protocol.yaml",
+      "sha256": "cf0d1d04574140b78f4c18b642e254717d9ea19edc5679384512266d92484f1b"
+    },
+    {
+      "path": "backend/scripts/Evaluation/experiments/a2_dense_encoder_swap_preregistration.py",
+      "sha256": "12da4b8cf40be476879abd45f9e9508880734a184d80d49c67c0a28f43e9954e"
+    },
+    {
+      "path": "backend/scripts/Tests/test_a2_preregistration.py",
+      "sha256": "a8aba7520134a60761e253e0078e755fe2be37b059639094c9242fd7a637f07f"
+    },
+    {
+      "path": "backend/data/preregistrations/candidate_generation_dense_encoder_swap_minmax50_v1/a2_protocol_validation.json",
+      "sha256": "d527a3a2b5aa003aadcfb88d0f85c163e6e55f6cfdb43e01b24e11a15be005ea"
+    },
+    {
+      "path": "backend/data/preregistrations/candidate_generation_dense_encoder_swap_minmax50_v1/a2_experiment_readiness.json",
+      "sha256": "8b63b277ddb6c79ee6345169834fc2e9454540b37a403bae131f9278dfa7a580"
+    }
+  ],
+  "protocol_fingerprint": "6a7cddad008442a0dc1cdea981d14b080ae0e321bd5624cfe69e58b50c8ebcf5",
+  "protocol_freeze_commit": "d8ea74dd0890b897143e9be1076f0d96e4013599",
+  "reproducibility_contract": {
+    "confirmatory_inference_performed": false,
+    "dev107_fallback_permitted": false,
+    "independent_query_or_gt_content_read": false,
+    "model_download_performed": false,
+    "model_inference_performed": false,
+    "protocol_changes_after_freeze_permitted": false,
+    "separate_execution_authorization_required": true
+  },
+  "upstream_a1_evidence": {
+    "next_experiment_decision_path": "backend/data/runs/research_a1_dev107_retrieval_error_analysis_v1_20261113_160610_667255_e75945af/next_experiment_decision.json",
+    "next_experiment_decision_sha256": "31da9fb7584b1d0dc4773e208f4c3c914a85b1a259fed8dea50a251c923757d1",
+    "run_id": "research_a1_dev107_retrieval_error_analysis_v1_20261113_160610_667255_e75945af",
+    "run_manifest_sha256": "0e247bb740fd476c1c3ce9ed922e7d7d89b423f04851f90f70087715678164ed"
+  }
+}
