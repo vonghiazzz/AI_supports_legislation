@@ -1,0 +1,168 @@
+protocol:
+  id: candidate_generation_dense_encoder_swap_minmax50_v1
+  version: 1
+  status: PREREGISTERED_FROZEN
+  research_phase: confirmatory_candidate_generation
+  automatic_runtime_promotion: false
+  development_benchmark_use: prohibited
+
+scope:
+  treatment_variable: dense_encoder_only
+  candidate_generation_experiment: true
+  reranking: false
+  confirmatory_dataset: retrieval_independent_v1
+
+representations:
+  query: Q0
+  document: D0
+  document_template: "Tiêu đề: {title}. Nội dung: {content}"
+
+candidate_generation:
+  bm25:
+    tokenizer: whitespace
+    depth: 50
+  dense:
+    similarity: inner_product
+    faiss_index: IndexFlatIP
+    depth: 50
+  fusion:
+    method: minmax
+    normalization_pool: full_source_top50_per_retriever_per_query
+    w_bm25: 0.5
+    w_dense: 0.5
+    output_depth: 50
+  source_tie_break: score_desc_then_standard_law_id_asc
+  fusion_tie_break: fused_score_desc_then_standard_law_id_asc
+  score_rounding_before_sort: false
+
+systems:
+  control:
+    bm25:
+      tokenizer: whitespace
+      depth: 50
+    dense_encoder:
+      id: keepitreal/vietnamese-sbert
+      revision: a9467ef2ef47caa6448edeabfd8e5e5ce0fa2a23
+      architecture: SentenceTransformer
+      dimension: 768
+      pooling: model_native
+      query_instruction: null
+      normalize_embeddings: true
+      max_seq_length: model_native
+      batch_size: 1
+      device: cpu
+      dtype: float32
+      local_files_only: true
+    dense_depth: 50
+    fusion:
+      method: minmax
+      w_bm25: 0.5
+      w_dense: 0.5
+      normalization_pool: full_source_top50_per_retriever_per_query
+      output_depth: 50
+    representations:
+      query: Q0
+      document: D0
+    deterministic_order: score_desc_then_standard_law_id_asc
+  treatment:
+    bm25:
+      tokenizer: whitespace
+      depth: 50
+    dense_encoder:
+      id: BAAI/bge-m3
+      revision: 5617a9f61b028005a4858fdac845db406aefb181
+      architecture: XLMRobertaModel
+      dimension: 1024
+      pooling: cls
+      query_instruction: null
+      normalize_embeddings: true
+      max_seq_length: 8192
+      batch_size: 1
+      device: cpu
+      dtype: float32
+      local_files_only: true
+    dense_depth: 50
+    fusion:
+      method: minmax
+      w_bm25: 0.5
+      w_dense: 0.5
+      normalization_pool: full_source_top50_per_retriever_per_query
+      output_depth: 50
+    representations:
+      query: Q0
+      document: D0
+    deterministic_order: score_desc_then_standard_law_id_asc
+
+evaluation:
+  world: closed_world
+  primary_metric: macro_candidate_recall_at_50
+  primary_denominator: all_evaluable_queries
+  per_query_denominator: in_corpus_ground_truth_instances
+  relevance_weights:
+    core: 3
+    support: 1
+  secondary_metrics:
+    - core_recall_at_50
+    - support_recall_at_50
+    - candidate_recall_at_10
+    - candidate_recall_at_20
+    - candidate_recall_at_30
+    - zero_hit_query_count_at_50
+    - raw_fused_weighted_recall_at_10
+    - micro_gt_coverage_at_50
+    - corpus_gt_coverage_at_50
+    - query_latency_p50_ms
+    - query_latency_p95_ms
+    - peak_memory_bytes
+
+statistics:
+  paired_unit: query
+  effect: treatment_minus_control
+  bootstrap_resamples: 20000
+  random_seed: 42
+  confidence_interval: two_sided_95_percentile
+  report_wins_ties_losses: true
+  slice_reporting: MAIN_and_STRESS_separate_only_when_frozen
+
+success_contract:
+  primary_point_estimate_above_zero: true
+  primary_ci_lower_above_zero: true
+  all_provenance_and_contract_gates_pass: true
+  all_conditions_required: true
+
+independent_benchmark_gate:
+  required_state: OPENED_FOR_CONFIRMATORY_EVALUATION
+  required_selection_status: COMPLETED
+  required_protocol_fingerprint_binding: true
+  required_separate_execution_authorization: true
+  query_or_gt_content_read_during_readiness: false
+  no_dev107_fallback: true
+  failure_verdict: A2_CONFIRMATORY_EVALUATION_BLOCKED
+
+prohibited_changes:
+  - reranking
+  - rrf
+  - chunking
+  - temporal_filtering
+  - dynamic_fusion
+  - query_rewriting
+  - hyperparameter_tuning
+  - candidate_depth_tuning
+  - representation_tuning
+  - independent_query_or_gt_inspection
+
+implementation_readiness:
+  confirmatory_runner_present: false
+  result_artifacts_present: false
+  known_execution_gaps:
+    - isolated_A2_runner_not_implemented
+    - BM25_source_ties_require_standard_law_id_enforcement
+    - FAISS_source_ties_require_standard_law_id_enforcement
+    - independent_benchmark_not_opened
+
+integrity:
+  fingerprint_algorithm: sha256_canonical_json_excluding_integrity_protocol_fingerprint
+  protocol_fingerprint: 6a7cddad008442a0dc1cdea981d14b080ae0e321bd5624cfe69e58b50c8ebcf5
+  source_base_commit: 2cbdddf0647bd8c9d3ff30c6973100905f7371c7
+  preregistration_branch: research/a2-dense-encoder-swap-prereg
+  corpus_fingerprint: 66fb0b20e0505993ed616f864ece99ecfad801de98b4ba3a37d20a3a7bf55e58

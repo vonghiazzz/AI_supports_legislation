@@ -1,0 +1,46 @@
+{
+  "artifact_fingerprint": "fa9a2adc13c170fdd736ea89cf8eaf9d7f26c95ecc2739ef10411cf698158af9",
+  "artifact_schema": "a2_protocol_validation_v1",
+  "experiment_id": "candidate_generation_dense_encoder_swap_minmax50_v1",
+  "protocol_fingerprint": "6a7cddad008442a0dc1cdea981d14b080ae0e321bd5624cfe69e58b50c8ebcf5",
+  "protocol_path": "backend/scripts/Evaluation/configs/a2_preregistered_protocol.yaml",
+  "protocol_sha256": "cf0d1d04574140b78f4c18b642e254717d9ea19edc5679384512266d92484f1b",
+  "result": "PASS",
+  "validated_invariants": {
+    "candidate_depths": {
+      "bm25": 50,
+      "dense": 50,
+      "fused": 50
+    },
+    "confirmatory_dataset": "retrieval_independent_v1",
+    "control_dense_encoder": {
+      "id": "keepitreal/vietnamese-sbert",
+      "revision": "a9467ef2ef47caa6448edeabfd8e5e5ce0fa2a23"
+    },
+    "development_fallback": false,
+    "fusion": {
+      "method": "minmax",
+      "normalization_pool": "full_source_top50_per_retriever_per_query",
+      "w_bm25": 0.5,
+      "w_dense": 0.5
+    },
+    "model_or_retrieval_imports": false,
+    "primary_metric": "macro_candidate_recall_at_50",
+    "query_or_gt_content_read": false,
+    "representations": {
+      "document": "D0",
+      "query": "Q0"
+    },
+    "statistics": {
+      "bootstrap_resamples": 20000,
+      "paired_unit": "query",
+      "random_seed": 42
+    },
+    "treatment_dense_encoder": {
+      "id": "BAAI/bge-m3",
+      "revision": "5617a9f61b028005a4858fdac845db406aefb181"
+    },
+    "treatment_difference": "dense_encoder_only"
+  },
+  "validation_code_sha256": "12da4b8cf40be476879abd45f9e9508880734a184d80d49c67c0a28f43e9954e"
+}
