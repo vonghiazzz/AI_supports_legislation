@@ -1,5 +1,5 @@
 {
-  "artifact_fingerprint": "85a958dbd9f431a0320eeddccedde8512bc4dd1fd58785b3cdf96497649be283",
+  "artifact_fingerprint": "7e3a96d23f209de553bc9fab9eec2d1159b1aa2633af425604becf9a2615d95a",
   "artifact_schema": "a2_reproducibility_manifest_v1",
   "base_commit": "2cbdddf0647bd8c9d3ff30c6973100905f7371c7",
   "branch": "research/a2-dense-encoder-swap-prereg",
@@ -27,11 +27,11 @@
   "preregistration_files": [
     {
       "path": "backend/scripts/Evaluation/configs/a2_preregistered_protocol.yaml",
-      "sha256": "cf0d1d04574140b78f4c18b642e254717d9ea19edc5679384512266d92484f1b"
+      "sha256": "8427a1363c4dad206fe28feb717557d4ca5f2484d4fa601bafc73df9864094a0"
     },
     {
       "path": "backend/scripts/Evaluation/experiments/a2_dense_encoder_swap_preregistration.py",
-      "sha256": "12da4b8cf40be476879abd45f9e9508880734a184d80d49c67c0a28f43e9954e"
+      "sha256": "05608778a079a33e2c8238fdb1d2e5874901c73c2cbc422131dc4bc9dcd6cfbe"
     },
     {
       "path": "backend/scripts/Tests/test_a2_preregistration.py",
@@ -39,15 +39,15 @@
     },
     {
       "path": "backend/data/preregistrations/candidate_generation_dense_encoder_swap_minmax50_v1/a2_protocol_validation.json",
-      "sha256": "d527a3a2b5aa003aadcfb88d0f85c163e6e55f6cfdb43e01b24e11a15be005ea"
+      "sha256": "b00f4e8dc526e538fde0b4bd072be8a684d74ae4adbe4ae64d247440b9891712"
     },
     {
       "path": "backend/data/preregistrations/candidate_generation_dense_encoder_swap_minmax50_v1/a2_experiment_readiness.json",
-      "sha256": "8b63b277ddb6c79ee6345169834fc2e9454540b37a403bae131f9278dfa7a580"
+      "sha256": "c9f66beca3f85d28a673edce576113df36e89f42ff08210cbd9cad8fcca20978"
     }
   ],
-  "protocol_fingerprint": "6a7cddad008442a0dc1cdea981d14b080ae0e321bd5624cfe69e58b50c8ebcf5",
-  "protocol_freeze_commit": "d8ea74dd0890b897143e9be1076f0d96e4013599",
+  "protocol_fingerprint": "b30f2ea89e545bda004dd6ea05e1c52ce7f958e664f823ed9a347febf670246f",
+  "protocol_freeze_commit": "e5a1f2e62dcad6459e389413cb606c867afed012",
   "reproducibility_contract": {
     "confirmatory_inference_performed": false,
     "dev107_fallback_permitted": false,
