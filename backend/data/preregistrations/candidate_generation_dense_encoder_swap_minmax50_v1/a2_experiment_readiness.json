@@ -1,5 +1,5 @@
 {
-  "artifact_fingerprint": "832ceffa0416fc9c5cab4516dc679a0bab3857d5918692843ddff07647307760",
+  "artifact_fingerprint": "b11a282a22cd75c478268e1463673bd56488fe88410a1359cc2b7c6c094c4abf",
   "artifact_schema": "a2_experiment_readiness_v1",
   "benchmark_metadata": {
     "benchmark_id": "retrieval_independent_v1",
@@ -13,23 +13,33 @@
     "selection_status": "NOT_STARTED"
   },
   "checks": {
+    "annotation_contract_verified": false,
     "benchmark_id": true,
     "benchmark_state": false,
     "close_gate_passed": false,
     "control_model_verified": false,
-    "eligible_frame_frozen": true,
+    "eligible_frame_fingerprint_matches_final": false,
     "execution_authorized": false,
+    "fallbacks_disabled": false,
+    "final_frame_evidence_bound": false,
+    "final_frame_finalized": false,
     "gt_count_positive": false,
     "leakage_audit_passed": false,
-    "minimum_selected_count": false,
     "parameters_unchanged": false,
     "protocol_fingerprint_bound": false,
     "query_count_matches_selection": false,
     "sampling_seed_frozen": false,
     "sampling_state": false,
+    "selected_case_fingerprint_valid": false,
+    "selected_cases_in_final_frame": false,
+    "selected_slice_counts_exact": false,
+    "selected_slices_disjoint": false,
+    "selected_total_exact": false,
     "selection_completed": false,
-    "selection_policy_frozen": false,
+    "selection_evidence_bound": false,
     "source_provenance_attested": false,
+    "target_counts_exact": false,
+    "target_mode_target_only": false,
     "treatment_model_verified": false
   },
   "experiment_id": "candidate_generation_dense_encoder_swap_minmax50_v1",
@@ -39,21 +49,88 @@
     "sampling_state",
     "selection_completed",
     "sampling_seed_frozen",
-    "minimum_selected_count",
-    "query_count_matches_selection",
-    "gt_count_positive",
     "protocol_fingerprint_bound",
-    "selection_policy_frozen",
     "close_gate_passed",
     "source_provenance_attested",
     "leakage_audit_passed",
     "control_model_verified",
     "treatment_model_verified",
     "parameters_unchanged",
-    "execution_authorized"
+    "execution_authorized",
+    "target_mode_target_only",
+    "target_counts_exact",
+    "fallbacks_disabled",
+    "selection_evidence_bound",
+    "selected_total_exact",
+    "selected_slice_counts_exact",
+    "selected_slices_disjoint",
+    "selected_case_fingerprint_valid",
+    "selected_cases_in_final_frame",
+    "final_frame_evidence_bound",
+    "final_frame_finalized",
+    "eligible_frame_fingerprint_matches_final",
+    "query_count_matches_selection",
+    "annotation_contract_verified",
+    "gt_count_positive"
   ],
   "protocol_fingerprint": "b30f2ea89e545bda004dd6ea05e1c52ce7f958e664f823ed9a347febf670246f",
   "query_or_gt_content_read": false,
   "ready": false,
+  "required_future_metadata_interface": {
+    "annotation_evidence": {
+      "authoritative_validator": "independent_benchmark.validate_one_case_one_query_contract",
+      "required_manifest_bindings": [
+        "benchmark.annotation_validation_evidence_fingerprint"
+      ],
+      "required_payload": [
+        "one_query_per_selected_case=true",
+        "selected_case_fingerprint",
+        "query_count",
+        "ground_truth_records",
+        "gt_schema_version=gt_schema_v2",
+        "validation_status=PASSED",
+        "evidence_fingerprint"
+      ],
+      "schema_version": "independent_annotation_validation_evidence_v1"
+    },
+    "final_frame_evidence": {
+      "required_manifest_bindings": [
+        "benchmark.final_frame_evidence_fingerprint",
+        "benchmark.final_eligible_frame_fingerprint",
+        "sampling.final_frame_evidence_fingerprint",
+        "sampling.eligible_fingerprint"
+      ],
+      "required_payload": [
+        "eligible_records",
+        "eligible_fingerprint",
+        "state=FINALIZED",
+        "validation_status=VERIFIED",
+        "source_provenance_status=VERIFIED",
+        "evidence_fingerprint"
+      ],
+      "schema_version": "final_eligible_frame_evidence_v1"
+    },
+    "selection_evidence": {
+      "authoritative_validator": "independent_benchmark.validate_selection_guardrails:target",
+      "required_manifest_bindings": [
+        "benchmark.selection_evidence_fingerprint",
+        "sampling.selection_evidence_fingerprint"
+      ],
+      "required_payload": [
+        "selected_records",
+        "selected_case_count",
+        "slice_counts",
+        "slices_disjoint",
+        "selected_case_fingerprint",
+        "eligible_frame_fingerprint",
+        "selection_mode",
+        "target_counts",
+        "fallback_controls",
+        "validation_status",
+        "evidence_fingerprint"
+      ],
+      "schema_version": "independent_selection_evidence_v1"
+    }
+  },
   "verdict": "A2_CONFIRMATORY_EVALUATION_BLOCKED"
 }

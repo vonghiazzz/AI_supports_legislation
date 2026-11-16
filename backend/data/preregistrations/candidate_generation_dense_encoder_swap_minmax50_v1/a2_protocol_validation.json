@@ -1,5 +1,5 @@
 {
-  "artifact_fingerprint": "51857c66505ffc8fed3ec354d416fcafa2a4a145b583ef20efccc17214c3cdd1",
+  "artifact_fingerprint": "caa1104a698e0f70085f844989efaa7c2e774cea50c5230e56466e6efecd16e5",
   "artifact_schema": "a2_protocol_validation_v1",
   "experiment_id": "candidate_generation_dense_encoder_swap_minmax50_v1",
   "protocol_fingerprint": "b30f2ea89e545bda004dd6ea05e1c52ce7f958e664f823ed9a347febf670246f",
@@ -29,6 +29,8 @@
     "corpus_missing_gt_reported_separately": true,
     "primary_metric": "macro_candidate_recall_at_50",
     "query_or_gt_content_read": false,
+    "readiness_requires_bound_evidence": true,
+    "readiness_selection_contract": "TARGET_ONLY_250_200_50",
     "representations": {
       "document": "D0",
       "query": "Q0"
@@ -44,5 +46,5 @@
     },
     "treatment_difference": "dense_encoder_only"
   },
-  "validation_code_sha256": "05608778a079a33e2c8238fdb1d2e5874901c73c2cbc422131dc4bc9dcd6cfbe"
+  "validation_code_sha256": "07b494b678415186c85cd3735c90322b47966a19dd3c1da671e64d5af0b3a94b"
 }
